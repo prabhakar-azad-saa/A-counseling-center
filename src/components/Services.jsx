@@ -16,21 +16,26 @@ const Services = () => {
         className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
         style={{ backgroundImage: `url(${frameImage})` }}
       >
-        <div className="flex flex-col border-l-4 max-w-screen-2xl px-4 sm:px-8 lg:px-20">
-          <h1 className="text-white text-[36px] sm:text-[48px] lg:text-[68px] font-semibold p-4">
+        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+            <div>
+              <div className="border-l-4 h-64 p-5"></div>
+            </div>
+            <div>
+              <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
             Services
           </h1>
-          <p className="text-white text-sm sm:text-lg font-semibold p-4 font-poppins">
+          <p className="text-white text-sm sm:text-lg p-4 font-poppins">
             At A+ Counseling Center, we offer a wide range of counseling services tailored to meet the diverse needs of individuals, couples,
             and families. Our approach integrates evidence-based techniques with compassionate care to help you navigate life's 
             challenges.
           </p>
         </div>
+        </div>
       </nav>
 
-      <div className="p-6 text-center px-4 sm:px-10 lg:px-[162px]">
+      <div className="p-6 text-center px-4 pt-32 sm:px-10 lg:px-[162px]">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-          Empowering Minds: Our Mental Health Consulting Services
+          Empowering Minds Our Mental Health Consulting Services
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6  justify-center mt-8 p-6 sm:p-10 lg:p-20"style={{}}>
           {/* Individual Therapy */}
@@ -52,7 +57,7 @@ const Services = () => {
           {/* Relationship Therapy */}
           <div
             className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => handleClick('blogs')}
+            
           >
             <img
               src="src/assets/relationship.png"
@@ -68,7 +73,7 @@ const Services = () => {
           {/* Family Counseling */}
           <div
             className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => handleClick('blogdetail')}
+           
           >
             <img
               src="src/assets/family.png"
@@ -84,7 +89,7 @@ const Services = () => {
           {/* Specialized Therapy */}
           <div
             className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => handleClick('pyment')}
+           
           >
             <img
               src="src/assets/Specialize.png"
@@ -100,7 +105,7 @@ const Services = () => {
           {/* Career Coaching */}
           <div
             className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => handleClick('upipayment')}
+          
           >
             <img
               src="src/assets/carrier.png"

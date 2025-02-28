@@ -1,5 +1,5 @@
 import React from 'react';
-import frameImage from "../../src/assets/Frame83.png";
+import frameImage from "../../src/assets/svgvieweroutput.png";
 
 const Individualsection = () => {
   return (
@@ -9,11 +9,13 @@ const Individualsection = () => {
         className="flex w-full  justify-center p-20 sm:p-10 lg:p-40"
         style={{ backgroundImage: `url(${frameImage})` }}
       >
-        <div className="flex sm:items-start sm:space-x-6">
-          <div className="border-l-4 h-64  p-5"></div>
-          <div className="text-center sm:text-left">
-            <h1 className="text-white text-3xl sm:text-5xl font-semibold p-4">Services Detail</h1>
-            <p className="text-white text-lg sm:text-xl font-semibold p-4 font-poppins">
+       <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+            <div>
+              <div className="border-l-4 h-64 p-5"></div>
+            </div>
+            <div>
+              <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">Services Detail</h1>
+            <p className="text-white text-lg sm:text-xl  p-4 font-poppins">
               At A+ Counseling Center, we offer a wide range of counseling services tailored to meet the diverse needs of individuals, couples, and families. Our approach integrates evidence-based techniques with compassionate care to help you navigate life's challenges.
             </p>
           </div>
@@ -25,7 +27,8 @@ const Individualsection = () => {
         <div className="flex flex-wrap gap-5 px-4 sm:px-32 mt-24 mb-10">
           <div className="w-full sm:w-1/2 lg:w-[950px]">
             <img
-              src="src/assets/Mask group.png"
+              // src="src/assets/Mask group.png"
+              src="src/assets/DIV@1x 1.png"
               alt="Individual Therapy"
               className="w-full rounded-lg"
             />
@@ -73,9 +76,11 @@ const Individualsection = () => {
         </div>
 
         {/* Mentor Section */}
-        <div className="w-full flex " style={{ backgroundImage: `url(${frameImage})` }}>
+        <div className="w-full flex relative" style={{ backgroundImage: `url(${frameImage})` }}>
 
-            <div className='absolute w-[400px] h-[500px] bg-gray-500 ml-10'></div>
+            <div  style={{top:-90}}className='absolute top-0 w-[400px] h-[500px] ml-10 mb-20'> 
+              <img src='src/assets/IMG@1x (7) 1.png'/>
+            </div>
           <div className='flex justify-end w-full ml-48'>
 
           <div className="text-white flex flex-col items-center sm:items-start sm:w-3/4 p-6">
@@ -107,9 +112,9 @@ const Individualsection = () => {
 
         {/* Breaking the Stigma Section */}
         <div className="text-center p-10 mb-10">
-          <img src="src/assets/Rectangle 44.png" alt="Breaking the Stigma" className="w-full rounded-lg mb-5" />
+          <img src="src/assets/IMG@1x (6) 1.png" alt="Breaking the Stigma" className="w-full rounded-lg " />
           <h1 className="text-4xl md:text-5xl font-bold mb-5">Breaking the Stigma: Mental Health Counseling</h1>
-          <p className="text-lg md:text-xl font-poppins mb-4">
+          <p className="text-lg md:text-xl justify-center font-poppins mb-4">
             Join us in our mission to create an open dialogue about mental health and promote understanding and support in our community.
           </p>
         </div>

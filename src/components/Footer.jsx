@@ -1,4 +1,7 @@
 import React from "react";
+import Calls from "../assets/Calls"
+import Locationsvg from "../assets/Locationsvg";
+import Massages from "../assets/Massages";
 
 const Footer = () => {
   return (
@@ -18,7 +21,7 @@ const Footer = () => {
                   <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">A+ Counseling Center</h1>
                 </div>
               </div>
-              <p className="pt-4 text-sm sm:text-base md:text-lg">Lorem ipsum dolor sit amet</p>
+              <p className="pt-4 text-sm sm:text-base md:text-lg">Professional mental health consultation and support services.</p>
             </div>
 
             {/* Footer Section 2 (Services) */}
@@ -37,28 +40,16 @@ const Footer = () => {
               <ul>
                 <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">Contact</li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                  <img
-                    src="src/assets/New folder/Call.png"
-                    alt="Call Icon"
-                    className="mr-2 w-6 h-6"
-                  />
-                  <p className="pb-2">+14 54648272</p>
+                 <Calls/>
+                  <p className="pb-2 pl-3">+14 54648272</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                  <img
-                    src="src/assets/New folder/Message.png"
-                    alt="Message Icon"
-                    className="mr-2 w-6 h-6"
-                  />
-                  <p className="pb-2">rona@domain.com</p>
+                  <Massages/>
+                  <p className="pb-2 pl-3">rona@domain.com</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center">
-                  <img
-                    src="src/assets/New folder/Location.png"
-                    alt="Location Icon"
-                    className="mr-2 w-6 h-6"
-                  />
-                  <p className="pb-2">Lazyy Tower 192, Burn</p>
+                  <Locationsvg/>
+                  <p className="pb-2 pl-3">Lazyy Tower 192, Burn</p>
                 </li>
               </ul>
             </div>

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "./Button";
-import frameImage4 from "../../src/assets/svgvieweroutput.png"
+import frameImage4 from "../../src/assets/svgvieweroutput.png";
+import Logomain2 from "../assets/Logomain";
+import Logomain from "../assets/Logomain";
+
 
 const Navbar = ({ style, from }) => {
   const navigate = useNavigate();
@@ -39,15 +42,17 @@ const Navbar = ({ style, from }) => {
     <nav
       className="bg-cover px-4"
       style={{
-        backgroundImage:
-          !(isHome || LoginForm || SignupForm) ? `url(${frameImage4})` : "none",
+        backgroundImage: !(isHome || LoginForm || SignupForm)
+          ? `url(${frameImage4})`
+          : "none",
         color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
       }}
     >
       <div className="flex items-center justify-between py-4">
-      
         <div className="flex items-center space-x-3">
-          <img src="src/assets/g8.png" alt="logo" className="h-10 w-auto" />
+         <Logomain/>
+         
+
           <div
             className="text-2xl font-bold text-gray-900"
             style={{
@@ -59,9 +64,11 @@ const Navbar = ({ style, from }) => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden  lg:flex text-lg space-x-8 font-poppins" style={{
-              color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
-            }}
+        <div
+          className="hidden  lg:flex text-lg space-x-8 font-poppins"
+          style={{
+            color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
+          }}
         >
           <Link className="focus:font-bold" to="/">
             Home
@@ -74,6 +81,9 @@ const Navbar = ({ style, from }) => {
           </Link>
           <Link className="focus:font-bold" to="/session">
             Session
+          </Link>
+          <Link className="focus:font-bold" to="/blogs">
+            Blogs
           </Link>
           <Link className="focus:font-bold" to="/contact">
             Contact Us
@@ -123,72 +133,76 @@ const Navbar = ({ style, from }) => {
           </button>
         </div>
       </div>
-{/* Mobile Menu (Toggle visibility on small screens) */}
-{isOpen && (
-  <div className="lg:hidden mt-4 space-y-2">
-    <div className="flex flex-col gap-2">
-      {/* Mobile Menu Links */}
-      <div  className="bg-cover px-4"
-      style={{
-        backgroundImage:
-          !(isHome || LoginForm || SignupForm) ? `url(${frameImage4})` : "none",
-        color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
-      }}>
-        <Link
-          to="/"
-          className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-        >
-          About
-        </Link>
-        <Link
-          to="/services"
-          className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-        >
-          Services
-        </Link>
-        <Link
-          to="/session"
-          className="block border-b border-gray-200 px-2 py-3 focus:font-bold"
-        >
-          Session
-        </Link>
-        <Link
-          to="/contact"
-          className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-        >
-          Contact Us
-        </Link>
-      </div>
+      {/* Mobile Menu (Toggle visibility on small screens) */}
+      {isOpen && (
+        <div className="lg:hidden mt-4 space-y-2">
+          <div className="flex flex-col gap-2">
+            {/* Mobile Menu Links */}
+            <div
+              className="bg-cover px-4"
+              style={{
+                backgroundImage: !(isHome || LoginForm || SignupForm)
+                  ? `url(${frameImage4})`
+                  : "none",
+                color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
+              }}
+            >
+              <Link
+                to="/"
+                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
+              >
+                Home
+              </Link>
+              <Link
+                to="/about"
+                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
+              >
+                About
+              </Link>
+              <Link
+                to="/services"
+                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
+              >
+                Services
+              </Link>
+              <Link
+                to="/session"
+                className="block border-b border-gray-200 px-2 py-3 focus:font-bold"
+              >
+                Session
+              </Link>
+              <Link className="block border-b border-gray-200 px-2 py-3 focus:font-bold" to="/blogs">
+            Blogs
+          </Link>
+              <Link
+                to="/contact"
+                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
+              >
+                Contact Us
+              </Link>
+            </div>
 
-      {/* Right-side login/logout */}
-      <div className="flex flex-col gap-4 mt-4">
-        {isLoggedIn ? (
-          <button
-            onClick={handleLogoutClick}
-            className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
-          >
-            Logout
-          </button>
-        ) : (
-          <button
-            onClick={handleLoginClick}
-            className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
-          >
-            Login
-          </button>
-        )}
-      </div>
-    </div>
-  </div>
-)}
-
-      
+            {/* Right-side login/logout */}
+            <div className="flex flex-col gap-4 mt-4">
+              {isLoggedIn ? (
+                <button
+                  onClick={handleLogoutClick}
+                  className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
+                >
+                  Logout
+                </button>
+              ) : (
+                <button
+                  onClick={handleLoginClick}
+                  className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
+                >
+                  Login
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

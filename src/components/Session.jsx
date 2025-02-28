@@ -49,7 +49,7 @@ const Session = () => {
               <h2 className="text-lg font-semibold mb-2">Create Account</h2>
               <p className="text-sm text-center text-gray-600 font-poppins">Schedule an appointment at your preferred time with our easy booking system.</p>
             </div>
-            <div className="flex flex-col items-center bg-white p-6 max-w-xs sm:max-w-sm lg:max-w-xs">
+            <div className="flex flex-col items-center bg-white p-6 max-w-xs sm:max-w-sm lg:max-w-xs" onClick={handleclick} >
               <img src='/src/assets/works2.png' alt="Book Session" className="w-16 h-16 mb-4" />
               <h2 className="text-lg font-semibold mb-2">Book Session</h2>
               <p className="text-sm text-center text-gray-600 font-poppins">Schedule an appointment at your preferred time with our easy booking system.</p>

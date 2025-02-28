@@ -181,75 +181,79 @@ const LoginForm = () => {
     return errors;
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   setError('');
+  //   setEmailError('');
+  //   setPasswordError('');
+
+  //   const validationErrors = validate();
+  //   setEmailError(validationErrors.emailError);
+  //   setPasswordError(validationErrors.passwordError);
+
+  //   if (Object.keys(validationErrors).length > 0) {
+  //     return;
+  //   }
+
+  //   setLoading(true);
+
+  //   try {
+  //     console.log('Making API call...');
+
+  //     const response = await fetch(
+  //       `http://192.168.1.180/Hospital/api/hospital/Login?Email=${formData.Email}&Password=${formData.Password}`,
+  //       {
+  //         method: 'GET',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //       }
+  //     );
+
+  //     if (response.ok) {
+  //       const textResponse = await response.text();
+
+  //       try {
+  //         const data = JSON.parse(textResponse);
+  //         console.log('API response received:', data);
+
+  //         if (data.success) {
+  //           navigate('/');
+  //           localStorage.setItem('userData', JSON.stringify(data.user));
+  //         } else {
+  //           if (data.message === 'Invalid email or password.') {
+  //             setPasswordError('Invalid password');
+  //           } else if (data.message === 'Invalid email address.') {
+  //             setEmailError('Invalid email address');
+  //           } else {
+  //             setError('Invalid email address. Please try again.');
+  //           }
+  //         }
+  //       } catch (jsonError) {
+  //         console.log('Response is plain text:', textResponse);
+  //         if (textResponse.includes('Login successfully')) {
+  //           navigate('/');
+  //           localStorage.setItem('userData', textResponse);
+  //         } else {
+  //           setError('Invalid password.');
+  //         }
+  //       }
+  //     } else {
+  //       setError('Login failed. Please try again.');
+  //     }
+  //   } catch (error) {
+  //     console.error('API call failed:', error);
+  //     setError('Network error. Please try again later.');
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    setError('');
-    setEmailError('');
-    setPasswordError('');
-
-    const validationErrors = validate();
-    setEmailError(validationErrors.emailError);
-    setPasswordError(validationErrors.passwordError);
-
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      console.log('Making API call...');
-
-      const response = await fetch(
-        `http://192.168.1.180/Hospital/api/hospital/Login?Email=${formData.Email}&Password=${formData.Password}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      if (response.ok) {
-        const textResponse = await response.text();
-
-        try {
-          const data = JSON.parse(textResponse);
-          console.log('API response received:', data);
-
-          if (data.success) {
-            navigate('/');
-            localStorage.setItem('userData', JSON.stringify(data.user));
-          } else {
-            if (data.message === 'Invalid email or password.') {
-              setPasswordError('Invalid password');
-            } else if (data.message === 'Invalid email address.') {
-              setEmailError('Invalid email address');
-            } else {
-              setError('Invalid email address. Please try again.');
-            }
-          }
-        } catch (jsonError) {
-          console.log('Response is plain text:', textResponse);
-          if (textResponse.includes('Login successfully')) {
-            navigate('/');
-            localStorage.setItem('userData', textResponse);
-          } else {
-            setError('Invalid password.');
-          }
-        }
-      } else {
-        setError('Login failed. Please try again.');
-      }
-    } catch (error) {
-      console.error('API call failed:', error);
-      setError('Network error. Please try again later.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
+    navigate("/")
+  }
   return (
     <div>
       <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center bg-[#FCF8F4] px-4">

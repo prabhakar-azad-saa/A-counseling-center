@@ -48,11 +48,10 @@ const Contact = () => {
         console.log('API Response:', data);
         localStorage.setItem('contactData', JSON.stringify(data));
 
-        // Set success message when the form is successfully submitted
+        
         setSuccessMessage('Your message has been sent successfully! Thank you for reaching out.');
 
-        // Optionally, navigate to a different page (e.g., thank-you page)
-        // navigate('/thank-you');
+       
       } else {
         setError('Failed to send message. Please try again later.');
       }
@@ -71,14 +70,14 @@ const Contact = () => {
         style={{ backgroundImage: `url(${frameImage})` }}
       >
         <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-          <div>
-            <div className="border-l-4 h-64 p-5"></div>
-          </div>
-          <div>
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold p-4">
+            <div>
+              <div className="border-l-4 h-64 p-5"></div>
+            </div>
+            <div>
+              <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
               Contact Us
             </h1>
-            <p className="text-white text-lg sm:text-xl font-semibold p-4 font-poppins">
+            <p className="text-white text-lg sm:text-xl  p-4 font-poppins">
               We're here to support you on your journey to better mental health. Our experienced counselors are
               ready to help you navigate life's challenges.
             </p>
@@ -86,12 +85,12 @@ const Contact = () => {
         </div>
       </nav>
 
-      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4]">
+      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4] ">
         <div className="flex flex-col gap-12 p-8 w-full lg:w-1/2">
-          <h1 className="text-4xl sm:text-5xl leading-snug font-bold mb-4 font-monrope">
+          <h1 className="text-[54px]   font-bold mb-4 font-monrope w-[616px] h-[222px]">
             Contact Us Today For Personalized Support and Assistance
           </h1>
-          <p className="text-sm mb-8 font-poppins">
+          <p className="text-lg mb-8 font-poppins w-[528px] h-[54px]">
             We're here to support you on your journey to better mental health. Our experienced counselors are ready
             to help you navigate life's challenges.
           </p>
@@ -99,15 +98,15 @@ const Contact = () => {
           <div>
             <div className="flex items-center gap-4 mb-4">
               <img src="src/assets/contact/Call.png" alt="Video Call" className="w-8 h-8" />
-              <p className="text-base">+14 54648272</p>
+              <p className="text-3xl text-bold">+14 54648272</p>
             </div>
             <div className="flex items-center gap-4 mb-4">
               <img src="src/assets/contact/Message.png" alt="Email" className="w-8 h-8" />
-              <p className="text-base">rona@domain.com</p>
+              <p className="text-3xl text-bold">rona@domain.com</p>
             </div>
             <div className="flex items-center gap-4 mb-4">
               <img src="src/assets/contact/Location.png" alt="Location" className="w-8 h-8" />
-              <p className="text-base font-poppins">Lazyy Tower 192,Burn Swiss </p>
+              <p className="text-3xl text-bold ">Lazyy Tower 192,Burn Swiss </p>
             </div>
           </div>
         </div>

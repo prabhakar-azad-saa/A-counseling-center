@@ -89,11 +89,16 @@ function Booksession() {
     <div>
       <nav className="flex w-full p-10 sm:p-8 md:p-10 lg:p-16"
            style={{ backgroundImage: `url(${frameImage})` }}>
-        <div className="flex flex-col border-l-4 max-w-screen-2xl px-6 sm:px-12 md:px-20">
-          <h1 className="text-[#FFFFFF] text-4xl sm:text-5xl lg:text-6xl font-semibold p-4">{title}</h1>
-          <p className="text-[#FFFFFF] text-lg sm:text-xl font-semibold p-4 font-poppins">
+        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+            <div>
+              <div className="border-l-4 h-64 p-5"></div>
+            </div>
+            <div>
+              <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">Book Session</h1>
+          <p className="text-[#FFFFFF] text-lg sm:text-xl  p-4 font-poppins">
             Your trusted partner in mental wellness. Book your path to better emotional health and personal growth.
           </p>
+        </div>
         </div>
       </nav>
 

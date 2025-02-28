@@ -3,6 +3,8 @@ import frameImage from "../../src/assets/svgvieweroutput.png";
 import Ready from './Ready';
 
 const Blogdetail = () => {
+
+  
   return (
     <div>
       <div>
@@ -12,10 +14,10 @@ const Blogdetail = () => {
               <div className="border-l-4 h-64 p-5"></div>
             </div>
             <div>
-              <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold p-4">
+              <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
                 Blog Detail
               </h1>
-              <p className="text-white text-lg sm:text-xl font-semibold p-4 font-poppins">
+              <p className="text-white text-lg sm:text-xl  p-4 font-poppins">
                 Providing professional mental health support and counseling services to help you live a balanced, fulfilling life.
               </p>
             </div>
@@ -28,7 +30,7 @@ const Blogdetail = () => {
   {/* Blog Content */}
   <div className="mt-8">
     <img
-      src="src/assets/blog/image 43.png"
+      src="src/assets/blog/IMG@1x 1.png" 
       alt="Blog Image"
       className="w-full h-auto rounded-lg"
     />
@@ -36,14 +38,30 @@ const Blogdetail = () => {
       {/* Blog Text */}
       <div className="md:w-2/3">
         <h1 className="text-3xl font-semibold text-gray-800">How Mental Health Consultants Can Help...</h1>
-        <p className="mt-4 text-gray-600 leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur. Convallis est urna adipiscing fringilla nulla diam lorem non mauris.
-          Ultrices aliquet at quam adipiscing feugiat interdum mattis. Placerat donec risus diam sed et. A in ullamcorper
-          ipsum justo vestibulum sit cursus. A risus donec eget enim aliquet integer cursus et. Phasellus ac augue
-          ultricies sem aliquam faucibus sem non volutpat. Cursus mattis interdum sem pretium morbi ornare nunc nunc.
-          Pharetra neque ut ipsum nunc pretium nisi vivamus dolor. Suspendisse lectus est sed vulputate ut habitant
-          sagittis semper lacinia. Tincidunt faucibus sed et amet eleifend eu. Ut mauris interdum fringilla massa Nisl
-          tellus.
+        <p className="mt-4 text-gray-600 leading-relaxed font-poppins">
+        Mental health consultants play a crucial role in helping individuals navigate their emotional and psychological well-being. Through professional guidance and evidence-based approaches, these experts provide valuable support for those facing various mental health challenges.
+        </p>
+        <p className="mt-4 text-gray-600 leading-relaxed font-poppins">
+        Working with a mental health consultant can offer numerous benefits, including:
+        <li>Professional assessment and personalized treatment plans</li>
+        <li>Safe space to explore emotions and experiences</li>
+        <li>Development of coping strategies and resilience</li>
+        <li>Support in managing stress, anxiety, and depression</li>
+        <li>Guidance in improving relationships and communication</li>
+        
+        </p>
+        <p className="mt-4 text-gray-600 leading-relaxed font-poppins">
+        Our experienced consultants utilize various therapeutic approaches, including cognitive behavioral therapy, mindfulness practices, and solution-focused techniques. These methods have proven effective in helping clients achieve better mental health outcomes and improved quality of life
+        </p>
+        <p className="mt-4 text-gray-600 leading-relaxed font-poppins">The Consultation Process</p>
+        <p className="mt-4 text-gray-600 leading-relaxed font-poppins">During your journey with a mental health consultant, you can expect:
+        <ol>
+        <li>1.Initial assessment to understand your needs</li>
+        <li>2.Development of a tailored treatment plan</li>
+        <li>3.Regular sessions focused on your goals</li>
+        <li>4.Progress monitoring and plan adjustments</li>
+        <li>5.Support in maintaining long-term well-being</li>
+      </ol>
         </p>
       </div>
 
@@ -59,8 +77,8 @@ const Blogdetail = () => {
         className="w-full h-auto mb-4 rounded-lg"
       />
       <div>
-        <h3 className="text-lg font-semibold text-gray-800">How Mental Health Consultants Can Help...</h3>
-        <p className="text-gray-600">Convallis est urna adipiscing fringilla nulla See more</p>
+        <h3 className="text-lg font-semibold text-gray-800">Understanding Anxiety Management</h3>
+        <p className="text-gray-600">Practical strategies for managing anxiety in daily life <a>See more</a></p>
       </div>
     </div>
 
@@ -72,23 +90,13 @@ const Blogdetail = () => {
         className="w-full h-auto mb-4 rounded-lg"
       />
       <div>
-        <h3 className="text-lg font-semibold text-gray-800">How Mental Health Consultants Can Help...</h3>
-        <p className="text-gray-600">Convallis est urna adipiscing fringilla nulla See more</p>
+        <h3 className="text-lg font-semibold text-gray-800">Mindfulness Techniques.</h3>
+        <p className="text-gray-600">Essential mindfulness practices for mental wellness See more</p>
       </div>
     </div>
 
     {/* Recommended Blog 3 */}
-    <div className="flex flex-col sm:flex-row w-full sm:w-1/2 lg:w-full">
-      <img
-        src="src/assets/blog/image 44.png"
-        alt="Recommended Blog 3"
-        className="w-full h-auto mb-4 rounded-lg"
-      />
-      <div>
-        <h3 className="text-lg font-semibold text-gray-800">How Mental Health Consultants Can Help...</h3>
-        <p className="text-gray-600">Convallis est urna adipiscing fringilla nulla See more</p>
-      </div>
-    </div>
+   
   </div>
 </div>
 </div>

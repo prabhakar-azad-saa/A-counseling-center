@@ -79,10 +79,8 @@ const Animation = () => {
   return (
     <div>
       {!animationFinished && (
-        <div className="relative w-full bg-[#FCF8F4] p-[20px] max-w-full overflow-hidden">
-          {/* Content Container */}
+        <div className="relative w-full bg-[#FCF8F4] p-5 max-w-full overflow-hidden">
           <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 sm:space-x-4 md:space-x-8 pb-12 relative">
-            {/* Carousel Text */}
             <div
               className={`carousel-text flex flex-col items-center text-center px-6 py-4 md:px-12 md:py-8 w-full md:w-1/2 rounded-lg transition-opacity duration-1000 transform ${
                 fade ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
@@ -96,7 +94,6 @@ const Animation = () => {
               </p>
             </div>
 
-            {/* Carousel Image Section */}
             <div
               className={`carousel-item w-full md:w-1/3 flex justify-center items-center transition-opacity duration-1000 transform ${
                 fade ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
@@ -105,18 +102,16 @@ const Animation = () => {
               <img
                 src={slides[currentIndex].image}
                 alt="carousel"
-                className="w-full h-full object-contain rounded-lg shadow-none"
+                className="w-full h-auto object-contain rounded-lg shadow-none"
                 style={{ maxWidth: "400px", maxHeight: "400px" }}
               />
             </div>
           </div>
 
-          {/* Skip Button on the Right */}
           <div className="absolute bottom-8 right-7 md:bottom-4 md:right-8">
             <Button onClick={handleSkip}>Skip</Button>
           </div>
 
-          {/* Previous and Next Navigation Buttons */}
           <button
             onClick={prevSlide}
             className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2 opacity-50 hover:opacity-100 transition-opacity duration-300"
