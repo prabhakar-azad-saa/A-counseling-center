@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Apply Monrope font globally */
+body {
+  font-family: 'Monrope', sans-serif;
+}
+
+/* You can apply Poppins font wherever needed */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
