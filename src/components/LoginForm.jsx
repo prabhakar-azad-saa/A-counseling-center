@@ -321,8 +321,6 @@ const LoginForm = () => {
     }
   };
 
-  console.log("===============317=====================");
-
   return (
     <div>
       <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center bg-[#FCF8F4] px-4">

@@ -1,7 +1,14 @@
 import React from 'react';
 import frameImage from "../../src/assets/svgvieweroutput.png";
+import { useNavigate } from 'react-router-dom';
 
 const Blogs = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (page) => {
+    navigate('/' + page);
+  };
+
   return (
     <div className='bg-[#FCF8F4]'>
       <nav 
@@ -11,7 +18,7 @@ const Blogs = () => {
         <div className="flex max-w-screen-xl mx-auto justify-between ">
           <div className="border-l-4 h-64 p-5"></div>
           <div>
-            <h1 className="text-white text-5xl sm:text-[68px] font-semibold p-4">
+            <h1 className="text-white text-[68px] sm:text-[68px] font-semibold p-4">
               Blogs
             </h1>
             <p className="text-white text-lg font-semibold p-4 font-poppins">
@@ -22,7 +29,8 @@ const Blogs = () => {
       </nav>
 
       <div className="flex flex-col mt-20 sm:flex-row justify-evenly sm:gap-12 p-8 ">
-        <div className="flex flex-col sm:w-1/2 rounded-lg shadow-lg p-6 mb-8 bg-white">
+        <div className="flex flex-col sm:w-1/2 rounded-lg shadow-lg p-6 mb-8 bg-white"  onClick={() => handleClick('blogdetail')}>
+        <img src='src/assets/blog/IMG@1x (5) 1.png'/>
           <h1 className="text-3xl font-semibold mb-4">The Power of Mindful Living: A Guide to Present Moment Awareness</h1>
           <p className="text-base text-gray-700 mb-6 font-poppins">
             Discover how mindfulness can transform your daily life and improve your mental well-being through simple yet effective practices.

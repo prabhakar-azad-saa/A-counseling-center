@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import frameImage4 from "../../src/assets/svgvieweroutput.png";
+import Logomain from "../assets/Logomain";
 
 const Navbar = ({ style, from }) => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ const Navbar = ({ style, from }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -21,12 +23,24 @@ const Navbar = ({ style, from }) => {
   //   }
   // }, []);
 
+  // useEffect(() => {
+  //   const storedUser = localStorage.getItem("userData");
+  //   if (storedUser) {
+  //     setUserData(JSON.parse(storedUser));
+  //   }
+  // }, []);
+
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     if (storedUser) {
-      setUserData(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      setUserData(parsedUser);
+      setIsLoggedIn(!!parsedUser.userId);
+    } else {
+      setUserData(null);
+      setIsLoggedIn(false);
     }
-  }, []);
+  }, [location.pathname]);
 
   console.log(userData, "============================");
 
@@ -58,7 +72,8 @@ const Navbar = ({ style, from }) => {
     >
       <div className="flex items-center justify-between py-4">
         <div className="flex items-center space-x-3">
-          <img src="src/assets/g8.png" alt="logo" className="h-10 w-auto" />
+          <Logomain />
+
           <div
             className="text-2xl font-bold text-gray-900"
             style={{
@@ -87,6 +102,9 @@ const Navbar = ({ style, from }) => {
           </Link>
           <Link className="focus:font-bold" to="/session">
             Session
+          </Link>
+          <Link className="focus:font-bold" to="/blogs">
+            Blogs
           </Link>
           <Link className="focus:font-bold" to="/contact">
             Contact Us
@@ -188,6 +206,12 @@ const Navbar = ({ style, from }) => {
                 className="block border-b border-gray-200 px-2 py-3 focus:font-bold"
               >
                 Session
+              </Link>
+              <Link
+                className="block border-b border-gray-200 px-2 py-3 focus:font-bold"
+                to="/blogs"
+              >
+                Blogs
               </Link>
               <Link
                 to="/contact"

@@ -156,7 +156,7 @@ const Contact = () => {
             <div className="border-l-4 h-64 p-5"></div>
           </div>
           <div>
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold p-4">
+            <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
               Contact Us
             </h1>
             <p className="text-white text-lg sm:text-xl p-4 font-poppins">
@@ -168,9 +168,9 @@ const Contact = () => {
         </div>
       </nav>
 
-      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4]">
+      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4] ">
         <div className="flex flex-col gap-12 p-8 w-full lg:w-1/2">
-          <h1 className="text-4xl sm:text-5xl leading-snug font-bold mb-4 font-monrope">
+          <h1 className="text-[54px]   font-bold mb-4 font-monrope w-[616px] h-[222px]">
             Contact Us Today For Personalized Support and Assistance
           </h1>
           <p className="text-lg font-normal mb-8 font-poppins">

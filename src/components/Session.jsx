@@ -25,7 +25,7 @@ const Session = () => {
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold p-4">
               Professional Online Counseling Support
             </h1>
-            <p className="text-white text-lg sm:text-xl font-semibold p-4 font-poppins">
+            <p className="text-white text-lg sm:text-xl p-4 font-poppins">
               Connect with licensed therapists and counselors from the comfort
               of your home. Get the support you need, when you need it.
             </p>
@@ -48,7 +48,7 @@ const Session = () => {
             <h2 className="text-2xl font-semibold text-white">
               Dr. Altaf Khan
             </h2>
-            <p className="text-lg text-white mb-6">Relationship Counselor</p>
+            <p className="text-lg text-white mb-6">Professional Counselor</p>
             <Button
               onClick={handleclick}
               className="bg-[#EC744A] text-white py-3 px-6 rounded-full"
@@ -64,7 +64,7 @@ const Session = () => {
             How it Works
           </h1>
           <div className="flex flex-wrap justify-center gap-6">
-            <div className="flex flex-col items-center bg-white p-6 max-w-xs sm:max-w-sm lg:max-w-xs">
+            <div className="flex flex-col items-center   p-6 max-w-xs sm:max-w-sm lg:max-w-xs">
               <img
                 src="/src/assets/contact.png"
                 alt="Create Account"
@@ -76,7 +76,10 @@ const Session = () => {
                 booking system.
               </p>
             </div>
-            <div className="flex flex-col items-center bg-white p-6 max-w-xs sm:max-w-sm lg:max-w-xs">
+            <div
+              className="flex flex-col items-center  p-6 max-w-xs sm:max-w-sm lg:max-w-xs"
+              onClick={handleclick}
+            >
               <img
                 src="/src/assets/works2.png"
                 alt="Book Session"
@@ -88,7 +91,7 @@ const Session = () => {
                 booking system.
               </p>
             </div>
-            <div className="flex flex-col items-center bg-white p-6 max-w-xs sm:max-w-sm lg:max-w-xs">
+            <div className="flex flex-col items-center  p-6 max-w-xs sm:max-w-sm lg:max-w-xs">
               <img
                 src="/src/assets/video call.png"
                 alt="Start Session"

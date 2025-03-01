@@ -38,15 +38,15 @@ const Onlinecounseling = () => {
     <div>
       {/* Navigation Section */}
       <nav className="relative w-full p-8 sm:p-16 lg:p-28 bg-cover" style={{ backgroundImage: `url(${frameImage2})` }}>
-        <div className=" flex  justify-center">
-        <div>
-          <div className="border-l-4 h-64 p-5"></div>
-          </div>
-         <div>
-         <h1 className="text-white text-3xl sm:text-5xl lg:text-[68px] font-semibold p-4 text-center">
+      <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+            <div>
+              <div className="border-l-4 h-64 p-5"></div>
+            </div>
+            <div>
+              <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
             Online Counseling – Support Anytime, Anywhere
           </h1>
-          <p className="text-white text-lg sm:text-xl font-semibold p-4 text-center">
+          <p className="text-white text-lg sm:text-xl  p-4 text-center font-poppins">
             Professional therapy at your convenience. Connect with licensed therapists from the comfort of your home.
           </p>
          </div>

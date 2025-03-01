@@ -1,13 +1,16 @@
 import React from "react";
+import Calls from "../assets/Calls";
+import Locationsvg from "../assets/Locationsvg";
+import Massages from "../assets/Massages";
 
 const Footer = () => {
   return (
     <div>
       <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] mt-8 px-3 py-12">
         <div className="mx-auto w-full m-0 p-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-3">
+          <div className="flex flex-wrap justify-between px-10 sm:px-20">
             {/* Footer Section 1 */}
-            <div className="footer-section flex flex-col items-center sm:items-start text-white px-4">
+            <div className="footer-section flex flex-col items-center text-white px-8">
               <div className="footer-image flex items-center">
                 <img
                   src="/src/assets/g10.png"
@@ -26,7 +29,7 @@ const Footer = () => {
             </div>
 
             {/* Footer Section 2 (Services) */}
-            <div className="footer-section text-white px-4">
+            <div className="footer-section text-white">
               <ul>
                 <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
                   Services
@@ -47,7 +50,7 @@ const Footer = () => {
             </div>
 
             {/* Footer Section 3 (Contact) */}
-            <div className="footer-section text-white px-4">
+            <div className="footer-section text-white">
               <ul>
                 <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
                   Contact
@@ -80,7 +83,7 @@ const Footer = () => {
             </div>
 
             {/* Footer Section 4 (Links) */}
-            <div className="footer-section text-white px-4">
+            <div className="footer-section text-white">
               <ul>
                 <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
                   Links
@@ -140,6 +143,110 @@ const Footer = () => {
         </div>
       </div>
     </div>
+    // <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] mt-8 px-4 sm:px-6 lg:px-12 py-12">
+    //   <div className="mx-auto max-w-7xl">
+    //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    //       {/* Footer Section 1 */}
+    //       <div className="footer-section flex flex-col items-center sm:items-start text-white">
+    //         <div className="footer-image flex items-center">
+    //           <img
+    //             src="/src/assets/g10.png"
+    //             alt="A+ Counseling Center"
+    //             className="w-14 mr-2"
+    //           />
+    //           <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
+    //             A+ Counseling Center
+    //           </h1>
+    //         </div>
+    //         <p className="pt-4 text-sm sm:text-base md:text-lg text-center sm:text-left">
+    //           Professional mental health consultation and support services.
+    //         </p>
+    //       </div>
+
+    //       {/* Footer Section 2 (Services) */}
+    //       <div className="footer-section text-white">
+    //         <ul>
+    //           <li className="footer-heading text-lg sm:text-xl md:text-2xl font-bold mb-3">
+    //             Services
+    //           </li>
+    //           {[
+    //             "Psychotherapy",
+    //             "Mental Counseling",
+    //             "Support Groups",
+    //             "Case Management",
+    //           ].map((service, index) => (
+    //             <li
+    //               key={index}
+    //               className="text-sm sm:text-base md:text-lg pb-2"
+    //             >
+    //               {service}
+    //             </li>
+    //           ))}
+    //         </ul>
+    //       </div>
+
+    //       {/* Footer Section 3 (Contact) */}
+    //       <div className="footer-section text-white">
+    //         <ul>
+    //           <li className="footer-heading text-lg sm:text-xl md:text-2xl font-bold mb-3">
+    //             Contact
+    //           </li>
+    //           <li className="flex items-center text-sm sm:text-base md:text-lg mb-2">
+    //             <img
+    //               src="src/assets/New folder/Call.png"
+    //               alt="Call"
+    //               className="w-5 h-5 mr-2"
+    //             />
+    //             <p>+91 9685714245</p>
+    //           </li>
+    //           <li className="flex items-center text-sm sm:text-base md:text-lg mb-2">
+    //             <img
+    //               src="src/assets/New folder/Message.png"
+    //               alt="Email"
+    //               className="w-5 h-5 mr-2"
+    //             />
+    //             <p>altaf@apluscounselling.com</p>
+    //           </li>
+    //         </ul>
+    //       </div>
+
+    //       {/* Footer Section 4 (Links) */}
+    //       <div className="footer-section text-white">
+    //         <ul>
+    //           <li className="footer-heading text-lg sm:text-xl md:text-2xl font-bold mb-3">
+    //             Links
+    //           </li>
+    //           {["Privacy Policy", "Terms of Use"].map((link, index) => (
+    //             <li
+    //               key={index}
+    //               className="text-sm sm:text-base md:text-lg pb-2"
+    //             >
+    //               {link}
+    //             </li>
+    //           ))}
+    //         </ul>
+    //       </div>
+    //     </div>
+    //   </div>
+
+    //   {/* Divider Line */}
+    //   <div className="border-t-2 border-white w-full mt-10"></div>
+
+    //   {/* Social Media & Copyright */}
+    //   <div className="text-center text-white mt-10 text-sm">
+    //     <div className="flex justify-center space-x-6 mb-4">
+    //       <img
+    //         src="src/assets/New folder/Frame 149.png"
+    //         alt="Social Media"
+    //         className="w-8 sm:w-10"
+    //       />
+    //     </div>
+    //     <p className="text-[12px] sm:text-sm md:text-base">
+    //       Copyright &copy; {new Date().getFullYear()} A+ Counseling Center. All
+    //       Rights Reserved.
+    //     </p>
+    //   </div>
+    // </div>
   );
 };
 
