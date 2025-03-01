@@ -8,13 +8,13 @@
 //     password: "",
 //     contactNumber: "",
 //     gender: "",
-//     role: "Patient", 
+//     role: "Patient",
 //     firstName: "pawwww",
 //     lastName: "djfhf",
 //     address: "text",
 //     dateOfBirth: "",
 //   });
-  
+
 //   const [error, setError] = useState("");
 //   const [loading, setLoading] = useState(false);
 //   const navigate = useNavigate();
@@ -26,7 +26,6 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 
-    
 //     if (
 //       !formData.username ||
 //       !formData.email ||
@@ -47,7 +46,7 @@
 //     setLoading(true);
 
 //     try {
-      
+
 //       const response = await fetch('http://192.168.1.180/Hospital/api/hospital/Register', {
 //         method: 'POST',
 //         headers: {
@@ -61,23 +60,20 @@
 //       if (response.ok) {
 //         console.log('Signup successful:', data);
 
-        
 //         if (data.token) {
-//           localStorage.setItem('authToken', data.token);  
+//           localStorage.setItem('authToken', data.token);
 //         }
 
 //         if (formData.email) {
-//           localStorage.setItem('userEmail', formData.email); 
+//           localStorage.setItem('userEmail', formData.email);
 //         }
 
-        
 //         if (data.user) {
-//           localStorage.setItem('userData', JSON.stringify(data.user));  
+//           localStorage.setItem('userData', JSON.stringify(data.user));
 //         }
 
 //         console.log('Data stored in localStorage');
 
-        
 //         navigate('/login');
 //       } else {
 //         setError(data.message || 'Something went wrong. Please try again.');
@@ -135,7 +131,7 @@
 //               <input
 //                 type="text"
 //                 name="contactNumber"
-//                 value={formData.contactNumber} 
+//                 value={formData.contactNumber}
 //                 onChange={handleChange}
 //                 placeholder="Mobile Number"
 //                 required
@@ -152,7 +148,7 @@
 //               >
 //                 <option value="">Gender</option>
 //                 <option value="Male">Male</option>
-//                 <option value="Female">Female</option> 
+//                 <option value="Female">Female</option>
 //               </select>
 //             </div>
 //             <div className="mb-6">
@@ -197,6 +193,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { register } from "../action/Auth";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -205,11 +202,11 @@ const SignupForm = () => {
     password: "",
     contactNumber: "",
     gender: "",
-    role: "Patient", 
-    firstName: "pawwww",
-    lastName: "djfhf",
-    address: "text",
-    dateOfBirth: "",
+    role: "Patient",
+    firstName: "",
+    lastName: "",
+    address: "test",
+    dateOfBirth: "2025-02-28",
   });
 
   const [errors, setErrors] = useState({});
@@ -222,7 +219,7 @@ const SignupForm = () => {
   };
 
   const handleContactNumberChange = (e) => {
-    const value = e.target.value.replace(/[^0-9]/g, ''); 
+    const value = e.target.value.replace(/[^0-9]/g, "");
     setFormData({ ...formData, contactNumber: value });
   };
 
@@ -258,21 +255,73 @@ const SignupForm = () => {
     }
 
     // Date of Birth validation
-    if (!formData.dateOfBirth) formErrors.dateOfBirth = "Date of Birth is required.";
+    // if (!formData.dateOfBirth)
+    //   formErrors.dateOfBirth = "Date of Birth is required.";
 
     // First Name validation
-    if (!formData.firstName) formErrors.firstName = "First Name is required.";
+    // if (!formData.firstName) formErrors.firstName = "First Name is required.";
 
     // Last Name validation
-    if (!formData.lastName) formErrors.lastName = "Last Name is required.";
+    // if (!formData.lastName) formErrors.lastName = "Last Name is required.";
 
     // Address validation
-    if (!formData.address) formErrors.address = "Address is required.";
+    // if (!formData.address) formErrors.address = "Address is required.";
 
     return formErrors;
   };
 
   // Handle form submission
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const validationErrors = validate();
+  //   setErrors(validationErrors);
+
+  //   if (Object.keys(validationErrors).length > 0) {
+  //     return;
+  //   }
+
+  //   setLoading(true);
+
+  //   try {
+  //     const response = await fetch('http://192.168.1.180/Hospital/api/hospital/Register', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (response.ok) {
+  //       console.log('Signup successful:', data);
+
+  //       if (data.token) {
+  //         localStorage.setItem('authToken', data.token);
+  //       }
+
+  //       if (formData.email) {
+  //         localStorage.setItem('userEmail', formData.email);
+  //       }
+
+  //       if (data.user) {
+  //         localStorage.setItem('userData', JSON.stringify(data.user));
+  //       }
+
+  //       console.log('Data stored in localStorage');
+
+  //       navigate('/login');
+  //     } else {
+  //       setErrors({ ...errors, general: data.message || 'Something went wrong. Please try again.' });
+  //     }
+  //   } catch (error) {
+  //     setErrors({ ...errors, general: 'Network error. Please try again later.' });
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -280,69 +329,62 @@ const SignupForm = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) {
-      return; 
+      return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch('http://192.168.1.180/Hospital/api/hospital/Register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const data = await register(formData);
+      console.log("Signup successful:", data);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Signup successful:', data);
-
-        if (data.token) {
-          localStorage.setItem('authToken', data.token);
-        }
-
-        if (formData.email) {
-          localStorage.setItem('userEmail', formData.email);
-        }
-
-        if (data.user) {
-          localStorage.setItem('userData', JSON.stringify(data.user));
-        }
-
-        console.log('Data stored in localStorage');
-
-        navigate('/login');
-      } else {
-        setErrors({ ...errors, general: data.message || 'Something went wrong. Please try again.' });
+      if (data?.message?.includes("Email Id already exist")) {
+        throw new Error("Email already exists. Please use another email.");
       }
+
+      navigate("/login");
     } catch (error) {
-      setErrors({ ...errors, general: 'Network error. Please try again later.' });
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        general: error.message || "Something went wrong. Please try again.",
+      }));
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <div>
       <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center bg-[#FCF8F4] px-4">
         <div className="text-center mb-6">
-          <img src="src/assets/login2.png" alt="Login Illustration" className="mb-4" />
+          <img
+            src="src/assets/login2.png"
+            alt="Login Illustration"
+            className="mb-4"
+          />
         </div>
         <div className="w-full max-w-xl rounded-xl">
           <div className="mt-4 py-10">
-            <a href="/login" className="text-black text-xl mr-20 font-semibold hover:underline">
+            <a
+              href="/login"
+              className="text-black text-xl mr-20 font-semibold hover:underline"
+            >
               Login
             </a>
-            <a href="/signup" className="text-black text-xl font-semibold hover:underline">
+            <a
+              href="/signup"
+              className="text-black text-xl font-semibold hover:underline"
+            >
               Sign Up
             </a>
           </div>
 
           <h2 className="text-5xl font-bold mb-8">SIGN UP</h2>
 
-          {errors.general && <p className="text-red-500 text-sm mb-4 text-center">{errors.general}</p>}
+          {errors.general && (
+            <p className="text-red-500 text-sm mb-4 text-center">
+              {errors.general}
+            </p>
+          )}
 
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -355,7 +397,9 @@ const SignupForm = () => {
                 required
                 className="w-full p-3 text-lg border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#EC744A] focus:border-transparent"
               />
-              {errors.username && <p className="text-red-500 text-sm mt-2">{errors.username}</p>}
+              {errors.username && (
+                <p className="text-red-500 text-sm mt-2">{errors.username}</p>
+              )}
             </div>
 
             <div className="mb-4">
@@ -368,7 +412,9 @@ const SignupForm = () => {
                 required
                 className="w-full p-3 text-[18px] border border-gray-300 rounded-full focus:ring-2 focus:ring-[#4e90d2] focus:outline-none"
               />
-              {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-2">{errors.email}</p>
+              )}
             </div>
 
             <div className="mb-4">
@@ -376,12 +422,17 @@ const SignupForm = () => {
                 type="tel"
                 name="contactNumber"
                 value={formData.contactNumber}
-                onChange={handleContactNumberChange} 
+                onChange={handleContactNumberChange}
                 placeholder="Mobile Number"
                 required
+                maxLength={10}
                 className="w-full p-3 text-[18px] border border-gray-300 rounded-full focus:ring-2 focus:ring-[#4e90d2] focus:outline-none"
               />
-              {errors.contactNumber && <p className="text-red-500 text-sm mt-2">{errors.contactNumber}</p>}
+              {errors.contactNumber && (
+                <p className="text-red-500 text-sm mt-2">
+                  {errors.contactNumber}
+                </p>
+              )}
             </div>
 
             <div className="mb-4">
@@ -390,13 +441,16 @@ const SignupForm = () => {
                 value={formData.gender}
                 onChange={handleChange}
                 required
-                className="w-full p-3 text-[18px] text-gray-400 border border-gray-300 rounded-full focus:ring-2 focus:ring-[#4e90d2] focus:outline-none"
+                className={`w-full p-3 text-[18px] border border-gray-300 rounded-full focus:ring-2 focus:ring-[#4e90d2] focus:outline-none 
+                  ${formData.gender ? "text-black" : "text-gray-400"}`}
               >
                 <option value="">Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
-              {errors.gender && <p className="text-red-500 text-sm mt-2">{errors.gender}</p>}
+              {errors.gender && (
+                <p className="text-red-500 text-sm mt-2">{errors.gender}</p>
+              )}
             </div>
 
             <div className="mb-6">
@@ -409,11 +463,15 @@ const SignupForm = () => {
                 required
                 className="w-full p-3 text-[18px] border border-gray-300 rounded-full focus:ring-2 focus:ring-[#4e90d2] focus:outline-none"
               />
-              {errors.password && <p className="text-red-500 text-sm mt-2">{errors.password}</p>}
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-2">{errors.password}</p>
+              )}
             </div>
 
-            <div className="mb-4">
-              <label htmlFor="dob" className="block text-lg font-semibold mb-2">Date of Birth</label>
+            {/* <div className="mb-4">
+              <label htmlFor="dob" className="block text-lg font-semibold mb-2">
+                Date of Birth
+              </label>
               <input
                 type="date"
                 name="dateOfBirth"
@@ -422,8 +480,12 @@ const SignupForm = () => {
                 required
                 className="w-full p-3 text-[18px] border border-gray-300 rounded-full focus:ring-2 focus:ring-[#4e90d2] focus:outline-none"
               />
-              {errors.dateOfBirth && <p className="text-red-500 text-sm mt-2">{errors.dateOfBirth}</p>}
-            </div>
+              {errors.dateOfBirth && (
+                <p className="text-red-500 text-sm mt-2">
+                  {errors.dateOfBirth}
+                </p>
+              )}
+            </div> */}
 
             <button
               type="submit"

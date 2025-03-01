@@ -6,33 +6,33 @@ const slides = [
   {
     image: "src/assets/Frame.png",
     heading: "Your Journey to Emotional Well-Being",
-    description: "Discover the path to a balanced and joyful life."
+    description: "Discover the path to a balanced and joyful life.",
   },
   {
     image: "src/assets/not connecting.png",
     heading: "Signs your mental health might need attention",
-    description: "Take the first step towards personal growth."
+    description: "Take the first step towards personal growth.",
   },
   {
     image: "src/assets/Untitled design (6) 1.png",
     heading: "Persistent sadness or low mood",
-    description: "Learn the art of mindfulness and relaxation."
+    description: "Learn the art of mindfulness and relaxation.",
   },
   {
     image: "src/assets/Screenshot (293) 1.png",
     heading: "Significant changes in appetite or weight",
-    description: "Understand your body and mind's signals."
+    description: "Understand your body and mind's signals.",
   },
   {
     image: "src/assets/Untitled design (7) 1.png",
     heading: "Withdrawal from social activities and relationships",
-    description: "Reconnect and embrace self-care."
+    description: "Reconnect and embrace self-care.",
   },
   {
     image: "src/assets/coffee.png",
     heading: "Difficulty concentrating or making decisions",
-    description: "Reconnect and embrace self-care."
-  }
+    description: "Reconnect and embrace self-care.",
+  },
 ];
 
 const Animation = () => {
@@ -112,9 +112,9 @@ const Animation = () => {
           </div>
 
           {/* Skip Button on the Right */}
-          <div className="absolute bottom-8 right-7 md:bottom-4 md:right-8">
+          {/* <div className="absolute bottom-8 right-7 md:bottom-4 md:right-8">
             <Button onClick={handleSkip}>Skip</Button>
-          </div>
+          </div> */}
 
           {/* Previous and Next Navigation Buttons */}
           <button
