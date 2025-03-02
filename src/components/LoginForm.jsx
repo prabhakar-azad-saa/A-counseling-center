@@ -352,18 +352,8 @@ const LoginForm = () => {
           {error && (
             <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
           )}
-          {emailError && (
-            <p className="text-red-500 text-sm mb-4 text-center">
-              {emailError}
-            </p>
-          )}
-          {passwordError && (
-            <p className="text-red-500 text-sm mb-4 text-center">
-              {passwordError}
-            </p>
-          )}
 
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="mb-4">
               <input
                 type="email"
@@ -375,6 +365,11 @@ const LoginForm = () => {
                 className="w-full p-3 text-lg border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#4e90d2] focus:border-transparent"
               />
             </div>
+            {emailError && (
+              <p className="text-red-500 text-sm mb-4 text-center">
+                {emailError}
+              </p>
+            )}
 
             <div className="mb-4">
               <input
@@ -387,8 +382,19 @@ const LoginForm = () => {
                 className="w-full p-3 text-lg border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#4e90d2] focus:border-transparent"
               />
             </div>
+            {passwordError && (
+              <p className="text-red-500 text-sm mb-4 text-center">
+                {passwordError}
+              </p>
+            )}
+            {/* {passwordError && (
+            <p className="text-red-500 text-sm mb-4 text-center">
+              {passwordError}
+            </p>
+          )} */}
 
             <button
+              onClick={handleSubmit}
               type="submit"
               disabled={loading}
               className="w-full p-3 bg-[#EC744A] text-white rounded-full text-lg cursor-pointer hover:bg-[#d36b3c] transition-all duration-300"
@@ -399,7 +405,10 @@ const LoginForm = () => {
             <div className="mt-6">
               <hr className="border-t-2 border-gray-300" />
               <p className="my-4 text-gray-600">Or continue with</p>
-              <button className="w-full p-3 bg-black text-white rounded-full text-lg hover:bg-[#c1351d] transition-all duration-300">
+              <button
+                disabled
+                className="w-full p-3 bg-black text-white rounded-full text-lg hover:bg-[#c1351d] transition-all duration-300"
+              >
                 Google
               </button>
             </div>

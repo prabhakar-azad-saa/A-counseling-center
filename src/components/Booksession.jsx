@@ -73,7 +73,7 @@ function Booksession() {
       }
     }
   };
-  console.log("=======55========", slotId);
+  // console.log("=======55========", slotId);
 
   useEffect(() => {
     if (selectedDate) {
@@ -101,7 +101,7 @@ function Booksession() {
     }
   }, []);
 
-  console.log("=======55========", userData?.userId, slotData);
+  // console.log("=======55========", userData?.userId, slotData);
 
   const validateForm = () => {
     const newErrors = {};
@@ -142,7 +142,7 @@ function Booksession() {
       return;
     }
 
-    console.log(formData);
+    // console.log(formData);
 
     if (validateForm()) {
       const sessionData = {
