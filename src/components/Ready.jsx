@@ -21,9 +21,9 @@ const Ready = () => {
           Ready to Start Your Journey?
         </h1>
         <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold p-4 text-center font-poppins">
-          Book your free consultation today and take the first step towards better mental health.
+          Book your consultation today and take the first step towards better mental health.
         </p>
-        <Button className="mt-4 px-6 py-2 text-sm sm:text-base md:text-lg lg:text-xl">Schedule Free Consultation</Button>
+        <Button className="mt-4 px-6 py-2 text-sm sm:text-base md:text-lg lg:text-xl">Schedule Consultation</Button>
       </div>
     </div>
   );

@@ -16,20 +16,21 @@ const AboutSection = () => {
 
         {/* Text Section */}
         <div className="flex flex-col items-start text-left px-4 mt-8 md:mt-0">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#333333] mb-4">
-            About Us
-          </h3>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[700] text-[#333333] mb-5 leading-9 sm:leading-[45px] md:leading-[60px] lg:leading-[73.76px] tracking-normal font-manrope">
-            Discover the Faces Behind Our Mental Health Consultancy
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-[#666666] py-4 font-poppins leading-relaxed">
-            Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
-          </p>
-          <Button className="bg-[#EC744A] text-white py-3 px-8 rounded-full">
-            See Details
-          </Button>
-        </div>
+          
+            <div className="flex-1 sm:max-w-1/2 text-left  w-[689px] h-[513px]">
+            <h3 className="text-2xl sm:text-3xl text-black font-bold mb-4">About Us</h3>
+            <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope  w-[689px] h-[222px]">
+              Discover the Faces Behind Our Mental Health Consultancy
+            </h1>
+            <p className="text-lg sm:text-xl text-black mb-14 font-poppins  w-[689px] h-[81px]">
+              Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
+            </p>
+            <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full">
+              See Detail
+            </Button>
+          </div>
       </div>
+    </div>
     </div>
   );
 };

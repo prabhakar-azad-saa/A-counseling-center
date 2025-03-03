@@ -6,10 +6,12 @@
 
 /* Apply Monrope font globally */
 body {
-  font-family: 'Monrope', sans-serif;
+  font-family: 'Manrope', sans-serif;
+  background: "#FCF8F4";
 }
 
 /* You can apply Poppins font wherever needed */
 .font-poppins {
   font-family: 'Poppins', sans-serif;
 }
+

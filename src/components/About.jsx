@@ -44,28 +44,28 @@ const About = () => {
           <div>
           <div className="border-l-4 h-64 p-5"></div>
           </div>
-           <div> <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold p-4">
+           <div> <h1 className="text-white  text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
               About Us
             </h1>
-            <p className="text-white text-lg sm:text-xl font-semibold p-4  font-poppins">
+            <p className="text-white text-lg sm:text-xl  p-4  font-poppins">
               Providing professional mental health support and counseling services to help you live a balanced, fulfilling life.
             </p></div>
           </div>
         </nav>
 
         {/* About Us Section */}
-        <div className="flex flex-col sm:flex-col lg:flex-row justify-between bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 lg:px-32">
+        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 lg:px-32">
           <img
             src="/src/assets/Frame 80.png"
             alt="About Us"
             className="w-full sm:w-1/2 object-cover rounded-lg mb-6 sm:mb-0"
           />
-          <div className="flex-1 sm:max-w-1/2 text-left">
+          <div className="flex-1 sm:max-w-1/2 text-left  w-[689px] h-[513px]">
             <h3 className="text-2xl sm:text-3xl text-black font-bold mb-4">About Us</h3>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-[700] text-[#333333] mb-5 leading-[48px] sm:leading-[73px] tracking-[0%] font-manrope">
+            <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope  w-[689px] h-[222px]">
               Discover the Faces Behind Our Mental Health Consultancy
             </h1>
-            <p className="text-lg sm:text-xl text-black mb-6 font-poppins">
+            <p className="text-lg sm:text-xl text-black mb-14 font-poppins  w-[689px] h-[81px]">
               Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
             </p>
             <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full">
@@ -83,47 +83,51 @@ const About = () => {
         />
 
         {/* Image Section */}
-        <div className="w-full h-auto flex justify-center items-center py-10">
+        <div className="w-full h-auto flex justify-center items-center ">
           <img
-            src="/src/assets/Frame 89.png"
+            src="src/assets/aboutimg.png"
             alt="Additional Image"
-            className="w-full sm:w-3/4 md:w-1/2 lg:w-full h-auto"
+            className="w-full sm:w-full md:w-full lg:w-full h-auto"
           />
         </div>
 
-        {/* Success Story Section */}
-        <div className="flex flex-col sm:flex-col lg:flex-row justify-between items-center p-10 bg-[#FCF8F4] rounded-lg">
-          <div className="flex-1 sm:max-w-1/2 p-5 flex flex-col justify-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black mb-8">
-              Breaking the Stigma: The Success Story of a Mental Health Consultant
-            </h1>
-            <ul className="text-lg sm:text-xl text-black mb-8 list-disc pl-6 font-poppins">
-              <div className="flex items-start">
-                <img src="src/assets/Arrow - Left 2.png" className="mr-2" />
-                <li className="p-2">Transformed anxiety into personal growth through cognitive behavioral therapy.</li>
-              </div>
-              <div className="flex items-start">
-                <img src="src/assets/Arrow - Left 2.png" className="mr-2" />
-                <li className="p-2">Developed effective stress management techniques for work-life balance.</li>
-              </div>
-              <div className="flex items-start">
-                <img src="src/assets/Arrow - Left 2.png" className="mr-2" />
-                <li className="p-2">Built lasting relationships with clients through trust and understanding.</li>
-              </div>
-              <div className="flex items-start">
-                <img src="src/assets/Arrow - Left 2.png" className="mr-2" />
-                <li className="p-2">Achieved significant improvements in client mental wellness scores.</li>
-              </div>
-            </ul>
-          </div>
-          <div className="flex-1 sm:max-w-1/2 p-5">
-            <img
-              src="/src/assets/about image.png"
-              alt="Success Story"
-              className="w-full sm:w-3/4 lg:w-1/2 h-auto rounded-lg"
-            />
-          </div>
-        </div>
+   {/* Success Story Section */}
+<div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between items-center p-10 bg-[#FCF8F4] rounded-lg">
+  <div className="flex-1 sm:max-w-full lg:max-w-1/2 p-5 flex flex-col justify-center">
+  <h3 className="text-[22px] pb-8 font-[700px]">Succes Story</h3>
+    <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black leading-tight  w-[687px] h-[222px]">
+      Breaking the Stigma - The Success Story of a Mental Health Consultant
+    </h1>
+
+    <ul className="text-lg sm:text-lg text-black mb-8 list-disc pl-6 font-poppins">
+      <li className="flex items-start mb-2 pb-10 w-[568px] h-[54px]">
+        <img src="src/assets/Arrow - Left 2.png" className="mr-2 " alt="Arrow" />
+        Transformed anxiety into personal growth through cognitive behavioral therapy.
+      </li>
+      <li className="flex items-start mb-2 py-10 w-[568px] h-[54px]">
+        <img src="src/assets/Arrow - Left 2.png" className="mr-2" alt="Arrow" />
+        Developed effective stress management techniques for work-life balance.
+      </li>
+      <li className="flex items-start mb-2 py-10 w-[568px] h-[54px]">
+        <img src="src/assets/Arrow - Left 2.png" className="mr-2" alt="Arrow" />
+        Built lasting relationships with clients through trust and understanding.
+      </li>
+      <li className="flex items-start mb-2 py-12 w-[568px] h-[54px]">
+        <img src="src/assets/Arrow - Left 2.png" className="mr-2" alt="Arrow" />
+        Achieved significant improvements in client mental wellness scores.
+      </li>
+    </ul>
+  </div>
+
+  <div className="flex-1 sm:max-w-full lg:max-w-full p-5">
+    <img
+      src="/src/assets/about image.png"
+      alt="Success Story"
+      className="w-full sm:w-full  lg:w-full h-auto rounded-lg"
+    />
+  </div>
+</div>
+
       </div>
     </div>
   );
