@@ -1,35 +1,41 @@
 import React, { useState, useEffect } from "react";
+
 import Hero from "./Hero";
-import Button from "./Button";
+import animationFrame1 from "../img/animationFrame1.png"
+import animationFrame2 from "../img/animationFrame2.png"
+import animationFrame3 from "../img/animationFrame3.png"
+import animationFrame4 from "../img/animationFrame4.png"
+import animationFrame5 from "../img/animationFrame5.png"
+import animationFrame6 from "../img/animationFrame6.png"
 
 const slides = [
   {
-    image: "src/assets/Frame.png",
+    image: animationFrame1,
     heading: "Your Journey to Emotional Well-Being",
     description: "Discover the path to a balanced and joyful life.",
   },
   {
-    image: "src/assets/not connecting.png",
+    image: animationFrame2,
     heading: "Signs your mental health might need attention",
     description: "Take the first step towards personal growth.",
   },
   {
-    image: "src/assets/Untitled design (6) 1.png",
+    image:animationFrame3 ,
     heading: "Persistent sadness or low mood",
     description: "Learn the art of mindfulness and relaxation.",
   },
   {
-    image: "src/assets/Screenshot (293) 1.png",
+    image:animationFrame4,
     heading: "Significant changes in appetite or weight",
     description: "Understand your body and mind's signals.",
   },
   {
-    image: "src/assets/Untitled design (7) 1.png",
+    image: animationFrame5,
     heading: "Withdrawal from social activities and relationships",
     description: "Reconnect and embrace self-care.",
   },
   {
-    image: "src/assets/coffee.png",
+    image: animationFrame6,
     heading: "Difficulty concentrating or making decisions",
     description: "Reconnect and embrace self-care.",
   },

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "./Button";
-import frameImage4 from "../../src/assets/svgvieweroutput.png";
-import Logomain from "../assets/Logomain";
+import frameImage4 from "../img/svgvieweroutput.png";
+import Logomain from "../img/Logomain";
 
 const Navbar = ({ style, from }) => {
   const navigate = useNavigate();

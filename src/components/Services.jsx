@@ -1,7 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Ready from "./Ready";
-import frameImage from "../../src/assets/svgvieweroutput.png";
+import frameImage from "../img/svgvieweroutput.png";
+import Individual22 from "../img/Individual22";
+import Relationship from "../img/Relationship";
+import Famil from "../img/Famil";
+import Leaf from "../img/Leaf";
+import Carrier from "../img/Carrier";
+import Chat from "../img/Chat"
 
 const Services = () => {
   const navigate = useNavigate();
@@ -12,28 +18,32 @@ const Services = () => {
 
   return (
     <div className="bg-[#FCF8F4]">
-      <nav
-        className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
-        style={{ backgroundImage: `url(${frameImage})` }}
-      >
-        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-          <div>
-            <div className="border-l-4 h-64 p-5"></div>
-          </div>
-          <div>
-            <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
-              Services
-            </h1>
-            <p className="text-white text-sm sm:text-lg p-4 font-poppins">
-              At A+ Counseling Center, we offer a wide range of counseling
-              services tailored to meet the diverse needs of individuals,
-              couples, and families. Our approach integrates evidence-based
-              techniques with compassionate care to help you navigate life's
-              challenges.
-            </p>
-          </div>
-        </div>
-      </nav>
+     <nav
+  className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
+  style={{ backgroundImage: `url(${frameImage})` }}
+>
+  <div className="flex w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+    {/* Left Section (Border) */}
+    <div className="hidden lg:block">
+      <div className="border-l-4 h-64 p-5"></div>
+    </div>
+    
+    {/* Right Section (Text) */}
+    <div className="flex flex-col justify-center w-full">
+      <h1 className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-[68px] font-extrabold p-4">
+        Services
+      </h1>
+      <p className="text-white text-sm sm:text-base md:text-lg p-4 font-poppins">
+        At A+ Counseling Center, we offer a wide range of counseling
+        services tailored to meet the diverse needs of individuals,
+        couples, and families. Our approach integrates evidence-based
+        techniques with compassionate care to help you navigate life's
+        challenges.
+      </p>
+    </div>
+  </div>
+</nav>
+
 
       <div className="p-6 text-center px-4 pt-32 sm:px-10 lg:px-[162px]">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -48,11 +58,12 @@ const Services = () => {
             className="bg-gradient-to-r from-[#007D6E] to-[#2F4B4E] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => handleClick("individual")}
           >
-            <img
+            {/* <img
               src="src/assets/Indivisual.png"
               alt="Individual Therapy"
               className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            />
+            /> */}
+            <Individual22 className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-2xl sm:text-[35px] mb-2 text-white">
               Individual Therapy
             </h2>
@@ -65,11 +76,12 @@ const Services = () => {
 
           {/* Relationship Therapy */}
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/relationship.png"
               alt="Relationship Therapy"
               className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            />
+            /> */}
+            <Relationship   className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
               Relationship Therapy
             </h2>
@@ -82,11 +94,12 @@ const Services = () => {
 
           {/* Family Counseling */}
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/family.png"
               alt="Family Counseling"
               className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            />
+            /> */}
+            <Famil  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
               Family Counseling
             </h2>
@@ -98,11 +111,12 @@ const Services = () => {
 
           {/* Specialized Therapy */}
           <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/Specialize.png"
               alt="Specialized Therapy"
               className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            />
+            /> */}
+            <Leaf  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Specialized Therapy
             </h2>
@@ -114,11 +128,12 @@ const Services = () => {
 
           {/* Career Coaching */}
           <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/carrier.png"
               alt="Career Coaching"
               className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            />
+            /> */}
+            <Carrier  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Career Coaching
             </h2>
@@ -133,11 +148,12 @@ const Services = () => {
             className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => handleClick("onlinecounseling")}
           >
-            <img
+            {/* <img
               src="src/assets/online.png"
               alt="Online Sessions"
               className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            />
+            /> */}
+            <Chat  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
               Online Sessions
             </h2>

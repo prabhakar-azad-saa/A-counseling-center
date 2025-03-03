@@ -1,15 +1,15 @@
 import React from "react";
-import Button from "./Button";
-import { useNavigate } from "react-router-dom";
-import Call from "../assets/Call";
-import Massage from "../assets/Massage";
-import Location from "../assets/Location";
+
+import Call from "../img/Call";
+import Massage from "../img/Massage";
+import heroSection from "../img/heroSection.png"
+
 
 const Hero = () => {
-  const navigate = useNavigate();
+  
 
   return (
-    <div className="bg-[#FCF8F4] pt-10 grid grid-cols-1 lg:grid-cols-2 sm:px-12 md:px-14 lg:px-16 ">
+    <div className="bg-[#FCF8F4] pt-10 grid grid-cols-1 lg:grid-cols-2 p-4 sm:px-12 md:px-14 lg:px-16 ">
       {/* Left Side - Content */}
       <div className="content flex flex-col justify-center">
         <h1 className="text-[40px] sm:text-[56px] md:text-[68px] font-bold text-gray-900 font-manrope">
@@ -48,7 +48,7 @@ const Hero = () => {
       {/* Right Side - Image */}
       <div className="image mt-16 sm:mt-0">
         <img
-          src="/src/assets/Layer 2.png"
+          src={heroSection}
           alt="layer 2"
           className="w-full h-auto"
         />

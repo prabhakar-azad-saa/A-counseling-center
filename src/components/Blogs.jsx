@@ -1,6 +1,12 @@
 import React from 'react';
-import frameImage from "../../src/assets/svgvieweroutput.png";
+import frameImage from "../img/svgvieweroutput.png";
 import { useNavigate } from 'react-router-dom';
+import blogDetail3 from "../img/blogDetail3.png"
+import blogDetail4 from "../img/blogDetail4.png"
+import blogImg1 from "../img/blogImg1.png"
+import blogImg2 from "../img/blogImg2.png"
+import blogDetail6 from "../img/blogDetail6.png"
+
 
 const Blogs = () => {
   const navigate = useNavigate();
@@ -30,7 +36,7 @@ const Blogs = () => {
 
       <div className="flex flex-col mt-20 sm:flex-row justify-evenly sm:gap-12 p-8 ">
         <div className="flex flex-col sm:w-1/2 rounded-lg shadow-lg p-6 mb-8 bg-white"  onClick={() => handleClick('blogdetail')}>
-        <img src='src/assets/blog/IMG@1x (5) 1.png'/>
+        <img src={blogImg1}/>
           <h1 className="text-3xl font-semibold mb-4">The Power of Mindful Living: A Guide to Present Moment Awareness</h1>
           <p className="text-base text-gray-700 mb-6 font-poppins">
             Discover how mindfulness can transform your daily life and improve your mental well-being through simple yet effective practices.
@@ -41,15 +47,15 @@ const Blogs = () => {
           <h1 className="text-3xl font-semibold mb-4">Popular Posts</h1>
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <img src='src/assets/blog/IMG@1x (10) 1.png' alt="10 Minutes to Better Mental Health" className="w-20 h-20 object-cover" />
+              <img src={blogImg2} alt="10 Minutes to Better Mental Health" className="w-20 h-20 object-cover" />
               <p className="text-base font-poppins">10 Minutes to Better Mental Health</p>
             </div>
             <div className="flex items-center gap-4">
-              <img src='src/assets/blog/IMG@1x (11) 2.png' alt="Work-Life Balance Tips" className="w-20 h-20 object-cover" />
+              <img src={blogDetail6} alt="Work-Life Balance Tips" className="w-20 h-20 object-cover" />
               <p className="text-base font-poppins">Work-Life Balance Tips</p>
             </div>
             <div className="flex items-center gap-4">
-              <img src='src/assets/blog/IMG@1x (10) 1.png' alt="10 Minutes to Better Mental Health" className="w-20 h-20 object-cover" />
+              <img src={blogImg1} alt="10 Minutes to Better Mental Health" className="w-20 h-20 object-cover" />
               <p className="text-base font-poppins">10 Minutes to Better Mental Health</p>
             </div>
           </div>
@@ -61,7 +67,7 @@ const Blogs = () => {
           {/* Blog 1 */}
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
             <img
-              src="src/assets/blog/IMG@1x (12) 1.png"
+              src={blogDetail4}
               alt="Understanding Different Types of Therapy: Finding What Works for You"
               className="w-full h-auto object-cover rounded-lg mb-4"
             />
@@ -76,7 +82,7 @@ const Blogs = () => {
           {/* Blog 2 */}
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
             <img
-              src="src/assets/blog/IMG@1x (13) 1.png"
+               src={blogDetail3}
               alt="Natural Anxiety Relief: Simple Techniques for Daily Calm"
               className="w-full h-auto object-cover rounded-lg mb-4"
             />
@@ -91,7 +97,7 @@ const Blogs = () => {
           {/* Blog 3 */}
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
             <img
-              src="src/assets/blog/IMG@1x (13) 1.png"
+              src={ blogDetail4}
               alt="Understanding Different Types of Therapy: Finding What Works for You"
               className="w-full h-auto object-cover rounded-lg mb-4"
             />

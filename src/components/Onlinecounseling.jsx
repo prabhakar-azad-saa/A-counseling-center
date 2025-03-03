@@ -1,29 +1,43 @@
 import React from "react";
+
 import Ready from "./Ready";
 import Features from "./Features";
-import frameImage from "../../src/assets/Frame83.png";
-import frameImage2 from "../../src/assets/svgvieweroutput.png";
+import frameImage from "../img/Frame83.png";
+import frameImage2 from "../img/svgvieweroutput.png";
+import works2 from "../img/works2.png"
+import videocall from "../img/videocall.png"
+import secure from "../img/secure.png"
+import special from "../img/special.png"
+import Anxiety from "../img/Anxiety";
+import Needing from "../img/Needing";
+import Looking from "../img/Looking";
+import Seeking from "../img/Seeking";
+import Reduce from "../img/Reduce";
+import Family from "../img/Family";
+import Depression from "../img/Depression";
+
+
 
 const Onlinecounseling = () => {
   const sectionData = {
     title: "How Online Counseling Works",
     features: [
       {
-        imgSrc: "src/assets/works2.png",
+        imgSrc: works2,
         altText: "Expert",
         heading: "Book Your Session",
         description:
           "Schedule an appointment at your preferred time with our easy booking system.",
       },
       {
-        imgSrc: "src/assets/video call.png",
+        imgSrc: videocall,
         altText: "Personalized Approach",
         heading: "Choose Your Mode",
         description:
           "Select between video calls, phone calls, or chat-based therapy sessions.",
       },
       {
-        imgSrc: "src/assets/online counselling/Group (5).png",
+        imgSrc: secure,
         altText: "Safe & Confidential",
         heading: "Secure Sessions",
         description:
@@ -76,7 +90,7 @@ const Onlinecounseling = () => {
           className="absolute top-0 w-[400px] h-[600px] ml-10 mb-20"
         >
           <img
-            src="src/assets/blog/IMG@1x (4) 1 (1).png"
+            src={special}
             alt="Specialty Image"
             className="w-full h-full object-cover"
           />
@@ -92,11 +106,12 @@ const Onlinecounseling = () => {
               </h1>
               {/* Anxiety & Stress Management Section */}
               <div className="w-full sm:w-1/3 flex mb-8 sm:mb-0 p-3 rounded-xl pt-9 justify-center sm:justify-start">
-                <img
-                  src="src/assets/Indivisual.png"
+                {/* <img
+                  src=
                   alt="Anxiety & Stress Management"
                   className="w-[84px] h-[84px] mb-4 sm:mb-0"
-                />
+                /> */}
+                <Anxiety/>
                 <div className="pl-5 flex flex-col justify-center text-center sm:text-left">
                   <h2 className="text-xl font-semibold mb-3">
                     Anxiety & Stress Management
@@ -110,11 +125,12 @@ const Onlinecounseling = () => {
 
               {/* Depression Support Section */}
               <div className="w-full sm:w-1/3 flex mb-8 sm:mb-0 pt-10 p-3 rounded-xl justify-center sm:justify-start">
-                <img
+                {/* <img
                   src="src/assets/Vector (1).png"
                   alt="Depression Support"
                   className="w-[84px] h-[84px] object-cover mb-4 sm:mb-0"
-                />
+                /> */}
+               <Depression/>
                 <div className="pl-5 flex flex-col justify-center text-center sm:text-left">
                   <h2 className="text-xl font-semibold mb-3">
                     Depression Support
@@ -128,11 +144,12 @@ const Onlinecounseling = () => {
 
               {/* Relationship Therapy Section */}
               <div className="w-full sm:w-1/3 flex mb-8 sm:mb-0 p-3 pt-10 rounded-xl justify-center sm:justify-start">
-                <img
+                {/* <img
                   src="src/assets/online counselling/Group.png"
                   alt="Relationship Therapy"
                   className="w-[84px] h-[84px] object-cover mb-4 sm:mb-0"
-                />
+                /> */}
+                <Family />
                 <div className="pl-5 flex flex-col justify-center text-center sm:text-left">
                   <h2 className="text-xl font-semibold mb-3">
                     Relationship Therapy
@@ -155,11 +172,12 @@ const Onlinecounseling = () => {
         </h1>
         <div className="grid grid-cols-2 gap-6 pt-10 ">
           <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/Indivisual.png"
               alt="Psychoanalytic Therapy"
               className="w-24 h-24 mx-auto mb-4"
-            />
+            /> */}
+            <Anxiety className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Facing stress, anxiety, or depression
             </h2>
@@ -171,11 +189,12 @@ const Onlinecounseling = () => {
                       
           </div>
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/online counselling/Group (4).png"
               alt="Mindfulness Based Therapy"
               className="w-24 h-24 mx-auto mb-4"
-            />
+            /> */}
+            <Needing className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2  text-black">
               Needing relationship counseling
             </h2>
@@ -186,11 +205,12 @@ const Onlinecounseling = () => {
                       
           </div>
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/online counselling/Group (2).png"
               alt="Cognitive Behavioral Therapy"
               className="w-24 h-24 mx-auto mb-4"
-            />
+            /> */}
+            <Looking  className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-black">
               Looking for guidance
             </h2>
@@ -202,11 +222,12 @@ const Onlinecounseling = () => {
                       
           </div>
           <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            <img
+            {/* <img
               src="src/assets/online counselling/Group (3).png"
               alt="Humanistic Therapy"
               className="w-24 h-24 mx-auto mb-4"
-            />
+            /> */}
+            <Seeking  className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Seeking work-life balance
             </h2>

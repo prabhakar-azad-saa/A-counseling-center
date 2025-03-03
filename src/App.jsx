@@ -18,6 +18,7 @@ import Blogdetail from "./components/Blogdetail";
 import Pyment from "./components/Pyment";
 import UpiPayment from "./components/Upipayment";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UserProfile from "./components/UserProfile";
 function App() {
   console.log("App.js");
 
@@ -152,6 +153,15 @@ function App() {
               <>
                 <Navbar style={{ backgroundColor: Colors.gradient }} />
                 <UpiPayment />
+              </>
+            }
+          />
+          <Route
+            path="/userprofile"
+            element={
+              <>
+                <Navbar style={{ backgroundColor: Colors.gradient }} />
+                <UserProfile />
               </>
             }
           />

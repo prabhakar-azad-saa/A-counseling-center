@@ -136,6 +136,7 @@
 import React, { useState } from "react";
 import { login } from "../action/Auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import Login2 from "../img/Login2.png"
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -326,7 +327,7 @@ const LoginForm = () => {
       <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center bg-[#FCF8F4] px-4">
         <div className="text-center mb-6">
           <img
-            src="src/assets/login2.png"
+            src={Login2}
             alt="Login Illustration"
             className="mb-4"
           />

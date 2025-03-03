@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import frameImage from "../../src/assets/svgvieweroutput.png";
+import frameImage from "../img/svgvieweroutput.png";
 import { submitContactForm } from "../action/Auth";
+import VoicecallBlack from "../img/VoicecallBlack"
+import  MailBlack from "../img/MailBlack"
 
 // Contact Component
 const Contact = () => {
@@ -147,55 +149,54 @@ const Contact = () => {
   };
   return (
     <div className="bg-[#FCF8F4]">
-      <nav
-        className="flex w-full p-5 sm:p-10 lg:p-14 bg-cover"
-        style={{ backgroundImage: `url(${frameImage})` }}
-      >
-        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-          <div>
-            <div className="border-l-4 h-64 p-5"></div>
-          </div>
-          <div>
-            <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
-              Contact Us
-            </h1>
-            <p className="text-white text-lg sm:text-xl p-4 font-poppins">
-              We're here to support you on your journey to better mental health.
-              Our experienced counselors are ready to help you navigate life's
-              challenges.
-            </p>
-          </div>
-        </div>
-      </nav>
+     <nav
+  className="flex w-full p-5 sm:p-10 lg:p-14 bg-cover"
+  style={{ backgroundImage: `url(${frameImage})` }}
+>
+  <div className="flex flex-col lg:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+    {/* Left Section (Border) */}
+    <div className="hidden lg:block w-full lg:w-auto">
+      <div className="border-l-4 h-64 p-5"></div>
+    </div>
+
+    {/* Right Section (Text) */}
+    <div className="flex flex-col justify-center w-full text-center lg:text-left">
+      <h1 className="text-white text-4xl sm:text-5xl lg:text-[68px] font-extrabold p-4">
+        Contact Us
+      </h1>
+      <p className="text-white text-base sm:text-lg lg:text-xl p-4 font-poppins">
+        We're here to support you on your journey to better mental health.
+        Our experienced counselors are ready to help you navigate life's
+        challenges.
+      </p>
+    </div>
+  </div>
+</nav>
+
 
       <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4] ">
-        <div className="flex flex-col gap-12 p-8 w-full lg:w-1/2">
-          <h1 className="text-[54px]   font-bold mb-4 font-monrope w-[616px] h-[222px]">
-            Contact Us Today For Personalized Support and Assistance
-          </h1>
-          <p className="text-lg font-normal mb-8 font-poppins">
-            We're here to support you on your journey to better mental health.
-            Our experienced counselors are ready to help you navigate life's
-            challenges.
-          </p>
+      <div className="flex flex-col p-5 w-full lg:w-1/2">
+  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold mb-4 font-monrope text-center sm:text-left">
+    Contact Us Today For Personalized Support and Assistance
+  </h1>
+  <p className="text-lg sm:text-xl font-normal mb-8 font-poppins text-center sm:text-left">
+    We're here to support you on your journey to better mental health.
+    Our experienced counselors are ready to help you navigate life's
+    challenges.
+  </p>
 
-          <div>
-            <div className="flex items-center gap-4 mb-4">
-              <img
-                src="src/assets/contact/Call.png"
-                alt="Video Call"
-                className="w-8 h-8"
-              />
-              <p className="text-base">+91 9685714245</p>
-            </div>
-            <div className="flex items-center gap-4 mb-4">
-              <img
-                src="src/assets/contact/Message.png"
-                alt="Email"
-                className="w-8 h-8"
-              />
-              <p className="text-base">altaf@apluscounselling.com</p>
-            </div>
+  <div>
+    <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
+      <VoicecallBlack className="w-8 h-8" />
+      <p className="text-base">+91 9685714245</p>
+    </div>
+    <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
+      <MailBlack className="w-8 h-8" />
+      <p className="text-base">altaf@apluscounselling.com</p>
+    </div>
+  
+
+
             {/* <div className="flex items-center gap-4 mb-4">
               <img
                 src="src/assets/contact/Location.png"

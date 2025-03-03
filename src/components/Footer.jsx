@@ -1,7 +1,9 @@
 import React from "react";
-import Calls from "../assets/Calls";
+import Calls from "../img/Calls";
 import Locationsvg from "../assets/Locationsvg";
-import Massages from "../assets/Massages";
+import Massages from "../img/Massages";
+import footerSocial from "../img/footerSocial.png"
+import Mainlogo from "../img/Mainlogo";
 
 const Footer = () => {
   return (
@@ -12,11 +14,12 @@ const Footer = () => {
             {/* Footer Section 1 */}
             <div className="footer-section flex flex-col items-center text-white px-8">
               <div className="footer-image flex items-center">
-                <img
+                <Mainlogo  className="w-14 mr-2"/>
+                {/* <img
                   src="/src/assets/g10.png"
                   alt="A+ Counseling Center Logo"
                   className="w-14 mr-2"
-                />
+                /> */}
                 <div className="w-full">
                   <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
                     A+ Counseling Center
@@ -56,19 +59,16 @@ const Footer = () => {
                   Contact
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                  <img
+                  <Calls className="mr-2 w-6 h-6"/>
+                  {/* <img
                     src="src/assets/New folder/Call.png"
                     alt="Call Icon"
                     className="mr-2 w-6 h-6"
-                  />
+                  /> */}
                   <p className="pb-2">+91 9685714245</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                  <img
-                    src="src/assets/New folder/Message.png"
-                    alt="Message Icon"
-                    className="mr-2 w-6 h-6"
-                  />
+                 <Massages className="mr-2 w-6 h-6"/>
                   <p className="pb-2">altaf@apluscounselling.com</p>
                 </li>
                 {/* <li className="flex text-sm sm:text-base md:text-lg items-center">
@@ -130,7 +130,7 @@ const Footer = () => {
           {/* Social Media Icons */}
           <div className="flex justify-center space-x-6 mb-4">
             <img
-              src="src/assets/New folder/Frame 149.png"
+              src={footerSocial}
               alt="Social Media Icon"
             />
           </div>

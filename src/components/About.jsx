@@ -1,7 +1,19 @@
 import React from "react";
+
 import Features from "./Features";
 import Button from "./Button";
-import frameImage from "../../src/assets/svgvieweroutput.png";
+
+import frameImage from "../img/svgvieweroutput.png";
+import Holistic from "../img/Holistic.png"
+import Experties from "../img/Experties.png"
+import Accessibility from "../img/Accessibility.png"
+import Discover from "../img/Discover.png"
+import aboutSelf from "../img/aboutSelf.png"
+import aboutSucces from "../img/aboutSucces.png"
+import arrowAbout from "../img/arrowAbout.png"
+
+
+
 
 const About = () => {
   const sectionData = {
@@ -10,21 +22,21 @@ const About = () => {
     description: "",
     features: [
       {
-        imgSrc: "/src/assets/007-psychologist.png",
+        imgSrc: Holistic,
         altText: "Expert",
         heading: "Holistic Approach",
         description:
           "We integrate multiple therapeutic methods to address your unique mental health needs",
       },
       {
-        imgSrc: "/src/assets/Experties.png",
+        imgSrc: Experties,
         altText: "Personalized Approach",
         heading: "Expertise Team",
         description:
           "Our certified professionals bring years of experience in various mental health specialties",
       },
       {
-        imgSrc: "/src/assets/Accessibility.png",
+        imgSrc: Accessibility,
         altText: "Safe & Confidential",
         heading: "Accessibility",
         description:
@@ -34,8 +46,8 @@ const About = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div >
+      <div >
         <nav
           className="flex w-full p-8 sm:p-16 md:p-24 lg:p-28 bg-cover"
           style={{ backgroundImage: `url(${frameImage})` }}
@@ -56,16 +68,16 @@ const About = () => {
         {/* About Us Section */}
         <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 lg:px-32">
           <img
-            src="/src/assets/Frame 80.png"
+          src={Discover}
             alt="About Us"
             className="w-full sm:w-1/2 object-cover rounded-lg mb-6 sm:mb-0"
           />
-          <div className="flex-1 sm:max-w-1/2 text-left  w-[689px] h-[513px]">
+          <div className="flex-1 sm:max-w-1/2 text-left ">
             <h3 className="text-2xl sm:text-3xl text-black font-bold mb-4">About Us</h3>
-            <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope  w-[689px] h-[222px]">
+            <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope ">
               Discover the Faces Behind Our Mental Health Consultancy
             </h1>
-            <p className="text-lg sm:text-xl text-black mb-14 font-poppins  w-[689px] h-[81px]">
+            <p className="text-lg sm:text-xl text-black mb-14 font-poppins ">
               Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
             </p>
             <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full">
@@ -85,7 +97,7 @@ const About = () => {
         {/* Image Section */}
         <div className="w-full h-auto flex justify-center items-center ">
           <img
-            src="src/assets/aboutimg.png"
+            src={aboutSelf}
             alt="Additional Image"
             className="w-full sm:w-full md:w-full lg:w-full h-auto"
           />
@@ -95,25 +107,25 @@ const About = () => {
 <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between items-center p-10 bg-[#FCF8F4] rounded-lg">
   <div className="flex-1 sm:max-w-full lg:max-w-1/2 p-5 flex flex-col justify-center">
   <h3 className="text-[22px] pb-8 font-[700px]">Succes Story</h3>
-    <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black leading-tight  w-[687px] h-[222px]">
+    <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black leading-tight  ">
       Breaking the Stigma - The Success Story of a Mental Health Consultant
     </h1>
 
     <ul className="text-lg sm:text-lg text-black mb-8 list-disc pl-6 font-poppins">
-      <li className="flex items-start mb-2 pb-10 w-[568px] h-[54px]">
-        <img src="src/assets/Arrow - Left 2.png" className="mr-2 " alt="Arrow" />
+      <li className="flex items-start mb-2 pb-10 ">
+        <img src={arrowAbout} className="mr-2 " alt="Arrow" />
         Transformed anxiety into personal growth through cognitive behavioral therapy.
       </li>
-      <li className="flex items-start mb-2 py-10 w-[568px] h-[54px]">
-        <img src="src/assets/Arrow - Left 2.png" className="mr-2" alt="Arrow" />
+      <li className="flex items-start mb-2 py-10 ">
+        <img src={arrowAbout}  className="mr-2" alt="Arrow" />
         Developed effective stress management techniques for work-life balance.
       </li>
-      <li className="flex items-start mb-2 py-10 w-[568px] h-[54px]">
-        <img src="src/assets/Arrow - Left 2.png" className="mr-2" alt="Arrow" />
+      <li className="flex items-start mb-2 py-10 w-">
+        <img src={arrowAbout}  className="mr-2" alt="Arrow" />
         Built lasting relationships with clients through trust and understanding.
       </li>
-      <li className="flex items-start mb-2 py-12 w-[568px] h-[54px]">
-        <img src="src/assets/Arrow - Left 2.png" className="mr-2" alt="Arrow" />
+      <li className="flex items-start mb-2 py-12 ">
+        <img src={arrowAbout}  className="mr-2" alt="Arrow" />
         Achieved significant improvements in client mental wellness scores.
       </li>
     </ul>
@@ -121,7 +133,7 @@ const About = () => {
 
   <div className="flex-1 sm:max-w-full lg:max-w-full p-5">
     <img
-      src="/src/assets/about image.png"
+      src={aboutSucces}
       alt="Success Story"
       className="w-full sm:w-full  lg:w-full h-auto rounded-lg"
     />

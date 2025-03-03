@@ -1,32 +1,45 @@
 import React from "react";
-import frameImage from "../../src/assets/svgvieweroutput.png";
+import frameImage from "../img/svgvieweroutput.png";
+import individual1 from "../img/individual1.png"
+import individual2 from "../img/individual2.png"
+import individual3 from "../img/individual3.png"
+import Psychoanalytic from "../img/Psychoanalytic";
+import Mind from "../img/Mind";
+import Cognitive from "../img/Cognitive";
+import Human from "../img/Human";
+import Professionall from "../img/Professionall";
+import Reduce from "../img/Reduce";
 
 const Individualsection = () => {
   return (
     <div>
       {/* Navigation Section */}
       <nav
-        className="flex w-full  justify-center p-20 sm:p-10 lg:p-40"
-        style={{ backgroundImage: `url(${frameImage})` }}
-      >
-        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-          <div>
-            <div className="border-l-4 h-64 p-5"></div>
-          </div>
-          <div>
-            <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
-              Services Detail
-            </h1>
-            <p className="text-white text-lg sm:text-xl  p-4 font-poppins">
-              At A+ Counseling Center, we offer a wide range of counseling
-              services tailored to meet the diverse needs of individuals,
-              couples, and families. Our approach integrates evidence-based
-              techniques with compassionate care to help you navigate life's
-              challenges.
-            </p>
-          </div>
-        </div>
-      </nav>
+  className="flex w-full justify-center p-8 sm:p-10 lg:p-20 bg-cover"
+  style={{ backgroundImage: `url(${frameImage})` }}
+>
+  <div className="flex flex-col lg:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+    {/* Left Section (Border) */}
+    <div className="hidden lg:block w-full lg:w-auto">
+      <div className="border-l-4 h-64 p-5"></div>
+    </div>
+
+    {/* Right Section (Text) */}
+    <div className="flex flex-col justify-center w-full text-center lg:text-left">
+      <h1 className="text-white text-4xl sm:text-5xl lg:text-[68px] font-extrabold p-4">
+        Services Detail
+      </h1>
+      <p className="text-white text-base sm:text-lg lg:text-xl p-4 font-poppins">
+        At A+ Counseling Center, we offer a wide range of counseling
+        services tailored to meet the diverse needs of individuals,
+        couples, and families. Our approach integrates evidence-based
+        techniques with compassionate care to help you navigate life's
+        challenges.
+      </p>
+    </div>
+  </div>
+</nav>
+
 
       <div className="p-5 bg-[#FCF8F4]">
         {/* Individual Therapy Section */}
@@ -34,7 +47,7 @@ const Individualsection = () => {
           <div className="w-full">
             <img
               // src="src/assets/Mask group.png"
-              src="src/assets/DIV@1x 1.png"
+              src={individual1}
               alt="Individual Therapy"
               className="w-full rounded-lg"
               style={{ width: "100%", height: "100%", objectFit: "none" }}
@@ -148,11 +161,12 @@ const Individualsection = () => {
             </div> */}
 
             <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              <img
+              {/* <img
                 src="src/assets/online counselling/007-psychologist.png"
                 alt="Psychoanalytic Therapy"
                 className="w-24 h-24 mx-auto mb-4"
-              />
+              /> */}
+              <Psychoanalytic   className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
                 Psychoanalytic Therapy
               </h2>
@@ -178,11 +192,12 @@ const Individualsection = () => {
             </div> */}
 
             <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              <img
+              {/* <img
                 src="src/assets/online counselling/Group (6).png"
                 alt="Mindfulness Based Therapy"
                 className="w-24 h-24 mx-auto mb-4"
-              />
+              /> */}
+              <Mind  className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
                 Mindfulness Based Therapy
               </h2>
@@ -207,11 +222,12 @@ const Individualsection = () => {
               </p>
             </div> */}
             <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              <img
+              {/* <img
                 src="src/assets/online counselling/022-inner dialogue.png"
                 alt="Cognitive Behavioral Therapy"
                 className="w-24 h-24 mx-auto mb-4"
-              />
+              /> */}
+              <Cognitive  className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
                 Cognitive Behavioral Therapy
               </h2>
@@ -236,11 +252,12 @@ const Individualsection = () => {
               </p>
             </div> */}
             <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              <img
+              {/* <img
                 src="src/assets/online counselling/Group (7).png"
                 alt="Humanistic Therapy"
                 className="w-24 h-24 mx-auto mb-4"
-              />
+              /> */}
+              <Human className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
                 Humanistic Therapy
               </h2>
@@ -260,7 +277,7 @@ const Individualsection = () => {
             style={{ top: -90 }}
             className="absolute top-0 w-[400px] h-[500px] ml-10 mb-20"
           >
-            <img src="src/assets/IMG@1x (7) 1.png" />
+            <img src={individual2} />
           </div>
           <div className="flex justify-end w-full ml-48">
             <div className="text-white flex flex-col items-center sm:items-start sm:w-3/4 p-6">
@@ -272,11 +289,12 @@ const Individualsection = () => {
               <div className="w-full sm:w-3/4 mb-8">
                 {/* Professional Growth Section */}
                 <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
-                  <img
+                  {/* <img
                     src="src/assets/Vector.png"
                     alt="Professional Growth"
                     className="w-[84px] h-[84px]"
-                  />
+                  /> */}
+                  <Professionall />
                   <div className="pl-5 flex flex-col justify-center">
                     <h2 className="text-xl font-semibold mb-3">
                       Professional Growth
@@ -289,12 +307,13 @@ const Individualsection = () => {
                 </div>
 
                 {/* Reduced Burnout Section */}
-                <div className="w-full flex p-3 rounded-xl">
-                  <img
+                <div className="w-full flex p-3 mb-8 rounded-xl">
+                  {/* <img
                     src="src/assets/Vector (1).png"
                     alt="Reduced Burnout"
                     className="w-[84px] h-[84px] object-cover"
-                  />
+                  /> */}
+                  <Reduce/>
                   <div className="pl-5 flex flex-col justify-center">
                     <h2 className="text-xl font-semibold mb-3">
                       Reduced Burnout
@@ -313,7 +332,7 @@ const Individualsection = () => {
         {/* Breaking the Stigma Section */}
         <div className="text-center p-10 mb-10 flex flex-col items-center mt-48">
           <img
-            src="src/assets/IMG@1x (6) 1.png"
+            src={individual3}
             alt="Breaking the Stigma"
             className="w-full rounded-lg "
             style={{ maxWidth: "1200px" }}

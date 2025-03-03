@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import frameImage from "../../src/assets/svgvieweroutput.png";
+import frameImage from "../img/svgvieweroutput.png";
 import { use } from "react";
 import { selecetSlot, sessionBook } from "../action/Auth";
 import { useEffect } from "react";
@@ -183,25 +183,29 @@ function Booksession() {
 
   return (
     <div>
-      <nav
-        className="flex w-full p-10 sm:p-8 md:p-10 lg:p-16"
-        style={{ backgroundImage: `url(${frameImage})` }}
-      >
-        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-          <div>
-            <div className="border-l-4 h-64 p-5"></div>
-          </div>
-          <div>
-            <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
-              Book Session
-            </h1>
-            <p className="text-[#FFFFFF] text-lg sm:text-xl  p-4 font-poppins">
-              Your trusted partner in mental wellness. Book your path to better
-              emotional health and personal growth.
-            </p>
-          </div>
-        </div>
-      </nav>
+     <nav
+  className="flex w-full p-8 sm:p-10 md:p-12 lg:p-16 bg-cover"
+  style={{ backgroundImage: `url(${frameImage})` }}
+>
+  <div className="flex flex-col sm:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+    {/* Left Section (Border) */}
+    <div className="hidden sm:block lg:w-auto w-full">
+      <div className="border-l-4 h-64 sm:h-80 lg:h-96 p-5"></div>
+    </div>
+
+    {/* Right Section (Text) */}
+    <div className="flex flex-col justify-center text-center sm:text-left w-full">
+      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold p-4">
+        Book Session
+      </h1>
+      <p className="text-white text-lg sm:text-xl p-4 font-poppins">
+        Your trusted partner in mental wellness. Book your path to better
+        emotional health and personal growth.
+      </p>
+    </div>
+  </div>
+</nav>
+
 
       <div className="bg-[#FCF8F4] pt-6">
         <div className="flex flex-col md:flex-col lg:flex-row justify-center md:space-x-12 px-6 sm:px-12 lg:px-32 mt-20">

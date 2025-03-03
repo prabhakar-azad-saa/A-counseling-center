@@ -194,6 +194,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../action/Auth";
+import login2 from "../img/login2.png"
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -357,7 +358,7 @@ const SignupForm = () => {
       <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center bg-[#FCF8F4] px-4">
         <div className="text-center mb-6">
           <img
-            src="src/assets/login2.png"
+            src={login2}
             alt="Login Illustration"
             className="mb-4"
           />

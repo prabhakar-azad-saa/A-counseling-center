@@ -1,5 +1,8 @@
 import React from 'react';
 
+import blogDetail4 from "../img/blogDetail4.png"
+import blogDetail3 from "../img/blogDetail3.png"
+
 const Blogsection = () => {
   return (
     <div className="p-8 bg-[#FCF8F4]">
@@ -11,7 +14,7 @@ const Blogsection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
         <div className="bg-white rounded-lg border p-6 w-full">
           <img
-            src="src/assets/blog/IMG@1x (12) 1.png"
+            src={ blogDetail4}
             alt="Blog Post 1"
             className="w-full h-auto mb-4 rounded-lg"
           />
@@ -28,7 +31,7 @@ const Blogsection = () => {
 
         <div className="bg-white rounded-lg border p-6 w-full">
           <img
-            src="src/assets/blog/IMG@1x (13) 1.png"
+            src={ blogDetail3}
             alt="Blog Post 2"
             className="w-full h-auto mb-4 rounded-lg"
           />
@@ -45,7 +48,7 @@ const Blogsection = () => {
 
         <div className="bg-white rounded-lg border p-6 w-full">
           <img
-            src="src/assets/blog/IMG@1x (12) 1.png"
+            src={ blogDetail4}
             alt="Blog Post 3"
             className="w-full h-auto mb-4 rounded-lg"
           />
