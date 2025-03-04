@@ -56,32 +56,35 @@ const Onlinecounseling = () => {
     <div>
       {/* Navigation Section */}
       <nav
-        className="relative w-full p-8 sm:p-16 lg:p-28 bg-cover"
-        style={{ backgroundImage: `url(${frameImage2})` }}
-      >
-        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-          <div>
-            <div className="border-l-4 h-64 p-5"></div>
-          </div>
-          <div>
-            <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
-              Online Counseling – Support Anytime, Anywhere
-            </h1>
-            <p className="text-white text-lg sm:text-xl  p-4  font-poppins">
-              Professional therapy at your convenience. Connect with licensed
-              therapists from the comfort of your home.
-            </p>
-          </div>
-        </div>
-      </nav>
+  className="relative w-full p-8 sm:p-16 lg:p-28 bg-cover"
+  style={{ backgroundImage: `url(${frameImage2})` }}
+>
+  <div className="flex flex-col sm:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+    {/* Left Border */}
+    <div className="hidden lg:block">
+      <div className="border-l-4 h-64 p-5"></div>
+    </div>
+    {/* Text Content */}
+    <div className="sm:w-10/12 text-center sm:text-left">
+      <h1 className="text-white text-4xl sm:text-5xl lg:text-[68px] font-extrabold p-4">
+        Online Counseling – Support Anytime, Anywhere
+      </h1>
+      <p className="text-white text-base sm:text-lg lg:text-xl p-4 font-poppins">
+        Professional therapy at your convenience. Connect with licensed
+        therapists from the comfort of your home.
+      </p>
+    </div>
+  </div>
+</nav>
 
       {/* Features Section */}
       <Features heading={sectionData.title} features={sectionData.features} />
 
-      {/* Specialties Section */}
-      {/* Specialties Section */}
-      <div
-        className="relative w-full bg-cover"
+     
+    
+     <div >
+     <div
+        className="relative w-full bg-cover flex flex-col sm-flex-row "
         style={{ backgroundImage: `url(${frameImage})` }}
       >
         {/* Image Section */}
@@ -164,13 +167,14 @@ const Onlinecounseling = () => {
           </div>
         </div>
       </div>
+     </div>
 
       {/* Services Section */}
-      <div className="px-28 py-24">
-        <h1 className="text-[54px] font-bold text-center text-black">
+      <div className="mb-10 text-center py-12 sm:py-16 px-4 sm:px-32">
+        <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
           Who Can Benefit from Online Therapy?
         </h1>
-        <div className="grid grid-cols-2 gap-6 pt-10 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center mt-8 p-10">
           <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
             {/* <img
               src="src/assets/Indivisual.png"

@@ -17,22 +17,28 @@ const Blogs = () => {
 
   return (
     <div className='bg-[#FCF8F4]'>
-      <nav 
-        className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
-        style={{ backgroundImage: `url(${frameImage})` }}
-      >
-        <div className="flex max-w-screen-xl mx-auto justify-between ">
-          <div className="border-l-4 h-64 p-5"></div>
-          <div>
-            <h1 className="text-white text-[68px] sm:text-[68px] font-semibold p-4">
-              Blogs
-            </h1>
-            <p className="text-white text-lg font-semibold p-4 font-poppins">
-              Explore transformative insights and expert guidance on your journey to mental wellness.
-            </p>
-          </div>
-        </div>
-      </nav>
+       <nav className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover" style={{ backgroundImage: `url(${frameImage})` }}>
+  <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 mx-auto">
+    <div className="flex flex-col sm:flex-row items-center w-full">
+      {/* Left side: Vertical Border */}
+      <div className="hidden lg:block">
+      <div className="border-l-4 h-64 p-5"></div>
+    </div>
+
+      {/* Right side: Text */}
+      <div className="text-center sm:text-left sm:flex-grow">
+        <h1 className="text-white text-[40px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
+          Blog
+        </h1>
+        <p className="text-white text-base sm:text-lg md:text-xl p-4 font-poppins">
+          Explore transformative insights and expert guidance on your journey to mental wellness.
+        </p>
+      </div>
+    </div>
+  </div>
+</nav>
+
+     
 
       <div className="flex flex-col mt-20 sm:flex-row justify-evenly sm:gap-12 p-8 ">
         <div className="flex flex-col sm:w-1/2 rounded-lg shadow-lg p-6 mb-8 bg-white"  onClick={() => handleClick('blogdetail')}>

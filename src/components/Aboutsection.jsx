@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "./Button";
 import Discover from '../img/Discover.png'
-import UserProfile from "./UserProfile";
+// import UserProfile from "./UserProfile";
 
 const AboutSection = () => {
     const navigate = useNavigate();
   
-    const handleClick = () => {
-      navigate("/userprofile");
-    };
+    // const handleClick = () => {
+    //   navigate("/userprofile");
+    // };
   
   
   return (
@@ -36,7 +36,7 @@ const AboutSection = () => {
             <p className="text-lg sm:text-xl text-black mb-14 font-poppins  ">
               Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
             </p>
-            <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full" onClick={handleClick}>
+            <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full" >
               See Detail
             </Button>
           </div>

@@ -54,7 +54,9 @@ const About = () => {
         >
           <div className="flex  max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 ">
           <div>
-          <div className="border-l-4 h-64 p-5"></div>
+          <div className="hidden lg:block">
+      <div className="border-l-4 h-64 p-5"></div>
+    </div>
           </div>
            <div> <h1 className="text-white  text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
               About Us
@@ -107,24 +109,24 @@ const About = () => {
 <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between items-center p-10 bg-[#FCF8F4] rounded-lg">
   <div className="flex-1 sm:max-w-full lg:max-w-1/2 p-5 flex flex-col justify-center">
   <h3 className="text-[22px] pb-8 font-[700px]">Succes Story</h3>
-    <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black leading-tight  ">
+    <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black pb-10   ">
       Breaking the Stigma - The Success Story of a Mental Health Consultant
     </h1>
 
-    <ul className="text-lg sm:text-lg text-black mb-8 list-disc pl-6 font-poppins">
-      <li className="flex items-start mb-2 pb-10 ">
+    <ul className="text-lg sm:text-lg text-black  font-poppins">
+      <li className="flex items-start  ">
         <img src={arrowAbout} className="mr-2 " alt="Arrow" />
         Transformed anxiety into personal growth through cognitive behavioral therapy.
       </li>
-      <li className="flex items-start mb-2 py-10 ">
+      <li className="flex items-start  ">
         <img src={arrowAbout}  className="mr-2" alt="Arrow" />
         Developed effective stress management techniques for work-life balance.
       </li>
-      <li className="flex items-start mb-2 py-10 w-">
+      <li className="flex items-start ">
         <img src={arrowAbout}  className="mr-2" alt="Arrow" />
         Built lasting relationships with clients through trust and understanding.
       </li>
-      <li className="flex items-start mb-2 py-12 ">
+      <li className="flex items-start  ">
         <img src={arrowAbout}  className="mr-2" alt="Arrow" />
         Achieved significant improvements in client mental wellness scores.
       </li>

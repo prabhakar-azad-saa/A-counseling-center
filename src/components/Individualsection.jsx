@@ -237,26 +237,9 @@ const Individualsection = () => {
               </p>
             </div>
 
-            {/* <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center text-white">
-              <img
-                src="src/assets/online counselling/Group (7).png"
-                alt="Humanistic Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Humanistic Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Discover your inner potential through person-centered approaches
-                that emphasize self-growth and awareness.
-              </p>
-            </div> */}
+           
             <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              {/* <img
-                src="src/assets/online counselling/Group (7).png"
-                alt="Humanistic Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              /> */}
+             
               <Human className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
                 Humanistic Therapy
@@ -270,7 +253,7 @@ const Individualsection = () => {
         </div>
         {/* Mentor Section */}
         <div
-          className="w-full flex relative"
+          className="w-full flex flex-col relative bg-cover"
           style={{ backgroundImage: `url(${frameImage})` }}
         >
           <div
@@ -289,11 +272,7 @@ const Individualsection = () => {
               <div className="w-full sm:w-3/4 mb-8">
                 {/* Professional Growth Section */}
                 <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
-                  {/* <img
-                    src="src/assets/Vector.png"
-                    alt="Professional Growth"
-                    className="w-[84px] h-[84px]"
-                  /> */}
+                 
                   <Professionall />
                   <div className="pl-5 flex flex-col justify-center">
                     <h2 className="text-xl font-semibold mb-3">
@@ -308,11 +287,7 @@ const Individualsection = () => {
 
                 {/* Reduced Burnout Section */}
                 <div className="w-full flex p-3 mb-8 rounded-xl">
-                  {/* <img
-                    src="src/assets/Vector (1).png"
-                    alt="Reduced Burnout"
-                    className="w-[84px] h-[84px] object-cover"
-                  /> */}
+                
                   <Reduce/>
                   <div className="pl-5 flex flex-col justify-center">
                     <h2 className="text-xl font-semibold mb-3">

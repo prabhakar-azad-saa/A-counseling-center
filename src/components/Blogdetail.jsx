@@ -5,7 +5,9 @@ import Ready from './Ready';
 import blogDetail1 from "../img/blogDetail1.png"
 import blogDetail2 from "../img/blogDetail2.png"
 import blogDetail3 from "../img/blogDetail3.png"
-import blogDetail4 from "../img/blogDetail4.png"
+import blog111 from "../img/blog111.png"
+import blog222 from "../img/blog222.png"
+import blog333 from "../img/blog333.png"
 import blogDetail5 from "../img/blogDetail5.png"
 import blogDetail6 from "../img/blogDetail6.png"
 
@@ -19,7 +21,9 @@ const Blogdetail = () => {
         <nav className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover" style={{ backgroundImage: `url(${frameImage})` }}>
           <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
             <div>
-              <div className="border-l-4 h-64 p-5"></div>
+            <div className="hidden lg:block">
+      <div className="border-l-4 h-64 p-5"></div>
+    </div>
             </div>
             <div>
               <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
@@ -122,7 +126,7 @@ const Blogdetail = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10  justify-center">
           <div className="bg-white rounded-lg border shadow p-6 w-full">
             <img
-               src={blogDetail4}
+               src={blog111}
               alt="Blog Post 1"
               className="w-full h-auto mb-4 rounded-lg"
             />
@@ -137,13 +141,13 @@ const Blogdetail = () => {
 
           <div className="bg-white rounded-lg border  shadow p-6 w-full">
             <img
-              src={blogDetail3}
+              src={blog222}
               alt="Blog Post 2"
               className="w-full h-auto mb-4 rounded-lg"
             />
-            <h2 className="text-2xl font-bold  text-black  mb-4">Understanding Anxiety: A Comprehensive Guide</h2>
+            <h2 className="text-2xl font-bold  text-black  mb-4">5 Daily Habits for Better Mental Health</h2>
             <p className="text-gray-600 mb-6">
-              Learn about the different types of anxiety and effective coping strategies...
+            Discover simple yet effective daily practices that can improve your mental wellbeing...
             </p>
             <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
               Read More
@@ -152,13 +156,13 @@ const Blogdetail = () => {
 
           <div className="bg-white rounded-lg border  shadow p-6 w-full">
             <img
-              src={blogDetail4}
+              src={blog333}
               alt="Blog Post 3"
               className="w-full h-auto mb-4 rounded-lg"
             />
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Understanding Anxiety: A Comprehensive Guide</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">The Power of Mindfulness Meditation</h2>
             <p className=" text-black  mb-6">
-              Learn about the different types of anxiety and effective coping strategies...
+            Explore how mindfulness meditation can transform your mental state...
             </p>
             <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
               Read More

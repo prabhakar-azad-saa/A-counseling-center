@@ -16,20 +16,7 @@ const Navbar = ({ style, from }) => {
     setIsOpen(!isOpen);
   };
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("authToken");
-  //   if (token) {
-  //     setIsLoggedIn(true);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   const storedUser = localStorage.getItem("userData");
-  //   if (storedUser) {
-  //     setUserData(JSON.parse(storedUser));
-  //   }
-  // }, []);
-
+  
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     if (storedUser) {
@@ -75,7 +62,7 @@ const Navbar = ({ style, from }) => {
           <Logomain />
 
           <div
-            className="text-2xl font-bold text-gray-900"
+            className="text-2xl font-bold text-black"
             style={{
               color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
             }}
@@ -84,7 +71,7 @@ const Navbar = ({ style, from }) => {
           </div>
         </div>
 
-        {/* Desktop Menu */}
+     
         <div
           className="hidden  lg:flex text-lg space-x-8 font-poppins"
           style={{
@@ -111,25 +98,7 @@ const Navbar = ({ style, from }) => {
           </Link>
         </div>
 
-        {/* "Login" or "Logout" Button */}
-        {/* <div className="hidden lg:block">
-          {isLoggedIn ? (
-            <Button
-              onClick={handleLogoutClick}
-              className="bg-[#EC744A] text-white text-lg rounded-full px-8 py-3 w-auto h-12"
-            >
-              Logout
-            </Button>
-          ) : (
-            <Button
-              onClick={handleLoginClick}
-              className="bg-[#EC744A] text-white text-lg rounded-full px-8 py-3 w-auto h-12"
-            >
-              Login
-            </Button>
-          )}
-        </div> */}
-
+       
         <div className="hidden lg:block">
           {userData ? (
             <Link className="font-bold mr-3" to="#">
@@ -221,24 +190,7 @@ const Navbar = ({ style, from }) => {
               </Link>
             </div>
 
-            {/* Right-side login/logout */}
-            {/* <div className="flex flex-col gap-4 mt-4">
-              {isLoggedIn ? (
-                <button
-                  // onClick={handleLogoutClick}
-                  className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
-                >
-                  Logout
-                </button>
-              ) : (
-                <button
-                  onClick={handleLoginClick}
-                  className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
-                >
-                  Login
-                </button>
-              )}
-            </div> */}
+          
 
             <div className="flex flex-col gap-4 mt-4">
               {userData ? (
