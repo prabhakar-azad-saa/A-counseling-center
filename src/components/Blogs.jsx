@@ -15,10 +15,26 @@ const Blogs = () => {
     navigate('/' + page);
   };
 
+  const item = [
+    {
+      id: 1,
+      imageUrl: "https://via.placeholder.com/150",
+      title: "Product 1",
+      description: "This is a great product with awesome features.",
+    },
+    {
+      id: 2,
+      imageUrl: "https://via.placeholder.com/150",
+      title: "Product 2",
+      description: "An even better product with additional features.",
+    },
+  ];
+
+
   return (
     <div className='bg-[#FCF8F4]'>
        <nav className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover" style={{ backgroundImage: `url(${frameImage})` }}>
-  <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 mx-auto">
+  <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
     <div className="flex flex-col sm:flex-row items-center w-full">
       {/* Left side: Vertical Border */}
       <div className="hidden lg:block">
@@ -52,15 +68,15 @@ const Blogs = () => {
         <div className="sm:w-1/2 rounded-lg shadow-lg p-6  mb-8 bg-white">
           <h1 className="text-3xl font-semibold mb-4">Popular Posts</h1>
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4" onClick={() => handleClick('blogdetail')}>
               <img src={blogImg2} alt="10 Minutes to Better Mental Health" className="w-20 h-20 object-cover" />
               <p className="text-base font-poppins">10 Minutes to Better Mental Health</p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4" onClick={() => handleClick('blogdetail')}>
               <img src={blogDetail6} alt="Work-Life Balance Tips" className="w-20 h-20 object-cover" />
               <p className="text-base font-poppins">Work-Life Balance Tips</p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4" onClick={() => handleClick('blogdetail')}>
               <img src={blogImg1} alt="10 Minutes to Better Mental Health" className="w-20 h-20 object-cover" />
               <p className="text-base font-poppins">10 Minutes to Better Mental Health</p>
             </div>
@@ -71,7 +87,7 @@ const Blogs = () => {
       <div className="p-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Blog 1 */}
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8" onClick={() => handleClick('blogdetail')}>
             <img
               src={blogDetail4}
               alt="Understanding Different Types of Therapy: Finding What Works for You"
@@ -86,7 +102,7 @@ const Blogs = () => {
           </div>
 
           {/* Blog 2 */}
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8" onClick={() => handleClick('blogdetail')}>
             <img
                src={blogDetail3}
               alt="Natural Anxiety Relief: Simple Techniques for Daily Calm"
@@ -101,7 +117,7 @@ const Blogs = () => {
           </div>
 
           {/* Blog 3 */}
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8" onClick={() => handleClick('blogdetail')}>
             <img
               src={ blogDetail4}
               alt="Understanding Different Types of Therapy: Finding What Works for You"
@@ -116,6 +132,22 @@ const Blogs = () => {
           </div>
         </div>
       </div>
+      {/* <div className="max-w-3xl mx-auto p-6">
+      <img src={post.imageUrl} alt={post.title} className="w-full h-auto rounded-lg shadow-md" />
+      <h1 className="text-3xl font-semibold mt-6 text-gray-900">{post.title}</h1>
+      <p className="text-lg mt-4 text-gray-700 leading-relaxed">{post.content}</p>
+    </div> */}
+
+<div className="flex items-center p-4 border-b border-gray-300 space-x-4">
+      {/* Image */}
+      <img src={item.imageUrl} alt={item.title} className="w-24 h-24 object-cover rounded-md" />
+
+      {/* Content */}
+      <div className="flex-1">
+        <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+        <p className="text-sm text-gray-600 mt-2">{item.description}</p>
+      </div>
+    </div>
     </div>
   );
 };

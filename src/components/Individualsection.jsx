@@ -75,97 +75,16 @@ const Individualsection = () => {
           </div>
         </div>
 
-        {/* Individual Therapy Method Section */}
-        {/* <div className="mb-10 text-center py-12 sm:py-16">
-          <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
-            Individual Therapy Method
-          </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center mt-8 p-10">
-            <div className="bg-gradient-to-r from-[#007D6E] to-[#2F4B4E] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              <img
-                src="src/assets/online counselling/007-psychologist.png"
-                alt="Psychoanalytic Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Psychoanalytic Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Explore deep-seated patterns and unconscious influences to gain
-                profound self-understanding and emotional healing.
-              </p>
-            </div>
-            <div className="bg-white p-5 rounded-xl text-center">
-              <img
-                src="src/assets/online counselling/Group (6).png"
-                alt="Mindfulness Based Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Mindfulness Based Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Learn practical techniques to stay present, manage stress, and
-                develop greater emotional awareness.
-              </p>
-            </div>
-            <div className="bg-white p-5 rounded-xl text-center">
-              <img
-                src="src/assets/online counselling/022-inner dialogue.png"
-                alt="Cognitive Behavioral Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Cognitive Behavioral Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Identify and transform challenging thought patterns to improve
-                emotional well-being and daily functioning.
-              </p>
-            </div>
-            <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center text-white">
-              <img
-                src="src/assets/online counselling/Group (7).png"
-                alt="Humanistic Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Humanistic Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Discover your inner potential through person-centered approaches
-                that emphasize self-growth and awareness.
-              </p>
-            </div>
-          </div>
-        </div> */}
+       
 
         <div className="mb-10 text-center py-12 sm:py-16 px-4 sm:px-32">
           <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
             Individual Therapy Method
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center mt-8 p-10">
-            {/* <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center text-white">
-              <img
-                src="src/assets/online counselling/007-psychologist.png"
-                alt="Psychoanalytic Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Psychoanalytic Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Explore deep-seated patterns and unconscious influences to gain
-                profound self-understanding and emotional healing.
-              </p>
-            </div> */}
-
+           
             <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              {/* <img
-                src="src/assets/online counselling/007-psychologist.png"
-                alt="Psychoanalytic Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              /> */}
+            
               <Psychoanalytic   className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
                 Psychoanalytic Therapy
@@ -176,27 +95,10 @@ const Individualsection = () => {
               </p>
             </div>
 
-            {/* <div className="bg-white p-5 rounded-xl text-center">
-              <img
-                src="src/assets/online counselling/Group (6).png"
-                alt="Mindfulness Based Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Mindfulness Based Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Learn practical techniques to stay present, manage stress, and
-                develop greater emotional awareness.
-              </p>
-            </div> */}
+          
 
             <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              {/* <img
-                src="src/assets/online counselling/Group (6).png"
-                alt="Mindfulness Based Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              /> */}
+             
               <Mind  className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
                 Mindfulness Based Therapy
@@ -207,26 +109,8 @@ const Individualsection = () => {
               </p>
             </div>
 
-            {/* <div className="bg-white p-5 rounded-xl text-center">
-              <img
-                src="src/assets/online counselling/022-inner dialogue.png"
-                alt="Cognitive Behavioral Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              />
-              <h2 className="text-2xl font-semibold mb-2">
-                Cognitive Behavioral Therapy
-              </h2>
-              <p className="text-lg font-poppins">
-                Identify and transform challenging thought patterns to improve
-                emotional well-being and daily functioning.
-              </p>
-            </div> */}
             <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-              {/* <img
-                src="src/assets/online counselling/022-inner dialogue.png"
-                alt="Cognitive Behavioral Therapy"
-                className="w-24 h-24 mx-auto mb-4"
-              /> */}
+            
               <Cognitive  className="w-24 h-24 mx-auto mb-4"/>
               <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
                 Cognitive Behavioral Therapy
@@ -253,56 +137,57 @@ const Individualsection = () => {
         </div>
         {/* Mentor Section */}
         <div
-          className="w-full flex flex-col relative bg-cover"
-          style={{ backgroundImage: `url(${frameImage})` }}
-        >
-          <div
-            style={{ top: -90 }}
-            className="absolute top-0 w-[400px] h-[500px] ml-10 mb-20"
-          >
-            <img src={individual2} />
-          </div>
-          <div className="flex justify-end w-full ml-48">
-            <div className="text-white flex flex-col items-center sm:items-start sm:w-3/4 p-6">
-              <h3 className="text-2xl mb-3">Mentor</h3>
-              <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-                Introduction to Experienced Consulting
-              </h1>
+  className="w-full flex flex-col relative bg-cover"
+  style={{ backgroundImage: `url(${frameImage})` }}
+>
+  {/* Image Container */}
+  <div
+    className="absolute top-0 left-0 w-[200px] h-[300px] sm:w-[400px] sm:h-[500px] mb-20 z-10"
+    style={{ top: '-90px' }}
+  >
+    <img
+      src={individual2}
+      alt="Mentor"
+      className="w-full h-full object-cover"
+    />
+  </div>
 
-              <div className="w-full sm:w-3/4 mb-8">
-                {/* Professional Growth Section */}
-                <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
-                 
-                  <Professionall />
-                  <div className="pl-5 flex flex-col justify-center">
-                    <h2 className="text-xl font-semibold mb-3">
-                      Professional Growth
-                    </h2>
-                    <p className="text-sm font-poppins">
-                      Enhance your personal and professional development through
-                      expert guidance.
-                    </p>
-                  </div>
-                </div>
+  {/* Text Container */}
+  <div className="flex justify-end w-full pl-0 sm:pl-96 relative z-20">
+    <div className="text-white flex flex-col items-center sm:items-start sm:w-3/4 p-6">
+      <h3 className="text-2xl mb-3">Mentor</h3>
+      <h1 className="text-3xl sm:text-4xl font-bold mb-4">
+        Introduction to Experienced Consulting
+      </h1>
 
-                {/* Reduced Burnout Section */}
-                <div className="w-full flex p-3 mb-8 rounded-xl">
-                
-                  <Reduce/>
-                  <div className="pl-5 flex flex-col justify-center">
-                    <h2 className="text-xl font-semibold mb-3">
-                      Reduced Burnout
-                    </h2>
-                    <p className="text-sm font-poppins">
-                      Learn effective stress management techniques to maintain
-                      work-life balance and emotional well-being.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="w-full sm:w-3/4 mb-8">
+        {/* Professional Growth Section */}
+        <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
+          <Professionall />
+          <div className="pl-5 flex flex-col justify-center">
+            <h2 className="text-xl font-semibold mb-3">Professional Growth</h2>
+            <p className="text-sm font-poppins">
+              Enhance your personal and professional development through expert
+              guidance.
+            </p>
           </div>
         </div>
+
+        {/* Reduced Burnout Section */}
+        <div className="w-full flex p-3 mb-8 rounded-xl">
+          <Reduce />
+          <div className="pl-5 flex flex-col justify-center">
+            <h2 className="text-xl font-semibold mb-3">Reduced Burnout</h2>
+            <p className="text-sm font-poppins">
+              Learn effective stress management techniques to maintain work-life
+              balance and emotional well-being.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Breaking the Stigma Section */}
         <div className="text-center p-10 mb-10 flex flex-col items-center mt-48">

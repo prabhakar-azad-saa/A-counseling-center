@@ -4,6 +4,7 @@ import Calls from "../img/Calls";
 import Massages from "../img/Massages";
 import footerSocial from "../img/footerSocial.png"
 import Mainlogo from "../img/Mainlogo";
+import Locationfooter from "../img/Locationfooter";
 
 const Footer = () => {
   return (
@@ -71,14 +72,15 @@ const Footer = () => {
                  <Massages className="mr-2 w-6 h-6"/>
                   <p className="pb-2">altaf@apluscounselling.com</p>
                 </li>
-                {/* <li className="flex text-sm sm:text-base md:text-lg items-center">
-                  <img
+                <li className="flex text-sm sm:text-base md:text-lg items-center">
+                  {/* <img
                     src="src/assets/New folder/Location.png"
                     alt="Location Icon"
                     className="mr-2 w-6 h-6"
-                  />
-                  <p className="pb-2">Lazyy Tower 192, Burn</p>
-                </li> */}
+                  /> */}
+                  <Locationfooter  className="mr-2 w-6 h-6" />
+                  <p className="pb-2">D67, BDA Colony, Kohefiza, Bhopal</p>
+                </li>
               </ul>
             </div>
 

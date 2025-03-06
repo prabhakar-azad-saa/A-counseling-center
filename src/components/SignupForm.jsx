@@ -21,6 +21,7 @@ const SignupForm = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+   const [selected, setSelected] = useState("signup");
 
   // Handle input field changes
   const handleChange = (e) => {
@@ -111,20 +112,26 @@ const SignupForm = () => {
           />
         </div>
         <div className="w-full max-w-xl rounded-xl">
-          <div className="mt-4 py-10">
-            <a
-              onClick={() => navigate("/login")}
-              className="text-black text-xl mr-20 font-semibold hover:underline"
-            >
-              Login
-            </a>
-            <a
-             onClick={() => navigate("/signup")}
-              className="text-black text-xl font-semibold hover:underline"
-            >
-              Sign Up
-            </a>
-          </div>
+      <div className="mt-4 py-10">
+        <a
+          onClick={() => {
+            navigate("/login");
+            setSelected("login"); // Set "login" as selected
+          }}
+          className={`text-black text-xl mr-20 font-semibold  ${selected === "login" ? "border-b-4 border-orange-500" : ""}`}
+        >
+          Login
+        </a>
+        <a
+          onClick={() => {
+            navigate("/signup");
+            setSelected("signup"); // Set "signup" as selected
+          }}
+          className={`text-black text-xl font-semibold  ${selected === "signup" ? "border-b-4 border-orange-500" : ""}`}
+        >
+          Sign Up
+        </a>
+      </div>
 
           <h2 className="text-5xl font-bold mb-8">SIGN UP</h2>
 

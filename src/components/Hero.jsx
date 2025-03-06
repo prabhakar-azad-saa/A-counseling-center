@@ -3,9 +3,17 @@ import React from "react";
 import Call from "../img/Call";
 import Massage from "../img/Massage";
 import heroSection from "../img/heroSection.png"
+// import Location from "../img/Location"
+import { useNavigate } from 'react-router-dom';
 
 
 const Hero = () => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/booksession');
+  };
   
 
   return (
@@ -22,7 +30,7 @@ const Hero = () => {
         </p>
 
         {/* Button */}
-        <button className="bg-[#EC744A] font-bold text-[18px] sm:text-[22px] text-white rounded-[30px] w-full sm:w-[366px] h-[60px] px-[30px] sm:px-[50px] py-[12px] sm:py-[15px] gap-[10px]">
+        <button className="bg-[#EC744A] font-bold text-[18px] sm:text-[22px] text-white rounded-[30px] w-full sm:w-[366px] h-[60px] px-[30px] sm:px-[50px] py-[12px] sm:py-[15px] gap-[10px]" onClick={handleClick}>
           Start Your Journey Today
         </button>
 
@@ -40,7 +48,7 @@ const Hero = () => {
           </div>
           {/* <div className="flex items-center">
             <Location />
-            <p className="ml-3 text-lg text-black">logoipsume*</p>
+            <p className="ml-3 text-lg text-black">D67, BDA Colony, Kohefiza, Bhopal</p>
           </div> */}
         </div>
       </div>

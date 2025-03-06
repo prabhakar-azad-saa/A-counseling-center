@@ -1,11 +1,20 @@
 import React from 'react';
 import Button from './Button';
 import frameImage from "../img/Frame83.png"
+import { useNavigate } from 'react-router-dom';
+
 
 const Ready = () => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/booksession');
+  };
+  
   return (
     <div
-  className="relative w-full"
+  className="relative w-full bg-cover"
   style={{ backgroundImage: `url(${frameImage})` }}
 >
   
@@ -18,7 +27,7 @@ const Ready = () => {
         <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold p-4 text-center font-poppins">
           Book your consultation today and take the first step towards better mental health.
         </p>
-        <Button className="mt-4 px-6 py-2 text-sm sm:text-base md:text-lg lg:text-xl">Schedule Consultation</Button>
+        <Button className="mt-4 px-6 py-2 text-sm sm:text-base md:text-lg lg:text-xl" onClick={handleClick} >Schedule Consultation</Button>
       </div>
     </div>
   );

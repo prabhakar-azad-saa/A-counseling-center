@@ -5,6 +5,7 @@ import frameImage from "../img/svgvieweroutput.png";
 import { submitContactForm } from "../action/Auth";
 import VoicecallBlack from "../img/VoicecallBlack"
 import  MailBlack from "../img/MailBlack"
+import Locationcontact from "../img/Locationcontact";
 
 // Contact Component
 const Contact = () => {
@@ -197,16 +198,17 @@ const Contact = () => {
   
 
 
-            {/* <div className="flex items-center gap-4 mb-4">
-              <img
+            <div className="flex items-center gap-4 mb-4">
+              {/* <img
                 src="src/assets/contact/Location.png"
                 alt="Location"
                 className="w-8 h-8"
-              />
+              /> */}
+              <Locationcontact className="w-8 h-8"/>
               <p className="text-base font-poppins">
-                Lazyy Tower 192,Burn Swiss{" "}
+              D67, BDA Colony, Kohefiza, Bhopal
               </p>
-            </div> */}
+            </div>
           </div>
         </div>
 

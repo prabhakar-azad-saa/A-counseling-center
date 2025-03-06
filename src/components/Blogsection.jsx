@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 import blog111 from "../img/blog111.png"
@@ -6,6 +7,14 @@ import blog222 from "../img/blog222.png"
 import blog333 from "../img/blog333.png"
 
 const Blogsection = () => {
+
+  
+    const navigate = useNavigate();
+  
+    const handleClick = () => {
+      navigate("/blogs");
+    };
+  
   return (
     <div className="p-8 bg-[#FCF8F4]">
       <div className="text-center mb-12">
@@ -26,7 +35,7 @@ const Blogsection = () => {
           <p className="text-gray-600 mb-6 font-poppins">
             Learn about the different types of anxiety and effective coping strategies...
           </p>
-          <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
+          <a onClick={handleClick} className="text-blue-500 hover:text-blue-700 font-medium text-lg">
             Read More
           </a>
         </div>
@@ -43,7 +52,7 @@ const Blogsection = () => {
           <p className="text-gray-600 mb-6">
           Discover simple yet effective daily practices that can improve your mental wellbeing...
           </p>
-          <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
+          <a onClick={handleClick} className="text-blue-500 hover:text-blue-700 font-medium text-lg">
             Read More
           </a>
         </div>
@@ -60,7 +69,7 @@ const Blogsection = () => {
           <p className="text-gray-600 mb-6">
           Explore how mindfulness meditation can transform your mental state...
           </p>
-          <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
+          <a onClick={handleClick} className="text-blue-500 hover:text-blue-700 font-medium text-lg">
             Read More
           </a>
         </div>

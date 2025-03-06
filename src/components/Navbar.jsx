@@ -11,12 +11,12 @@ const Navbar = ({ style, from }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const location = useLocation();
+  const [selected, setSelected] = useState(location.pathname); // Set default selected item as current path
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     if (storedUser) {
@@ -28,8 +28,6 @@ const Navbar = ({ style, from }) => {
       setIsLoggedIn(false);
     }
   }, [location.pathname]);
-
-  console.log(userData, "============================");
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -46,7 +44,6 @@ const Navbar = ({ style, from }) => {
   const LoginForm = location.pathname === "/login";
   const SignupForm = location.pathname === "/signup";
 
-  console.log(isHome, LoginForm, SignupForm);
   return (
     <nav
       className="bg-cover px-4"
@@ -71,34 +68,27 @@ const Navbar = ({ style, from }) => {
           </div>
         </div>
 
-     
         <div
-          className="hidden  lg:flex text-lg space-x-8 font-poppins"
+          className="hidden lg:flex text-lg space-x-8 font-poppins"
           style={{
             color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
           }}
         >
-          <Link className="focus:font-bold" to="/">
-            Home
-          </Link>
-          <Link className="focus:font-bold" to="/about">
-            About
-          </Link>
-          <Link className="focus:font-bold" to="/services">
-            Services
-          </Link>
-          <Link className="focus:font-bold" to="/session">
-            Session
-          </Link>
-          <Link className="focus:font-bold" to="/blogs">
-            Blogs
-          </Link>
-          <Link className="focus:font-bold" to="/contact">
-            Contact Us
-          </Link>
+          {["/", "/about", "/services", "/session", "/blogs", "/contact"].map((path, index) => {
+            const label = path === "/" ? "Home" : path.charAt(1).toUpperCase() + path.slice(2);
+            return (
+              <Link
+                key={index}
+                to={path}
+                onClick={() => setSelected(path)} // Update selected path on click
+                className={`focus:outline-none ${selected === path ? "font-bold" : ""}`}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
 
-       
         <div className="hidden lg:block">
           {userData ? (
             <Link className="font-bold mr-3" to="#">
@@ -138,6 +128,7 @@ const Navbar = ({ style, from }) => {
           </button>
         </div>
       </div>
+
       {/* Mobile Menu (Toggle visibility on small screens) */}
       {isOpen && (
         <div className="lg:hidden mt-4 space-y-2">
@@ -152,45 +143,23 @@ const Navbar = ({ style, from }) => {
                 color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
               }}
             >
-              <Link
-                to="/"
-                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-              >
-                Home
-              </Link>
-              <Link
-                to="/about"
-                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-              >
-                About
-              </Link>
-              <Link
-                to="/services"
-                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-              >
-                Services
-              </Link>
-              <Link
-                to="/session"
-                className="block border-b border-gray-200 px-2 py-3 focus:font-bold"
-              >
-                Session
-              </Link>
-              <Link
-                className="block border-b border-gray-200 px-2 py-3 focus:font-bold"
-                to="/blogs"
-              >
-                Blogs
-              </Link>
-              <Link
-                to="/contact"
-                className="block  border-b border-gray-200 px-2 py-3 focus:font-bold"
-              >
-                Contact Us
-              </Link>
+              {["/", "/about", "/services", "/session", "/blogs", "/contact"].map((path, index) => {
+                const label = path === "/" ? "Home" : path.charAt(1).toUpperCase() + path.slice(2);
+                return (
+                  <Link
+                    key={index}
+                    to={path}
+                    onClick={() => {
+                      setSelected(path); // Update selected path on click
+                      setIsOpen(false); // Close the menu on item click
+                    }}
+                    className={`block border-b border-gray-200 px-2 py-3 focus:outline-none ${selected === path ? "font-bold" : ""}`}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
             </div>
-
-          
 
             <div className="flex flex-col gap-4 mt-4">
               {userData ? (

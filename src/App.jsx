@@ -19,12 +19,14 @@ import Pyment from "./components/Pyment";
 import UpiPayment from "./components/Upipayment";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserProfile from "./components/UserProfile";
+import ScrollToTop from "./components/ScrollToTop"
 function App() {
   console.log("App.js");
 
   return (
     <Router>
       {/* <Navbar  style={{backgroundColor:""}}/> */}
+      <ScrollToTop />
 
       <div>
         <Routes>

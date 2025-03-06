@@ -68,3 +68,47 @@ export const sessionBook = async (sessionData) => {
     );
   }
 };
+
+
+export const userCantact = async () => {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/GetContacts`
+    );
+    return response;
+  } catch (error) {
+    console.error(
+      "Error submitting contact form:",
+      error.response?.data || error.message
+    );
+  }
+};
+
+export const bookingTable = async () => {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/GetBookSessions`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting contact form:",
+      error.response?.data || error.message
+    );
+  }
+};
+
+export const patientTable = async () => {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/GetPatients`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting contact form:",
+      error.response?.data || error.message
+    );
+  }
+};
+

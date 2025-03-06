@@ -14,8 +14,8 @@ import Chat from "../img/Chat"
 const Session = () => {
   const navigate = useNavigate();
 
-  const handleclick = () => {
-    navigate("/booksession");
+  const handleclick = (sinn) => {
+    navigate("/"+sinn);
   };
 
   return (
@@ -57,7 +57,7 @@ const Session = () => {
             </h2>
             <p className="text-lg text-white mb-6">Professional Counselor</p>
             <Button
-              onClick={handleclick}
+              onClick={() => handleclick ("booksession")}
               className="bg-[#EC744A] text-white py-3 px-6 rounded-full"
             >
               Book Session
@@ -66,12 +66,12 @@ const Session = () => {
         </div>
 
         {/* How It Works Section */}
-        <div className="mb-16">
-          <h1 className="text-2xl font-semibold text-center mb-8">
+        <div className="">
+          <h1 className="text-3xl font-semibold text-center mb-8">
             How it Works
           </h1>
           <div className="flex flex-wrap justify-center gap-6">
-            <div className="flex flex-col items-center   p-6 max-w-xs sm:max-w-sm lg:max-w-xs">
+            <div className="flex flex-col items-center   p-6 max-w-xs sm:max-w-sm lg:max-w-xs"  onClick={() => handleclick ("signup")}>
             <Create  className="w-16 h-16 mb-4"/>
               <h2 className="text-lg font-semibold mb-2">Create Account</h2>
               <p className="text-sm text-center text-gray-600 font-poppins">
@@ -81,7 +81,7 @@ const Session = () => {
             </div>
             <div
               className="flex flex-col items-center  p-6 max-w-xs sm:max-w-sm lg:max-w-xs"
-              onClick={handleclick}
+              onClick={() => handleclick ("booksession")}
             >
              <BookSession   className="w-16 h-16 mb-4"/>
               <h2 className="text-lg font-semibold mb-2">Book Session</h2>
@@ -101,7 +101,13 @@ const Session = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8 p-8 sm:p-16 lg:p-20">
+
+       <div className=" justify-center  p-8 sm:p-16 lg:p-20">
+       <h1 className="text-3xl font-bold mb-6 text-center text-black p-20">
+        Communication Options
+          </h1>
+        <div className="flex flex-wrap justify-center gap-8">
+       
           {/* Video Call */}
           <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg w-full sm:max-w-xs lg:w-1/3">
           <Video  className="w-16 h-16 mb-4"/>
@@ -142,6 +148,7 @@ const Session = () => {
           </div>
         </div>
       </div>
+       </div>
 
       <Ready />
     </div>

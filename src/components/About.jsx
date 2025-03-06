@@ -82,9 +82,9 @@ const About = () => {
             <p className="text-lg sm:text-xl text-black mb-14 font-poppins ">
               Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
             </p>
-            <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full">
+            {/* <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full">
               See Detail
-            </Button>
+            </Button> */}
           </div>
         </div>
 
