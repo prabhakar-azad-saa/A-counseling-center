@@ -20,6 +20,7 @@ import UpiPayment from "./components/Upipayment";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserProfile from "./components/UserProfile";
 import ScrollToTop from "./components/ScrollToTop"
+import DashboardTable from "./components/DashboardTable";
 function App() {
   console.log("App.js");
 
@@ -166,6 +167,19 @@ function App() {
                 <UserProfile />
               </>
             }
+
+            
+          />
+            <Route
+            path="/dashboardtable"
+            element={
+              <>
+                <Navbar style={{ backgroundColor: Colors.gradient }} />
+                <DashboardTable />
+              </>
+            }
+
+            
           />
         </Routes>
       </div>

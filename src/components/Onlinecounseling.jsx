@@ -5,20 +5,21 @@ import Features from "./Features";
 import frameImage from "../img/Frame83.png";
 import frameImage2 from "../img/svgvieweroutput.png";
 import works2 from "../img/works2.png"
-import videocall from "../img/videocall.png"
+import Vector from "../img/Vector.png"
 import secure from "../img/secure.png"
 import special from "../img/special.png"
 import Anxiety from "../img/Anxiety";
 import Needing from "../img/Needing";
 import Looking from "../img/Looking";
 import Seeking from "../img/Seeking";
-import Reduce from "../img/Reduce";
 import Family from "../img/Family";
 import Depression from "../img/Depression";
 
 
 
+
 const Onlinecounseling = () => {
+
   const sectionData = {
     title: "How Online Counseling Works",
     features: [
@@ -30,7 +31,7 @@ const Onlinecounseling = () => {
           "Schedule an appointment at your preferred time with our easy booking system.",
       },
       {
-        imgSrc: videocall,
+        imgSrc: Vector,
         altText: "Personalized Approach",
         heading: "Choose Your Mode",
         description:
@@ -45,6 +46,30 @@ const Onlinecounseling = () => {
       },
     ],
   };
+
+  const Cartdata =
+  [
+   {
+     imgSrc: <Anxiety/>,
+     title:"Facing stress, anxiety, or depression",
+     description:'Experience professional support from licensed therapists who specialize in managing stress, anxiety, and depression through confidential online sessions.',
+    },
+    {
+     imgSrc: <Needing/>,
+     title:"Needing relationship counseling",
+     description:'Get expert guidance on improving communication, resolving conflicts, and strengthening bonds with your partner through specialized relationship therapy.',
+    },
+    {
+     imgSrc: <Looking/>,
+     title:"Looking for guidance",
+     description:"Find clarity and direction with experienced counselors who can help you navigate life's challenges and make meaningful decisions for your future.",
+    },
+    {
+     imgSrc: <Seeking/>,
+     title:"Seeking work-life balance",
+     description:'Learn effective strategies to manage professional stress, set healthy boundaries, and create a more fulfilling balance between your work and personal life.',
+    }
+  ]
 
   
 
@@ -170,17 +195,47 @@ const Onlinecounseling = () => {
      </div>
 
       {/* Services Section */}
-      <div className="mb-10 text-center py-12 sm:py-16 px-4 sm:px-32">
+      <div className="mb-10 text-center py-12 sm:py-16 px-4 ">
         <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
           Who Can Benefit from Online Therapy?
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center mt-8 p-10">
+
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-10 px-2 md:px-10  2xl:px-96">
+  {Cartdata.map((item, index) => {
+    const isGradient = index % 3 === 0; 
+
+    return (
+      <div 
+        key={index} 
+        className={`${isGradient ? 'bg-gradient-to-r from-[#007D6E] to-[#5EB47C]' : 'bg-white'} 
+          rounded-3xl  flex justify-center overflow-hidden`}
+      >
+        <div className="flex flex-col items-center rounded-2xl p-8 sm:p-10 w-full max-w-lg">
+       
+          <div className="w-28 h-28 sm:w-32 sm:h-32 flex justify-center pb-6">
+            {item.imgSrc}
+          </div>
+          
+          {/* Title */}
+          <h1 className={`text-xl md:text-2xl lg:text-4xl px-2 pb-3 font-bold 
+            ${isGradient ? 'text-white' : 'text-black'}`}>
+            {item.title}
+          </h1>
+          
+          {/* Description */}
+          <p className={`text-sm sm:text-lg pb-4 
+            ${isGradient ? 'text-white' : 'text-black'}`}>
+            {item.description}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center mt-8 p-10">
           <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/Indivisual.png"
-              alt="Psychoanalytic Therapy"
-              className="w-24 h-24 mx-auto mb-4"
-            /> */}
+          
             <Anxiety className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Facing stress, anxiety, or depression
@@ -193,11 +248,7 @@ const Onlinecounseling = () => {
                       
           </div>
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/online counselling/Group (4).png"
-              alt="Mindfulness Based Therapy"
-              className="w-24 h-24 mx-auto mb-4"
-            /> */}
+          
             <Needing className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2  text-black">
               Needing relationship counseling
@@ -209,11 +260,7 @@ const Onlinecounseling = () => {
                       
           </div>
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/online counselling/Group (2).png"
-              alt="Cognitive Behavioral Therapy"
-              className="w-24 h-24 mx-auto mb-4"
-            /> */}
+           
             <Looking  className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-black">
               Looking for guidance
@@ -226,11 +273,7 @@ const Onlinecounseling = () => {
                       
           </div>
           <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/online counselling/Group (3).png"
-              alt="Humanistic Therapy"
-              className="w-24 h-24 mx-auto mb-4"
-            /> */}
+           
             <Seeking  className="w-24 h-24 mx-auto mb-4"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Seeking work-life balance
@@ -243,8 +286,8 @@ const Onlinecounseling = () => {
                       
           </div>
         </div>
-      </div>
-
+      </div> */}
+</div>
       
       <Ready />
     </div>

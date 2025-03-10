@@ -5,6 +5,7 @@ import Massages from "../img/Massages";
 import footerSocial from "../img/footerSocial.png"
 import Mainlogo from "../img/Mainlogo";
 import Locationfooter from "../img/Locationfooter";
+import Logolotas from "../img/Logolotas";
 
 const Footer = () => {
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
             {/* Footer Section 1 */}
             <div className="footer-section flex flex-col  text-white ">
               <div className="footer-image flex items-center">
-                <Mainlogo  className="w-14 mr-2"/>
+                <Logolotas  />
                 {/* <img
                   src="/src/assets/g10.png"
                   alt="A+ Counseling Center Logo"

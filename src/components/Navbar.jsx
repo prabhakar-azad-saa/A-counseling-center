@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import frameImage4 from "../img/svgvieweroutput.png";
-import Logomain from "../img/Logomain";
+// import Logomain from "../img/Logomain";
+import Logolotas from "../img/Logolotas";
 
 const Navbar = ({ style, from }) => {
   const navigate = useNavigate();
@@ -29,8 +30,16 @@ const Navbar = ({ style, from }) => {
     }
   }, [location.pathname]);
 
+  const handleUserClick = () => {
+    navigate ("/userprofile");
+  }
+
   const handleLoginClick = () => {
     navigate("/login");
+  };
+
+  const handleAdminClick = () => {
+    navigate("/dashboardtable");
   };
 
   const handleLogoutClick = () => {
@@ -56,7 +65,8 @@ const Navbar = ({ style, from }) => {
     >
       <div className="flex items-center justify-between py-4">
         <div className="flex items-center space-x-3">
-          <Logomain />
+          {/* <Logomain /> */}
+          <Logolotas className='w-24 h-24'/>
 
           <div
             className="text-2xl font-bold text-black"
@@ -88,10 +98,11 @@ const Navbar = ({ style, from }) => {
             );
           })}
         </div>
+       <button onClick={handleAdminClick} className="hidden lg:block">Dashboard</button>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:block" >
           {userData ? (
-            <Link className="font-bold mr-3" to="#">
+            <Link className="font-bold mr-3" to="#" onClick={handleUserClick} >
               {userData?.username}
             </Link>
           ) : (
@@ -160,6 +171,7 @@ const Navbar = ({ style, from }) => {
                 );
               })}
             </div>
+            <button onClick={handleAdminClick}>Dashboard</button>
 
             <div className="flex flex-col gap-4 mt-4">
               {userData ? (

@@ -1,8 +1,6 @@
 import React from "react";
 
 import Features from "./Features";
-import Button from "./Button";
-
 import frameImage from "../img/svgvieweroutput.png";
 import Holistic from "../img/Holistic.png"
 import Experties from "../img/Experties.png"
@@ -16,6 +14,7 @@ import arrowAbout from "../img/arrowAbout.png"
 
 
 const About = () => {
+  
   const sectionData = {
     heading: "Why?",
     title: "Why Our Mental Health Consultants are the Best Choice",
@@ -58,7 +57,7 @@ const About = () => {
       <div className="border-l-4 h-64 p-5"></div>
     </div>
           </div>
-           <div> <h1 className="text-white  text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
+           <div> <h1 className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-[68px] font-extrabold p-4">
               About Us
             </h1>
             <p className="text-white text-lg sm:text-xl  p-4  font-poppins">
@@ -82,9 +81,7 @@ const About = () => {
             <p className="text-lg sm:text-xl text-black mb-14 font-poppins ">
               Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
             </p>
-            {/* <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full">
-              See Detail
-            </Button> */}
+           
           </div>
         </div>
 

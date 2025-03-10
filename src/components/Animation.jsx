@@ -42,6 +42,7 @@ const slides = [
 ];
 
 const Animation = () => {
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(false);
   const [animationFinished, setAnimationFinished] = useState(false);
@@ -108,8 +109,8 @@ const Animation = () => {
               <img
                 src={slides[currentIndex].image}
                 alt="carousel"
-                className="w-full h-auto object-contain rounded-lg shadow-none"
-                style={{ maxWidth: "400px", maxHeight: "400px" }}
+                // className="  rounded-lg shadow-none"
+                style={{ maxWidth: "500px", maxHeight: "500px" }}
               />
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import frameImage from "../img/svgvieweroutput.png";
 import { useNavigate } from 'react-router-dom';
 import blogDetail3 from "../img/blogDetail3.png"
@@ -138,16 +139,16 @@ const Blogs = () => {
       <p className="text-lg mt-4 text-gray-700 leading-relaxed">{post.content}</p>
     </div> */}
 
-<div className="flex items-center p-4 border-b border-gray-300 space-x-4">
-      {/* Image */}
+{/* <div className="flex items-center p-4 border-b border-gray-300 space-x-4">
+      
       <img src={item.imageUrl} alt={item.title} className="w-24 h-24 object-cover rounded-md" />
 
-      {/* Content */}
+    
       <div className="flex-1">
         <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
         <p className="text-sm text-gray-600 mt-2">{item.description}</p>
       </div>
-    </div>
+    </div> */}
     </div>
   );
 };

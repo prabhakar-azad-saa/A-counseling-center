@@ -9,7 +9,7 @@ const AboutSection = () => {
     const navigate = useNavigate();
   
     const handleClick = () => {
-      navigate("/userprofile");
+      navigate("/about");
     };
   
   

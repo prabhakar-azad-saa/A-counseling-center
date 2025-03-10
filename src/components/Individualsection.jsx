@@ -11,6 +11,32 @@ import Professionall from "../img/Professionall";
 import Reduce from "../img/Reduce";
 
 const Individualsection = () => {
+
+  const Cartdata =
+  [
+   {
+     imgSrc: <Psychoanalytic/>,
+     title:"Psychoanalytic Therapy",
+     description:'Explore deep-seated patterns and unconscious influences to gain profound self-understanding and emotional healing.',
+    },
+    {
+     imgSrc: <Mind/>,
+     title:"Mindfulness Based Therapy",
+     description:'Learn practical techniques to stay present, manage stress, and develop greater emotional awareness.',
+    },
+    {
+     imgSrc: <Cognitive/>,
+     title:"Cognitive Behavioral Therapy",
+     description:"Identify and transform challenging thought patterns to improve emotional well-being and daily functioning.",
+    },
+    {
+     imgSrc: <Human/>,
+     title:"Humanistic Therapy",
+     description:'Discover your inner potential through person-centered approaches that emphasize self-growth and awareness.',
+    }
+  ]
+
+  
   return (
     <div>
       {/* Navigation Section */}
@@ -81,7 +107,7 @@ const Individualsection = () => {
           <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
             Individual Therapy Method
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center mt-8 p-10">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center mt-8 p-10">
            
             <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
             
@@ -133,7 +159,40 @@ const Individualsection = () => {
                 that emphasize self-growth and awareness.
               </p>
             </div>
+          </div> */}
+          
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-10 px-2 md:px-6  2xl:px-96 ">
+  {Cartdata.map((item, index) => {
+    const isGradient = index % 3 === 0; 
+
+    return (
+      <div 
+        key={index} 
+        className={`${isGradient ? 'bg-gradient-to-r from-[#007D6E] to-[#5EB47C]' : 'bg-white'} 
+          rounded-3xl  flex justify-center overflow-hidden`}
+      >
+        <div className="flex flex-col items-center rounded-2xl p-4 sm:p-20 w-full max-w-lg">
+       
+          <div className="w-28 h-28 sm:w-32 sm:h-32 flex justify-center">
+            {item.imgSrc}
           </div>
+          
+          {/* Title */}
+          <h1 className={`text-xl md:text-3xl lg:text-4xl  pt-12 pb-3 font-bold 
+            ${isGradient ? 'text-white' : 'text-black'}`}>
+            {item.title}
+          </h1>
+          
+          {/* Description */}
+          <p className={`text-base sm:text-xl pb-4 pt-5
+            ${isGradient ? 'text-white' : 'text-black'}`}>
+            {item.description}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+</div>
         </div>
         {/* Mentor Section */}
         <div

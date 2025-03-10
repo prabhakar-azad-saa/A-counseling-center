@@ -55,14 +55,10 @@ const Services = () => {
         >
           {/* Individual Therapy */}
           <div
-            className="bg-gradient-to-r from-[#007D6E] to-[#2F4B4E] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
+            className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => handleClick("individual")}
           >
-            {/* <img
-              src="src/assets/Indivisual.png"
-              alt="Individual Therapy"
-              className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            /> */}
+          
             <Individual22 className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-2xl sm:text-[35px] mb-2 text-white">
               Individual Therapy
@@ -76,11 +72,7 @@ const Services = () => {
 
           {/* Relationship Therapy */}
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/relationship.png"
-              alt="Relationship Therapy"
-              className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            /> */}
+          
             <Relationship   className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
               Relationship Therapy
@@ -94,11 +86,7 @@ const Services = () => {
 
           {/* Family Counseling */}
           <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/family.png"
-              alt="Family Counseling"
-              className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            /> */}
+           
             <Famil  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
               Family Counseling
@@ -110,12 +98,8 @@ const Services = () => {
           </div>
 
           {/* Specialized Therapy */}
-          <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/Specialize.png"
-              alt="Specialized Therapy"
-              className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            /> */}
+          <div className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
+           
             <Leaf  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Specialized Therapy
@@ -127,12 +111,8 @@ const Services = () => {
           </div>
 
           {/* Career Coaching */}
-          <div className="bg-gradient-to-r from-teal-700 to-teal-400 p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
-            {/* <img
-              src="src/assets/carrier.png"
-              alt="Career Coaching"
-              className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            /> */}
+          <div className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
+           
             <Carrier  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
               Career Coaching

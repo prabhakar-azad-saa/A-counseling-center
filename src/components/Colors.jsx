@@ -5,7 +5,7 @@ const Colors = {
     heading: "#000000", // Black for headings
     paragraph: "#000000", // Dark gray for paragraphs
     white: "#FFFFFF", // White color
-    gradient: "linear-gradient(90deg, #007D6E, #2F4B4E)", // Green gradient used in sections
+    gradient: "linear-gradient(90deg, #007D6E, #5EB47C)", // Green gradient used in sections
 };
 
 export default Colors;
