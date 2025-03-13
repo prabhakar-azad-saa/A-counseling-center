@@ -8,7 +8,7 @@ import Services from "./components/Services";
 import Session from "./components/Session";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
-import Contact from "./components/Contact";
+import Contact from "./components/ContactUs";
 import Booksession from "./components/Booksession";
 import Individualsection from "./components/Individualsection";
 import Onlinecounseling from "./components/Onlinecounseling";
@@ -21,6 +21,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserProfile from "./components/UserProfile";
 import ScrollToTop from "./components/ScrollToTop"
 import DashboardTable from "./components/DashboardTable";
+import ContactUs from "./components/ContactUs";
 function App() {
   console.log("App.js");
 
@@ -88,11 +89,11 @@ function App() {
             }
           />
           <Route
-            path="/contact"
+            path="/contactus"
             element={
               <>
                 <Navbar />
-                <Contact />
+                <ContactUs  />
               </>
             }
           />

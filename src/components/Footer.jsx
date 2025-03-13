@@ -17,11 +17,7 @@ const Footer = () => {
             <div className="footer-section flex flex-col  text-white ">
               <div className="footer-image flex items-center">
                 <Logolotas  />
-                {/* <img
-                  src="/src/assets/g10.png"
-                  alt="A+ Counseling Center Logo"
-                  className="w-14 mr-2"
-                /> */}
+               
                 <div className="w-full">
                   <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
                     A+ Counseling Center

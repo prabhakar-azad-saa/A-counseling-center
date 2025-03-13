@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Image, Upload } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import userImg from "../img/userImg.png";
 import Usermail from '../img/Usermail';
@@ -10,11 +11,20 @@ import Uservideo from '../img/Uservideo';
 
 import Editlogo from "../img/Editlogo";
 import Schedule from "../img/Schedule";
+import Button from '../components/Button';
 
 
 
 
 const UserProfile = () => {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken"); 
+    navigate("/login"); 
+  };
  
 
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -186,7 +196,9 @@ const UserProfile = () => {
             <Schedule/>
             <button className='font-semibold pl-2 text-sm sm:text-lg text-white'>Schedule New Session</button>
           </div>
+         
         </div>
+        <Button onClick={handleLogout}>Logout</Button>
       </div>
 
       <div className="flex flex-col lg:w-2/3 mt-10 lg:ml-10">

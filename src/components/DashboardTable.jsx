@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { userCantact, patientTable, bookingTable } from '../action/Auth';
 import { Table } from 'antd';
+import DashboardUi from './DashboardUi';
 
 const DashboardTable = () => {
   // const [bookingData, setBookingData] = useState([]);
@@ -96,7 +97,7 @@ const DashboardTable = () => {
                 ? 'User Information'
                 : activeTable === 'contacts'
                 ? 'Contact Us'
-                : 'Dashboard'}
+                : ''}
             </h2>
             {activeTable !== 'dashboard' ? (
               <Table
@@ -136,7 +137,7 @@ const DashboardTable = () => {
               />
             ) : (
               <div className="text-center text-lg font-semibold text-gray-600">
-                Welcome to the Dashboard! Select a section from the sidebar.
+               <DashboardUi/>
               </div>
             )}
           </div>

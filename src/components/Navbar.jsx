@@ -28,6 +28,8 @@ const Navbar = ({ style, from }) => {
       setUserData(null);
       setIsLoggedIn(false);
     }
+setSelected(location.pathname);
+
   }, [location.pathname]);
 
   const handleUserClick = () => {
@@ -38,9 +40,13 @@ const Navbar = ({ style, from }) => {
     navigate("/login");
   };
 
-  const handleAdminClick = () => {
-    navigate("/dashboardtable");
-  };
+  // const handleAdminClick = () => {
+  //   navigate("/dashboardtable");
+  // };
+
+  // const handleProfileClick = () =>{
+  //   navigate('/userProfile')
+  // }
 
   const handleLogoutClick = () => {
     localStorage.removeItem("authToken");
@@ -84,13 +90,13 @@ const Navbar = ({ style, from }) => {
             color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
           }}
         >
-          {["/", "/about", "/services", "/session", "/blogs", "/contact"].map((path, index) => {
+          {["/", "/about", "/services", "/session", "/blogs", "/contactus"].map((path, index) => {
             const label = path === "/" ? "Home" : path.charAt(1).toUpperCase() + path.slice(2);
             return (
               <Link
                 key={index}
                 to={path}
-                onClick={() => setSelected(path)} // Update selected path on click
+                onClick={() => setSelected(path)} 
                 className={`focus:outline-none ${selected === path ? "font-bold" : ""}`}
               >
                 {label}
@@ -98,12 +104,13 @@ const Navbar = ({ style, from }) => {
             );
           })}
         </div>
-       <button onClick={handleAdminClick} className="hidden lg:block">Dashboard</button>
+       {/* <button onClick={handleAdminClick} className="hidden lg:block">Dashboard</button> */}
+       {/* <button onClick={handleProfileClick}>Profile</button> */}
 
         <div className="hidden lg:block" >
           {userData ? (
             <Link className="font-bold mr-3" to="#" onClick={handleUserClick} >
-              {userData?.username}
+              {userData?.username} 
             </Link>
           ) : (
             <Button
@@ -171,7 +178,7 @@ const Navbar = ({ style, from }) => {
                 );
               })}
             </div>
-            <button onClick={handleAdminClick}>Dashboard</button>
+            
 
             <div className="flex flex-col gap-4 mt-4">
               {userData ? (
@@ -195,3 +202,7 @@ const Navbar = ({ style, from }) => {
 };
 
 export default Navbar;
+
+
+
+

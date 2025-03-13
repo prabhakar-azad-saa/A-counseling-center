@@ -80,7 +80,7 @@ const Services = () => {
             <p className="text-[16px] sm:text-[18px] text-gray-900 font-poppins">
               Marriage & Pre-Marital Counseling, Relationship Conflicts &
               Communication Issues, Divorce & Separation Support, Infidelity
-              Recovery.
+              Recovery, Relationship and Emotional.
             </p>
           </div>
 
@@ -106,7 +106,9 @@ const Services = () => {
             </h2>
             <p className="text-[16px] sm:text-[18px] text-white font-poppins">
               Cognitive Behavioral Therapy (CBT), Mindfulness-Based Therapy,
-              Psychodynamic Therapy.
+              Psychodynamic Therapy, ADHD, ADD, Rational Emotive Behavior Therapy (REBT),
+             Acceptance Therapies (ACT), Autism
+              .
             </p>
           </div>
 
@@ -119,7 +121,8 @@ const Services = () => {
             </h2>
             <p className="text-[16px] sm:text-[18px] text-white font-poppins">
               Career Guidance & Decision-Making, Work-Life Balance, Motivation &
-              Personal Development.
+              Personal Development, Aptitude Attitude, Interest, Achieveme nt Test & Projective Test,Specific Learning Disability
+              .
             </p>
           </div>
 
@@ -128,11 +131,7 @@ const Services = () => {
             className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => handleClick("onlinecounseling")}
           >
-            {/* <img
-              src="src/assets/online.png"
-              alt="Online Sessions"
-              className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"
-            /> */}
+          
             <Chat  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
               Online Sessions
