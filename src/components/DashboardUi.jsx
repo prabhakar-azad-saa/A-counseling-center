@@ -66,9 +66,9 @@ const DashboardUi = () => {
     <div className="p-5 bg-gray-100 min-h-screen flex flex-col gap-6">
       <h2 className="text-3xl font-bold text-center">Dashboard</h2>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4">
         {cardData.map((card) => (
-          <div key={card.label} className={`p-4 text-white rounded-lg ${card.color} flex flex-col items-center gap-2 w-full shadow-lg`}> 
+          <div key={card.label} className={`p-4 text-white rounded-lg ${card.color} flex flex-col items-center gap-2 w-full shadow-2xl`}> 
             {card.icon}
             <h3 className="text-lg font-bold">{card.label}</h3>
             <p className="text-2xl font-semibold">{card.value}</p>
@@ -77,22 +77,22 @@ const DashboardUi = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg p-5 shadow-lg">
+        <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
           <h3 className="text-xl font-bold text-center mb-4">Appointment Status</h3>
           <Pie data={chartData} />
         </div>
-        <div className="bg-white rounded-lg p-5 shadow-lg">
+        <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
           <h3 className="text-xl font-bold mb-4">Today's Appointments</h3>
           <Table columns={columns} dataSource={todayAppointments} pagination={false} />
         </div>
-        <div className="bg-white rounded-lg p-5 shadow-lg">
+        <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
           <h3 className="text-xl font-bold mb-4">Next Appointments</h3>
           <Table columns={columns} dataSource={appointmentRequests} pagination={false} />
         </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg p-5 shadow-lg">
+        <div className="bg-white rounded-lg p-5 shadow-2xl ">
           <h3 className="text-xl font-bold mb-4">Customer Ratings</h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={data}>
@@ -104,11 +104,11 @@ const DashboardUi = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="bg-white rounded-lg p-5 shadow-lg">
-          <h3 className="text-xl font-bold mb-4">Appointment Requests</h3>
-          <Table columns={columns} dataSource={appointmentRequests} pagination={false} />
-        </div>
-        <div className="bg-white rounded-lg p-5 shadow-lg">
+        <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
+  <h3 className="text-xl font-bold mb-4">Appointment Requests</h3>
+  <Table columns={columns} dataSource={appointmentRequests} pagination={false} />
+</div>
+        <div className="bg-white rounded-lg p-5 shadow-2xl ">
           <h3 className="text-xl font-bold text-center">Appointment Calendar</h3>
           <Calendar fullscreen={false} className="w-full" />
         </div>

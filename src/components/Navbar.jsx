@@ -40,9 +40,9 @@ setSelected(location.pathname);
     navigate("/login");
   };
 
-  // const handleAdminClick = () => {
-  //   navigate("/dashboardtable");
-  // };
+  const handleAdminClick = () => {
+    navigate("/dashboardtable");
+  };
 
   // const handleProfileClick = () =>{
   //   navigate('/userProfile')
@@ -58,6 +58,7 @@ setSelected(location.pathname);
   const isHome = location.pathname === "/";
   const LoginForm = location.pathname === "/login";
   const SignupForm = location.pathname === "/signup";
+  
 
   return (
     <nav
@@ -90,7 +91,7 @@ setSelected(location.pathname);
             color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
           }}
         >
-          {["/", "/about", "/services", "/session", "/blogs", "/contactus"].map((path, index) => {
+          {["/", "/about", "/services", "/session", "/blogs", "/contact Us"].map((path, index) => {
             const label = path === "/" ? "Home" : path.charAt(1).toUpperCase() + path.slice(2);
             return (
               <Link
@@ -104,7 +105,7 @@ setSelected(location.pathname);
             );
           })}
         </div>
-       {/* <button onClick={handleAdminClick} className="hidden lg:block">Dashboard</button> */}
+        <button onClick={handleAdminClick} className="hidden lg:block">Dashboard</button> 
        {/* <button onClick={handleProfileClick}>Profile</button> */}
 
         <div className="hidden lg:block" >
@@ -161,7 +162,7 @@ setSelected(location.pathname);
                 color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
               }}
             >
-              {["/", "/about", "/services", "/session", "/blogs", "/contact"].map((path, index) => {
+              {["/", "/about", "/services", "/session", "/blogs", "/contact Us"].map((path, index) => {
                 const label = path === "/" ? "Home" : path.charAt(1).toUpperCase() + path.slice(2);
                 return (
                   <Link

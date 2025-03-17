@@ -89,7 +89,7 @@ function App() {
             }
           />
           <Route
-            path="/contactus"
+            path="/contact Us"
             element={
               <>
                 <Navbar />

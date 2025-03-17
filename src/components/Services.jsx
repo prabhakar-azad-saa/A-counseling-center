@@ -106,7 +106,7 @@ const Services = () => {
             </h2>
             <p className="text-[16px] sm:text-[18px] text-white font-poppins">
               Cognitive Behavioral Therapy (CBT), Mindfulness-Based Therapy,
-              Psychodynamic Therapy, ADHD, ADD, Rational Emotive Behavior Therapy (REBT),
+              Psychodynamic Therapy, ADHD, Rational Emotive Behavior Therapy (REBT),
              Acceptance Therapies (ACT), Autism
               .
             </p>
