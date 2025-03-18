@@ -89,10 +89,10 @@ export const bookingTable = async () => {
     const response = await axios.get(
       `${API_BASE_URL}/GetBookSessions`
     );
-    return response.data;
+    return response;
   } catch (error) {
     console.error(
-      "Error submitting contact form:",
+      "Error submitting booking form:",
       error.response?.data || error.message
     );
   }
@@ -103,12 +103,25 @@ export const patientTable = async () => {
     const response = await axios.get(
       `${API_BASE_URL}/GetPatients`
     );
-    return response.data;
+    return response;
   } catch (error) {
     console.error(
-      "Error submitting contact form:",
+      "Error submitting patient form:",
       error.response?.data || error.message
     );
   }
 };
 
+
+export const upcomingAppointment = async (Id) => {
+  try {
+    const response = await axios.get(
+      `${API_BASE_URL}/UpcommingAppointments?userId=${Id}`
+    );
+    return response.data;
+
+  }catch (error) {console.error(
+    "Error submitting upcoming appointments:",
+    error.response?.data || error.message
+  )}
+};

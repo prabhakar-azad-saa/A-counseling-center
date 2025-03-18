@@ -1,6 +1,16 @@
-import React, { useState } from "react";
-import { Upload, message, Flex } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import React, { useState } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
+import { Image, Upload } from 'antd';
+
+
+const getBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
@@ -11,49 +21,41 @@ const AddBlog = () => {
   const [errors, setErrors] = useState({});
 
   // Image upload handler
-  const getBase64 = (img, callback) => {
-    const reader = new FileReader();
-    reader.addEventListener("load", () => callback(reader.result));
-    reader.readAsDataURL(img);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState('');
+  const [fileList, setFileList] = useState([
+  
+   
+   
+  ]);
+  const handlePreview = async (file) => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+    setPreviewImage(file.url || file.preview);
+    setPreviewOpen(true);
   };
-
-  const beforeUpload = (file) => {
-    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-    if (!isJpgOrPng) {
-      message.error("You can only upload JPG/PNG files!");
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error("Image must be smaller than 2MB!");
-    }
-    return isJpgOrPng && isLt2M;
-  };
-
-  const handleImageChange = (info) => {
-    if (info.file.status === "uploading") {
-      setLoading(true);
-      return;
-    }
-    if (info.file.status === "done") {
-      getBase64(info.file.originFileObj, (url) => {
-        setLoading(false);
-        setImageUrl(url);
-      });
-    }
-  };
-
+  const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
   const uploadButton = (
     <button
       style={{
         border: 0,
-        background: "none",
+        background: 'none',
       }}
       type="button"
     >
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
+      <PlusOutlined />
+      <div
+        style={{
+          marginTop: 8,
+        }}
+      >
+        Upload
+      </div>
     </button>
   );
+
+
 
   // Form validation
   const validateForm = () => {
@@ -83,8 +85,8 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">Add Blog</h1>
+    <div className="p-4  lg:p-28 max-w-4xl mx-auto border border-black">
+      <h1 className="text-3xl font-bold mb-6 text-center ">Add Blog</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title Field */}
         <div>
@@ -150,30 +152,29 @@ const AddBlog = () => {
         <div>
           <label className="block font-bold text-xl mb-2">Image</label>
           <Upload
-            name="avatar"
-            listType="picture-card"
-            className="avatar-uploader"
-            showUploadList={false}
-            action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-            beforeUpload={beforeUpload}
-            onChange={handleImageChange}
-            style={{width:'100%'}}
-          >
-            {imageUrl ? (
-              <img
-                src={imageUrl}
-                alt="avatar"
-                style={{ width: "100%",height:"auto", borderRadius: "8px" }}
-              />
-            ) : (
-              uploadButton
-            )}
-          </Upload>
-          {errors.image && (
-            <p className="text-red-500 text-sm mt-1">{errors.image}</p>
-          )}
-        </div>
-
+        action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+        listType="picture-circle"
+        fileList={fileList}
+        onPreview={handlePreview}
+        onChange={handleChange}
+      >
+        {fileList.length >= 8 ? null : uploadButton}
+      </Upload>
+      {previewImage && (
+        <Image
+          wrapperStyle={{
+            display: 'none',
+          }}
+          preview={{
+            visible: previewOpen,
+            onVisibleChange: (visible) => setPreviewOpen(visible),
+            afterOpenChange: (visible) => !visible && setPreviewImage(''),
+          }}
+          src={previewImage}
+        />
+       
+      )}
+      </div>
         {/* Submit Button */}
         <div className="text-center">
           <button

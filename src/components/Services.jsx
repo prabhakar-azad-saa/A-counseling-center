@@ -8,6 +8,7 @@ import Famil from "../img/Famil";
 import Leaf from "../img/Leaf";
 import Carrier from "../img/Carrier";
 import Chat from "../img/Chat"
+import Needing from "../img/Needing";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -16,6 +17,40 @@ const Services = () => {
     navigate("/" + pagename);
   };
 
+  const therapyData = [
+    {
+      component: <Individual22 />,
+      title: "Individual Therapy",
+      description: "Anxiety & Stress Management, Depression & Mood Disorders, Trauma & PTSD Counseling, Anger Management, Self-Esteem & Confidence Building.",
+      onClick:() => handleClick("individual"),
+    },
+    {
+      component: <Relationship />,
+      title: "Relationship Therapy",
+      description: "Marriage & Pre-Marital Counseling, Relationship Conflicts & Communication Issues, Divorce & Separation Support, Infidelity Recovery, Relationship and Emotional Well-being.",
+    },
+    {
+      component: <Famil />,
+      title: "Family Counseling",
+      description: "Parenting Challenges, Teen Counseling, Family Conflict Resolution, Behavioral Issues in Children.",
+    },
+    {
+      component: <Leaf />,
+      title: "Specialized Therapy",
+      description: "Cognitive Behavioral Therapy (CBT), Mindfulness-Based Therapy, Psychodynamic Therapy, ADHD, Rational Emotive Behavior Therapy (REBT), Acceptance Therapies (ACT), Autism.",
+    },
+    {
+      component: <Carrier />,
+      title: "Career Coaching",
+      description: "Career Guidance & Decision-Making, Work-Life Balance, Motivation & Personal Development, Aptitude, Attitude, Interest, Achievement Test & Projective Test, Specific Learning Disability.",
+    },
+    {
+      component: <Chat />,
+      title: "Online Sessions",
+      description: "Convenient and secure virtual therapy sessions from the comfort of your home, maintaining the same quality care.",
+      onClick:() => handleClick("onlinecounseling"),
+    },
+  ];
   return (
     <div className="bg-[#FCF8F4]">
      <nav
@@ -43,9 +78,42 @@ const Services = () => {
     </div>
   </div>
 </nav>
+<div className="p-6 text-center px-4 pt-32 sm:px-10 lg:px-[162px]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Empowering Minds Our Mental Health Consulting Services
+        </h1>
+<div className="space-y-16 px-6 md:px-12 lg:px-24">
+      {therapyData.map((item, index) => (
+        <div
+          key={index}
+          className={`flex flex-col md:flex-row items-center py-16 px-6 md:px-12 lg:px-20 ${
+            index % 2 !== 0 ? "md:flex-row-reverse" : ""
+          } bg-gray-100 rounded-lg `}
+          onClick={item.onClick}
+        >
+          {/* Image Section */}
+          <div className="flex-shrink-0 w-full md:w-1/2 flex justify-center">
+            {item.component}
+          </div>
+
+          {/* Text Section */}
+          <div className="w-full md:w-1/2 text-center md:text-left p-6 md:p-10">
+            <h1 className="text-5xl md:text-5xl lg:text-5xl font-bold text-gray-800">
+              {item.title}
+            </h1>
+            <p className="text-2xl md:text-3xl text-gray-600 mt-4 font-poppins">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+</div>
 
 
-      <div className="p-6 text-center px-4 pt-32 sm:px-10 lg:px-[162px]">
+    
+
+      {/* <div className="p-6 text-center px-4 pt-32 sm:px-10 lg:px-[162px]">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
           Empowering Minds Our Mental Health Consulting Services
         </h1>
@@ -54,12 +122,14 @@ const Services = () => {
           style={{}}
         >
           {/* Individual Therapy */}
+
+{/*         
           <div
             className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => handleClick("individual")}
-          >
+          > */}
           
-            <Individual22 className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
+            {/* <Individual22 className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-2xl sm:text-[35px] mb-2 text-white">
               Individual Therapy
             </h2>
@@ -68,10 +138,10 @@ const Services = () => {
               PTSD Counseling, Anger Management, Self-Esteem & Confidence
               Building.
             </p>
-          </div>
+          </div> */}
 
           {/* Relationship Therapy */}
-          <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
+          {/* <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
           
             <Relationship   className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
@@ -82,10 +152,10 @@ const Services = () => {
               Communication Issues, Divorce & Separation Support, Infidelity
               Recovery, Relationship and Emotional.
             </p>
-          </div>
+          </div> */}
 
           {/* Family Counseling */}
-          <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
+          {/* <div className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
            
             <Famil  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-gray-900">
@@ -95,10 +165,10 @@ const Services = () => {
               Parenting Challenges, Teen Counseling, Family Conflict Resolution,
               Behavioral Issues in Children.
             </p>
-          </div>
+          </div> */}
 
           {/* Specialized Therapy */}
-          <div className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
+          {/* <div className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
            
             <Leaf  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
@@ -110,10 +180,10 @@ const Services = () => {
              Acceptance Therapies (ACT), Autism
               .
             </p>
-          </div>
+          </div> */}
 
           {/* Career Coaching */}
-          <div className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
+          {/* <div className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300">
            
             <Carrier  className="w-1/5 sm:w-1/4 lg:w-1/5 h-auto rounded-md mb-4 mx-auto"/>
             <h2 className="text-[28px] sm:text-[35px] mb-2 text-white">
@@ -124,10 +194,10 @@ const Services = () => {
               Personal Development, Aptitude Attitude, Interest, Achieveme nt Test & Projective Test,Specific Learning Disability
               .
             </p>
-          </div>
+          </div> */}
 
           {/* Online Sessions */}
-          <div
+          {/* <div
             className="bg-white p-6 rounded-3xl text-center py-12 sm:py-20 cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => handleClick("onlinecounseling")}
           >
@@ -142,7 +212,7 @@ const Services = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */} 
 
       <Ready />
     </div>
