@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://185.127.17.209/Hospital/api/Hospital";
+const API_BASE_URL = "https://api.apluscounselling.com:8443/api/Hospital";
 
 export const login = async (email, password) => {
   try {
@@ -70,19 +70,21 @@ export const sessionBook = async (sessionData) => {
 };
 
 
-export const userCantact = async () => {
+export const patientTable = async () => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/GetContacts`
+      `${API_BASE_URL}/GetPatients`
     );
     return response;
   } catch (error) {
     console.error(
-      "Error submitting contact form:",
+      "Error submitting patient form:",
       error.response?.data || error.message
     );
   }
 };
+
+
 
 export const bookingTable = async () => {
   try {
@@ -98,18 +100,32 @@ export const bookingTable = async () => {
   }
 };
 
-export const patientTable = async () => {
+
+
+export const userCantact = async () => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/GetPatients`
+      `${API_BASE_URL}/GetContacts`
     );
     return response;
   } catch (error) {
     console.error(
-      "Error submitting patient form:",
+      "Error submitting contact form:",
       error.response?.data || error.message
     );
   }
+};
+
+export const getImage  = async () => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/GetImage`,
+    );
+    return response.data;
+  }catch (error) {console.error(
+    "Error submitting GetImage:",
+    error.response?.data || error.message
+  )}
 };
 
 
@@ -126,46 +142,18 @@ export const upcomingAppointment = async (Id) => {
   )}
 };
 
-
-export const getUserDetail = async () => {
+export const sessionHistory  = async (Id) => {
   try{
     const response = await axios.get(
-      `${API_BASE_URL}/GetUserDetails`,
+      `${API_BASE_URL}/SessionHistory?userId=${Id}`,
     );
-    return response.data;
+    return response;
   }catch (error) {console.error(
-    "Error submitting GetUserDetails:",
+    "Error submitting SessionHistory:",
     error.response?.data || error.message
   )}
 };
 
-
-export const getBlogdetails  = async () => {
-  try{
-    const response = await axios.get(
-      `${API_BASE_URL}/GetBlogDetails`,
-    );
-    return response.data;
-  }catch (error) {console.error(
-    "Error submitting GetBlogDetails:",
-    error.response?.data || error.message
-  )}
-};
-
-export const uploadBlogImage = async () => {
-  try {
-    const response = await axios.post(
-      `${API_BASE_URL}/UploadBlogImage`,
-    
-    );
-    return response.data;
-  } catch (error) {
-    console.error(
-      "Error submitting UploadBlogImage form:",
-      error.response?.data || error.message
-    );
-  }
-};
 
 export const insertBlog = async (blog) => {
   try {
@@ -183,6 +171,52 @@ export const insertBlog = async (blog) => {
 };
 
 
+
+export const uploadBlogImage = async () => {
+  try {
+    const response = await axios.post(
+      `${API_BASE_URL}/UploadBlogImage`,
+    
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting UploadBlogImage form:",
+      error.response?.data || error.message
+    );
+  }
+};
+
+
+
+export const getBlogdetails  = async () => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/GetBlogDetails`,
+    );
+    return response.data;
+  }catch (error) {console.error(
+    "Error submitting GetBlogDetails:",
+    error.response?.data || error.message
+  )}
+};
+
+
+
+
+export const getUserDetail = async (Id) => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/GetUserDetails?userId=${Id}`,
+    );
+    return response;
+  }catch (error) {console.error(
+    "Error submitting GetUserDetails:",
+    error.response?.data || error.message
+  )}
+};
+
+
 export const registerAdmin = async () => {
   try {
     const response = await axios.post(
@@ -196,30 +230,4 @@ export const registerAdmin = async () => {
       error.response?.data || error.message
     );
   }
-};
-
-
-export const sessionHistory  = async () => {
-  try{
-    const response = await axios.get(
-      `${API_BASE_URL}/SessionHistory`,
-    );
-    return response.data;
-  }catch (error) {console.error(
-    "Error submitting SessionHistory:",
-    error.response?.data || error.message
-  )}
-};
-
-
-export const getImage  = async () => {
-  try{
-    const response = await axios.get(
-      `${API_BASE_URL}/GetImage`,
-    );
-    return response.data;
-  }catch (error) {console.error(
-    "Error submitting GetImage:",
-    error.response?.data || error.message
-  )}
 };

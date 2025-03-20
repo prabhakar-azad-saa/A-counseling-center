@@ -34,7 +34,7 @@ const UserProfile = () => {
   const [fileList, setFileList] = useState([]);
   const [profileImage, setProfileImage] = useState(userImg);
   const [upcommingAppointment,setUpcommingAppointment] =  useState([])
-  const [getuser,setGetuser]=useState([])
+  const [user,setUser]=useState([])
   const [sessionhistory,setSessionhistory]=useState([])
 
 
@@ -92,27 +92,31 @@ const UserProfile = () => {
     const upcomingAppointmentData= upcomingAppointment(parsedUser.userId)
     upcomingAppointmentData.then((res)=>{
       setUpcommingAppointment(res)
+      
     }).catch((err)=>{
       console.log("=====154===",err)
     })
 
     //Userdetail
-        getUserDetail().then((res)=>{
-          setGetuser(res?.data)
+        getUserDetail(parsedUser.userId).then((res)=>{
+         
+          setUser(res?.data)
+          console.log("==2222==",res)
         }) .catch((err)=>{
           console.log("====getUserDetailes Err====",err)
         }) 
 
         //sessionHistory
-        sessionHistory().then((res)=>{
+        sessionHistory(parsedUser.userId).then((res)=>{
           setSessionhistory(res?.data)
+         
         }) .catch((err)=>{
           console.log("====sessionHistory Err====",err)
         }) 
   },[])
 
 
-  
+
   return (
     <div className="flex flex-col lg:flex-row " style={{backgroundColor:'#e3e8e9'}}>
    
@@ -129,6 +133,7 @@ const UserProfile = () => {
               beforeUpload={() => false} 
             >
               <img
+              
                 src={profileImage}
                 alt="User"
                 className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
@@ -136,15 +141,15 @@ const UserProfile = () => {
             </Upload>
             {/* <img src={userImg} alt="User" className="w-24 h-24 rounded-full mb-4 lg:mb-0"/> */}
             <div className='lg:ml-6'>
-              <h1 className="text-2xl font-bold">Sarah Johnson</h1>
-              <p className="text-lg text-black font-semibold">Member since October 2023</p>
+              <h1 className="text-2xl font-bold">{user.username}</h1>
+              <p className="text-lg text-black font-semibold">{user.createdAt}</p>
             </div>
           </div>
 
           <div className="mb-4">
             <div className='flex mt-5'>
               <Usermail />
-              <p className="text-base text-black font-semibold ml-3">sarah.johnson@email.com</p>
+              <p className="text-base text-black font-semibold ml-3">{user.email}</p>
             </div>
             <div className='flex mt-5'>
               <Usercall />
@@ -156,6 +161,9 @@ const UserProfile = () => {
             </div>
           </div>
           <Button onClick={handleLogout} className='text-sm'>Logout</Button>
+
+          
+           
 
           {/* <div className='bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2'>
             <Editlogo/>
@@ -171,11 +179,15 @@ const UserProfile = () => {
           {
           upcommingAppointment?.map((item)=>(
             <>
-          <div className="mb-4">
+          <div className="mb-4 bor flex flex-row">
+          <div className="border-l-4 h-32 p-5 border-black"></div>
+            
+            <div>
             <p className="text-lg text-black">Next session</p>
             <h2 className="text-xl font-semibold">{item.sessionDate}</h2>
             <p className="text-lg text-black">{item.sessionSlotTime}</p>
-            <p className="text-lg text-black">with Dr. Michael Brown</p>
+            </div>
+            {/* <p className="text-lg text-black">with Dr. Michael Brown</p> */}
           </div>
             </>
             
@@ -194,27 +206,50 @@ const UserProfile = () => {
       <div className="flex flex-col lg:w-2/3  p-5 lg:p-10 mt-24 mx-5 lg:mx-24 lg:ml-10">
         {/* Session History */}
         <div className="bg-white shadow-lg rounded-lg mb-6 p-5">
+          
           <h1 className="text-2xl font-bold mb-4">Session History</h1>
 
           {/* First Session */}
-          <div className="flex items-center mb-6 p-5">
-            <Uservideo className="w-16 h-16 rounded-full mr-4"/>
+          <div className="flex flex-col  mb-6 p-5">
+        
+         {/* <Uservideo className="w-16 h-16 rounded-full mr-4"/> */}
+       
+         
+
+          {
+          sessionhistory?.map((chat)=>(
+            <>
+             <div className='flex p-3'>
+             <Uservideo className="w-16 h-16 rounded-full mr-4"/>
+            <div>
+              <h2 className="text-lg font-semibold">Video Session with {chat.doctorName}</h2>
+              <p className="text-sm text-gray-600">{chat.sessionDate}</p>
+              <p className="text-sm text-gray-600">{chat.sessionDescription}</p>
+            </div>
+         
+             </div>
+            </>
+            
+          ))
+        }
+
+            {/* <Uservideo className="w-16 h-16 rounded-full mr-4"/>
             <div>
               <h2 className="text-lg font-semibold">Video Session with Dr. Brown</h2>
               <p className="text-sm text-gray-600">March</p>
               <p className="text-sm text-gray-600">Discussed progress on stress management techniques and sleep hygiene practices.</p>
-            </div>
+            </div> */}
           </div>
 
           {/* Second Session */}
-          <div className="flex items-center mb-6 p-5">
+          {/* <div className="flex items-center mb-6 p-5">
             <Userchat className="w-16 h-16 rounded-full mr-4"/>
             <div>
               <h2 className="text-lg font-semibold">Chat Session with Dr. Brown</h2>
               <p className="text-sm text-gray-600">March</p>
               <p className="text-sm text-gray-600">Quick check-on anxiety management strategies and medication review.</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
       </div>
