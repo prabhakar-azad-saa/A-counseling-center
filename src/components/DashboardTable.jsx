@@ -23,7 +23,6 @@ const DashboardTable = () => {
 
     //patients 
     patientTable().then((res) =>{
-      
       setPatients(res?.data)
     }).catch((err)=>{
       console.log('===patientTable Err==',err)
@@ -41,20 +40,7 @@ const DashboardTable = () => {
 
   
 
-  // const bookingData = [
-  //   { firstName: 'Rajesh', email: 'rajmewada18110@gmai.com', phone: '9876543210', date: '2025-03-01', payment: 'Pending' },
-  //   { firstName: 'Test 4', email: 'rajmewada18110@gmail.com', phone: '9876543210', date: '2025-03-01', payment: 'Pending' }
-  // ];
-  
-  // const submittedData = [
-  //   { firstName: 'Test', lastName: '3', email: 'rajmewada18110@gmail.com', phone: '9876543210', message: 'This is my message' },
-  //   { firstName: 'Abhishek', lastName: 'Gehlot', email: 'abhishek@gmail.com', phone: '9876543210', message: 'Test_02' }
-  // ];
-  
-  // const submituserData = [
-  //   { firstName: 'Prabhakar', lastName: 'Azad', email: 'prabhakarazad903@gmail.com', phone: '8118829017' },
-  //   { firstName: 'Tester', lastName: '2', email: 'rajmewada18110@gmail.com', phone: '+91 9876543210' }
-  // ];
+ 
 
  console.log('=====================patients',patients)
   return (

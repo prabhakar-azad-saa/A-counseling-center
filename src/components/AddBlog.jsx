@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Image, Upload } from 'antd';
+import { insertBlog } from '../action/Auth';
 
 
 const getBase64 = (file) =>
@@ -23,14 +24,13 @@ const AddBlog = () => {
   // Image upload handler
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
-  const [fileList, setFileList] = useState([
-  
-   
-   
-  ]);
+  const [fileList, setFileList] = useState([ ]);
+
+
+  // handel preview
   const handlePreview = async (file) => {
     if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
+      file.preview = await GetImage(file.originFileObj);
     }
     setPreviewImage(file.url || file.preview);
     setPreviewOpen(true);
@@ -63,29 +63,26 @@ const AddBlog = () => {
     if (!title.trim()) newErrors.title = "Title is required.";
     if (!heading.trim()) newErrors.heading = "Heading is required.";
     if (!content.trim()) newErrors.content = "Content is required.";
-    if (!imageUrl) newErrors.image = "Image is required.";
+    if (!imageUrl || imageUrl.trim() === "") newErrors.image = "Image is required.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   // Form submission
   const handleSubmit = (e) => {
+    // console.log("===========================")
     e.preventDefault();
+    console.log(title,heading,content)
     if (validateForm()) {
-      const blogData = { title, heading, content, imageUrl };
-      console.log("Blog Data Submitted:", blogData);
-      message.success("Blog submitted successfully!");
-      // Reset form
-      setTitle("");
-      setHeading("");
-      setContent("");
-      setImageUrl("");
-      setErrors({});
+      console.log("=============",title,heading,content)
     }
   };
 
+   
+
+
   return (
-    <div className="p-4  lg:p-28 max-w-4xl mx-auto border border-black">
+    <div className="p-4  lg:p-28 max-w-4xl mx-auto bg-white border border-black">
       <h1 className="text-3xl font-bold mb-6 text-center ">Add Blog</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title Field */}

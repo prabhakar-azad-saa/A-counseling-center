@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 
 import frameImage from "../img/svgvieweroutput.png";
 import { useNavigate } from 'react-router-dom';
@@ -7,9 +7,12 @@ import blogDetail4 from "../img/blogDetail4.png"
 import blogImg1 from "../img/blogImg1.png"
 import blogImg2 from "../img/blogImg2.png"
 import blogDetail6 from "../img/blogDetail6.png"
-
+import {getBlogdetails  } from '../action/Auth';
 
 const Blogs = () => {
+
+  const [blogDetail,setBlogDetail] = useState ([]);
+  
   const navigate = useNavigate();
 
   const handleClick = (page) => {
@@ -31,6 +34,15 @@ const Blogs = () => {
     },
   ];
 
+  useEffect(() => {
+    getBlogdetails().then((res)=>{
+      setBlogDetail(res?.data)
+      }).catch((err)=>{
+        console.log("==getBlogdetails Err===",err)
+      })
+    
+  
+ } ,[])
 
   return (
     <div className='bg-[#FCF8F4]'>

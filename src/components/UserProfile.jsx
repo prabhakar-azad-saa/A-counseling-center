@@ -13,7 +13,7 @@ import Editlogo from "../img/Editlogo";
 import Schedule from "../img/Schedule";
 import Button from '../components/Button';
 import Userchat from '../img/Userchat';
-import { upcomingAppointment } from '../action/Auth';
+import { upcomingAppointment,getUserDetail,sessionHistory } from '../action/Auth';
 
 
 
@@ -34,7 +34,8 @@ const UserProfile = () => {
   const [fileList, setFileList] = useState([]);
   const [profileImage, setProfileImage] = useState(userImg);
   const [upcommingAppointment,setUpcommingAppointment] =  useState([])
-  
+  const [getuser,setGetuser]=useState([])
+  const [sessionhistory,setSessionhistory]=useState([])
 
 
   const getBase64 = (file) =>
@@ -94,7 +95,24 @@ const UserProfile = () => {
     }).catch((err)=>{
       console.log("=====154===",err)
     })
+
+    //Userdetail
+        getUserDetail().then((res)=>{
+          setGetuser(res?.data)
+        }) .catch((err)=>{
+          console.log("====getUserDetailes Err====",err)
+        }) 
+
+        //sessionHistory
+        sessionHistory().then((res)=>{
+          setSessionhistory(res?.data)
+        }) .catch((err)=>{
+          console.log("====sessionHistory Err====",err)
+        }) 
   },[])
+
+
+  
   return (
     <div className="flex flex-col lg:flex-row " style={{backgroundColor:'#e3e8e9'}}>
    

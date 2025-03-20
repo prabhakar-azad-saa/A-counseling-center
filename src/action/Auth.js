@@ -125,3 +125,101 @@ export const upcomingAppointment = async (Id) => {
     error.response?.data || error.message
   )}
 };
+
+
+export const getUserDetail = async () => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/GetUserDetails`,
+    );
+    return response.data;
+  }catch (error) {console.error(
+    "Error submitting GetUserDetails:",
+    error.response?.data || error.message
+  )}
+};
+
+
+export const getBlogdetails  = async () => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/GetBlogDetails`,
+    );
+    return response.data;
+  }catch (error) {console.error(
+    "Error submitting GetBlogDetails:",
+    error.response?.data || error.message
+  )}
+};
+
+export const uploadBlogImage = async () => {
+  try {
+    const response = await axios.post(
+      `${API_BASE_URL}/UploadBlogImage`,
+    
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting UploadBlogImage form:",
+      error.response?.data || error.message
+    );
+  }
+};
+
+export const insertBlog = async (blog) => {
+  try {
+    const response = await axios.post(
+      `${API_BASE_URL}/InsertBlog`,
+      
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting InsertBlog form:",
+      error.response?.data || error.message
+    );
+  }
+};
+
+
+export const registerAdmin = async () => {
+  try {
+    const response = await axios.post(
+      `${API_BASE_URL}/RegisterAdmin`,
+      
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting RegisterAdmin form:",
+      error.response?.data || error.message
+    );
+  }
+};
+
+
+export const sessionHistory  = async () => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/SessionHistory`,
+    );
+    return response.data;
+  }catch (error) {console.error(
+    "Error submitting SessionHistory:",
+    error.response?.data || error.message
+  )}
+};
+
+
+export const getImage  = async () => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/GetImage`,
+    );
+    return response.data;
+  }catch (error) {console.error(
+    "Error submitting GetImage:",
+    error.response?.data || error.message
+  )}
+};
