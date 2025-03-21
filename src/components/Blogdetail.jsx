@@ -10,6 +10,8 @@ import blog222 from "../img/blog222.png"
 import blog333 from "../img/blog333.png"
 import blogDetail5 from "../img/blogDetail5.png"
 import blogDetail6 from "../img/blogDetail6.png"
+import { IoHeartSharp } from "react-icons/io5";
+import { AiOutlineHeart } from "react-icons/ai";
 
 
 const Blogdetail = () => {
@@ -75,6 +77,10 @@ const Blogdetail = () => {
         <li>5.Support in maintaining long-term well-being</li>
       </ol>
         </p>
+       <div className='pt-5'>
+       <button className='w-6 ' > <IoHeartSharp /></button>
+       <button><AiOutlineHeart /></button>
+       </div>
       </div>
 
       {/* Recommended Blog Section */}

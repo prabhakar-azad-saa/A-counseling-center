@@ -203,10 +203,19 @@
 // export default AddBlog;
 
 
-import React, { useState } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
-import { Image, Upload, message } from 'antd';
-import { insertBlog, uploadBlogImage } from '../action/Auth'; // Import uploadBlogImage
+import React, { useState } from "react";
+import { PlusOutlined } from "@ant-design/icons";
+import { Image, Upload, message } from "antd";
+import { insertBlog, uploadBlogImage } from "../action/Auth";
+
+// Function to convert file to Base64
+const getBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
@@ -215,52 +224,29 @@ const AddBlog = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const [previewOpen, setPreviewOpen] = useState(false);
-  const [previewImage, setPreviewImage] = useState('');
   const [fileList, setFileList] = useState([]);
 
-  // Handle preview
+  // Image preview handlers
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState("");
+
+  // Handle image preview
   const handlePreview = async (file) => {
     if (!file.url && !file.preview) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file.originFileObj);
-      reader.onload = () => setPreviewImage(reader.result);
-    } else {
-      setPreviewImage(file.url || file.preview);
+      file.preview = await getBase64(file.originFileObj);
     }
+    setPreviewImage(file.url || file.preview);
     setPreviewOpen(true);
   };
 
-  // Handle file upload
-  const handleChange = async ({ fileList: newFileList }) => {
+  // Handle image change
+  const handleChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
-    if (newFileList.length > 0) {
-      const file = newFileList[0].originFileObj;
-      if (file) {
-        setLoading(true);
-        try {
-          const response = await uploadBlogImage(file);
-          if (response && response.url) {
-            setImageUrl(response.url);
-            message.success("Image uploaded successfully!");
-          } else {
-            message.error("Failed to upload image.");
-          }
-        } catch (error) {
-          message.error("Image upload error.");
-        } finally {
-          setLoading(false);
-        }
-      }
-    }
   };
 
   // Upload button UI
   const uploadButton = (
-    <button
-      style={{ border: 0, background: 'none' }}
-      type="button"
-    >
+    <button style={{ border: 0, background: "none" }} type="button">
       <PlusOutlined />
       <div style={{ marginTop: 8 }}>Upload</div>
     </button>
@@ -272,7 +258,7 @@ const AddBlog = () => {
     if (!title.trim()) newErrors.title = "Title is required.";
     if (!heading.trim()) newErrors.heading = "Heading is required.";
     if (!content.trim()) newErrors.content = "Content is required.";
-    if (!imageUrl) newErrors.image = "Image is required.";
+    if (fileList.length === 0) newErrors.image = "Image is required.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -280,31 +266,52 @@ const AddBlog = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      setLoading(true);
-      const newBlog = {
-        title,
-        heading,
-        content,
-        imagePath: imageUrl,
-        createdAt: new Date().toISOString(),
-        createdBy: "admin", // Change as needed
+    if (!validateForm()) return;
+
+    setLoading(true);
+    try {
+      // Step 1: Prepare blog data
+      const blogData = {
+        userId: 0, // Change this to the actual user ID if needed
+        type: "Blog",
+        name: title,
+        description: content,
+        additionalInfo: heading,
       };
 
-      try {
-        await insertBlog(newBlog);
-        console.log('====123===',newBlog)
-        message.success("Blog added successfully!");
-        setTitle("");
-        setHeading("");
-        setContent("");
-        setImageUrl("");
-        setFileList([]);
-      } catch (err) {
-        message.error("Failed to add blog.");
-      } finally {
-        setLoading(false);
+      // Step 2: Insert Blog
+      const blogResponse = await insertBlog(blogData);
+      console.log("=====123====",blogResponse)
+      if (!blogResponse) {
+        message.error("Failed to create blog.");
+        return;
       }
+
+      message.success("Blog created successfully!");
+
+      // Step 3: Upload Image
+      if (fileList.length > 0) {
+        const file = fileList[0].originFileObj;
+        const uploadResponse = await uploadBlogImage(blogResponse.userId, file);
+
+        if (uploadResponse && uploadResponse.url) {
+          setImageUrl(uploadResponse.url);
+          message.success("Image uploaded successfully!");
+        } else {
+          message.error("Image upload failed.");
+        }
+      }
+
+      // Reset form
+      setTitle("");
+      setHeading("");
+      setContent("");
+      setFileList([]);
+    } catch (error) {
+      console.error("Error:", error);
+      message.error("An error occurred while adding the blog.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -362,17 +369,16 @@ const AddBlog = () => {
             fileList={fileList}
             onPreview={handlePreview}
             onChange={handleChange}
-            beforeUpload={() => false} // Prevent auto-upload by antd
+            beforeUpload={() => false} 
           >
             {fileList.length >= 1 ? null : uploadButton}
           </Upload>
           {previewImage && (
             <Image
-              wrapperStyle={{ display: 'none' }}
               preview={{
                 visible: previewOpen,
                 onVisibleChange: (visible) => setPreviewOpen(visible),
-                afterOpenChange: (visible) => !visible && setPreviewImage(''),
+                afterOpenChange: (visible) => !visible && setPreviewImage(""),
               }}
               src={previewImage}
             />
@@ -382,11 +388,7 @@ const AddBlog = () => {
 
         {/* Submit Button */}
         <div className="text-center">
-          <button
-            type="submit"
-            className="bg-[#EC744A] text-white px-20 py-4 rounded-full hover:bg-[#EC744A] transition duration-300"
-            disabled={loading}
-          >
+          <button type="submit" className="bg-[#EC744A] text-white px-20 py-4 rounded-full hover:bg-[#EC744A] transition duration-300" disabled={loading}>
             {loading ? "Submitting..." : "Submit"}
           </button>
         </div>

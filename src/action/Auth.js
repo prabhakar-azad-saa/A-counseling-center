@@ -155,7 +155,7 @@ export const sessionHistory  = async (Id) => {
 };
 
 
-export const insertBlog = async (blog) => {
+export const insertBlog = async () => {
   try {
     const response = await axios.post(
       `${API_BASE_URL}/InsertBlog`,
@@ -172,10 +172,10 @@ export const insertBlog = async (blog) => {
 
 
 
-export const uploadBlogImage = async () => {
+export const uploadBlogImage = async (Id) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/UploadBlogImage`,
+      `${API_BASE_URL}/UploadBlogImage?Id=${Id}`,
     
     );
     return response.data;
@@ -229,5 +229,23 @@ export const registerAdmin = async () => {
       "Error submitting RegisterAdmin form:",
       error.response?.data || error.message
     );
+  }
+};
+
+
+export const changeAppointment = async (sessionId, status, username) => {
+  try {
+    const response = await axios.put(`${API_BASE_URL}/ChangeAppointmentStatus`, 
+      { sessionId, status, username }, 
+      { headers: { "Content-Type": "application/json" } } 
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error updating appointment status:",
+      error.response?.data || error.message
+    );
+    throw error; 
   }
 };

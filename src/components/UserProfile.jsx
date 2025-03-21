@@ -34,7 +34,7 @@ const UserProfile = () => {
   const [fileList, setFileList] = useState([]);
   const [profileImage, setProfileImage] = useState(userImg);
   const [upcommingAppointment,setUpcommingAppointment] =  useState([])
-  const [user,setUser]=useState([])
+  const [user,setUser] = useState([])
   const [sessionhistory,setSessionhistory]=useState([])
 
 

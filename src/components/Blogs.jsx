@@ -64,8 +64,8 @@ const Blogs = () => {
       {blogDetails.map((blog, index) => (
         <div
          key={index}
-          className="flex flex-col sm:w-1/2 rounded-lg shadow-lg p-6 mb-8 bg-white"
-          onClick={() => handleClick("blogdetail")}
+          className="flex flex-col sm:w-1/2 rounded-lg shadow-2xl p-6 mb-8 bg-white"
+          // onClick={() => handleClick("blogdetail")}
         >
           <img
                 src={blog.imagePath || blogImg1}
@@ -86,13 +86,15 @@ const Blogs = () => {
           <p className="text-base text-gray-700 mb-6 font-poppins">
           {blog.description.length > 70
           ? `${blog.description.slice(0, 70).trim()}...`
-          : blog.description}<a>see more</a>
+          : blog.description} <a  onClick={() => handleClick("blogdetail")} className="text-blue-500 hover:text-blue-700 font-medium text-lg">
+          Read More
+        </a>
           </p>
         </div>
       ))}
         
 
-        <div className="sm:w-1/2 rounded-lg shadow-lg p-6  mb-8 bg-white">
+        <div className="sm:w-1/2 rounded-lg shadow-2xl p-6  mb-8 bg-white">
           <h1 className="text-3xl font-semibold mb-4">Popular Posts</h1>
           <div className="space-y-6">
           {popularPosts.map((post, index) => (
@@ -154,7 +156,7 @@ const Blogs = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <div
-            className="bg-white rounded-lg shadow-lg p-6 mb-8"
+            className="bg-white rounded-lg shadow-2xl p-6 mb-8"
             onClick={() => handleClick("blogdetail")}
           >
             <img
@@ -182,7 +184,7 @@ const Blogs = () => {
 
           
           <div
-            className="bg-white rounded-lg shadow-lg p-6 mb-8"
+            className="bg-white rounded-lg shadow-2xl p-6 mb-8"
             onClick={() => handleClick("blogdetail")}
           >
             <img
@@ -209,7 +211,7 @@ const Blogs = () => {
 
          
           <div
-            className="bg-white rounded-lg shadow-lg p-6 mb-8"
+            className="bg-white rounded-lg shadow-2xl p-6 mb-8"
             onClick={() => handleClick("blogdetail")}
           >
             <img

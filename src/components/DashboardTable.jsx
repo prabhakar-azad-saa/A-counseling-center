@@ -42,7 +42,6 @@ const DashboardTable = () => {
 
  
 
- console.log('=====================patients',patients)
   return (
     <div className="flex flex-col md:flex-row min-h-screen ">
       <div className="w-full md:w-96 bg-gray-800 text-white p-5 ">
@@ -68,7 +67,7 @@ const DashboardTable = () => {
 
       <div className="flex flex-col flex-1 items-center bg-gray-300 p-5 w-full">
         {error && <div className="text-red-500">{error}</div>}
-        <div className="bg-gray-300  rounded-lg p-5 w-full overflow-auto">
+        <div className="bg-white  rounded-lg p-5 w-full overflow-auto">
           {activeTable === 'dashboard' ? (
             <DashboardUi />
           ) : activeTable === 'addblog' ? (

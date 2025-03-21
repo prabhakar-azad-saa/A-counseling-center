@@ -10,6 +10,7 @@ import BookSession from "../img/BookSession"
 import Video from "../img/Video"
 import Voicecall from "../img/Voicecall"
 import Chat from "../img/Chat"
+import Chatts from "../img/Chatts";
 
 const Session = () => {
   const navigate = useNavigate();
@@ -137,7 +138,7 @@ const Session = () => {
 
           {/* Chat Support */}
           <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-lg w-full sm:max-w-xs lg:w-1/3">
-           <Chat  className="w-16 h-16 mb-4"/>
+           <Chatts  className="w-16 h-16 mb-4"/>
             <h1 className="text-xl font-semibold mb-2">Chat Support</h1>
             <p className="text-sm pb-5 text-center text-gray-600 mb-4 font-poppins">
               Text-based counseling with quick responses
