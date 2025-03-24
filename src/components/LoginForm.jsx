@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const location = useLocation();
 
-  console.log("========148=====", location);
+  // console.log("========148=====", location);
 
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");

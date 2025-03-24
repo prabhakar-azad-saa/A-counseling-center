@@ -205,7 +205,7 @@
 
 import React, { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
-import { Image, Upload, message } from "antd";
+import { Image, Upload, message ,Spin} from "antd";
 import { insertBlog, uploadBlogImage } from "../action/Auth";
 
 // Function to convert file to Base64
@@ -388,9 +388,15 @@ const AddBlog = () => {
 
         {/* Submit Button */}
         <div className="text-center">
-          <button type="submit" className="bg-[#EC744A] text-white px-20 py-4 rounded-full hover:bg-[#EC744A] transition duration-300" disabled={loading}>
-            {loading ? "Submitting..." : "Submit"}
-          </button>
+        <button
+  type="submit"
+  className={`bg-[#EC744A] text-white px-20 py-4 rounded-full hover:bg-[#EC744A] transition duration-300 ${
+    loading ? "opacity-70 cursor-not-allowed" : ""
+  }`}
+  disabled={loading}
+>
+  {loading ? <Spin size="small" className="mr-2" /> : "Submit"}
+</button>
         </div>
       </form>
     </div>

@@ -6,6 +6,7 @@ import { submitContactForm } from "../action/Auth";
 import VoicecallBlack from "../img/VoicecallBlack"
 import  MailBlack from "../img/MailBlack"
 import Locationcontact from "../img/Locationcontact";
+import {  Spin } from "antd";
 
 // Contact Component
 const ContactUs = () => {
@@ -29,6 +30,8 @@ const ContactUs = () => {
     // Live validation
     validateField(name, value);
   };
+
+ 
 
   // Validation function
   // const validateField = (name, value) => {
@@ -308,8 +311,15 @@ const ContactUs = () => {
           <Button
             className="mt-4 p-3 bg-[#007D6E] text-white rounded-full hover:bg-[#5EB47C]"
             onClick={submitForm}
+            disabled={loading}
           >
-            {loading ? "Sending..." : "Send message"}
+            {loading ? (
+        <>
+          <Spin size="small" className="mr-2" /> Sending...
+        </>
+      ) : (
+        "Send Message"
+      )}
           </Button>
 
           {/* Display success message */}

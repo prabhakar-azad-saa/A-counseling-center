@@ -233,10 +233,9 @@ export const registerAdmin = async () => {
 };
 
 
-export const changeAppointment = async (sessionId, status, username) => {
+export const changeAppointment = async (sessionId, status,fullName ) => {
   try {
-    const response = await axios.put(`${API_BASE_URL}/ChangeAppointmentStatus`, 
-      { sessionId, status, username }, 
+    const response = await axios.put(`${API_BASE_URL}/ChangeAppointmentStatus?sessionId=${sessionId}&status=${status}&userName=${fullName}`, 
       { headers: { "Content-Type": "application/json" } } 
     );
 
@@ -247,5 +246,53 @@ export const changeAppointment = async (sessionId, status, username) => {
       error.response?.data || error.message
     );
     throw error; 
+  }
+};
+
+
+export const getAllUpAppointments  = async () => {
+  try{
+    const response = await axios.get(
+      `${API_BASE_URL}/GetAllUpAppointments`,
+    );
+    return response;
+  }catch (error) {console.error(
+    "Error submitting GetAllUpAppointments:",
+    error.response?.data || error.message
+  )}
+};
+
+// export const updatePatientDetails = async (sessionId, status,fullName ) => {
+//   try {
+//     const response = await axios.put(`${API_BASE_URL}/UpdatePatientDetails?PatientId=${sessionId}&Name=${username}&Gender=${fullName}&DateOfBirth=${dateOfBirth}&Address=${fullName}`, 
+//       { headers: { "Content-Type": "application/json" } } 
+//     );
+
+//     return response.data;
+//   } catch (error) {
+//     console.error(
+//       "Error updating appointment status:",
+//       error.response?.data || error.message
+//     );
+//     throw error; 
+//   }
+// };
+
+export const BlogReaction = async (blogId, status, userid) => {
+  try {
+    const response = await axios.put(
+      `${API_BASE_URL}/setBlogReaction?Blogid=${blogId}&status=${status}&userid=${userid}`,
+     
+      { headers: { "Content-Type": "application/json" } }
+      
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error updating BlogReaction status:",
+      error.response?.data || error.message
+    );
+    throw error;
   }
 };

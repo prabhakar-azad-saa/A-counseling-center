@@ -5,6 +5,7 @@ import { use } from "react";
 import { selecetSlot, sessionBook } from "../action/Auth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {  Spin } from "antd";
 
 function Booksession() {
   const [formData, setFormData] = useState({
@@ -27,6 +28,7 @@ function Booksession() {
   const [slotData, setSlotData] = useState([]);
   const [slotId, setSlotId] = useState(null);
   const [selecetdResult, setSelecetdResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -136,6 +138,7 @@ function Booksession() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+ 
 
     if (!userData?.userId) {
       navigate("/login");
@@ -159,6 +162,7 @@ function Booksession() {
       };
 
       console.log(sessionData);
+      setLoading(true); 
 
       sessionBook(sessionData)
         .then((data) => {
@@ -177,6 +181,9 @@ function Booksession() {
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   };
@@ -404,12 +411,29 @@ function Booksession() {
 
               {/* Submit Button */}
               <div className="mb-6">
-                <button
+                {/* <button
                   type="submit"
                   className="w-full p-3 text-white bg-[#EC744A] hover:bg-[#EC744A] rounded-3xl text-lg"
                 >
-                  Submit
-                </button>
+                      {loading ? (
+                          <>
+                            <Spin size="small" className="mr-2" /> Sending...
+                          </>
+                        ) : (
+                          "Submit"
+                        )}
+                 
+
+                </button> */}
+                <button
+  type="submit"
+  className={`w-full p-3 text-white bg-[#EC744A] hover:bg-[#EC744A] rounded-3xl text-lg flex items-center justify-center ${
+    loading ? "opacity-70 cursor-not-allowed" : ""
+  }`}
+  disabled={loading}
+>
+  {loading ? <Spin size="small" className="mr-2" /> : "Submit"}
+</button>
               </div>
             </form>
             {selecetdResult && (

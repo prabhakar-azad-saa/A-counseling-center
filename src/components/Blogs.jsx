@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {  Spin } from "antd";
 
 import frameImage from "../img/svgvieweroutput.png";
 import { useNavigate } from "react-router-dom";
@@ -12,11 +13,14 @@ import { getBlogdetails } from "../action/Auth";
 const Blogs = () => {
   const [blogDetails, setBlogDetails] = useState([]);
   const [popularPosts, setPopularPosts] = useState([]);
+   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleClick = (page) => {
-    navigate("/" + page);
+  const handleClick = (page, blogId, initialStatus, userid) => {
+    navigate(`/${page}`, {
+      state: { blogId, initialStatus, userid },
+    });
   };
 
  
@@ -29,11 +33,15 @@ const Blogs = () => {
           })
           .catch((err) => {
             console.error("Error fetching blog details:", err);
+          })
+          .finally(() => {
+            setLoading(false); // Hide loader after API response
           });
       }, []);
     
   return (
-    <div className="bg-[#FCF8F4]">
+   <Spin  spinning={loading}>
+     <div className="bg-[#FCF8F4]">
       <nav
         className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
         style={{ backgroundImage: `url(${frameImage})` }}
@@ -65,7 +73,7 @@ const Blogs = () => {
         <div
          key={index}
           className="flex flex-col sm:w-1/2 rounded-lg shadow-2xl p-6 mb-8 bg-white"
-          // onClick={() => handleClick("blogdetail")}
+          onClick={() => handleClick("blogdetail")}
         >
           <img
                 src={blog.imagePath || blogImg1}
@@ -86,7 +94,7 @@ const Blogs = () => {
           <p className="text-base text-gray-700 mb-6 font-poppins">
           {blog.description.length > 70
           ? `${blog.description.slice(0, 70).trim()}...`
-          : blog.description} <a  onClick={() => handleClick("blogdetail")} className="text-blue-500 hover:text-blue-700 font-medium text-lg">
+          : blog.description} <a  className="text-blue-500 hover:text-blue-700 font-medium text-lg">
           Read More
         </a>
           </p>
@@ -255,6 +263,7 @@ const Blogs = () => {
       </div>
     </div> */}
     </div>
+   </Spin>
   );
 };
 

@@ -31,7 +31,6 @@ const DashboardTable = () => {
 
     //booking
     bookingTable().then((res) =>{
-     
       setBooking(res?.data)
     }).catch((err)=>{
       console.log("==setBooking err===".err)
