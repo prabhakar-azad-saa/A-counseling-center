@@ -5,7 +5,7 @@ import { use } from "react";
 import { selecetSlot, sessionBook } from "../action/Auth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {  Spin } from "antd";
+import { Spin } from "antd";
 
 function Booksession() {
   const [formData, setFormData] = useState({
@@ -138,7 +138,6 @@ function Booksession() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
- 
 
     if (!userData?.userId) {
       navigate("/login");
@@ -162,7 +161,7 @@ function Booksession() {
       };
 
       console.log(sessionData);
-      setLoading(true); 
+      setLoading(true);
 
       sessionBook(sessionData)
         .then((data) => {
@@ -190,29 +189,28 @@ function Booksession() {
 
   return (
     <div>
-     <nav
-  className="flex w-full p-8 sm:p-10 md:p-12 lg:p-16 bg-cover"
-  style={{ backgroundImage: `url(${frameImage})` }}
->
-  <div className="flex flex-col sm:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-    {/* Left Section (Border) */}
-    <div className="hidden sm:block lg:w-auto w-full">
-      <div className="border-l-4 h-64 sm:h-80 lg:h-96 p-5"></div>
-    </div>
+      <nav
+        className="flex w-full p-8 sm:p-10 md:p-12 lg:p-16 bg-cover"
+        style={{ backgroundImage: `url(${frameImage})` }}
+      >
+        <div className="flex flex-col sm:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+          {/* Left Section (Border) */}
+          <div className="hidden sm:block lg:w-auto w-full">
+            <div className="border-l-4 h-64 sm:h-80 lg:h-96 p-5"></div>
+          </div>
 
-    {/* Right Section (Text) */}
-    <div className="flex flex-col justify-center text-center sm:text-left w-full">
-      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold p-4">
-        Book Session
-      </h1>
-      <p className="text-white text-lg sm:text-xl p-4 font-poppins">
-        Your trusted partner in mental wellness. Book your path to better
-        emotional health and personal growth.
-      </p>
-    </div>
-  </div>
-</nav>
-
+          {/* Right Section (Text) */}
+          <div className="flex flex-col justify-center text-center sm:text-left w-full">
+            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold p-4">
+              Book Session
+            </h1>
+            <p className="text-white text-lg sm:text-xl p-4 font-poppins">
+              Your trusted partner in mental wellness. Book your path to better
+              emotional health and personal growth.
+            </p>
+          </div>
+        </div>
+      </nav>
 
       <div className="bg-[#FCF8F4] pt-6">
         <div className="flex flex-col md:flex-col lg:flex-row justify-center md:space-x-12 px-6 sm:px-12 lg:px-32 mt-20">
@@ -322,6 +320,7 @@ function Booksession() {
                     value={formData.date}
                     onChange={handleChange}
                     className="w-full p-3 text-lg border border-gray-300 rounded-3xl"
+                    min={new Date().toISOString().split("T")[0]}
                   />
                   {errors.date && (
                     <p className="text-red-500 text-sm">{errors.date}</p>
@@ -426,14 +425,14 @@ function Booksession() {
 
                 </button> */}
                 <button
-  type="submit"
-  className={`w-full p-3 text-white bg-[#EC744A] hover:bg-[#EC744A] rounded-3xl text-lg flex items-center justify-center ${
-    loading ? "opacity-70 cursor-not-allowed" : ""
-  }`}
-  disabled={loading}
->
-  {loading ? <Spin size="small" className="mr-2" /> : "Submit"}
-</button>
+                  type="submit"
+                  className={`w-full p-3 text-white bg-[#EC744A] hover:bg-[#EC744A] rounded-3xl text-lg flex items-center justify-center ${
+                    loading ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
+                  disabled={loading}
+                >
+                  {loading ? <Spin size="small" className="mr-2" /> : "Submit"}
+                </button>
               </div>
             </form>
             {selecetdResult && (

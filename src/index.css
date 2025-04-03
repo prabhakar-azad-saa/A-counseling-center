@@ -10,7 +10,7 @@ body {
   background: "#FCF8F4";
 
 
-  select {
+select {
     appearance: none; /* Removes default browser styling */
     -webkit-appearance: none; /* For Safari */
     -moz-appearance: none; /* For Firefox */

@@ -69,12 +69,9 @@ export const sessionBook = async (sessionData) => {
   }
 };
 
-
 export const patientTable = async () => {
   try {
-    const response = await axios.get(
-      `${API_BASE_URL}/GetPatients`
-    );
+    const response = await axios.get(`${API_BASE_URL}/GetPatients`);
     return response;
   } catch (error) {
     console.error(
@@ -84,13 +81,9 @@ export const patientTable = async () => {
   }
 };
 
-
-
 export const bookingTable = async () => {
   try {
-    const response = await axios.get(
-      `${API_BASE_URL}/GetBookSessions`
-    );
+    const response = await axios.get(`${API_BASE_URL}/GetBookSessions`);
     return response;
   } catch (error) {
     console.error(
@@ -100,13 +93,9 @@ export const bookingTable = async () => {
   }
 };
 
-
-
 export const userCantact = async () => {
   try {
-    const response = await axios.get(
-      `${API_BASE_URL}/GetContacts`
-    );
+    const response = await axios.get(`${API_BASE_URL}/GetContacts`);
     return response;
   } catch (error) {
     console.error(
@@ -116,18 +105,17 @@ export const userCantact = async () => {
   }
 };
 
-export const getImage  = async () => {
-  try{
-    const response = await axios.get(
-      `${API_BASE_URL}/GetImage`,
-    );
+export const getImage = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/GetImage`);
     return response.data;
-  }catch (error) {console.error(
-    "Error submitting GetImage:",
-    error.response?.data || error.message
-  )}
+  } catch (error) {
+    console.error(
+      "Error submitting GetImage:",
+      error.response?.data || error.message
+    );
+  }
 };
-
 
 export const upcomingAppointment = async (Id) => {
   try {
@@ -135,32 +123,32 @@ export const upcomingAppointment = async (Id) => {
       `${API_BASE_URL}/UpcommingAppointments?userId=${Id}`
     );
     return response.data;
-
-  }catch (error) {console.error(
-    "Error submitting upcoming appointments:",
-    error.response?.data || error.message
-  )}
+  } catch (error) {
+    console.error(
+      "Error submitting upcoming appointments:",
+      error.response?.data || error.message
+    );
+  }
 };
 
-export const sessionHistory  = async (Id) => {
-  try{
+export const sessionHistory = async (Id) => {
+  try {
     const response = await axios.get(
-      `${API_BASE_URL}/SessionHistory?userId=${Id}`,
+      `${API_BASE_URL}/SessionHistory?userId=${Id}`
     );
     return response;
-  }catch (error) {console.error(
-    "Error submitting SessionHistory:",
-    error.response?.data || error.message
-  )}
+  } catch (error) {
+    console.error(
+      "Error submitting SessionHistory:",
+      error.response?.data || error.message
+    );
+  }
 };
 
-
-export const insertBlog = async () => {
+export const insertBlog = async (blog) => {
   try {
-    const response = await axios.post(
-      `${API_BASE_URL}/InsertBlog`,
-      
-    );
+    console.log("blog", blog);
+    const response = await axios.post(`${API_BASE_URL}/InsertBlog`, blog);
     return response.data;
   } catch (error) {
     console.error(
@@ -170,13 +158,12 @@ export const insertBlog = async () => {
   }
 };
 
-
-
-export const uploadBlogImage = async (Id) => {
+export const uploadBlogImage = async (formData, blogId) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/UploadBlogImage?Id=${Id}`,
-    
+      `${API_BASE_URL}/UploadBlogImage?blogId=${blogId}`,
+      formData,
+      { headers: { "Content-Type": "multipart/form-data" } }
     );
     return response.data;
   } catch (error) {
@@ -187,42 +174,35 @@ export const uploadBlogImage = async (Id) => {
   }
 };
 
-
-
-export const getBlogdetails  = async () => {
-  try{
-    const response = await axios.get(
-      `${API_BASE_URL}/GetBlogDetails`,
-    );
+export const getBlogdetails = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/GetBlogDetails`);
     return response.data;
-  }catch (error) {console.error(
-    "Error submitting GetBlogDetails:",
-    error.response?.data || error.message
-  )}
+  } catch (error) {
+    console.error(
+      "Error submitting GetBlogDetails:",
+      error.response?.data || error.message
+    );
+  }
 };
-
-
-
 
 export const getUserDetail = async (Id) => {
-  try{
+  try {
     const response = await axios.get(
-      `${API_BASE_URL}/GetUserDetails?userId=${Id}`,
+      `${API_BASE_URL}/GetUserDetails?userId=${Id}`
     );
     return response;
-  }catch (error) {console.error(
-    "Error submitting GetUserDetails:",
-    error.response?.data || error.message
-  )}
+  } catch (error) {
+    console.error(
+      "Error submitting GetUserDetails:",
+      error.response?.data || error.message
+    );
+  }
 };
-
 
 export const registerAdmin = async () => {
   try {
-    const response = await axios.post(
-      `${API_BASE_URL}/RegisterAdmin`,
-      
-    );
+    const response = await axios.post(`${API_BASE_URL}/RegisterAdmin`);
     return response.data;
   } catch (error) {
     console.error(
@@ -232,11 +212,11 @@ export const registerAdmin = async () => {
   }
 };
 
-
-export const changeAppointment = async (sessionId, status,fullName ) => {
+export const changeAppointment = async (sessionId, status, fullName) => {
   try {
-    const response = await axios.put(`${API_BASE_URL}/ChangeAppointmentStatus?sessionId=${sessionId}&status=${status}&userName=${fullName}`, 
-      { headers: { "Content-Type": "application/json" } } 
+    const response = await axios.put(
+      `${API_BASE_URL}/ChangeAppointmentStatus?sessionId=${sessionId}&status=${status}&userName=${fullName}`,
+      { headers: { "Content-Type": "application/json" } }
     );
 
     return response.data;
@@ -245,27 +225,26 @@ export const changeAppointment = async (sessionId, status,fullName ) => {
       "Error updating appointment status:",
       error.response?.data || error.message
     );
-    throw error; 
+    throw error;
   }
 };
 
-
-export const getAllUpAppointments  = async () => {
-  try{
-    const response = await axios.get(
-      `${API_BASE_URL}/GetAllUpAppointments`,
-    );
+export const getAllUpAppointments = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/GetAllUpAppointments`);
     return response;
-  }catch (error) {console.error(
-    "Error submitting GetAllUpAppointments:",
-    error.response?.data || error.message
-  )}
+  } catch (error) {
+    console.error(
+      "Error submitting GetAllUpAppointments:",
+      error.response?.data || error.message
+    );
+  }
 };
 
 // export const updatePatientDetails = async (sessionId, status,fullName ) => {
 //   try {
-//     const response = await axios.put(`${API_BASE_URL}/UpdatePatientDetails?PatientId=${sessionId}&Name=${username}&Gender=${fullName}&DateOfBirth=${dateOfBirth}&Address=${fullName}`, 
-//       { headers: { "Content-Type": "application/json" } } 
+//     const response = await axios.put(`${API_BASE_URL}/UpdatePatientDetails?PatientId=${sessionId}&Name=${username}&Gender=${fullName}&DateOfBirth=${dateOfBirth}&Address=${fullName}`,
+//       { headers: { "Content-Type": "application/json" } }
 //     );
 
 //     return response.data;
@@ -274,7 +253,7 @@ export const getAllUpAppointments  = async () => {
 //       "Error updating appointment status:",
 //       error.response?.data || error.message
 //     );
-//     throw error; 
+//     throw error;
 //   }
 // };
 
@@ -282,9 +261,8 @@ export const BlogReaction = async (blogId, status, userid) => {
   try {
     const response = await axios.put(
       `${API_BASE_URL}/setBlogReaction?Blogid=${blogId}&status=${status}&userid=${userid}`,
-     
+
       { headers: { "Content-Type": "application/json" } }
-      
     );
 
     return response.data;
