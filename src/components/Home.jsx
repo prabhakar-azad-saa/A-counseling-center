@@ -44,7 +44,7 @@ function Home() {
       <Animation />
       
 
-      <div className="box h-[100px] bg-gradient-to-l from-[#007d6e] to-[#5eb47c] px-[162px] py-[30px] relative sm:h-[120px] sm:px-[120px] sm:py-[20px] md:h-[100px] md:px-[80px] md:py-[15px] xs:h-[80px] xs:px-[30px] xs:py-[10px]"></div>
+      <div className="box h-[100px] bg-gradient-to-l from-[#007d6e] to-[#5eb47c] px-[162px] py-[30px] relative sm:h-[120px] sm:px-[120px] sm:py-[20px] md:h-[100px] md:px-[80px] md:py-[15px] xs:h-[80px] xs:px-[30px] xs:py-[10px] max-w-[1500px] mx-auto"></div>
       <Features
         title={sectionData.title}
         description={sectionData.description}

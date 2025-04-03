@@ -78,10 +78,10 @@ const Onlinecounseling = () => {
   };
 
   return (
-    <div>
+    <div className=" max-w-[1500px] mx-auto">
       {/* Navigation Section */}
       <nav
-  className="relative w-full p-8 sm:p-16 lg:p-28 bg-cover"
+  className="relative p-8 sm:p-16 lg:p-28 bg-cover "
   style={{ backgroundImage: `url(${frameImage2})` }}
 >
   <div className="flex flex-col sm:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
@@ -109,7 +109,7 @@ const Onlinecounseling = () => {
     
     <div>
     <div
-  className="relative w-full bg-cover flex flex-col md:flex-col lg:flex-row"
+  className="relative w-full bg-cover flex flex-col md:flex-col lg:flex-row "
   style={{ backgroundImage: `url(${frameImage})` }}
 >
   {/* Image Section */}

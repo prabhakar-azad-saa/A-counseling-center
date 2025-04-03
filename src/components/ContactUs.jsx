@@ -152,7 +152,7 @@ const ContactUs = () => {
     }
   };
   return (
-    <div className="bg-[#FCF8F4]">
+    <div className="bg-[#FCF8F4]  max-w-[1500px] mx-auto">
      <nav
   className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
   style={{ backgroundImage: `url(${frameImage})` }}

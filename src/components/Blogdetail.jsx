@@ -63,7 +63,7 @@ const Blogdetail = () => {
 
  
   return (
-    <div>
+    <div  className=" max-w-[1500px] mx-auto">
       {/* Navbar Section */}
       <div>
         <nav className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover" style={{ backgroundImage: `url(${frameImage})` }}>

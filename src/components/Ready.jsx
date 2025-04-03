@@ -13,8 +13,8 @@ const Ready = () => {
   };
   
   return (
-    <div
-  className="relative w-full bg-cover"
+    <div 
+  className="relative w-full bg-cover max-w-[1500px] mx-auto"
   style={{ backgroundImage: `url(${frameImage})` }}
 >
   

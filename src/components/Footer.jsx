@@ -10,7 +10,7 @@ import Logolotas from "../img/Logolotas";
 const Footer = () => {
   return (
     <div >
-      <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] mt-24 px-3 py-12">
+      <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] mt-24 px-3 py-12 max-w-[1500px] mx-auto">
         <div className="mx-auto w-full m-0 p-0">
           <div className="flex flex-wrap justify-between px-10 sm:px-20">
             {/* Footer Section 1 */}

@@ -38,10 +38,10 @@ const Individualsection = () => {
 
   
   return (
-    <div>
+    <div className=" max-w-[1500px] mx-auto">
       {/* Navigation Section */}
       <nav
-  className="flex w-full justify-center p-8 sm:p-10 lg:p-20 bg-cover"
+  className="flex w-full justify-center p-8 sm:p-10 lg:p-20 bg-cover "
   style={{ backgroundImage: `url(${frameImage})` }}
 >
   <div className="flex flex-col lg:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
@@ -161,7 +161,7 @@ const Individualsection = () => {
             </div>
           </div> */}
           
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-10 px-2 md:px-6  2xl:px-96 ">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-10 px-2 md:px-6 gap-3 2xl:px-56 ">
   {Cartdata.map((item, index) => {
     const isGradient = index % 3 === 0; 
 

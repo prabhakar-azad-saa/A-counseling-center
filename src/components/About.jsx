@@ -46,9 +46,9 @@ const About = () => {
 
   return (
     <div >
-      <div >
+      <div  className="max-w-[1500px] mx-auto" >
         <nav
-          className="flex w-full p-8 sm:p-16 md:p-24 lg:p-28 bg-cover"
+          className="flex w-full p-8 sm:p-16 md:p-24 lg:p-28 bg-cover "
           style={{ backgroundImage: `url(${frameImage})` }}
         >
           <div className="flex flex-col-reverse lg:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 w-full ">

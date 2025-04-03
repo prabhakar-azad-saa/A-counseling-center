@@ -118,7 +118,7 @@ const UserProfile = () => {
   return (
     <Spin spinning={loading}>
       <div
-        className="flex flex-col lg:flex-row "
+        className="flex flex-col lg:flex-row   max-w-[1500px] mx-auto"
         style={{ backgroundColor: "#e3e8e9" }}
       >
         <div className="w-full lg:w-1/3 mb-10 p-5 lg:p-10 mt-24 mx-5 lg:mx-24 lg:mb-0">

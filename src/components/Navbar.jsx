@@ -254,7 +254,7 @@ const Navbar = ({ style, from }) => {
 
   return (
     <nav
-      className="bg-cover px-4"
+      className="bg-cover px-4 max-w-[1500px] mx-auto"
       style={{
         backgroundImage: !(isHome || LoginForm || SignupForm) ? `url(${frameImage4})` : "none",
         color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
