@@ -57,14 +57,14 @@ const Services = () => {
   className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
   style={{ backgroundImage: `url(${frameImage})` }}
 >
-  <div className="flex w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
+  <div className="flex flex-col-reverse lg:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 w-full">
     {/* Left Section (Border) */}
-    <div className="hidden lg:block">
+    <div className="hidden lg:block w-full lg:w-auto">
       <div className="border-l-4 h-64 p-5"></div>
     </div>
     
     {/* Right Section (Text) */}
-    <div className="flex flex-col justify-center w-full">
+    <div className="flex flex-col justify-center w-full text-center lg:text-left">
       <h1 className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-[68px] font-extrabold p-4">
         Services
       </h1>
@@ -78,37 +78,38 @@ const Services = () => {
     </div>
   </div>
 </nav>
-<div className="p-6 text-center px-4 pt-32 sm:px-10 lg:px-[162px]">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-          Empowering Minds Our Mental Health Consulting Services
-        </h1>
-<div className="space-y-16 px-6 md:px-12 lg:px-24">
-      {therapyData.map((item, index) => (
-        <div
-          key={index}
-          className={`flex flex-col md:flex-row items-center py-16 px-6 md:px-12 lg:px-20 ${
-            index % 2 !== 0 ? "md:flex-row-reverse" : ""
-          } bg-gray-100 rounded-lg `}
-          onClick={item.onClick}
-        >
-          {/* Image Section */}
-          <div className="flex-shrink-0 w-full md:w-1/2 flex justify-center">
-            {item.component}
-          </div>
+<div className="p-6 text-center pt-24 sm:pt-32 px-4 sm:px-10 lg:px-32 max-w-screen-xl mx-auto">
+  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+    Empowering Minds: Our Mental Health Consulting Services
+  </h1>
 
-          {/* Text Section */}
-          <div className="w-full md:w-1/2 text-center md:text-left p-6 md:p-10">
-            <h1 className="text-5xl md:text-5xl lg:text-5xl font-bold text-gray-800">
-              {item.title}
-            </h1>
-            <p className="text-2xl md:text-3xl text-gray-600 mt-4 font-poppins">
-              {item.description}
-            </p>
-          </div>
+  <div className="space-y-16">
+    {therapyData.map((item, index) => (
+      <div
+        key={index}
+        className={`flex flex-col md:flex-row items-center py-10 px-4 sm:px-8 md:px-12 lg:px-20 
+        ${index % 2 !== 0 ? "md:flex-row-reverse" : ""} bg-gray-100 rounded-lg shadow-lg`}
+        onClick={item.onClick}
+      >
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          {item.component}
         </div>
-      ))}
-    </div>
+
+        {/* Text Section */}
+        <div className="w-full md:w-1/2 text-center md:text-left p-6 sm:p-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 leading-snug">
+            {item.title}
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 mt-4 font-poppins leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
 </div>
+
 
 
     

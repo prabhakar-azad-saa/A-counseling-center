@@ -154,7 +154,7 @@ const ContactUs = () => {
   return (
     <div className="bg-[#FCF8F4]">
      <nav
-  className="flex w-full p-5 sm:p-10 lg:p-14 bg-cover"
+  className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
   style={{ backgroundImage: `url(${frameImage})` }}
 >
   <div className="flex flex-col lg:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">

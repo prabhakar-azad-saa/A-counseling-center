@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/icons-material": "^7.0.1",
+    "@mui/material": "^7.0.1",
     "@react-google-maps/api": "^2.20.6",
     "@react-oauth/google": "^0.12.1",
+    "@zoomus/websdk": "^2.18.0",
     "antd": "^5.24.2",
     "axios": "^1.7.9",
     "lucide-react": "^0.476.0",

@@ -104,7 +104,7 @@ const Session = () => {
 
 
        <div className=" justify-center  p-8 sm:p-16 lg:p-20">
-       <h1 className="text-3xl font-bold mb-6 text-center text-black p-20">
+       <h1 className="text-3xl sm:text-4xl font-bold mb-10 text-center text-black">
         Communication Options
           </h1>
         <div className="flex flex-wrap justify-center gap-8">
@@ -117,7 +117,7 @@ const Session = () => {
               Face-to-face online sessions with your Counselor. Voice-only
               sessions for more privacy.
             </p>
-            <Button className="bg-[#EC744A] text-white py-3 px-6 sm:py-3 sm:px-8 md:py-4 md:px-10 text-sm sm:text-base md:text-lg rounded-full w-full sm:w-auto">
+            <Button  onClick={() => handleclick ("zoomMeeting")} className="bg-[#EC744A] text-white py-3 px-6 sm:py-3 sm:px-8 md:py-4 md:px-10 text-sm sm:text-base md:text-lg rounded-full w-full sm:w-auto">
               Choose Video Call
             </Button>
           </div>

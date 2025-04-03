@@ -173,18 +173,18 @@ const Individualsection = () => {
       >
         <div className="flex flex-col items-center rounded-2xl p-4 sm:p-20 w-full max-w-lg">
        
-          <div className="w-28 h-28 sm:w-32 sm:h-32 flex justify-center">
+          <div className="w-28 h-28 sm:w-32 sm:h-32 flex justify-center pb-6">
             {item.imgSrc}
           </div>
           
           {/* Title */}
-          <h1 className={`text-xl md:text-3xl lg:text-4xl  pt-12 pb-3 font-bold 
+          <h1 className={`text-xl md:text-2xl lg:text-4xl  pt-12 px-12 pb-3 font-bold 
             ${isGradient ? 'text-white' : 'text-black'}`}>
             {item.title}
           </h1>
           
           {/* Description */}
-          <p className={`text-base sm:text-xl pb-4 pt-5
+          <p className={`text-base sm:text-lg pb-4 
             ${isGradient ? 'text-white' : 'text-black'}`}>
             {item.description}
           </p>

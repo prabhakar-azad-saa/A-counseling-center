@@ -118,7 +118,7 @@ const SignupForm = () => {
             navigate("/login");
             setSelected("login"); // Set "login" as selected
           }}
-          className={`text-black text-xl mr-20 font-semibold  ${selected === "login" ? "border-b-4 border-orange-500" : ""}`}
+          className={`text-black text-xl mr-20 font-semibold cursor-pointer ${selected === "login" ? "border-b-4 border-orange-500" : ""}`}
         >
           Login
         </a>
@@ -127,7 +127,7 @@ const SignupForm = () => {
             navigate("/signup");
             setSelected("signup"); // Set "signup" as selected
           }}
-          className={`text-black text-xl font-semibold  ${selected === "signup" ? "border-b-4 border-orange-500" : ""}`}
+          className={`text-black text-xl font-semibold cursor-pointer ${selected === "signup" ? "border-b-4 border-orange-500" : ""}`}
         >
           Sign Up
         </a>

@@ -51,13 +51,14 @@ const About = () => {
           className="flex w-full p-8 sm:p-16 md:p-24 lg:p-28 bg-cover"
           style={{ backgroundImage: `url(${frameImage})` }}
         >
-          <div className="flex  max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 ">
+          <div className="flex flex-col-reverse lg:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 w-full ">
           <div>
-          <div className="hidden lg:block">
+          <div className="hidden lg:block  w-full lg:w-auto">
       <div className="border-l-4 h-64 p-5"></div>
     </div>
           </div>
-           <div> <h1 className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-[68px] font-extrabold p-4">
+           <div className="flex flex-col justify-center w-full text-center lg:text-left"> 
+            <h1 className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-[68px] font-extrabold p-4">
               About Us
             </h1>
             <p className="text-white text-lg sm:text-xl  p-4  font-poppins">

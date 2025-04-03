@@ -107,7 +107,7 @@ const LoginForm = () => {
             navigate("/login");
             setSelected("login"); // Set "login" as selected
           }}
-          className={`text-black text-xl mr-20 font-semibold  ${selected === "login" ? "border-b-4 border-orange-500" : ""}`}
+          className={`text-black text-xl mr-20 font-semibold cursor-pointer  ${selected === "login" ? "border-b-4 border-orange-500 " : ""}`}
         >
           Login
         </a>
@@ -116,12 +116,12 @@ const LoginForm = () => {
             navigate("/signup");
             setSelected("signup"); // Set "signup" as selected
           }}
-          className={`text-black text-xl font-semibold  ${selected === "signup" ? "border-b-4 border-orange-500" : ""}`}
+          className={`text-black text-xl font-semibold cursor-pointer ${selected === "signup" ? "border-b-4 border-orange-500" : ""}`}
         >
           Sign Up
         </a>
       </div>
-          <h2 className="text-5xl font-bold mb-8">LOGIN</h2>
+          <h2 className="text-5xl font-bold mb-8 ">LOGIN</h2>
 
           {error && (
             <p className="text-red-500 text-sm mb-4 text-center">{error}</p>

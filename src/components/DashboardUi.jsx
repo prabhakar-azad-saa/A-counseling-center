@@ -69,6 +69,7 @@ const DashboardUi = () => {
       .then((res) => {
         if (res?.data) {
           const todayDate = moment().format("YYYY-MM-DD");
+          console.log("====33333===",res)
 
           const todayAppointments = res.data.filter(
             (appointment) =>
@@ -88,7 +89,7 @@ const DashboardUi = () => {
         console.error("====getAllUpAppointments Error====", err);
       })
       .finally(() => {
-        setLoading(false); // Hide loader after API response
+        setLoading(false); 
       });
   }, [refresh]);
 
@@ -139,17 +140,7 @@ const DashboardUi = () => {
     setIsModalVisible(true);
   };
 
-  const chartData = {
-    labels: ["Pending", "Accept", "Reject"],
-    datasets: [
-      {
-        data: [1, 1, 1],
-        backgroundColor: ["#FFA500", "#00BFFF", "#28A745"],
-        hoverOffset: 4,
-      },
-    ],
-  };
-
+ 
   const columns = [
     {
       title: "Profile",
@@ -160,7 +151,7 @@ const DashboardUi = () => {
       ),
     },
     {
-      title: "Patient Name",
+      title: "Patient",
       dataIndex: "fullName",
       key: "fullName",
     },
@@ -247,9 +238,60 @@ const DashboardUi = () => {
     { rating: "Poor", count: 20 },
   ];
 
+
+  const [chartData, setChartData] = useState({
+    labels: ["Pending", "Accept", "Reject"],
+    datasets: [
+      {
+        data: [0, 0, 0], // Default values
+        backgroundColor: ["#FFA500", "#00BFFF", "#28A745"],
+        hoverOffset: 4,
+      },
+    ],
+  });
+
+  const [bookings, setBookings] = useState([]);
+
+ 
+  const fetchBookingData = async () => {
+    try {
+      const res = await bookingTable(); 
+      if (res?.data) {
+        setBookings(res?.data); 
+        updateChartData(res?.data); 
+      }
+    } catch (err) {
+      console.error("Error fetching booking data:", err);
+    }
+  };
+
+  
+  const updateChartData = (data) => {
+    
+    const pendingCount = data.filter((item) => item.status === 0).length; 
+    const acceptCount = data.filter((item) => item.status === 1).length;  
+    const rejectCount = data.filter((item) => item.status === 2).length;  
+
+    setChartData({
+      labels: ["Pending", "Accept", "Reject"],
+      datasets: [
+        {
+          data: [pendingCount, acceptCount, rejectCount], 
+          backgroundColor: ["#FFA500", "#00BFFF", "#28A745"],
+          hoverOffset: 4,
+        },
+      ],
+    });
+  };
+
+  useEffect(() => {
+    fetchBookingData(); 
+  }, []);
+
+
   return (
    <Spin spinning={loading} size="large">
-     <div className="p-5 bg-gray-100 min-h-screen flex flex-col gap-6">
+     <div className="p-2 bg-gray-100 min-h-screen flex flex-col gap-6">
       <h2 className="text-3xl font-bold text-center">Dashboard</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -265,7 +307,7 @@ const DashboardUi = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
         <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
           <h3 className="text-xl font-bold text-center mb-4">
             Appointment Status
@@ -274,24 +316,25 @@ const DashboardUi = () => {
         </div>
         <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
           <h3 className="text-xl font-bold mb-4">Today's Appointments</h3>
+          
           <Table
             columns={columnss}
             dataSource={todayAppointments}
             rowKey="id"
           />
-          {/* <Table columns={columnss} dataSource={todayAppointments} pagination={{ pageSize: 4 }}  /> */}
+         
         </div>
         <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
           <h3 className="text-xl font-bold mb-4">Next Appointments</h3>
           <Table
             columns={columnss}
             dataSource={upcomingAppointments}
-            pagination={{ pageSize: 4 }}
+            pagination={{ pageSize: 3 }}
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
         <div className="bg-white rounded-lg p-5 shadow-2xl ">
           <h3 className="text-xl font-bold mb-4">Customer Ratings</h3>
           <ResponsiveContainer width="100%" height={350}>
@@ -309,7 +352,7 @@ const DashboardUi = () => {
           <Table
             columns={columns}
             dataSource={booking}
-            pagination={{ pageSize: 4 }}
+            pagination={{ pageSize: 3 }}
           />
         </div>
         <div className="bg-white rounded-lg p-5 shadow-2xl ">

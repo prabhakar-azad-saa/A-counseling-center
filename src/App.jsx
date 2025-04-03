@@ -22,6 +22,7 @@ import UserProfile from "./components/UserProfile";
 import ScrollToTop from "./components/ScrollToTop"
 import DashboardTable from "./components/DashboardTable";
 import ContactUs from "./components/ContactUs";
+// import ZoomMeeting from "./components/ZoomMeeting ";
 function App() {
   console.log("App.js");
 
@@ -180,13 +181,26 @@ function App() {
               </>
             }
 
+
             
           />
+
+{/* <Route
+            path="/zoomMeeting"
+            element={
+              <>
+                <Navbar style={{ backgroundColor: Colors.gradient }} />
+                <ZoomMeeting />
+              </>
+            }
+
+            
+          />  */}
         </Routes>
       </div>
 
       {/* Footer will be shown on every route */}
-      <Footer />
+      <Footer  />
     </Router>
   );
 }

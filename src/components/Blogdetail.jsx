@@ -24,11 +24,24 @@ const Blogdetail = () => {
   const [status, setStatus] = useState(initialStatus); 
 
 
+  const [expandedBlogId, setExpandedBlogId] = useState(null);
+
+
+ 
+  
+  const toggleExpand = (blogId) => {
+    // console.log("Clicked blogId:", blogId); 
+    setExpandedBlogId((prevId) => {
+      // console.log("Previous expandedBlogId:", prevId); 
+      return prevId === blogId ? null : blogId;
+    });
+  };
+
   useEffect(() => {
     getBlogdetails().then((res)=>{
-      console.log("====333===",res)
+      // console.log("====333===",res)
       setBlogDetails(res || []);
-      console.log("====5555===",res)
+      // console.log("====5555===",res)
       }).catch((err)=>{
         console.log("==getBlogDetails Err===",err)
       })
@@ -37,10 +50,10 @@ const Blogdetail = () => {
   
 
   const handleAction = async (blogId, status, userid) => {
-    console.log("=== Blog ID, Status, User ID ===", blogId, status, userid);
+    // console.log("=== Blog ID, Status, User ID ===", blogId, status, userid);
     try {
       await BlogReaction(blogId, status, userid);
-      console.log("=== Reaction Updated Successfully ===", blogId, status, userid);
+      // console.log("=== Reaction Updated Successfully ===", blogId, status, userid);
       message.success(`Blog ${status === 1 ? "liked" : "disliked"} successfully!`);
     } catch (err) {
       console.error("Error updating blog reaction:", err);
@@ -48,6 +61,7 @@ const Blogdetail = () => {
     }
   };
 
+ 
   return (
     <div>
       {/* Navbar Section */}
@@ -72,14 +86,14 @@ const Blogdetail = () => {
       </div>
 
       {/* Blog Detail Content */}
-      {blogDetails.map((blog, index) => (
+    
       <div className="max-w-screen-xl mx-auto px-4 pt-40 sm:px-8 md:px-">
       
         <div>
           <img
-           key={index}
-            src={blog?.imagePath || blogDetail1}
-            alt={blog?.title}
+          //  key={index}
+            src={blogDetails[0]?.imagePath || blogDetail1}
+            alt={blogDetails[0]?.title}
             className="w-full h-auto rounded-lg"
           />
           <div className="flex flex-col md:flex-row gap-8 mt-24">
@@ -90,21 +104,21 @@ const Blogdetail = () => {
               {blog?.name} Mental health consultants play a crucial role in helping individuals navigate their emotional and psychological well-being. Through professional guidance and evidence-based approaches, these experts provide valuable support for those facing various mental health challenges.
               </p> */}
               <p className="mt-4 text-black leading-relaxed font-semibold text-xl font-poppins">
-              {blog?.name}
+              {blogDetails[0]?.name}
 
               </p>
               <p className="mt-4 text-black leading-relaxed font-poppins">
-              {blog?.description}  Working with a mental health consultant can offer numerous benefits, including:
-                <li>Professional assessment and personalized treatment plans</li>
+              {blogDetails[0]?.description} 
+                {/* <li>Professional assessment and personalized treatment plans</li>
                 <li>Safe space to explore emotions and experiences</li>
                 <li>Development of coping strategies and resilience</li>
                 <li>Support in managing stress, anxiety, and depression</li>
-                <li>Guidance in improving relationships and communication</li>
+                <li>Guidance in improving relationships and communication</li> */}
               </p>
-              <p className="mt-4 text-black leading-relaxed font-poppins">
+              {/* <p className="mt-4 text-black leading-relaxed font-poppins">
                 Our experienced consultants utilize various therapeutic approaches, including cognitive behavioral therapy, mindfulness practices, and solution-focused techniques. These methods have proven effective in helping clients achieve better mental health outcomes and improved quality of life.
-              </p>
-              <p className="mt-4 text-black leading-relaxed font-poppins">The Consultation Process</p>
+              </p> */}
+              {/* <p className="mt-4 text-black leading-relaxed font-poppins">The Consultation Process</p>
               <p className="mt-4 text-black leading-relaxed font-poppins">
                 During your journey with a mental health consultant, you can expect:
                 <ol>
@@ -114,14 +128,14 @@ const Blogdetail = () => {
                   <li>4. Progress monitoring and plan adjustments</li>
                   <li>5. Support in maintaining long-term well-being</li>
                 </ol>
-              </p>
+              </p> */}
               <div className="pt-5">
                 <button
                   className="w-6"
                   onClick={() => {
-                    const newStatus = blog.like === 1 ? 0 : 1;
+                    const newStatus =blogDetails[0]?.like === 1 ? 0 : 1;
                     setStatus(newStatus); // Update UI immediately
-                    handleAction(blog?.blogId, newStatus, blog?.viewUserIds);
+                    handleAction(blogDetails[0]?.blogId, newStatus, blogDetails[0]?.viewUserIds);
                   }}
                 >
                   {status === 1 ? <IoHeartSharp className="text-red-500" size={28} /> : <AiOutlineHeart size={28}/>}
@@ -129,25 +143,47 @@ const Blogdetail = () => {
               </div>
             </div>
 
-            {/* Recommended Blog Section */}
-            <div className="md:w-1/3 mt-12 md:mt-0">
-              <h2 className="text-2xl font-semibold text-gray-800">Recommendation Blog</h2>
-              <div className="flex flex-wrap gap-6 mt-10">
+          
+            <div className="md:w-1/3 mt-12 md:mt-0 ">
+           
+           <h2 className="text-2xl font-semibold text-gray-800">Recommendation Blog</h2>
+              <div className="flex flex-col gap-6 mt-10">
                 {/* Recommended Blog 1 */}
-                <div className="flex flex-col sm:flex-row w-full sm:w-1/2 lg:w-full">
-                  <img
-                    src={blogDetail2}
-                    alt="Recommended Blog 1"
-                    className="w-full h-auto mb-4 rounded-lg"
-                  />
-                  <div className='pl-5'>
-                    <h3 className="text-lg font-semibold text-black">Understanding Anxiety Management</h3>
-                    <p className="text-black">Practical strategies for managing anxiety in daily life <a>See more</a></p>
-                  </div>
-                </div>
+                {/* .filter((blog) => blog.likes > 0) */}
+                {blogDetails.slice(0, 3).map((blog, index) => (
+     
+          <div key={index} className="flex flex-col sm:flex-row w-full sm:w-1/2 lg:w-full">
+            
+            <img
+              src={blog.imagePath}
+              alt={blog.name}
+              className="w-full h-auto mb-4 rounded-lg"
+              style={{width:'75px',height:'75px'}}
+            />
+          
+            <div className="pl-5">
+              <h3 className="text-lg font-semibold text-black">{blog.name}</h3>
+              <p className="text-black">
+              {blog.description.length > 70 && expandedBlogId !== blog.blogId
+          ? `${blog.description.slice(0, 70).trim()}...` // Show the first 70 characters
+          : blog.description}
 
+        {/* Only show "Read More" if the description is longer than 70 characters */}
+        {blog.description.length > 70 && (
+                <button
+                  onClick={() => toggleExpand(blog.blogId)}
+                  className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
+                >
+                  {expandedBlogId === blog.blogId ? "Show Less" : "Read More"}
+                </button>
+                 )}
+              </p>
+       
+            </div>
+          </div>
+        ))}
                 {/* Recommended Blog 2 */}
-                <div className="flex flex-col sm:flex-row w-full sm:w-1/2 lg:w-full">
+                {/* <div className="flex flex-col sm:flex-row w-full sm:w-1/2 lg:w-full">
                   <img
                     src={blogDetail5}
                     alt="Recommended Blog 2"
@@ -157,67 +193,93 @@ const Blogdetail = () => {
                     <h3 className="text-lg font-semibold text-black">Mindfulness Techniques.</h3>
                     <p className="text-black">Essential mindfulness practices for mental wellness See more</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
+ 
           </div>
         </div>
       
       </div>
-      ))}
+      
       {/* Latest Blog Posts Section */}
       <div className='px-5'>
         <div className="text-center mb-12 mt-16">
           <h1 className="text-3xl font-semibold text-black">Latest Blog Posts</h1>
         </div>
-
-        {/* Blog Post Cards */}
+       
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10 justify-center">
+        {blogDetails.length > 0 && blogDetails.slice(0, 3).map((blog, index) => (
+  blog.blogId ? (
           <div className="bg-white rounded-lg border shadow p-6 w-full">
             <img
-              src={blog111}
+              src={blog.imagePath || blog111}
               alt="Blog Post 1"
               className="w-full h-auto mb-4 rounded-lg"
             />
-            <h2 className="text-2xl font-bold text-black mb-4">Understanding Anxiety: A Comprehensive Guide</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">{blog.name}</h2>
             <p className="text-gray-600 mb-6 font-poppins">
-              Learn about the different types of anxiety and effective coping strategies...
-            </p>
-            <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
-              Read More
-            </a>
-          </div>
+            {blog.description.length > 70 && expandedBlogId !== blog.blogId
+          ? `${blog.description.slice(0, 70).trim()}...` 
+          : blog.description}
 
-          <div className="bg-white rounded-lg border shadow p-6 w-full">
+        {/* Only show "Read More" if the description is longer than 70 characters */}
+        {blog.description.length > 70 && (
+                <button
+                  onClick={() => toggleExpand(blog.blogId)}
+                  className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
+                >
+                  {expandedBlogId === blog.blogId ? "Show Less" : "Read More"}
+                </button>
+        )}
+            </p>
+           
+          </div>):null
+ ))}
+        
+          {/* <div className="bg-white rounded-lg border shadow p-6 w-full">
             <img
-              src={blog222}
+              src={blogDetails[2]?.imagePath || blog222}
               alt="Blog Post 2"
               className="w-full h-auto mb-4 rounded-lg"
             />
-            <h2 className="text-2xl font-bold text-black mb-4">5 Daily Habits for Better Mental Health</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">{blogDetails[2]?.name}</h2>
             <p className="text-gray-600 mb-6">
-              Discover simple yet effective daily practices that can improve your mental wellbeing...
+            {expandedBlogId === blogDetails[2]?.id ? blogDetails[2]?.description : 
+                  `${blogDetails[2]?.description.slice(0, 70).trim()}...`}
+                <button
+                  onClick={() => toggleExpand(blogDetails[2]?.id)}
+                  className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
+                >
+                  {expandedBlogId === blogDetails[2]?.id ? "Show Less" : "Read More"}
+                </button>
             </p>
-            <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
-              Read More
-            </a>
-          </div>
+           
+          </div> */}
 
-          <div className="bg-white rounded-lg border shadow p-6 w-full">
+          {/* <div className="bg-white rounded-lg border shadow p-6 w-full">
             <img
-              src={blog333}
+              src={blogDetails[3]?.imagePath || blog333}
               alt="Blog Post 3"
               className="w-full h-auto mb-4 rounded-lg"
             />
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">The Power of Mindfulness Meditation</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">{blogDetails[3]?.name}</h2>
             <p className="text-black mb-6">
-              Explore how mindfulness meditation can transform your mental state...
+            {expandedBlogId === blogDetails[3]?.id ? blogDetails[3]?.description : 
+                  `${blogDetails[3]?.description.slice(0, 70).trim()}...`}
+                <button
+                  onClick={() => toggleExpand(blogDetails[3]?.id)}
+                  className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
+                >
+                  {expandedBlogId === blogDetails[3]?.id ? "Show Less" : "Read More"}
+                </button>
             </p>
-            <a href="#" className="text-blue-500 hover:text-blue-700 font-medium text-lg">
-              Read More
-            </a>
-          </div>
+          
+          </div> */}
         </div>
+
+      
       </div>
 
       <Ready />
