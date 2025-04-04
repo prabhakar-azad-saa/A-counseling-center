@@ -36,6 +36,16 @@ const UserProfile = () => {
   const [user, setUser] = useState([]);
   const [sessionhistory, setSessionhistory] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [address, setAddress] = useState("");
+  const [showInput, setShowInput] = useState(false);
+  const [savedAddress, setSavedAddress] = useState("");
+
+  const handleSaveAddress = () => {
+    setSavedAddress(address);
+    setShowInput(false);
+    message.success("Address saved successfully!");
+  };
+
 
   const getBase64 = (file) =>
     new Promise((resolve, reject) => {
@@ -115,6 +125,8 @@ const UserProfile = () => {
       });
   }, []);
 
+
+ 
   return (
     <Spin spinning={loading}>
       <div
@@ -169,9 +181,38 @@ const UserProfile = () => {
               </div>
               <div className="flex mt-5">
                 <Userlocation />
-                <p className="text-lg text-black font-semibold ml-3">
-                  San Francisco, CA
-                </p>
+              
+  
+                {showInput ? (
+          <div className="ml-3 flex flex-col sm:flex-col gap-3">
+            <input
+              type="text"
+              placeholder="Enter address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="border border-gray-300 rounded-lg p-2 text-black font-semibold"
+            />
+            <Button
+              type="primary"
+              className="bg-green-500 text-white"
+              onClick={handleSaveAddress}
+            >
+              Save
+            </Button>
+          </div>
+        ) : savedAddress ? (
+          <p className="text-lg text-black font-semibold ml-3">{savedAddress}</p>
+        ) : (
+          <Button
+            type="dashed"
+            className="ml-3 text-sm"
+            onClick={() => setShowInput(true)}
+          >
+            Add Address
+          </Button>
+        )}
+      
+
               </div>
             </div>
             <Button onClick={handleLogout} className="text-sm">

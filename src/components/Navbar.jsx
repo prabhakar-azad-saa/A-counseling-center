@@ -264,7 +264,7 @@ const Navbar = ({ style, from }) => {
         <div className="flex items-center space-x-3">
           <Logolotas className="w-24 h-24" />
           <div className="text-2xl font-bold" style={{ color: !(isHome || LoginForm || SignupForm) ? "white" : "black" }}>
-            A<sup>+</sup> Counseling Center
+            A<sup>+</sup> Counseling & Consultancy Services
           </div>
         </div>
 

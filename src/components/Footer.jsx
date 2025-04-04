@@ -20,7 +20,7 @@ const Footer = () => {
                
                 <div className="w-full">
                   <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
-                    A+ Counseling Center
+                  A<sup>+</sup> Counseling & Consultancy Services
                   </h1>
                 </div>
               </div>
@@ -136,7 +136,7 @@ const Footer = () => {
 
           {/* Copyright Text */}
           <p className="text-[12px] sm:text-sm md:text-base font-poppins">
-            Copyright &copy; {new Date().getFullYear()} A+ Counseling Center.
+            Copyright &copy; {new Date().getFullYear()}  A<sup>+</sup> Counseling & Consultancy Services
             All Rights Reserved.
           </p>
         </div>

@@ -69,7 +69,7 @@ const Services = () => {
         Services
       </h1>
       <p className="text-white text-sm sm:text-base md:text-lg p-4 font-poppins">
-        At A+ Counseling Center, we offer a wide range of counseling
+        At A<sup>+</sup> Counseling & Consultancy Services, we offer a wide range of counseling
         services tailored to meet the diverse needs of individuals,
         couples, and families. Our approach integrates evidence-based
         techniques with compassionate care to help you navigate life's

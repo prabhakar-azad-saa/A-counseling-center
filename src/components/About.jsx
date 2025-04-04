@@ -95,7 +95,7 @@ const About = () => {
         />
 
         {/* Image Section */}
-        <div className="w-full h-auto flex justify-center items-center ">
+        <div className="w-full h-auto flex justify-center items-center  ">
           <img
             src={aboutSelf}
             alt="Additional Image"
