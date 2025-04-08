@@ -28,3 +28,18 @@ select::-ms-expand {
   font-family: 'Poppins', sans-serif;
 }
 
+@media (max-width:1002px) {
+  .hero-section-resp{
+    margin-top: 143px;
+  }
+  
+}
+@media (max-width:500px) {
+  .hero-section-resp{
+    margin-top: 125px;
+  }
+  .phone-email-icon{
+    align-items: center;
+  }
+  
+}

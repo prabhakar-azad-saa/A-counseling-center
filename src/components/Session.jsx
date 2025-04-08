@@ -11,6 +11,7 @@ import Video from "../img/Video"
 import Voicecall from "../img/Voicecall"
 import Chat from "../img/Chat"
 import Chatts from "../img/Chatts";
+import { motion } from "framer-motion";
 
 const Session = () => {
   const navigate = useNavigate();
@@ -20,30 +21,45 @@ const Session = () => {
   };
 
   return (
-    <div className="bg-[#FCF8F4]">
-     <nav
-  className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover  max-w-[1500px] mx-auto"
-  style={{ backgroundImage: `url(${frameImage})` }}
->
-  <div className="flex flex-col-reverse lg:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 w-full">
-    {/* Left Section (Border) */}
-    <div className="hidden lg:block w-full lg:w-auto">
-      <div className="border-l-4 h-64 p-5"></div>
-    </div>
+    <div className="bg-[#FCF8F4] max-w-[1500px] mx-auto">
 
-    {/* Right Section (Text) */}
-    <div className="flex flex-col justify-center w-full text-center lg:text-left">
-      <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold p-4">
-        Professional Online Counseling Support
-      </h1>
-      <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl p-4 font-poppins">
-        Connect with licensed therapists and counselors from the comfort
-        of your home. Get the support you need, when you need it.
-      </p>
+  <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+              >
+                Professional Online Counseling Support
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+               Connect with licensed therapists and counselors from the comfort of your home. Get the support you need, when you need it.
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
-
 
       <div className="max-w-screen-xl mx-auto p-6">
         {/* Professional Counselor Section */}

@@ -14,6 +14,7 @@ import Looking from "../img/Looking";
 import Seeking from "../img/Seeking";
 import Family from "../img/Family";
 import Depression from "../img/Depression";
+import { motion } from "framer-motion";
 
 
 
@@ -80,27 +81,43 @@ const Onlinecounseling = () => {
   return (
     <div className=" max-w-[1500px] mx-auto">
       {/* Navigation Section */}
-      <nav
-  className="relative p-8 sm:p-16 lg:p-28 bg-cover "
-  style={{ backgroundImage: `url(${frameImage2})` }}
->
-  <div className="flex flex-col sm:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-    {/* Left Border */}
-    <div className="hidden lg:block">
-      <div className="border-l-4 h-64 p-5"></div>
+      <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage2})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+              >
+            Online Counseling Support Anytime, Anywhere
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+          Professional therapy at your convenience. Connect with licensed therapists from the comfort of your home.
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    {/* Text Content */}
-    <div className="sm:w-10/12 text-center sm:text-left">
-      <h1 className="text-white text-4xl sm:text-5xl lg:text-[68px] font-extrabold p-4">
-        Online Counseling – Support Anytime, Anywhere
-      </h1>
-      <p className="text-white text-base sm:text-lg lg:text-xl p-4 font-poppins">
-        Professional therapy at your convenience. Connect with licensed
-        therapists from the comfort of your home.
-      </p>
-    </div>
-  </div>
-</nav>
 
       {/* Features Section */}
       <Features heading={sectionData.title} features={sectionData.features} />

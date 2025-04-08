@@ -155,12 +155,13 @@ export const sessionHistory  = async (Id) => {
 };
 
 
-export const insertBlog = async () => {
+
+
+
+export const insertBlog = async (blog) => {
   try {
-    const response = await axios.post(
-      `${API_BASE_URL}/InsertBlog`,
-      
-    );
+    console.log("blog", blog);
+    const response = await axios.post(`${API_BASE_URL}/InsertBlog`, blog);
     return response.data;
   } catch (error) {
     console.error(
@@ -171,12 +172,12 @@ export const insertBlog = async () => {
 };
 
 
-
-export const uploadBlogImage = async (Id) => {
+export const uploadBlogImage = async (formData, blogId) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/UploadBlogImage?Id=${Id}`,
-    
+      `${API_BASE_URL}/UploadBlogImage?blogId=${blogId}`,
+      formData,
+      { headers: { "Content-Type": "multipart/form-data" } }
     );
     return response.data;
   } catch (error) {
@@ -184,8 +185,10 @@ export const uploadBlogImage = async (Id) => {
       "Error submitting UploadBlogImage form:",
       error.response?.data || error.message
     );
-  }
+  };
 };
+
+
 
 
 

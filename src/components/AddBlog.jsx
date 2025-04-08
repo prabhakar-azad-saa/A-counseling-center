@@ -203,7 +203,7 @@
 // export default AddBlog;
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Image, Upload, message ,Spin} from "antd";
 import { insertBlog, uploadBlogImage } from "../action/Auth";
@@ -225,6 +225,7 @@ const AddBlog = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [fileList, setFileList] = useState([]);
+  const [userData, setUserData] = useState('');
 
   // Image preview handlers
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -264,56 +265,122 @@ const AddBlog = () => {
   };
 
   // Handle form submission
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!validateForm()) return;
+
+  //   setLoading(true);
+  //   try {
+  //     // Step 1: Prepare blog data
+  //     const blogData = {
+  //       userId: 0, // Change this to the actual user ID if needed
+  //       type: "Blog",
+  //       name: title,
+  //       description: content,
+  //       additionalInfo: heading,
+  //     };
+
+  //     // Step 2: Insert Blog
+  //     const blogResponse = await insertBlog(blogData);
+  //     console.log("=====123====",blogResponse)
+  //     if (!blogResponse) {
+  //       message.error("Failed to create blog.");
+  //       return;
+  //     }
+
+  //     message.success("Blog created successfully!");
+
+  //     // Step 3: Upload Image
+  //     if (fileList.length > 0) {
+  //       const file = fileList[0].originFileObj;
+  //       const uploadResponse = await uploadBlogImage(blogResponse.userId, file);
+
+  //       if (uploadResponse && uploadResponse.url) {
+  //         setImageUrl(uploadResponse.url);
+  //         message.success("Image uploaded successfully!");
+  //       } else {
+  //         message.error("Image upload failed.");
+  //       }
+  //     }
+
+  //     // Reset form
+  //     setTitle("");
+  //     setHeading("");
+  //     setContent("");
+  //     setFileList([]);
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     message.error("An error occurred while adding the blog.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setLoading(true);
     try {
-      // Step 1: Prepare blog data
-      const blogData = {
-        userId: 0, // Change this to the actual user ID if needed
-        type: "Blog",
-        name: title,
+      const newBlog = {
+        userId: userData.userId,
+        type: title,
+        name: heading,
         description: content,
-        additionalInfo: heading,
+        additionalInfo: "",
       };
 
-      // Step 2: Insert Blog
-      const blogResponse = await insertBlog(blogData);
-      console.log("=====123====",blogResponse)
-      if (!blogResponse) {
-        message.error("Failed to create blog.");
-        return;
-      }
+      //  Insert Blog
+      const blogResponse = await insertBlog(newBlog);
+      console.log("=====123====", blogResponse);
 
-      message.success("Blog created successfully!");
+      // if (!blogResponse || !blogResponse.blogId) {
+      //   message.error("Failed to insert blog.");
+      //   setLoading(false);
+      //   return;
+      // }
 
-      // Step 3: Upload Image
-      if (fileList.length > 0) {
+      const blogId = blogResponse.blogId;
+
+      //  Upload Image (Only if file exists)
+      if (fileList.length > 0 && fileList[0].originFileObj) {
         const file = fileList[0].originFileObj;
-        const uploadResponse = await uploadBlogImage(blogResponse.userId, file);
+        const formData = new FormData();
+        formData.append("blogImage", file);
+
+        const uploadResponse = await uploadBlogImage(formData, blogId);
+        console.log("=====5555====", uploadResponse);
 
         if (uploadResponse && uploadResponse.url) {
+          console.log("=====4444====", uploadResponse);
           setImageUrl(uploadResponse.url);
-          message.success("Image uploaded successfully!");
+          message.success("Blog added successfully!");
+          setTitle("");
+          setHeading("");
+          setContent("");
+          setImageUrl("");
+          setFileList([]);
         } else {
-          message.error("Image upload failed.");
+          message.error("Failed to insert blog.");
+          // message.error("Image upload failed.");
+          setLoading(false);
+          return;
         }
       }
-
-      // Reset form
-      setTitle("");
-      setHeading("");
-      setContent("");
-      setFileList([]);
     } catch (error) {
       console.error("Error:", error);
       message.error("An error occurred while adding the blog.");
     } finally {
       setLoading(false);
+}
+};
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("userData");
+    if (storedUser) {
+      setUserData(JSON.parse(storedUser));
     }
-  };
+  },[]);
 
   return (
     <div className="p-4 lg:p-28 max-w-4xl mx-auto bg-white border border-black">

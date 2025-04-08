@@ -10,6 +10,8 @@ import blogImg2 from "../img/blogImg2.png";
 import blogDetail6 from "../img/blogDetail6.png";
 import { getBlogdetails } from "../action/Auth";
 
+import { motion } from "framer-motion";
+
 const Blogs = () => {
   const [blogDetails, setBlogDetails] = useState([]);
   const [popularPosts, setPopularPosts] = useState([]);
@@ -42,30 +44,43 @@ const Blogs = () => {
   return (
    <Spin  spinning={loading}>
      <div className="bg-[#FCF8F4]  max-w-[1500px] mx-auto">
-      <nav
-        className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
-        style={{ backgroundImage: `url(${frameImage})` }}
-      >
-        <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-          <div className="flex flex-col sm:flex-row items-center w-full">
-            {/* Left side: Vertical Border */}
-            <div className="hidden lg:block">
-              <div className="border-l-4 h-64 p-5"></div>
-            </div>
-
-            {/* Right side: Text */}
-            <div className="text-center sm:text-left sm:flex-grow">
-              <h1 className="text-white text-[40px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
-                Blog
-              </h1>
-              <p className="text-white text-base sm:text-lg md:text-xl p-4 font-poppins">
-                Explore transformative insights and expert guidance on your
-                journey to mental wellness.
-              </p>
+     <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+              >
+              Blog
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+             Explore transformative insights and expert guidance on your journey to mental wellness
+              </motion.p>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
+    </div>
      
       <div className="flex flex-col mt-20 sm:flex-row justify-evenly sm:gap-12 p-8 ">
         

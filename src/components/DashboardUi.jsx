@@ -69,7 +69,7 @@ const DashboardUi = () => {
       .then((res) => {
         if (res?.data) {
           const todayDate = moment().format("YYYY-MM-DD");
-          console.log("====33333===",res)
+          // console.log("====33333===",res)
 
           const todayAppointments = res.data.filter(
             (appointment) =>
@@ -83,7 +83,7 @@ const DashboardUi = () => {
           );
           setUpcomingAppointments(upcomingAppointments);
         }
-        console.log("==Response==", res);
+        // console.log("==Response==", res);
       })
       .catch((err) => {
         console.error("====getAllUpAppointments Error====", err);
@@ -96,7 +96,7 @@ const DashboardUi = () => {
   const handleAction = async (sessionId, status, fullName) => {
     try {
        changeAppointment(sessionId, status, fullName).then((res)=>{
-        console.log("----------- Accept Request resp -------",res)
+        // console.log("----------- Accept Request resp -------",res)
         setRefresh(res.data)
 
       }).catch((err)=>{
@@ -225,7 +225,7 @@ const DashboardUi = () => {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      render: (status) => (status === 1 ? "Accepted" : "Pending"), 
+      render: (status) => (status === 1 ? "Accepted" : "Reject"), 
     },
   ];
   
@@ -307,15 +307,15 @@ const DashboardUi = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
-        <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
-          <h3 className="text-xl font-bold text-center mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-3">
+        <div className="bg-white rounded-lg p-10 shadow-2xl overflow-auto">
+          <h3 className="text-xl font-bold text-center mb-4 ">
             Appointment Status
           </h3>
           <Pie data={chartData} />
         </div>
         <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
-          <h3 className="text-xl font-bold mb-4">Today's Appointments</h3>
+          <h3 className="text-xl font-bold text-center mb-4">Today's Appointments</h3>
           
           <Table
             columns={columnss}
@@ -325,18 +325,24 @@ const DashboardUi = () => {
          
         </div>
         <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
-          <h3 className="text-xl font-bold mb-4">Next Appointments</h3>
+          <h3 className="text-xl font-bold text-center mb-4">Next Appointments</h3>
           <Table
             columns={columnss}
             dataSource={upcomingAppointments}
             pagination={{ pageSize: 3 }}
           />
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
+      
+        <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
+          <h3 className="text-xl font-bold text-center mb-4">Appointment Requests</h3>
+          <Table
+            columns={columns}
+            dataSource={booking}
+            pagination={{ pageSize: 3 }}
+          />
+        </div>
         <div className="bg-white rounded-lg p-5 shadow-2xl ">
-          <h3 className="text-xl font-bold mb-4">Customer Ratings</h3>
+          <h3 className="text-xl font-bold text-center mb-4">Customer Ratings</h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={data}>
               <XAxis dataKey="rating" />
@@ -347,20 +353,16 @@ const DashboardUi = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">
-          <h3 className="text-xl font-bold mb-4">Appointment Requests</h3>
-          <Table
-            columns={columns}
-            dataSource={booking}
-            pagination={{ pageSize: 3 }}
-          />
-        </div>
         <div className="bg-white rounded-lg p-5 shadow-2xl ">
           <h3 className="text-xl font-bold text-center">
             Appointment Calendar
           </h3>
           <Calendar fullscreen={false} className="w-full" />
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
+      
       </div>
 
       <Modal

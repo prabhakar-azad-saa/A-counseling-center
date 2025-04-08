@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import frameImage from "../img/svgvieweroutput.png";
@@ -7,6 +7,8 @@ import VoicecallBlack from "../img/VoicecallBlack"
 import  MailBlack from "../img/MailBlack"
 import Locationcontact from "../img/Locationcontact";
 import {  Spin } from "antd";
+
+import { motion } from "framer-motion";
 
 // Contact Component
 const ContactUs = () => {
@@ -22,6 +24,22 @@ const ContactUs = () => {
   const [error, setError] = useState();
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
+  
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userData")); 
+    if (user) {
+      // console.log('=====3333===',user)
+      setFormData((prev) => ({
+        ...prev,
+        firstName: user.username || "",
+        lastName: user.lastName || "",
+        email: user.email || "",
+        phone: user.phone || "",
+      }));
+    }
+  }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -153,29 +171,44 @@ const ContactUs = () => {
   };
   return (
     <div className="bg-[#FCF8F4]  max-w-[1500px] mx-auto">
-     <nav
-  className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover"
-  style={{ backgroundImage: `url(${frameImage})` }}
->
-  <div className="flex flex-col lg:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-    {/* Left Section (Border) */}
-    <div className="hidden lg:block w-full lg:w-auto">
-      <div className="border-l-4 h-64 p-5"></div>
+    <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+              >
+              Contact Us
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+            We're here to support you on your journey to better mental health. Our experienced counselors are
+            ready to help you navigate life's challenges.
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    {/* Right Section (Text) */}
-    <div className="flex flex-col justify-center w-full text-center lg:text-left">
-      <h1 className="text-white text-4xl sm:text-5xl lg:text-[68px] font-extrabold p-4">
-        Contact Us
-      </h1>
-      <p className="text-white text-base sm:text-lg lg:text-xl p-4 font-poppins">
-        We're here to support you on your journey to better mental health.
-        Our experienced counselors are ready to help you navigate life's
-        challenges.
-      </p>
-    </div>
-  </div>
-</nav>
 
 
       <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4] ">

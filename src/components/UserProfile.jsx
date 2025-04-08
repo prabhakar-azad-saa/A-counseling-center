@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Image, Upload, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineSaveAs } from "react-icons/md";
+import { GoPencil } from "react-icons/go";
 
 import userImg from "../img/userImg.png";
 import Usermail from "../img/Usermail";
@@ -39,6 +41,7 @@ const UserProfile = () => {
   const [address, setAddress] = useState("");
   const [showInput, setShowInput] = useState(false);
   const [savedAddress, setSavedAddress] = useState("");
+
 
   const handleSaveAddress = () => {
     setSavedAddress(address);
@@ -106,6 +109,7 @@ const UserProfile = () => {
     //Userdetail
     getUserDetail(parsedUser.userId)
       .then((res) => {
+        // console.log('===000===',res)
         setUser(res?.data);
       })
       .catch((err) => {
@@ -128,182 +132,158 @@ const UserProfile = () => {
 
  
   return (
-    <Spin spinning={loading}>
-      <div
-        className="flex flex-col lg:flex-row   max-w-[1500px] mx-auto"
-        style={{ backgroundColor: "#e3e8e9" }}
-      >
-        <div className="w-full lg:w-1/3 mb-10 p-5 lg:p-10 mt-24 mx-5 lg:mx-24 lg:mb-0">
-          <div
-            className="flex flex-col bg-white rounded-lg p-5 mb-7"
-            style={{ boxShadow: `rgba(99, 99, 99, 0.1) 0px 2px 8px 0px` }}
-          >
-            <div className="flex flex-col lg:flex-row items-center mb-6">
-              <Upload
-                listType="picture-circle"
-                fileList={fileList}
-                onPreview={handlePreview}
-                onChange={handleChange}
-                showUploadList={false}
-                beforeUpload={() => false}
-              >
-                <img
-                  src={profileImage}
-                  alt="User"
-                  className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
-                />
-              </Upload>
-              {/* <img src={userImg} alt="User" className="w-24 h-24 rounded-full mb-4 lg:mb-0"/> */}
-              <div className="lg:ml-6">
-                <h1 className="text-2xl font-bold">{user.username}</h1>
-                <p className="text-lg text-black font-semibold">
-                  Member since{" "}
-                  {new Date(user.createdAt).toLocaleString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                  })}
-                </p>
-              </div>
-            </div>
+    <Spin spinning={loading} size="large">
+   <div
+  className="flex flex-col lg:flex-row w-full max-w-[1500px] mx-auto gap-6 px-4 sm:px-6 md:px-8 py-4"
+  style={{ backgroundColor: "#e3e8e9" }}
+>
+  {/* Left Side - Profile and Appointment */}
+  <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
+    <div
+      className="flex flex-col bg-white rounded-lg p-5 mb-8"
+      style={{ boxShadow: `rgba(99, 99, 99, 0.1) 0px 2px 8px 0px` }}
+    >
+      {/* Profile Info */}
+      <div className="flex flex-col lg:flex-row items-center mb-6">
+        <Upload
+          listType="picture-circle"
+          fileList={fileList}
+          onPreview={handlePreview}
+          onChange={handleChange}
+          showUploadList={false}
+          beforeUpload={() => false}
+        >
+          <img
+            src={profileImage}
+            alt="User"
+            className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
+          />
+        </Upload>
 
-            <div className="mb-4">
-              <div className="flex mt-5">
-                <Usermail />
-                <p className="text-base text-black font-semibold ml-3">
-                  {user.email}
-                </p>
-              </div>
-              <div className="flex mt-5">
-                <Usercall />
-                <p className="text-lg text-black font-semibold ml-3">
-                  (555) 123-4567
-                </p>
-              </div>
-              <div className="flex mt-5">
-                <Userlocation />
-              
-  
-                {showInput ? (
-          <div className="ml-3 flex flex-col sm:flex-col gap-3">
-            <input
-              type="text"
-              placeholder="Enter address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className="border border-gray-300 rounded-lg p-2 text-black font-semibold"
-            />
-            <Button
-              type="primary"
-              className="bg-green-500 text-white"
-              onClick={handleSaveAddress}
-            >
-              Save
-            </Button>
-          </div>
-        ) : savedAddress ? (
-          <p className="text-lg text-black font-semibold ml-3">{savedAddress}</p>
-        ) : (
-          <Button
-            type="dashed"
-            className="ml-3 text-sm"
-            onClick={() => setShowInput(true)}
-          >
-            Add Address
-          </Button>
-        )}
-      
-
-              </div>
-            </div>
-            <Button onClick={handleLogout} className="text-sm">
-              Logout
-            </Button>
-
-            {/* <div className='bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2'>
-         <Editlogo/>
-         <button className='font-semibold pl-2 text-white'>Edit Profile</button>
-       </div> */}
-          </div>
-
-          <div className="bg-white shadow-lg rounded-lg p-5 mb-10">
-            <h1 className="text-3xl mt-5 font-semibold mb-4">
-              Upcoming Appointment
-            </h1>
-
-            {upcommingAppointment?.map((item) => (
-              <>
-                <div className="mb-4 bor flex flex-row">
-                  <div className="border-l-4 h-32 p-5 border-black"></div>
-
-                  <div>
-                    <p className="text-lg text-black">Next session</p>
-                    <h2 className="text-xl font-semibold">
-                      {item.sessionDate}
-                    </h2>
-                    <p className="text-lg text-black">{item.sessionSlotTime}</p>
-                  </div>
-                  {/* <p className="text-lg text-black">with Dr. Michael Brown</p> */}
-                </div>
-              </>
-            ))}
-
-            <div className="bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2">
-              <Schedule />
-              <button className="font-semibold pl-2 text-sm sm:text-lg text-white">
-                Schedule New Session
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col lg:w-2/3  p-5 lg:p-10 mt-24 mx-5 lg:mx-20 lg:ml-8">
-          {/* Session History */}
-          <div className="bg-white shadow-lg rounded-lg mb-6 p-5">
-            <h1 className="text-2xl font-bold mb-4">Session History</h1>
-
-            {/* First Session */}
-            <div className="flex flex-col  mb-6 p-5">
-              {/* <Uservideo className="w-16 h-16 rounded-full mr-4"/> */}
-
-              {sessionhistory?.map((chat) => (
-                <>
-                  <div className="flex p-3">
-                    <Uservideo className="w-16 h-16 rounded-full mr-4" />
-                    <div>
-                      <h2 className="text-lg font-semibold">
-                        Video Session with {chat.doctorName}
-                      </h2>
-                      <p className="text-sm text-gray-600">
-                        {chat.sessionDate}
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        {chat.sessionDescription}
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ))}
-
-              {/* <Uservideo className="w-16 h-16 rounded-full mr-4"/>
-         <div>
-           <h2 className="text-lg font-semibold">Video Session with Dr. Brown</h2>
-           <p className="text-sm text-gray-600">March</p>
-           <p className="text-sm text-gray-600">Discussed progress on stress management techniques and sleep hygiene practices.</p>
-         </div> */}
-            </div>
-
-            {/* Second Session */}
-            {/* <div className="flex items-center mb-6 p-5">
-         <Userchat className="w-16 h-16 rounded-full mr-4"/>
-         <div>
-           <h2 className="text-lg font-semibold">Chat Session with Dr. Brown</h2>
-           <p className="text-sm text-gray-600">March</p>
-           <p className="text-sm text-gray-600">Quick check-on anxiety management strategies and medication review.</p>
-         </div>
-       </div> */}
-          </div>
+        <div className="mt-4 lg:mt-0 lg:ml-6 text-center lg:text-left">
+          <h1 className="text-2xl font-bold">{user.username}</h1>
+          <p className="text-lg text-black font-semibold">
+            Member since{" "}
+            {new Date(user.createdAt).toLocaleString("en-US", {
+              year: "numeric",
+              month: "long",
+            })}
+          </p>
         </div>
       </div>
+
+      {/* Contact Info */}
+      <div className="space-y-5">
+        {/* Email */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center">
+          <Usermail />
+          <p className="text-base text-black font-semibold sm:ml-3 mt-2 sm:mt-0">
+            {user.email}
+          </p>
+        </div>
+
+        {/* Contact */}
+        <div className="flex items-start sm:items-center">
+          <Usercall />
+          <p className="text-base text-black font-semibold ml-3">{user.contactNumber}</p>
+        </div>
+
+        {/* Address */}
+        <div className="flex items-start sm:items-center">
+          <Userlocation />
+          {showInput ? (
+            <div className="ml-3 flex flex-col sm:flex-row gap-3 mt-2 sm:mt-0 w-full">
+              <input
+                type="text"
+                placeholder="Enter address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="border border-gray-300 rounded px-3 py-2 w-full sm:w-auto"
+              />
+              <button
+                type="button"
+                className="bg-[#ed754a] text-white px-3 py-2 rounded hover:bg-green-600 transition"
+                onClick={handleSaveAddress}
+                title="Save Address"
+              >
+                <MdOutlineSaveAs size={20} />
+              </button>
+            </div>
+          ) : savedAddress ? (
+            <p className="text-base text-black font-semibold ml-3">{savedAddress}</p>
+          ) : (
+            <button
+              type="button"
+              className="ml-3 text-sm text-gray-600 hover:text-black transition mt-2 sm:mt-0"
+              onClick={() => setShowInput(true)}
+              title="Edit Address"
+            >
+              <GoPencil size={18} />
+            </button>
+          )}
+        </div>
+      </div>
+
+      <Button onClick={handleLogout} className="text-sm mt-6">
+        Logout
+      </Button>
+    </div>
+
+    {/* Upcoming Appointment Section */}
+    <div className="bg-white shadow-lg rounded-lg p-5 mb-8">
+      <h1 className="text-2xl font-semibold mb-4">Upcoming Appointment</h1>
+
+      {upcommingAppointment?.length > 0 ? (
+        upcommingAppointment.map((item, index) => (
+          <div key={index} className="mb-4 flex items-start gap-4">
+            <div className="border-l-4 h-24 p-2 border-black" />
+            <div>
+              <p className="text-lg text-black">Next session</p>
+              <h2 className="text-xl font-semibold">{item.sessionDate}</h2>
+              <p className="text-lg text-black">{item.sessionSlotTime}</p>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className="text-gray-500">No upcoming appointments found.</p>
+      )}
+
+      <div className="bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4">
+        <Schedule />
+        <button className="font-semibold text-sm sm:text-lg text-white">
+          Schedule New Session
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* Right Side - Session History */}
+  <div className="w-full lg:w-2/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
+    <div className="bg-white shadow-lg rounded-lg mb-6 p-5">
+      <h1 className="text-2xl font-bold mb-4">Session History</h1>
+
+      <div className="flex flex-col space-y-4">
+        {sessionhistory?.length > 0 ? (
+          sessionhistory.map((chat, index) => (
+            <div key={index} className="flex p-3 items-start">
+              <Uservideo className="w-16 h-16 rounded-full mr-4" />
+              <div>
+                <h2 className="text-lg font-semibold">
+                  Video Session with {chat.doctorName}
+                </h2>
+                <p className="text-sm text-gray-600">{chat.sessionDate}</p>
+                <p className="text-sm text-gray-600">{chat.sessionDescription}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-500">No session history found.</p>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
     </Spin>
   );
 };

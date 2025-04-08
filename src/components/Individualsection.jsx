@@ -9,7 +9,7 @@ import Cognitive from "../img/Cognitive";
 import Human from "../img/Human";
 import Professionall from "../img/Professionall";
 import Reduce from "../img/Reduce";
-
+import { motion } from "framer-motion";
 const Individualsection = () => {
 
   const Cartdata =
@@ -40,31 +40,43 @@ const Individualsection = () => {
   return (
     <div className=" max-w-[1500px] mx-auto">
       {/* Navigation Section */}
-      <nav
-  className="flex w-full justify-center p-8 sm:p-10 lg:p-20 bg-cover "
-  style={{ backgroundImage: `url(${frameImage})` }}
->
-  <div className="flex flex-col lg:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-    {/* Left Section (Border) */}
-    <div className="hidden lg:block w-full lg:w-auto">
-      <div className="border-l-4 h-64 p-5"></div>
+      <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+              >
+            Services Detail
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+         At  A<sup>+</sup> Counseling & Consultancy Services, we offer a wide range of counseling services tailored to meet the diverse needs of individuals, couples, and families. Our approach integrates evidence-based techniques with compassionate care to help you navigate life’s challenges.
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    {/* Right Section (Text) */}
-    <div className="flex flex-col justify-center w-full text-center lg:text-left">
-      <h1 className="text-white text-4xl sm:text-5xl lg:text-[68px] font-extrabold p-4">
-        Services Detail
-      </h1>
-      <p className="text-white text-base sm:text-lg lg:text-xl p-4 font-poppins">
-        At A+ Counseling Center, we offer a wide range of counseling
-        services tailored to meet the diverse needs of individuals,
-        couples, and families. Our approach integrates evidence-based
-        techniques with compassionate care to help you navigate life's
-        challenges.
-      </p>
-    </div>
-  </div>
-</nav>
 
 
       <div className="p-5 bg-[#FCF8F4]">
@@ -196,23 +208,12 @@ const Individualsection = () => {
         </div>
         {/* Mentor Section */}
         <div
-  className="w-full flex flex-col relative bg-cover"
-  style={{ backgroundImage: `url(${frameImage})` }}
+
 >
   {/* Image Container */}
-  <div
-    className="absolute top-0 left-0 w-[200px] h-[300px] sm:w-[400px] sm:h-[500px] mb-20 z-10"
-    style={{ top: '-90px' }}
-  >
-    <img
-      src={individual2}
-      alt="Mentor"
-      className="w-full h-full object-cover"
-    />
-  </div>
-
+ 
   {/* Text Container */}
-  <div className="flex justify-end w-full pl-0 sm:pl-96 relative z-20">
+  {/* <div className="flex justify-end w-full pl-0 sm:pl-96 relative z-20">
     <div className="text-white flex flex-col items-center sm:items-start sm:w-3/4 p-6">
       <h3 className="text-2xl mb-3">Mentor</h3>
       <h1 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -221,7 +222,7 @@ const Individualsection = () => {
 
       <div className="w-full sm:w-3/4 mb-8">
         {/* Professional Growth Section */}
-        <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
+        {/* <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
           <Professionall />
           <div className="pl-5 flex flex-col justify-center">
             <h2 className="text-xl font-semibold mb-3">Professional Growth</h2>
@@ -230,10 +231,10 @@ const Individualsection = () => {
               guidance.
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Reduced Burnout Section */}
-        <div className="w-full flex p-3 mb-8 rounded-xl">
+        {/* <div className="w-full flex p-3 mb-8 rounded-xl">
           <Reduce />
           <div className="pl-5 flex flex-col justify-center">
             <h2 className="text-xl font-semibold mb-3">Reduced Burnout</h2>
@@ -244,8 +245,55 @@ const Individualsection = () => {
           </div>
         </div>
       </div>
+    </div> */}
+  {/* </div> */} 
+
+  <div
+      className="flex items-center justify-center min-h-screen bg-cover bg-center px-4 py-8"
+      style={{ backgroundImage: `url(${frameImage})` }}
+    >
+      <div className="max-w-5xl w-full bg-opacity-80 rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+        {/* Left Side with Image */}
+        <div className="w-full md:w-1/2 relative">
+          <img
+            src={individual2}
+            alt="Section"
+            className="w-full h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-t-none"
+          />
+        </div>
+
+        {/* Right Side */}
+        <div className="w-full md:w-1/2 p-8 md:p-12 text-white relative flex flex-col justify-center">
+          <p className="text-lg uppercase font-semibold text-gray-200 mb-2">Mentor</p>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+            Introducing Experienced Consulting
+          </h1>
+
+          {/* Features */}
+          <div className="mt-8">
+            <div className="flex items-start space-x-6 mb-8">
+              <span className="text-4xl text-green-400">🌱</span>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Professional Growth</h3>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Enhance your personal and professional development through expert guidance and support.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-6">
+              <span className="text-4xl text-purple-400">🧘</span>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Reduced Burnout</h3>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Learn effective stress management techniques to maintain work-life balance and emotional well-being.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
 
         {/* Breaking the Stigma Section */}

@@ -9,6 +9,7 @@ import Leaf from "../img/Leaf";
 import Carrier from "../img/Carrier";
 import Chat from "../img/Chat"
 import Needing from "../img/Needing";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -52,32 +53,44 @@ const Services = () => {
     },
   ];
   return (
-    <div className="bg-[#FCF8F4]">
-     <nav
-  className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover max-w-[1500px] mx-auto"
-  style={{ backgroundImage: `url(${frameImage})` }}
->
-  <div className="flex flex-col-reverse lg:flex-row max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32 w-full">
-    {/* Left Section (Border) */}
-    <div className="hidden lg:block w-full lg:w-auto">
-      <div className="border-l-4 h-64 p-5"></div>
+    <div className="bg-[#FCF8F4] max-w-[1500px] mx-auto">
+   <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+              >
+                Services
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+             At   A<sup>+</sup> Counseling & Consultancy Services, we offer a wide range of counseling services tailored to meet the diverse needs of individuals, couples, and families. Our approach integrates evidence-based techniques with compassionate care to help you navigate life’s challenges.
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    {/* Right Section (Text) */}
-    <div className="flex flex-col justify-center w-full text-center lg:text-left">
-      <h1 className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-[68px] font-extrabold p-4">
-        Services
-      </h1>
-      <p className="text-white text-sm sm:text-base md:text-lg p-4 font-poppins">
-        At A<sup>+</sup> Counseling & Consultancy Services, we offer a wide range of counseling
-        services tailored to meet the diverse needs of individuals,
-        couples, and families. Our approach integrates evidence-based
-        techniques with compassionate care to help you navigate life's
-        challenges.
-      </p>
-    </div>
-  </div>
-</nav>
 <div className="p-6 text-center pt-24 sm:pt-32 px-4 sm:px-10 lg:px-32 max-w-screen-xl mx-auto">
   <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
     Empowering Minds: Our Mental Health Consulting Services

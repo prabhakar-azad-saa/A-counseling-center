@@ -17,6 +17,7 @@ const DashboardTable = () => {
   useEffect(() => {
     userCantact().then((res)=>{
       setContacts(res?.data)
+      // console.log('===1111===',res)
     }).catch((err)=>{
       console.log("==userCantact Err===",err)
     })
@@ -43,7 +44,7 @@ const DashboardTable = () => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen  max-w-[1500px] mx-auto ">
-      <div className="w-full md:w-60 bg-gray-800 text-white p-5 ">
+      <div className="w-full md:w-72 bg-gray-800 text-white p-5 ">
         <h2 className="text-2xl font-bold mb-5 text-center md:text-left">Dashboard Section</h2>
         <ul className="flex flex-col space-y-3">
           {[{ name: 'Dashboard', value: 'dashboard' },

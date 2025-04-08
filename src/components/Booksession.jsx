@@ -6,6 +6,7 @@ import { selecetSlot, sessionBook } from "../action/Auth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {  Spin } from "antd";
+import { motion } from "framer-motion";
 
 function Booksession() {
   const [formData, setFormData] = useState({
@@ -103,6 +104,21 @@ function Booksession() {
     }
   }, []);
 
+
+   useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("userData")); 
+      if (user) {
+        // console.log('=====3333===',user)
+        setFormData((prev) => ({
+          ...prev,
+          name: user.username || "",
+          lastName: user.lastName || "",
+          email: user.email || "",
+          phone: user.phone || "",
+        }));
+      }
+    }, []);
+
   // console.log("=======55========", userData?.userId, slotData);
 
   const validateForm = () => {
@@ -189,29 +205,45 @@ function Booksession() {
   };
 
   return (
-    <div>
-     <nav
-  className="flex w-full p-8 sm:p-10 md:p-12 lg:p-16 bg-cover"
-  style={{ backgroundImage: `url(${frameImage})` }}
->
-  <div className="flex flex-col sm:flex-row w-full max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-    {/* Left Section (Border) */}
-    <div className="hidden sm:block lg:w-auto w-full">
-      <div className="border-l-4 h-64 sm:h-80 lg:h-96 p-5"></div>
+    <div className="max-w-[1500px] mx-auto">
+    <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+              >
+            Book Session
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+           Your trusted partner in mental wellness. Book your path to better emotional health and personal 
+           growth
+              </motion.p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    {/* Right Section (Text) */}
-    <div className="flex flex-col justify-center text-center sm:text-left w-full">
-      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold p-4">
-        Book Session
-      </h1>
-      <p className="text-white text-lg sm:text-xl p-4 font-poppins">
-        Your trusted partner in mental wellness. Book your path to better
-        emotional health and personal growth.
-      </p>
-    </div>
-  </div>
-</nav>
 
 
       <div className="bg-[#FCF8F4] pt-6">

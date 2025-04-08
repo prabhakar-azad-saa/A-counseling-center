@@ -13,6 +13,10 @@ import { IoHeartSharp } from "react-icons/io5";
 import { AiOutlineHeart } from "react-icons/ai";
 import { message } from 'antd';
 import { BlogReaction,getBlogdetails } from '../action/Auth';
+import { useNavigate } from "react-router-dom";
+
+
+import { motion } from "framer-motion";
 
 
 
@@ -25,6 +29,8 @@ const Blogdetail = () => {
 
 
   const [expandedBlogId, setExpandedBlogId] = useState(null);
+
+  const navigate = useNavigate();
 
 
  
@@ -66,23 +72,43 @@ const Blogdetail = () => {
     <div  className=" max-w-[1500px] mx-auto">
       {/* Navbar Section */}
       <div>
-        <nav className="flex w-full p-8 sm:p-16 lg:p-28 bg-cover" style={{ backgroundImage: `url(${frameImage})` }}>
-          <div className="flex max-w-screen-2xl px-4 sm:px-8 md:px-16 lg:px-32">
-            <div>
-              <div className="hidden lg:block">
-                <div className="border-l-4 h-64 p-5"></div>
-              </div>
-            </div>
-            <div>
-              <h1 className="text-white text-[68px] sm:text-5xl lg:text-[68px] font-extrabold p-4">
-                Blog Detail
-              </h1>
-              <p className="text-white text-lg sm:text-xl p-4 font-poppins">
-                Providing professional mental health support and counseling services to help you live a balanced, fulfilling life.
-              </p>
+      <div
+      className="relative w-full h-[500px] overflow-hidden"
+      style={{
+        backgroundImage: `url(${frameImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 opacity-50"></div>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
+        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+            <div className="h-60 border-l-2 border-white"></div>
+            <div className="flex flex-col text-center md:text-left">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring" }}
+                className="text-5xl font-bold text-white mb-4"
+              >
+          Blog Detail
+              </motion.h2>
+              <br />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                className="text-lg text-white"
+              >
+            Professional guidance and support for your mental wellbeing journey. Our experienced consultants provide personalized strategies to help you overcome challenges and achieve emotional balance.
+              </motion.p>
             </div>
           </div>
-        </nav>
+        </div>
+      </div>
+    </div>
       </div>
 
       {/* Blog Detail Content */}
@@ -170,12 +196,13 @@ const Blogdetail = () => {
 
         {/* Only show "Read More" if the description is longer than 70 characters */}
         {blog.description.length > 70 && (
-                <button
-                  onClick={() => toggleExpand(blog.blogId)}
-                  className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
-                >
-                  {expandedBlogId === blog.blogId ? "Show Less" : "Read More"}
-                </button>
+               <button
+               onClick={() => navigate("/blogshow", { state: { blog } })}
+               className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
+             >
+               Read More
+             </button>
+             
                  )}
               </p>
        
@@ -226,12 +253,12 @@ const Blogdetail = () => {
 
         {/* Only show "Read More" if the description is longer than 70 characters */}
         {blog.description.length > 70 && (
-                <button
-                  onClick={() => toggleExpand(blog.blogId)}
-                  className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
-                >
-                  {expandedBlogId === blog.blogId ? "Show Less" : "Read More"}
-                </button>
+                 <button
+                 onClick={() => navigate("/blogshow", { state: { blog } })}
+                 className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
+               >
+                 Read More
+               </button>
         )}
             </p>
            
