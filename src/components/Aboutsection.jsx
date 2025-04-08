@@ -14,8 +14,8 @@ const AboutSection = () => {
   
   
   return (
-    <div className="py-12 p-5 bg-[#FCF8F4]  w-full max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-6">
+    <div className="py-12 p-5 bg-[#FCF8F4] justify-between  w-full ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:px-6">
         {/* Image Section */}
         <div className="w-full">
           <img

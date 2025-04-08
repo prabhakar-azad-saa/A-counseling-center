@@ -279,13 +279,13 @@ const UserProfile = location.pathname ==='/userprofile'
         color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
      }} */}
     
-      <div className="flex items-center justify-between py-2">
+      <div className="flex items-center justify-between py-2 max-w-8xl mx-auto">
 
-        <div className="flex items-center justify-between py-2 px-4 lg:px-8">
+        <div className="flex items-center justify-between py-2 px-4 lg:px-8 ">
         
           <Logolotas className="w-14 h-14" />
-          <div className="text-2xl font-bold" style={{ color: !(isHome || LoginForm || SignupForm) ? "white" : "black" }}>
-            A<sup>+</sup> Counseling Center
+          <div className="text-2xl font-bold " style={{ color: !(isHome || LoginForm || SignupForm) ? "white" : "black" }}>
+            A<sup>+</sup> Counseling & Consultancy Services
           </div>
         </div>
  
