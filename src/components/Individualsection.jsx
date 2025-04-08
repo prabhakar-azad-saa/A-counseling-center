@@ -38,7 +38,7 @@ const Individualsection = () => {
 
   
   return (
-    <div className=" max-w-[1500px] mx-auto">
+    <div className=" ">
       {/* Navigation Section */}
       <div
       className="relative w-full h-[500px] overflow-hidden"

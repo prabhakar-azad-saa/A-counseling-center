@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-[#FCF8F4] pt-10 px-4 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 max-w-7xl mx-auto">
+    <div className="bg-[#FCF8F4] pt-10 px-4 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 ">
       {/* Left Side - Content */}
       <div className="flex flex-col justify-center text-center lg:text-left">
         <h1 className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] xl:text-[68px] font-bold text-gray-900 font-manrope leading-tight">

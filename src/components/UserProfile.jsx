@@ -134,7 +134,7 @@ const UserProfile = () => {
   return (
     <Spin spinning={loading} size="large">
    <div
-  className="flex flex-col lg:flex-row w-full max-w-[1500px] mx-auto gap-6 px-4 sm:px-6 md:px-8 py-4"
+  className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8 py-4"
   style={{ backgroundColor: "#e3e8e9" }}
 >
   {/* Left Side - Profile and Appointment */}

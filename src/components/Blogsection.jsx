@@ -45,7 +45,7 @@ const Blogsection = () => {
     };
   
   return (
-    <div className="p-8 bg-[#FCF8F4] max-w-7xl mx-auto">
+    <div className="p-8 bg-[#FCF8F4]  mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-3xl font-semibold text-black">Latest Blog Posts</h1>
       </div>

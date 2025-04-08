@@ -69,7 +69,7 @@ const Blogdetail = () => {
 
  
   return (
-    <div  className=" max-w-[1500px] mx-auto">
+    <div  className=" ">
       {/* Navbar Section */}
       <div>
       <div

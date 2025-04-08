@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "./Button";
-import Discover from '../img/Discover.png'
+import Discover2 from '../img/Discover2.png'
 // import UserProfile from "./UserProfile";
 
 const AboutSection = () => {
@@ -14,12 +14,12 @@ const AboutSection = () => {
   
   
   return (
-    <div className="py-12 p-5 bg-[#FCF8F4] max-w-7xl mx-auto">
+    <div className="py-12 p-5 bg-[#FCF8F4]  w-full max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:px-6">
         {/* Image Section */}
         <div className="w-full">
           <img
-            src={Discover}
+            src={Discover2}
             alt="pic"
             className="w-full h-auto object-cover rounded-lg"
           />

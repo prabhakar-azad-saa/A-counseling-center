@@ -265,7 +265,7 @@ const UserProfile = location.pathname ==='/userprofile'
   const toggleMenu = () => setIsOpen(prev => !prev);
   return (
     <nav 
-    className={`max-w-[1500px] mx-auto items-center justify-between 
+    className={` items-center justify-between 
       ${selected === "/dashboardtable" || selected === "/userprofile"  ? "bg-[#359c76]" : ""}
       ${!isExcluded ? "absolute top-0 left-0 right-0 z-50" : ""}
     `}

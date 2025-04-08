@@ -189,7 +189,7 @@ const Animation = () => {
   }, [currentSlide]);
 
   return (
-    <div className="w-full max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="w-full max-w-6xl mx-auto  py-10 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="grid mt-8 grid-cols-1 lg:grid-cols-2 items-center gap-10 min-h-[500px]">
         {/* Text Content */}
         <div className="flex flex-col justify-center space-y-6 text-center lg:text-left min-h-[300px]">

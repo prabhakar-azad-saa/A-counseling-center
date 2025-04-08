@@ -43,7 +43,7 @@ const DashboardTable = () => {
  
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen  max-w-[1500px] mx-auto ">
+    <div className="flex flex-col md:flex-row min-h-screen  mx-auto ">
       <div className="w-full md:w-72 bg-gray-800 text-white p-5 ">
         <h2 className="text-2xl font-bold mb-5 text-center md:text-left">Dashboard Section</h2>
         <ul className="flex flex-col space-y-3">

@@ -205,7 +205,7 @@ function Booksession() {
   };
 
   return (
-    <div className="max-w-[1500px] mx-auto">
+    <div className="">
     <div
       className="relative w-full h-[500px] overflow-hidden"
       style={{

@@ -58,7 +58,7 @@ const BlogShow = () => {
   if (!blog) return <div>No blog data found</div>;
 
   return (
-    <div className="max-w-[1500px] mx-auto">
+    <div className="">
       {/* Header Section */}
       <div
         className="relative w-full h-[500px] overflow-hidden"

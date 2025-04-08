@@ -53,7 +53,7 @@ const Services = () => {
     },
   ];
   return (
-    <div className="bg-[#FCF8F4] max-w-[1500px] mx-auto">
+    <div className="bg-[#FCF8F4] ">
    <div
       className="relative w-full h-[500px] overflow-hidden"
       style={{
