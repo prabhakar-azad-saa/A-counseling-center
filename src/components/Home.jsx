@@ -1,15 +1,14 @@
 import { useState } from "react";
 
-
 import Features from "./Features";
 import AboutSection from "./Aboutsection";
 import Ready from "./Ready";
 
 import Blogsection from "./Blogsection";
 import Animation from "./Animation";
-import Expert from "../img/Expert.png"
-import Personalized from "../img/Personalized.png"
-import safe from "../img/safe.png"
+import Expert from "../img/Expert.png";
+import Personalized from "../img/Personalized.png";
+import safe from "../img/safe.png";
 
 function Home() {
   const sectionData = {
@@ -37,14 +36,14 @@ function Home() {
       },
     ],
   };
- 
 
   return (
     <>
-      <Animation />
-      
+      <div style={{ marginTop: "150px" }}>
+        <Animation />
+      </div>
 
-      <div className="box h-[100px] bg-gradient-to-l from-[#007d6e] to-[#5eb47c] px-[162px] py-[30px] relative sm:h-[120px] sm:px-[120px] sm:py-[20px] md:h-[100px] md:px-[80px] md:py-[15px] xs:h-[80px] xs:px-[30px] xs:py-[10px]  mx-auto"></div>
+      {/* <div className="box h-[100px] bg-gradient-to-l from-[#007d6e] to-[#5eb47c] px-[162px] py-[30px] relative sm:h-[120px] sm:px-[120px] sm:py-[20px] md:h-[100px] md:px-[80px] md:py-[15px] xs:h-[80px] xs:px-[30px] xs:py-[10px]  mx-auto"></div> */}
       <Features
         title={sectionData.title}
         description={sectionData.description}

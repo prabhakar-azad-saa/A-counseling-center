@@ -5,7 +5,7 @@ import { use } from "react";
 import { selecetSlot, sessionBook } from "../action/Auth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {  Spin } from "antd";
+import { Spin } from "antd";
 import { motion } from "framer-motion";
 
 function Booksession() {
@@ -104,20 +104,19 @@ function Booksession() {
     }
   }, []);
 
-
-   useEffect(() => {
-      const user = JSON.parse(localStorage.getItem("userData")); 
-      if (user) {
-        // console.log('=====3333===',user)
-        setFormData((prev) => ({
-          ...prev,
-          name: user.username || "",
-          lastName: user.lastName || "",
-          email: user.email || "",
-          phone: user.phone || "",
-        }));
-      }
-    }, []);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userData"));
+    if (user) {
+      // console.log('=====3333===',user)
+      setFormData((prev) => ({
+        ...prev,
+        name: user.username || "",
+        lastName: user.lastName || "",
+        email: user.email || "",
+        phone: user.phone || "",
+      }));
+    }
+  }, []);
 
   // console.log("=======55========", userData?.userId, slotData);
 
@@ -154,7 +153,6 @@ function Booksession() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
- 
 
     if (!userData?.userId) {
       navigate("/login");
@@ -178,7 +176,7 @@ function Booksession() {
       };
 
       console.log(sessionData);
-      setLoading(true); 
+      setLoading(true);
 
       sessionBook(sessionData)
         .then((data) => {
@@ -206,45 +204,44 @@ function Booksession() {
 
   return (
     <div className="">
-    <div
-      className="relative w-full h-[500px] overflow-hidden"
-      style={{
-        backgroundImage: `url(${frameImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="absolute inset-0 opacity-50"></div>
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5">
-        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
-          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
-            <div className="h-60 border-l-2 border-white"></div>
-            <div className="flex flex-col text-center md:text-left">
-              <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, type: "spring" }}
-                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
-              >
-            Book Session
-              </motion.h2>
-              <br />
-              <motion.p
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-                className="text-lg text-white"
-              >
-           Your trusted partner in mental wellness. Book your path to better emotional health and personal 
-           growth
-              </motion.p>
+      <div
+        className="relative w-full h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: `url(${frameImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 opacity-50"></div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5">
+          <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+            <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+              <div className="h-60 border-l-2 border-white"></div>
+              <div className="flex flex-col text-center md:text-left">
+                <motion.h2
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, type: "spring" }}
+                  className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+                >
+                  Book Session
+                </motion.h2>
+                <br />
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                  className="text-lg text-white"
+                >
+                  Your trusted partner in mental wellness. Book your path to
+                  better emotional health and personal growth
+                </motion.p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
 
       <div className="bg-[#FCF8F4] pt-6">
         <div className="flex flex-col md:flex-col lg:flex-row justify-center md:space-x-12 px-6 sm:px-12 lg:px-32 mt-20">
@@ -354,6 +351,7 @@ function Booksession() {
                     value={formData.date}
                     onChange={handleChange}
                     className="w-full p-3 text-lg border border-gray-300 rounded-3xl"
+                    min={new Date().toISOString().split("T")[0]}
                   />
                   {errors.date && (
                     <p className="text-red-500 text-sm">{errors.date}</p>
@@ -364,20 +362,6 @@ function Booksession() {
                   <label className="block text-lg sm:text-xl md:text-2xl text-black mb-2">
                     Available Slot
                   </label>
-                  {/* <select
-                    name="slot"
-                    value={formData.slot}
-                    onChange={handleChange}
-                    className="w-full p-3 text-lg border border-gray-300 rounded-3xl"
-                  >
-                    <option value="">Select available slot</option>
-                    <option value="09:00-10:00">09:00-10:00</option>
-                    <option value="10:00-11:00">10:00-11:00</option>
-                    <option value="11:00-12:00">11:00-12:00</option>
-                    <option value="12:00-01:00">12:00-01:00</option>
-                    <option value="01:00-02:00">01:00-02:00</option>
-                    <option value="02:00-03:00">02:00-03:00</option>
-                  </select> */}
 
                   <select
                     name="slot"
@@ -458,14 +442,14 @@ function Booksession() {
 
                 </button> */}
                 <button
-  type="submit"
-  className={`w-full p-3 text-white bg-[#EC744A] hover:bg-[#EC744A] rounded-3xl text-lg flex items-center justify-center ${
-    loading ? "opacity-70 cursor-not-allowed" : ""
-  }`}
-  disabled={loading}
->
-  {loading ? <Spin size="small" className="mr-2" /> : "Submit"}
-</button>
+                  type="submit"
+                  className={`w-full p-3 text-white bg-[#EC744A] hover:bg-[#EC744A] rounded-3xl text-lg flex items-center justify-center ${
+                    loading ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
+                  disabled={loading}
+                >
+                  {loading ? <Spin size="small" className="mr-2" /> : "Submit"}
+                </button>
               </div>
             </form>
             {selecetdResult && (

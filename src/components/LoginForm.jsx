@@ -1,10 +1,8 @@
-
-
-
 import React, { useState } from "react";
+
 import { login } from "../action/Auth";
+import loginimg from "../img/loginimg.png";
 import { useLocation, useNavigate } from "react-router-dom";
-import loginimg from "../img/loginimg.png"
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -13,9 +11,6 @@ const LoginForm = () => {
   });
 
   const location = useLocation();
-
-  // console.log("========148=====", location);
-
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -50,8 +45,6 @@ const LoginForm = () => {
     return errors;
   };
 
- 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -73,6 +66,7 @@ const LoginForm = () => {
 
       if (data.message === "Login successfully" && data.users) {
         localStorage.setItem("userData", JSON.stringify(data.users));
+        localStorage.setItem("token", data?.token);
         setLoading(false);
 
         const from = location.state?.from?.pathname || "/";
@@ -94,33 +88,33 @@ const LoginForm = () => {
     <div>
       <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center bg-[#FCF8F4] px-4">
         <div className="text-center mb-6">
-          <img
-            src={loginimg}
-            alt="Login Illustration"
-            className="mb-4"
-          />
+          <img src={loginimg} alt="Login Illustration" className="mb-4" />
         </div>
         <div className="w-full max-w-xl rounded-xl">
-      <div className="mt-4 py-10">
-        <a
-          onClick={() => {
-            navigate("/login");
-            setSelected("login"); // Set "login" as selected
-          }}
-          className={`text-black text-xl mr-20 font-semibold cursor-pointer  ${selected === "login" ? "border-b-4 border-orange-500 " : ""}`}
-        >
-          Login
-        </a>
-        <a
-          onClick={() => {
-            navigate("/signup");
-            setSelected("signup"); // Set "signup" as selected
-          }}
-          className={`text-black text-xl font-semibold cursor-pointer ${selected === "signup" ? "border-b-4 border-orange-500" : ""}`}
-        >
-          Sign Up
-        </a>
-      </div>
+          <div className="mt-4 py-10">
+            <a
+              onClick={() => {
+                navigate("/login");
+                setSelected("login"); // Set "login" as selected
+              }}
+              className={`text-black text-xl mr-20 font-semibold cursor-pointer  ${
+                selected === "login" ? "border-b-4 border-orange-500 " : ""
+              }`}
+            >
+              Login
+            </a>
+            <a
+              onClick={() => {
+                navigate("/signup");
+                setSelected("signup"); // Set "signup" as selected
+              }}
+              className={`text-black text-xl font-semibold cursor-pointer ${
+                selected === "signup" ? "border-b-4 border-orange-500" : ""
+              }`}
+            >
+              Sign Up
+            </a>
+          </div>
           <h2 className="text-5xl font-bold mb-8 ">LOGIN</h2>
 
           {error && (
@@ -161,7 +155,7 @@ const LoginForm = () => {
                 {passwordError}
               </p>
             )}
-           
+
             <button
               onClick={handleSubmit}
               type="submit"

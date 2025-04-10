@@ -34,7 +34,7 @@
 
 //   const handleUserClick = () => {
 //     navigate("/userprofile");
-   
+
 //   }
 
 //   const handleLoginClick = () => {
@@ -59,7 +59,6 @@
 //   const isHome = location.pathname === "/";
 //   const LoginForm = location.pathname === "/login";
 //   const SignupForm = location.pathname === "/signup";
-  
 
 //   return (
 //     <nav
@@ -98,7 +97,7 @@
 //               <Link
 //                 key={index}
 //                 to={path}
-//                 onClick={() => setSelected(path)} 
+//                 onClick={() => setSelected(path)}
 //                 className={`focus:outline-none ${selected === path ? "font-bold" : ""}`}
 //               >
 //                 {label}
@@ -112,7 +111,7 @@
 //         <div className="hidden lg:block" >
 //           {userData ? (
 //             <a className="font-bold mr-3 cursor-pointer" onClick={handleUserClick} >
-//               {userData?.username} 
+//               {userData?.username}
 //             </a>
 //           ) : (
 //             <Button
@@ -180,7 +179,6 @@
 //                 );
 //               })}
 //             </div>
-            
 
 //             <div className="flex flex-col gap-4 mt-4">
 //               {userData ? (
@@ -205,10 +203,7 @@
 
 // export default Navbar;
 
-
-
-
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import frameImage4 from "../img/svgvieweroutput.png";
@@ -225,12 +220,11 @@ const Navbar = ({ style, from }) => {
 
   const menuRef = useRef();
 
-
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
-      console.log("====user data ===== ", parsedUser)
+      console.log("====user data ===== ", parsedUser);
       setUserData(parsedUser);
       setIsLoggedIn(!!parsedUser.userId);
       setIsAdmin(parsedUser.role === "admin");
@@ -250,62 +244,123 @@ const Navbar = ({ style, from }) => {
     setIsLoggedIn(false);
     navigate("/login");
   };
- 
+
   const isHome = location.pathname === "/";
   const LoginForm = location.pathname === "/login";
   const SignupForm = location.pathname === "/signup";
-  
+
   const isDashboard = location.pathname === "/dashboardtable";
 
   const excludedRoutes = ["/dashboardtable", "/login", "/signup"];
   const isExcluded = excludedRoutes.includes(location.pathname);
-const UserProfile = location.pathname ==='/userprofile'
- 
+  const UserProfile = location.pathname === "/userprofile";
 
-  const toggleMenu = () => setIsOpen(prev => !prev);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
   return (
-    <nav 
-    className={` items-center justify-between 
-      ${selected === "/dashboardtable" || selected === "/userprofile"  ? "bg-[#359c76]" : ""}
+    <nav
+      className={` items-center justify-between 
+      ${
+        selected === "/dashboardtable" || selected === "/userprofile"
+          ? "bg-[#359c76]"
+          : ""
+      }
       ${!isExcluded ? "absolute top-0 left-0 right-0 z-50" : ""}
     `}
-    style={{ color: !(isHome || LoginForm || SignupForm) ? "white" : "black" }}
-  >
-  
-  
-       {/* className="bg-cover px-4 max-w-[1500px] mx-auto"
+      style={{
+        color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
+      }}
+    >
+      {/* className="bg-cover px-4 max-w-[1500px] mx-auto"
        style={{ 
         backgroundImage: !(isHome || LoginForm || SignupForm) ? `url(${frameImage4})` : "none",
         color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
      }} */}
-    
-      <div className="flex items-center justify-between py-2 max-w-8xl mx-auto">
 
+      <div className="flex items-center justify-between py-2 max-w-8xl mx-auto">
         <div className="flex items-center justify-between py-2 px-4 lg:px-8 ">
-        
           <Logolotas className="w-14 h-14" />
-          <div className="text-2xl font-bold " style={{ color: !(isHome || LoginForm || SignupForm) ? "white" : "black" }}>
+          <div
+            className="text-2xl font-bold "
+            style={{
+              color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
+            }}
+          >
             A<sup>+</sup> Counseling & Consultancy Services
           </div>
         </div>
- 
+
         <div className="hidden lg:flex text-lg space-x-5 font-poppins">
-          <Link to="/" className={selected === "/" ? "font-bold" : ""} onClick={() => setSelected("/")}>Home</Link>
-          <Link to="/about" className={selected === "/about" ? "font-bold" : ""} onClick={() => setSelected("/about")}>About</Link>
-          <Link to="/services" className={selected === "/services" ? "font-bold" : ""} onClick={() => setSelected("/services")}>Services</Link>
-          <Link to="/session" className={selected === "/session" ? "font-bold" : ""} onClick={() => setSelected("/session")}>Session</Link>
-          <Link to="/blogs" className={selected === "/blogs" ? "font-bold" : ""} onClick={() => setSelected("/blogs")}>Blogs</Link>
-          <Link to="/contactUs" className={selected === "/contactUs" ? "font-bold" : ""} onClick={() => setSelected("/contactUs")}>Contact Us</Link>
-          {userData?.role === "Admin" && <Link to="/dashboardtable" className={selected === "/dashboardtable" ? "font-bold" : ""} onClick={() => setSelected("/dashboardtable")}>Dashboard</Link>}
+          <Link
+            to="/"
+            className={selected === "/" ? "font-bold" : ""}
+            onClick={() => setSelected("/")}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className={selected === "/about" ? "font-bold" : ""}
+            onClick={() => setSelected("/about")}
+          >
+            About
+          </Link>
+          <Link
+            to="/services"
+            className={selected === "/services" ? "font-bold" : ""}
+            onClick={() => setSelected("/services")}
+          >
+            Services
+          </Link>
+          <Link
+            to="/session"
+            className={selected === "/session" ? "font-bold" : ""}
+            onClick={() => setSelected("/session")}
+          >
+            Session
+          </Link>
+          <Link
+            to="/blogs"
+            className={selected === "/blogs" ? "font-bold" : ""}
+            onClick={() => setSelected("/blogs")}
+          >
+            Blogs
+          </Link>
+          <Link
+            to="/contactUs"
+            className={selected === "/contactUs" ? "font-bold" : ""}
+            onClick={() => setSelected("/contactUs")}
+          >
+            Contact Us
+          </Link>
+          {userData?.role === "Admin" && (
+            <Link
+              to="/dashboardtable"
+              className={selected === "/dashboardtable" ? "font-bold" : ""}
+              onClick={() => setSelected("/dashboardtable")}
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
 
         <div className="hidden lg:block ml-6">
           {userData ? (
-            <a className="font-bold mr-3 cursor-pointer w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center text-sm overflow-hidden"onClick={handleUserClick}> <div className="w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center font-bold text-sm overflow-hidden">
-            {userData?.username?.charAt(0)?.toUpperCase()}
-          </div></a>
+            <a
+              className="font-bold mr-3 cursor-pointer w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center text-sm overflow-hidden"
+              onClick={handleUserClick}
+            >
+              {" "}
+              <div className="w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center font-bold text-sm overflow-hidden">
+                {userData?.username?.charAt(0)?.toUpperCase()}
+              </div>
+            </a>
           ) : (
-            <Button onClick={handleLoginClick} className="bg-[#EC744A] text-white text-lg rounded-full px-8 py-3 w-auto h-12">Login</Button>
+            <Button
+              onClick={handleLoginClick}
+              className="bg-[#EC744A] text-white text-lg rounded-full px-8 py-3 w-auto h-12"
+            >
+              Login
+            </Button>
           )}
         </div>
 
@@ -317,53 +372,110 @@ const UserProfile = location.pathname ==='/userprofile'
           </button>
         </div> */}
 
-
         <div className="lg:hidden z-50 ml-auto">
-        <button onClick={() => setIsOpen(!isOpen)} className="text-gray-900 hover:text-orange-600 focus:outline-none">
-          <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-        </button>
-      </div>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-900 hover:text-orange-600 focus:outline-none"
+          >
+            <svg
+              className="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
       {isOpen && (
-        <div  ref={menuRef}
-        className={`lg:hidden fixed top-0 left-0 w-full bg-white shadow-md transform transition-transform duration-300 ease-in-out z-40 ${
-          isOpen ? 'translate-y-0' : '-translate-y-full'
-        }`}>
-          <div className="flex flex-col gap-2 pt-24 px-6 items-center pb-6  space-y-6 text-gray-800">
-          <Link to="/" className={selected === "/" ? "font-bold" : ""} onClick={() => setSelected("/")}>Home</Link>
-          <Link to="/about" className={selected === "/about" ? "font-bold" : ""} onClick={() => setSelected("/about")}>About</Link>
-          <Link to="/services" className={selected === "/services" ? "font-bold" : ""} onClick={() => setSelected("/services")}>Services</Link>
-          <Link to="/session" className={selected === "/session" ? "font-bold" : ""} onClick={() => setSelected("/session")}>Session</Link>
-          <Link to="/blogs" className={selected === "/blogs" ? "font-bold" : ""} onClick={() => setSelected("/blogs")}>Blogs</Link>
-          <Link to="/contactUs" className={selected === "/contactUs" ? "font-bold" : ""} onClick={() => setSelected("/contactUs")}>Contact Us</Link>
-          {userData?.role === "Admin" && <Link to="/dashboardtable" className={selected === "/dashboardtable" ? "font-bold" : ""} onClick={() => setSelected("/dashboardtable")}>Dashboard</Link>}
+        <div
+          ref={menuRef}
+          className={`lg:hidden fixed top-0 left-0 w-full bg-white shadow-md transform transition-transform duration-300 ease-in-out z-40 ${
+            isOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          <div className="flex flex-col gap-2 pt-20 px-6 items-center pb-6  space-y-6 text-gray-800">
+            <Link
+              to="/"
+              className={selected === "/" ? "font-bold" : ""}
+              onClick={() => setSelected("/")}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className={selected === "/about" ? "font-bold" : ""}
+              onClick={() => setSelected("/about")}
+            >
+              About
+            </Link>
+            <Link
+              to="/services"
+              className={selected === "/services" ? "font-bold" : ""}
+              onClick={() => setSelected("/services")}
+            >
+              Services
+            </Link>
+            <Link
+              to="/session"
+              className={selected === "/session" ? "font-bold" : ""}
+              onClick={() => setSelected("/session")}
+            >
+              Session
+            </Link>
+            <Link
+              to="/blogs"
+              className={selected === "/blogs" ? "font-bold" : ""}
+              onClick={() => setSelected("/blogs")}
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/contactUs"
+              className={selected === "/contactUs" ? "font-bold" : ""}
+              onClick={() => setSelected("/contactUs")}
+            >
+              Contact Us
+            </Link>
+            {userData?.role === "Admin" && (
+              <Link
+                to="/dashboardtable"
+                className={selected === "/dashboardtable" ? "font-bold" : ""}
+                onClick={() => setSelected("/dashboardtable")}
+              >
+                Dashboard
+              </Link>
+            )}
           </div>
 
-          <div className="flex flex-col gap-4 mt-4">
+          <div className="flex flex-col items-center gap-4 mt-4 mb-4">
             {userData ? (
-              <a className="font-bold mr-3 ml-8 w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center  text-sm overflow-hidden" onClick={handleUserClick}> 
-              {userData?.username?.charAt(0)?.toUpperCase()}
-            </a>
+              <a
+                className="font-bold mr-3 ml-8 w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center  text-sm overflow-hidden"
+                onClick={handleUserClick}
+              >
+                {userData?.username?.charAt(0)?.toUpperCase()}
+              </a>
             ) : (
-              <button onClick={handleLoginClick} className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200">Login</button>
+              <button
+                onClick={handleLoginClick}
+                className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
+              >
+                Login
+              </button>
             )}
           </div>
         </div>
-        
       )}
     </nav>
   );
 };
 
 export default Navbar;
-
-
-

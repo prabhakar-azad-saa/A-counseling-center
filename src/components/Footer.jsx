@@ -2,25 +2,25 @@ import React from "react";
 import Calls from "../img/Calls";
 
 import Massages from "../img/Massages";
-import footerSocial from "../img/footerSocial.png"
+import footerSocial from "../img/footerSocial.png";
 import Mainlogo from "../img/Mainlogo";
 import Locationfooter from "../img/Locationfooter";
 import Logolotas from "../img/Logolotas";
 
 const Footer = () => {
   return (
-    <div >
-      <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] mt-24 px-3 py-12 ">
+    <div>
+      <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] px-3 py-12 ">
         <div className="mx-auto w-full m-0 p-0">
           <div className="flex flex-wrap justify-between px-10 sm:px-20">
             {/* Footer Section 1 */}
             <div className="footer-section flex flex-col  text-white ">
               <div className="footer-image flex items-center">
-                <Logolotas  />
-               
+                <Logolotas />
+
                 <div className="w-full">
                   <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
-                  A<sup>+</sup> Counseling & Consultancy Services
+                    A<sup>+</sup> Counseling & Consultancy Services
                   </h1>
                 </div>
               </div>
@@ -57,7 +57,7 @@ const Footer = () => {
                   Contact
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                  <Calls className="mr-2 w-6 h-6"/>
+                  <Calls className="mr-2 w-6 h-6" />
                   {/* <img
                     src="src/assets/New folder/Call.png"
                     alt="Call Icon"
@@ -66,7 +66,7 @@ const Footer = () => {
                   <p className="pb-2">+91 9685714245</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                 <Massages className="mr-2 w-6 h-6"/>
+                  <Massages className="mr-2 w-6 h-6" />
                   <p className="pb-2">altaf@apluscounselling.com</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center">
@@ -75,7 +75,7 @@ const Footer = () => {
                     alt="Location Icon"
                     className="mr-2 w-6 h-6"
                   /> */}
-                  <Locationfooter  className="mr-2 w-6 h-6" />
+                  <Locationfooter className="mr-2 w-6 h-6" />
                   <p className="pb-2">D67, BDA Colony, Kohefiza, Bhopal</p>
                 </li>
               </ul>
@@ -128,21 +128,17 @@ const Footer = () => {
         <div className="text-center text-white mt-10 sm:mt-20 text-sm">
           {/* Social Media Icons */}
           <div className="flex justify-center space-x-6 mb-4">
-            <img
-              src={footerSocial}
-              alt="Social Media Icon"
-            />
+            <img src={footerSocial} alt="Social Media Icon" />
           </div>
 
           {/* Copyright Text */}
           <p className="text-[12px] sm:text-sm md:text-base font-poppins">
-            Copyright &copy; {new Date().getFullYear()}  A<sup>+</sup> Counseling & Consultancy Services
-            All Rights Reserved.
+            Copyright &copy; {new Date().getFullYear()} A<sup>+</sup> Counseling
+            & Consultancy Services All Rights Reserved.
           </p>
         </div>
       </div>
     </div>
-   
   );
 };
 

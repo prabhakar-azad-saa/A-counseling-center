@@ -25,8 +25,8 @@ const UserProfile = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    sessionStorage.removeItem("authToken");
+    localStorage.removeItem("userData");
+    // sessionStorage.removeItem("authToken");
     navigate("/login");
   };
 
@@ -42,13 +42,11 @@ const UserProfile = () => {
   const [showInput, setShowInput] = useState(false);
   const [savedAddress, setSavedAddress] = useState("");
 
-
   const handleSaveAddress = () => {
     setSavedAddress(address);
     setShowInput(false);
     message.success("Address saved successfully!");
   };
-
 
   const getBase64 = (file) =>
     new Promise((resolve, reject) => {
@@ -97,7 +95,7 @@ const UserProfile = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     const parsedUser = JSON.parse(storedUser);
-    const upcomingAppointmentData = upcomingAppointment(parsedUser.userId);
+    const upcomingAppointmentData = upcomingAppointment(parsedUser?.userId);
     upcomingAppointmentData
       .then((res) => {
         setUpcommingAppointment(res);
@@ -129,161 +127,172 @@ const UserProfile = () => {
       });
   }, []);
 
-
- 
   return (
     <Spin spinning={loading} size="large">
-   <div
-  className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8 py-4"
-  style={{ backgroundColor: "#e3e8e9" }}
->
-  {/* Left Side - Profile and Appointment */}
-  <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
-    <div
-      className="flex flex-col bg-white rounded-lg p-5 mb-8"
-      style={{ boxShadow: `rgba(99, 99, 99, 0.1) 0px 2px 8px 0px` }}
-    >
-      {/* Profile Info */}
-      <div className="flex flex-col lg:flex-row items-center mb-6">
-        <Upload
-          listType="picture-circle"
-          fileList={fileList}
-          onPreview={handlePreview}
-          onChange={handleChange}
-          showUploadList={false}
-          beforeUpload={() => false}
-        >
-          <img
-            src={profileImage}
-            alt="User"
-            className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
-          />
-        </Upload>
-
-        <div className="mt-4 lg:mt-0 lg:ml-6 text-center lg:text-left">
-          <h1 className="text-2xl font-bold">{user.username}</h1>
-          <p className="text-lg text-black font-semibold">
-            Member since{" "}
-            {new Date(user.createdAt).toLocaleString("en-US", {
-              year: "numeric",
-              month: "long",
-            })}
-          </p>
-        </div>
-      </div>
-
-      {/* Contact Info */}
-      <div className="space-y-5">
-        {/* Email */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center">
-          <Usermail />
-          <p className="text-base text-black font-semibold sm:ml-3 mt-2 sm:mt-0">
-            {user.email}
-          </p>
-        </div>
-
-        {/* Contact */}
-        <div className="flex items-start sm:items-center">
-          <Usercall />
-          <p className="text-base text-black font-semibold ml-3">{user.contactNumber}</p>
-        </div>
-
-        {/* Address */}
-        <div className="flex items-start sm:items-center">
-          <Userlocation />
-          {showInput ? (
-            <div className="ml-3 flex flex-col sm:flex-row gap-3 mt-2 sm:mt-0 w-full">
-              <input
-                type="text"
-                placeholder="Enter address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                className="border border-gray-300 rounded px-3 py-2 w-full sm:w-auto"
-              />
-              <button
-                type="button"
-                className="bg-[#ed754a] text-white px-3 py-2 rounded hover:bg-green-600 transition"
-                onClick={handleSaveAddress}
-                title="Save Address"
+      <div
+        className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8 py-4"
+        style={{ backgroundColor: "#e3e8e9" }}
+      >
+        {/* Left Side - Profile and Appointment */}
+        <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
+          <div
+            className="flex flex-col bg-white rounded-lg p-5 mb-8"
+            style={{ boxShadow: `rgba(99, 99, 99, 0.1) 0px 2px 8px 0px` }}
+          >
+            {/* Profile Info */}
+            <div className="flex flex-col lg:flex-row items-center mb-6">
+              <Upload
+                listType="picture-circle"
+                fileList={fileList}
+                onPreview={handlePreview}
+                onChange={handleChange}
+                showUploadList={false}
+                beforeUpload={() => false}
               >
-                <MdOutlineSaveAs size={20} />
-              </button>
-            </div>
-          ) : savedAddress ? (
-            <p className="text-base text-black font-semibold ml-3">{savedAddress}</p>
-          ) : (
-            <button
-              type="button"
-              className="ml-3 text-sm text-gray-600 hover:text-black transition mt-2 sm:mt-0"
-              onClick={() => setShowInput(true)}
-              title="Edit Address"
-            >
-              <GoPencil size={18} />
-            </button>
-          )}
-        </div>
-      </div>
+                <img
+                  src={profileImage}
+                  alt="User"
+                  className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
+                />
+              </Upload>
 
-      <Button onClick={handleLogout} className="text-sm mt-6">
-        Logout
-      </Button>
-    </div>
-
-    {/* Upcoming Appointment Section */}
-    <div className="bg-white shadow-lg rounded-lg p-5 mb-8">
-      <h1 className="text-2xl font-semibold mb-4">Upcoming Appointment</h1>
-
-      {upcommingAppointment?.length > 0 ? (
-        upcommingAppointment.map((item, index) => (
-          <div key={index} className="mb-4 flex items-start gap-4">
-            <div className="border-l-4 h-24 p-2 border-black" />
-            <div>
-              <p className="text-lg text-black">Next session</p>
-              <h2 className="text-xl font-semibold">{item.sessionDate}</h2>
-              <p className="text-lg text-black">{item.sessionSlotTime}</p>
-            </div>
-          </div>
-        ))
-      ) : (
-        <p className="text-gray-500">No upcoming appointments found.</p>
-      )}
-
-      <div className="bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4">
-        <Schedule />
-        <button className="font-semibold text-sm sm:text-lg text-white">
-          Schedule New Session
-        </button>
-      </div>
-    </div>
-  </div>
-
-  {/* Right Side - Session History */}
-  <div className="w-full lg:w-2/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
-    <div className="bg-white shadow-lg rounded-lg mb-6 p-5">
-      <h1 className="text-2xl font-bold mb-4">Session History</h1>
-
-      <div className="flex flex-col space-y-4">
-        {sessionhistory?.length > 0 ? (
-          sessionhistory.map((chat, index) => (
-            <div key={index} className="flex p-3 items-start">
-              <Uservideo className="w-16 h-16 rounded-full mr-4" />
-              <div>
-                <h2 className="text-lg font-semibold">
-                  Video Session with {chat.doctorName}
-                </h2>
-                <p className="text-sm text-gray-600">{chat.sessionDate}</p>
-                <p className="text-sm text-gray-600">{chat.sessionDescription}</p>
+              <div className="mt-4 lg:mt-0 lg:ml-6 text-center lg:text-left">
+                <h1 className="text-2xl font-bold">{user.username}</h1>
+                <p className="text-lg text-black font-semibold">
+                  Member since{" "}
+                  {new Date(user.createdAt).toLocaleString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                  })}
+                </p>
               </div>
             </div>
-          ))
-        ) : (
-          <p className="text-gray-500">No session history found.</p>
-        )}
-      </div>
-    </div>
-  </div>
-</div>
 
+            {/* Contact Info */}
+            <div className="space-y-5">
+              {/* Email */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center">
+                <Usermail />
+                <p className="text-base text-black font-semibold sm:ml-3 mt-2 sm:mt-0">
+                  {user.email}
+                </p>
+              </div>
+
+              {/* Contact */}
+              <div className="flex items-start sm:items-center">
+                <Usercall />
+                <p className="text-base text-black font-semibold ml-3">
+                  {user.contactNumber}
+                </p>
+              </div>
+
+              {/* Address */}
+              <div className="flex items-start sm:items-center">
+                <Userlocation />
+                {showInput ? (
+                  <div className="ml-3 flex flex-col sm:flex-row gap-3 mt-2 sm:mt-0 w-full">
+                    <input
+                      type="text"
+                      placeholder="Enter address"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      className="border border-gray-300 rounded px-3 py-2 w-full sm:w-auto"
+                    />
+                    <button
+                      type="button"
+                      className="bg-[#ed754a] text-white px-3 py-2 rounded hover:bg-green-600 transition"
+                      onClick={handleSaveAddress}
+                      title="Save Address"
+                    >
+                      <MdOutlineSaveAs size={20} />
+                    </button>
+                  </div>
+                ) : savedAddress ? (
+                  <p className="text-base text-black font-semibold ml-3">
+                    {savedAddress}
+                  </p>
+                ) : (
+                  <button
+                    type="button"
+                    className="ml-3 text-sm text-gray-600 hover:text-black transition mt-2 sm:mt-0"
+                    onClick={() => setShowInput(true)}
+                    title="Edit Address"
+                  >
+                    <GoPencil size={18} />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <Button onClick={handleLogout} className="text-sm mt-6">
+              Logout
+            </Button>
+          </div>
+
+          {/* Upcoming Appointment Section */}
+          <div className="bg-white shadow-lg rounded-lg p-5 mb-8">
+            <h1 className="text-2xl font-semibold mb-4">
+              Upcoming Appointment
+            </h1>
+
+            {upcommingAppointment?.length > 0 ? (
+              upcommingAppointment?.map((item, index) => (
+                <div key={index} className="mb-4 flex items-start gap-4">
+                  <div className="border-l-4 h-24 p-2 border-black" />
+                  <div>
+                    <p className="text-lg text-black">Next session</p>
+                    <h2 className="text-xl font-semibold">
+                      {item?.sessionDate}
+                    </h2>
+                    <p className="text-lg text-black">
+                      {item?.sessionSlotTime}
+                    </p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-500">No upcoming appointments found.</p>
+            )}
+
+            <div className="bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4">
+              <Schedule />
+              <button className="font-semibold text-sm sm:text-lg text-white">
+                Schedule New Session
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side - Session History */}
+        <div className="w-full lg:w-2/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
+          <div className="bg-white shadow-lg rounded-lg mb-6 p-5">
+            <h1 className="text-2xl font-bold mb-4">Session History</h1>
+
+            <div className="flex flex-col space-y-4">
+              {sessionhistory?.length > 0 ? (
+                sessionhistory?.map((chat, index) => (
+                  <div key={index} className="flex p-3 items-start">
+                    <Uservideo className="w-16 h-16 rounded-full mr-4" />
+                    <div>
+                      <h2 className="text-lg font-semibold">
+                        Video Session with {chat.doctorName}
+                      </h2>
+                      <p className="text-sm text-gray-600">
+                        {chat?.sessionDate}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {chat?.sessionDescription}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-gray-500">No session history found.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </Spin>
   );
 };
