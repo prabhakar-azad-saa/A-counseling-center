@@ -19,6 +19,7 @@ const Blogs = () => {
   const [popularPosts, setPopularPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [refreshBlogs, setRefreshBlogs] = useState(false);
+  const [userData, setUserData] = useState("");
 
   const navigate = useNavigate();
 
@@ -30,6 +31,7 @@ const Blogs = () => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
+    setUserData(storedUser);
 
     setLoading(true);
     getBlogdetails()
@@ -73,9 +75,9 @@ const Blogs = () => {
           }}
         >
           <div className="absolute inset-0 opacity-50"></div>
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-5">
+          <div className="relative z-10 w-full px-5">
             <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
-              <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
+              <div className="flex flex-row ml-8 items-center  space-x-8">
                 <div className="h-60 border-l-2 border-white"></div>
                 <div className="flex flex-col text-center md:text-left">
                   <motion.h2

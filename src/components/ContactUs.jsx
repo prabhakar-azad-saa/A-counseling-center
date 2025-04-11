@@ -1,12 +1,12 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import frameImage from "../img/svgvieweroutput.png";
 import { submitContactForm } from "../action/Auth";
-import VoicecallBlack from "../img/VoicecallBlack"
-import  MailBlack from "../img/MailBlack"
+import VoicecallBlack from "../img/VoicecallBlack";
+import MailBlack from "../img/MailBlack";
 import Locationcontact from "../img/Locationcontact";
-import {  Spin } from "antd";
+import { Spin } from "antd";
 
 import { motion } from "framer-motion";
 
@@ -24,10 +24,9 @@ const ContactUs = () => {
   const [error, setError] = useState();
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
-  
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("userData")); 
+    const user = JSON.parse(localStorage.getItem("userData"));
     if (user) {
       // console.log('=====3333===',user)
       setFormData((prev) => ({
@@ -39,7 +38,6 @@ const ContactUs = () => {
       }));
     }
   }, []);
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,8 +46,6 @@ const ContactUs = () => {
     // Live validation
     validateField(name, value);
   };
-
- 
 
   // Validation function
   // const validateField = (name, value) => {
@@ -171,68 +167,66 @@ const ContactUs = () => {
   };
   return (
     <div className="bg-[#FCF8F4]   mx-auto">
-    <div
-      className="relative w-full h-[500px] overflow-hidden"
-      style={{
-        backgroundImage: `url(${frameImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="absolute inset-0 opacity-50"></div>
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5">
-        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
-          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
-            <div className="h-60 border-l-2 border-white"></div>
-            <div className="flex flex-col text-center md:text-left">
-              <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, type: "spring" }}
-                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
-              >
-              Contact Us
-              </motion.h2>
-              <br />
-              <motion.p
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-                className="text-lg text-white"
-              >
-            We're here to support you on your journey to better mental health. Our experienced counselors are
-            ready to help you navigate life's challenges.
-              </motion.p>
+      <div
+        className="relative w-full h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: `url(${frameImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 opacity-50"></div>
+        <div className="relative z-10 w-full px-5">
+          <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+            <div className="flex flex-row ml-8 items-center md:justify-start space-x-8">
+              <div className="h-60 border-l-2 border-white"></div>
+              <div className="flex flex-col text-center md:text-left">
+                <motion.h2
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, type: "spring" }}
+                  className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+                >
+                  Contact Us
+                </motion.h2>
+                <br />
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                  className="text-lg text-white"
+                >
+                  We're here to support you on your journey to better mental
+                  health. Our experienced counselors are ready to help you
+                  navigate life's challenges.
+                </motion.p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
 
       <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4] ">
-      <div className="flex flex-col p-5 w-full lg:w-1/2">
-  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold mb-4 font-monrope text-center sm:text-left">
-    Contact Us Today For Personalized Support and Assistance
-  </h1>
-  <p className="text-lg sm:text-xl font-normal mb-8 font-poppins text-center sm:text-left">
-    We're here to support you on your journey to better mental health.
-    Our experienced counselors are ready to help you navigate life's
-    challenges.
-  </p>
+        <div className="flex flex-col p-5 w-full lg:w-1/2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold mb-4 font-monrope text-center sm:text-left">
+            Contact Us Today For Personalized Support and Assistance
+          </h1>
+          <p className="text-lg sm:text-xl font-normal mb-8 font-poppins text-center sm:text-left">
+            We're here to support you on your journey to better mental health.
+            Our experienced counselors are ready to help you navigate life's
+            challenges.
+          </p>
 
-  <div>
-    <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
-      <VoicecallBlack className="w-8 h-8" />
-      <p className="text-base">+91 9685714245</p>
-    </div>
-    <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
-      <MailBlack className="w-8 h-8" />
-      <p className="text-base">altaf@apluscounselling.com</p>
-    </div>
-  
-
+          <div>
+            <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
+              <VoicecallBlack className="w-8 h-8" />
+              <p className="text-base">+91 9685714245</p>
+            </div>
+            <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
+              <MailBlack className="w-8 h-8" />
+              <p className="text-base">altaf@apluscounselling.com</p>
+            </div>
 
             <div className="flex items-center gap-4 mb-4">
               {/* <img
@@ -240,9 +234,9 @@ const ContactUs = () => {
                 alt="Location"
                 className="w-8 h-8"
               /> */}
-              <Locationcontact className="w-8 h-8"/>
+              <Locationcontact className="w-8 h-8" />
               <p className="text-base font-poppins">
-              D67, BDA Colony, Kohefiza, Bhopal
+                D67, BDA Colony, Kohefiza, Bhopal
               </p>
             </div>
           </div>
@@ -347,12 +341,12 @@ const ContactUs = () => {
             disabled={loading}
           >
             {loading ? (
-        <>
-          <Spin size="small" className="mr-2" /> Sending...
-        </>
-      ) : (
-        "Send Message"
-      )}
+              <>
+                <Spin size="small" className="mr-2" /> Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
           </Button>
 
           {/* Display success message */}

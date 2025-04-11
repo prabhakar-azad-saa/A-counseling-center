@@ -1,8 +1,8 @@
 import React from "react";
 import frameImage from "../img/svgvieweroutput.png";
-import individual1 from "../img/individual1.png"
-import individual2 from "../img/individual2.png"
-import individual3 from "../img/individual3.png"
+import individual1 from "../img/individual1.png";
+import individual2 from "../img/individual2.png";
+import individual3 from "../img/individual3.png";
 import Psychoanalytic from "../img/Psychoanalytic";
 import Mind from "../img/Mind";
 import Cognitive from "../img/Cognitive";
@@ -11,73 +11,77 @@ import Professionall from "../img/Professionall";
 import Reduce from "../img/Reduce";
 import { motion } from "framer-motion";
 const Individualsection = () => {
+  const Cartdata = [
+    {
+      imgSrc: <Psychoanalytic />,
+      title: "Psychoanalytic Therapy",
+      description:
+        "Explore deep-seated patterns and unconscious influences to gain profound self-understanding and emotional healing.",
+    },
+    {
+      imgSrc: <Mind />,
+      title: "Mindfulness Based Therapy",
+      description:
+        "Learn practical techniques to stay present, manage stress, and develop greater emotional awareness.",
+    },
+    {
+      imgSrc: <Cognitive />,
+      title: "Cognitive Behavioral Therapy",
+      description:
+        "Identify and transform challenging thought patterns to improve emotional well-being and daily functioning.",
+    },
+    {
+      imgSrc: <Human />,
+      title: "Humanistic Therapy",
+      description:
+        "Discover your inner potential through person-centered approaches that emphasize self-growth and awareness.",
+    },
+  ];
 
-  const Cartdata =
-  [
-   {
-     imgSrc: <Psychoanalytic/>,
-     title:"Psychoanalytic Therapy",
-     description:'Explore deep-seated patterns and unconscious influences to gain profound self-understanding and emotional healing.',
-    },
-    {
-     imgSrc: <Mind/>,
-     title:"Mindfulness Based Therapy",
-     description:'Learn practical techniques to stay present, manage stress, and develop greater emotional awareness.',
-    },
-    {
-     imgSrc: <Cognitive/>,
-     title:"Cognitive Behavioral Therapy",
-     description:"Identify and transform challenging thought patterns to improve emotional well-being and daily functioning.",
-    },
-    {
-     imgSrc: <Human/>,
-     title:"Humanistic Therapy",
-     description:'Discover your inner potential through person-centered approaches that emphasize self-growth and awareness.',
-    }
-  ]
-
-  
   return (
     <div className=" ">
       {/* Navigation Section */}
       <div
-      className="relative w-full h-[500px] overflow-hidden"
-      style={{
-        backgroundImage: `url(${frameImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="absolute inset-0 opacity-50"></div>
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5">
-        <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
-          <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
-            <div className="h-60 border-l-2 border-white"></div>
-            <div className="flex flex-col text-center md:text-left">
-              <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, type: "spring" }}
-                className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
-              >
-            Services Detail
-              </motion.h2>
-              <br />
-              <motion.p
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-                className="text-lg text-white"
-              >
-         At  A<sup>+</sup> Counseling & Consultancy Services, we offer a wide range of counseling services tailored to meet the diverse needs of individuals, couples, and families. Our approach integrates evidence-based techniques with compassionate care to help you navigate life’s challenges.
-              </motion.p>
+        className="relative w-full h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: `url(${frameImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 opacity-50"></div>
+        <div className="relative z-10 w-full px-5">
+          <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+            <div className="flex flex-row ml-8 items-center md:justify-start space-x-8">
+              <div className="h-60 border-l-2 border-white"></div>
+              <div className="flex flex-col text-center md:text-left">
+                <motion.h2
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, type: "spring" }}
+                  className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+                >
+                  Services Detail
+                </motion.h2>
+                <br />
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
+                  className="text-lg text-white"
+                >
+                  At A<sup>+</sup> Counseling & Consultancy Services, we offer a
+                  wide range of counseling services tailored to meet the diverse
+                  needs of individuals, couples, and families. Our approach
+                  integrates evidence-based techniques with compassionate care
+                  to help you navigate life’s challenges.
+                </motion.p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
 
       <div className="p-5 bg-[#FCF8F4]">
         {/* Individual Therapy Section */}
@@ -112,8 +116,6 @@ const Individualsection = () => {
             </div>
           </div>
         </div>
-
-       
 
         <div className="mb-10 text-center py-12 sm:py-16 px-4 sm:px-32">
           <h1 className="text-3xl sm:text-4xl font-semibold mb-8">
@@ -172,48 +174,53 @@ const Individualsection = () => {
               </p>
             </div>
           </div> */}
-          
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-10 px-2 md:px-6 gap-3 2xl:px-56 ">
-  {Cartdata.map((item, index) => {
-    const isGradient = index % 3 === 0; 
 
-    return (
-      <div 
-        key={index} 
-        className={`${isGradient ? 'bg-gradient-to-r from-[#007D6E] to-[#5EB47C]' : 'bg-white'} 
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 py-10 px-2 md:px-6 gap-3 2xl:px-56 ">
+            {Cartdata.map((item, index) => {
+              const isGradient = index % 3 === 0;
+
+              return (
+                <div
+                  key={index}
+                  className={`${
+                    isGradient
+                      ? "bg-gradient-to-r from-[#007D6E] to-[#5EB47C]"
+                      : "bg-white"
+                  } 
           rounded-3xl  flex justify-center overflow-hidden`}
-      >
-        <div className="flex flex-col items-center rounded-2xl p-4 sm:p-20 w-full max-w-lg">
-       
-          <div className="w-28 h-28 sm:w-32 sm:h-32 flex justify-center pb-6">
-            {item.imgSrc}
+                >
+                  <div className="flex flex-col items-center rounded-2xl p-4 sm:p-20 w-full max-w-lg">
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 flex justify-center pb-6">
+                      {item.imgSrc}
+                    </div>
+
+                    {/* Title */}
+                    <h1
+                      className={`text-xl md:text-2xl lg:text-4xl  pt-12 px-12 pb-3 font-bold 
+            ${isGradient ? "text-white" : "text-black"}`}
+                    >
+                      {item.title}
+                    </h1>
+
+                    {/* Description */}
+                    <p
+                      className={`text-base sm:text-lg pb-4 
+            ${isGradient ? "text-white" : "text-black"}`}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          
-          {/* Title */}
-          <h1 className={`text-xl md:text-2xl lg:text-4xl  pt-12 px-12 pb-3 font-bold 
-            ${isGradient ? 'text-white' : 'text-black'}`}>
-            {item.title}
-          </h1>
-          
-          {/* Description */}
-          <p className={`text-base sm:text-lg pb-4 
-            ${isGradient ? 'text-white' : 'text-black'}`}>
-            {item.description}
-          </p>
-        </div>
-      </div>
-    );
-  })}
-</div>
         </div>
         {/* Mentor Section */}
-        <div
+        <div>
+          {/* Image Container */}
 
->
-  {/* Image Container */}
- 
-  {/* Text Container */}
-  {/* <div className="flex justify-end w-full pl-0 sm:pl-96 relative z-20">
+          {/* Text Container */}
+          {/* <div className="flex justify-end w-full pl-0 sm:pl-96 relative z-20">
     <div className="text-white flex flex-col items-center sm:items-start sm:w-3/4 p-6">
       <h3 className="text-2xl mb-3">Mentor</h3>
       <h1 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -222,7 +229,7 @@ const Individualsection = () => {
 
       <div className="w-full sm:w-3/4 mb-8">
         {/* Professional Growth Section */}
-        {/* <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
+          {/* <div className="w-full flex mb-8 sm:mb-4 p-3 rounded-xl">
           <Professionall />
           <div className="pl-5 flex flex-col justify-center">
             <h2 className="text-xl font-semibold mb-3">Professional Growth</h2>
@@ -233,8 +240,8 @@ const Individualsection = () => {
           </div>
         </div> */}
 
-        {/* Reduced Burnout Section */}
-        {/* <div className="w-full flex p-3 mb-8 rounded-xl">
+          {/* Reduced Burnout Section */}
+          {/* <div className="w-full flex p-3 mb-8 rounded-xl">
           <Reduce />
           <div className="pl-5 flex flex-col justify-center">
             <h2 className="text-xl font-semibold mb-3">Reduced Burnout</h2>
@@ -246,55 +253,63 @@ const Individualsection = () => {
         </div>
       </div>
     </div> */}
-  {/* </div> */} 
+          {/* </div> */}
 
-  <div
-      className="flex items-center justify-center min-h-screen bg-cover bg-center px-4 py-8"
-      style={{ backgroundImage: `url(${frameImage})` }}
-    >
-      <div className="max-w-5xl w-full bg-opacity-80 rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
-        {/* Left Side with Image */}
-        <div className="w-full md:w-1/2 relative">
-          <img
-            src={individual2}
-            alt="Section"
-            className="w-full h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-t-none"
-          />
-        </div>
-
-        {/* Right Side */}
-        <div className="w-full md:w-1/2 p-8 md:p-12 text-white relative flex flex-col justify-center">
-          <p className="text-lg uppercase font-semibold text-gray-200 mb-2">Mentor</p>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Introducing Experienced Consulting
-          </h1>
-
-          {/* Features */}
-          <div className="mt-8">
-            <div className="flex items-start space-x-6 mb-8">
-              <span className="text-4xl text-green-400">🌱</span>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Professional Growth</h3>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  Enhance your personal and professional development through expert guidance and support.
-                </p>
+          <div
+            className="flex items-center justify-center min-h-screen bg-cover bg-center px-4 py-8"
+            style={{ backgroundImage: `url(${frameImage})` }}
+          >
+            <div className="max-w-5xl w-full bg-opacity-80 rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+              {/* Left Side with Image */}
+              <div className="w-full md:w-1/2 relative">
+                <img
+                  src={individual2}
+                  alt="Section"
+                  className="w-full h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-t-none"
+                />
               </div>
-            </div>
 
-            <div className="flex items-start space-x-6">
-              <span className="text-4xl text-purple-400">🧘</span>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Reduced Burnout</h3>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  Learn effective stress management techniques to maintain work-life balance and emotional well-being.
+              {/* Right Side */}
+              <div className="w-full md:w-1/2 p-8 md:p-12 text-white relative flex flex-col justify-center">
+                <p className="text-lg uppercase font-semibold text-gray-200 mb-2">
+                  Mentor
                 </p>
+                <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+                  Introducing Experienced Consulting
+                </h1>
+
+                {/* Features */}
+                <div className="mt-8">
+                  <div className="flex items-start space-x-6 mb-8">
+                    <span className="text-4xl text-green-400">🌱</span>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">
+                        Professional Growth
+                      </h3>
+                      <p className="text-gray-300 text-lg leading-relaxed">
+                        Enhance your personal and professional development
+                        through expert guidance and support.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-6">
+                    <span className="text-4xl text-purple-400">🧘</span>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">
+                        Reduced Burnout
+                      </h3>
+                      <p className="text-gray-300 text-lg leading-relaxed">
+                        Learn effective stress management techniques to maintain
+                        work-life balance and emotional well-being.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-</div>
 
         {/* Breaking the Stigma Section */}
         <div className="text-center p-10 mb-10 flex flex-col items-center mt-48">

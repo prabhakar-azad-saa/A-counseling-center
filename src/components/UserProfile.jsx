@@ -40,7 +40,7 @@ const UserProfile = () => {
   const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState("");
   const [showInput, setShowInput] = useState(false);
-  const [savedAddress, setSavedAddress] = useState("");
+  const [savedAddress, setSavedAddress] = useState("Enter Address");
 
   const handleSaveAddress = () => {
     setSavedAddress(address);
@@ -207,19 +207,20 @@ const UserProfile = () => {
                       <MdOutlineSaveAs size={20} />
                     </button>
                   </div>
-                ) : savedAddress ? (
-                  <p className="text-base text-black font-semibold ml-3">
-                    {savedAddress}
-                  </p>
                 ) : (
-                  <button
-                    type="button"
-                    className="ml-3 text-sm text-gray-600 hover:text-black transition mt-2 sm:mt-0"
-                    onClick={() => setShowInput(true)}
-                    title="Edit Address"
-                  >
-                    <GoPencil size={18} />
-                  </button>
+                  <>
+                    <p className="text-base text-black font-semibold ml-3">
+                      {savedAddress}
+                    </p>
+                    <button
+                      type="button"
+                      className="ml-3 text-sm text-gray-600 hover:text-black transition mt-2 sm:mt-0"
+                      onClick={() => setShowInput(true)}
+                      title="Edit Address"
+                    >
+                      <GoPencil size={18} />
+                    </button>
+                  </>
                 )}
               </div>
             </div>

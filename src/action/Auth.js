@@ -54,10 +54,10 @@ export const submitContactForm = async (contactData) => {
   }
 };
 
-export const selecetSlot = async (selectedDate) => {
+export const selecetSlot = async (selectedDate, selectedTime) => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/GetSlot?Date=${selectedDate}`,
+      `${API_BASE_URL}/GetSlot?Date=${selectedDate}&Time=${selectedTime}`,
       config
     );
     return response.data;
