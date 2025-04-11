@@ -24,11 +24,7 @@ import {
 const UserProfile = () => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    sessionStorage.removeItem("authToken");
-    navigate("/login");
-  };
+ 
 
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
@@ -43,12 +39,23 @@ const UserProfile = () => {
   const [savedAddress, setSavedAddress] = useState("");
 
 
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    // localStogare.removeItem("userId")
+    // sessionStorage.removeItem("authToken");
+    navigate("/login");
+  };
   const handleSaveAddress = () => {
     setSavedAddress(address);
     setShowInput(false);
     message.success("Address saved successfully!");
   };
 
+  //  const navigate = useNavigate();
+  
+    const handleClick = () => {
+      navigate('/booksession');
+    };
 
   const getBase64 = (file) =>
     new Promise((resolve, reject) => {
@@ -161,10 +168,10 @@ const UserProfile = () => {
         </Upload>
 
         <div className="mt-4 lg:mt-0 lg:ml-6 text-center lg:text-left">
-          <h1 className="text-2xl font-bold">{user.username}</h1>
+          <h1 className="text-2xl font-bold">{user?.username}</h1>
           <p className="text-lg text-black font-semibold">
             Member since{" "}
-            {new Date(user.createdAt).toLocaleString("en-US", {
+            {new Date(user?.createdAt).toLocaleString("en-US", {
               year: "numeric",
               month: "long",
             })}
@@ -178,14 +185,14 @@ const UserProfile = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center">
           <Usermail />
           <p className="text-base text-black font-semibold sm:ml-3 mt-2 sm:mt-0">
-            {user.email}
+            {user?.email}
           </p>
         </div>
 
         {/* Contact */}
         <div className="flex items-start sm:items-center">
           <Usercall />
-          <p className="text-base text-black font-semibold ml-3">{user.contactNumber}</p>
+          <p className="text-base text-black font-semibold ml-3">{user?.contactNumber}</p>
         </div>
 
         {/* Address */}
@@ -234,7 +241,7 @@ const UserProfile = () => {
       <h1 className="text-2xl font-semibold mb-4">Upcoming Appointment</h1>
 
       {upcommingAppointment?.length > 0 ? (
-        upcommingAppointment.map((item, index) => (
+        upcommingAppointment?.map((item, index) => (
           <div key={index} className="mb-4 flex items-start gap-4">
             <div className="border-l-4 h-24 p-2 border-black" />
             <div>
@@ -250,7 +257,7 @@ const UserProfile = () => {
 
       <div className="bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4">
         <Schedule />
-        <button className="font-semibold text-sm sm:text-lg text-white">
+        <button className="font-semibold text-sm sm:text-lg text-white"  onClick={handleClick}>
           Schedule New Session
         </button>
       </div>

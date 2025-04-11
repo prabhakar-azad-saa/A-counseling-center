@@ -10,8 +10,8 @@ import Logolotas from "../img/Logolotas";
 const Footer = () => {
   return (
     <div >
-      <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] mt-24 px-3 py-12 ">
-        <div className="mx-auto w-full m-0 p-0">
+      <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] mt-24  py-12 ">
+        <div className="mx-auto w-full max-w-[2200px] m-0 p-0">
           <div className="flex flex-wrap justify-between px-10 sm:px-20">
             {/* Footer Section 1 */}
             <div className="footer-section flex flex-col  text-white ">
@@ -19,13 +19,15 @@ const Footer = () => {
                 <Logolotas  />
                
                 <div className="w-full">
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
-                  A<sup>+</sup> Counseling & Consultancy Services
-                  </h1>
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight ">
+  A<sup>+</sup> Counseling & <br /> Consultancy Services
+</h1>
+
+                  
                 </div>
               </div>
-              <p className="pt-4 text-sm sm:text-base md:text-lg">
-                Professional mental health consultation and support services.
+              <p className="pt-4 text-sm sm:text-base md:text-lg lg:pl-20">
+                Professional mental health <br/> consultation and support services.
               </p>
             </div>
 
@@ -82,7 +84,7 @@ const Footer = () => {
             </div>
 
             {/* Footer Section 4 (Links) */}
-            <div className="footer-section text-white">
+            <div className="footer-section text-white footer-section   lg:px-12 py-6">
               <ul>
                 <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
                   Links

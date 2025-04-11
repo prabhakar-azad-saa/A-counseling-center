@@ -73,6 +73,7 @@ const LoginForm = () => {
 
       if (data.message === "Login successfully" && data.users) {
         localStorage.setItem("userData", JSON.stringify(data.users));
+         localStorage.setItem("token", data.token)
         setLoading(false);
 
         const from = location.state?.from?.pathname || "/";

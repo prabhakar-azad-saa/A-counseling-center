@@ -284,8 +284,84 @@
 // export default Animation;
 
 
-<div className="w-full max-w-8xl mx-auto py-10 px-4 sm:px-6 lg:px-8 relative z-10">
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-10 items-center min-h-[400px]">
+ import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
+
+import FrameImage from "../img/FrameImage";
+import FrameImage1 from "../img/FrameImage1";
+import FrameImage2 from "../img/FrameImage2";
+import FrameImage3 from "../img/FrameImage3";
+import FrameImage4 from "../img/FrameImage4";
+import FrameImage5 from "../img/FrameImage5";
+import FrameImage6 from "../img/FrameImage6";
+
+import Call from "../img/Call";
+import Massage from "../img/Massage";
+
+const slides = [
+  {
+    title: "Your Journey to Emotional Well-Being",
+    description:
+      "Begin your path to mental wellness with our experienced and compassionate counselors. We're here to support your growth and healing.",
+    image: <FrameImage className="w-full max-w-lg h-auto" />,
+  },
+  {
+    title: "Signs your mental health might need attention",
+    description:
+      "Your mental health matters. Pay attention to emotional distress and seek support when needed.",
+    image: <FrameImage1 className="w-full max-w-lg h-auto" />,
+  },
+  {
+    title: "Persistent sadness or low mood",
+    description:
+      "Feeling consistently down? It's okay to ask for help. We're here to support your journey to wellness.",
+    image: <FrameImage2 className="w-full max-w-lg h-auto" />,
+  },
+  {
+    title: "Significant changes in appetite or weight",
+    description:
+      "Changes in eating habits may reflect deeper emotional concerns. Let's explore this together.",
+    image: <FrameImage3 className="w-full max-w-lg h-auto" />,
+  },
+  {
+    title: "Withdrawal from social activities and relationships",
+    description:
+      "Isolating from loved ones? You're not alone. Let's reconnect.",
+    image: <FrameImage4 className="w-full max-w-lg h-auto" />,
+  },
+  {
+    title: "Difficulty concentrating or making decisions",
+    description:
+      "Struggling with focus? Our tools can help you find mental clarity.",
+    image: <FrameImage5 className="w-full max-w-lg h-auto" />,
+  },
+];
+
+const Animation = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isCarouselActive, setIsCarouselActive] = useState(true);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/booksession');
+  };
+
+  useEffect(() => {
+    if (currentSlide < slides.length) {
+      const timer = setTimeout(() => {
+        setCurrentSlide((prev) => prev + 1);
+      }, 4000);
+      return () => clearTimeout(timer);
+    } else {
+      setIsCarouselActive(false);
+    }
+  }, [currentSlide]);
+
+  return (
+<div className="w-full max-w-[1700px] mx-auto py-10 px-4 sm:px-6 lg:px-8 relative ">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-10 items-center justify-center  min-h-[400px]">
     
     {/* Text Section */}
     <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left px-4 sm:px-8">
@@ -296,7 +372,7 @@
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.6, type: "spring" }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800  max-w-6xl mx-auto"
         >
           {isCarouselActive
             ? slides[currentSlide]?.title
@@ -375,3 +451,7 @@
     </div>
   </div>
 </div>
+  )
+}
+
+ export default Animation;

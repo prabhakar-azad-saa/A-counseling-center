@@ -102,7 +102,7 @@ const BlogShow = () => {
       </div>
 
       {/* Blog Content */}
-      <div className="max-w-4xl mx-auto py-10 px-4">
+      <div className="max-w-screen-xl mx-auto px-4 pt-40 sm:px-8 md:px-12 lg:px-16 xl:px-20">  
         <h1 className="text-4xl font-bold mb-4">{blog.name}</h1>
         <img
           src={blog.imagePath}

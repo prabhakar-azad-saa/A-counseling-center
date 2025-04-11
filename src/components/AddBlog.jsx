@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { Image, Upload, message ,Spin} from "antd";
 import { insertBlog, uploadBlogImage } from "../action/Auth";
+import Discover from "../img/Discover.png";
 
 // Function to convert file to Base64
 const getBase64 = (file) =>
@@ -180,9 +181,17 @@ const AddBlog = () => {
   },[]);
 
   return (
-    <div className="p-4 lg:p-28 max-w-4xl mx-auto bg-white border border-black">
-      <h1 className="text-3xl font-bold mb-6 text-center">Add Blog</h1>
+    <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center items-center bg-[#FCF8F4] px-4">
+      <div className="text-center mb-6">
+                <img
+                  src={Discover}
+                  alt="Login Illustration"
+                  className="mb-4"
+                />
+              </div>
+     
       <form onSubmit={handleSubmit} className="space-y-6">
+      <h1 className="text-3xl font-bold mb-6 text-center pt-10">Add Blog</h1>
         {/* Title Field */}
         <div>
           <label htmlFor="title" className="block font-bold text-xl mb-2">Title</label>

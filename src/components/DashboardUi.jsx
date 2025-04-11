@@ -73,16 +73,26 @@ const DashboardUi = () => {
 
           const todayAppointments = res.data.filter(
             (appointment) =>
+              appointment.status === 1 && 
               moment(appointment.bookSessionDate).format("YYYY-MM-DD") ===
               todayDate
           );
           setTodayAppointments(todayAppointments);
 
           const upcomingAppointments = res.data.filter((appointment) =>
+            appointment.status === 1 && 
             moment(appointment.bookSessionDate).isAfter(todayDate)
           );
           setUpcomingAppointments(upcomingAppointments);
         }
+      //   const upcomingAppointments = res.data.filter(
+      //     (appointment) =>
+      //       appointment.status === 1 && // Only accepted appointments
+      //       moment(appointment.bookSessionDate).isAfter(today, "day")
+      //   );
+        
+      //   setUpcomingAppointments(upcomingAppointments);
+      // }
         // console.log("==Response==", res);
       })
       .catch((err) => {
@@ -205,30 +215,38 @@ const DashboardUi = () => {
     },
   ];
 
-  const columnss = [
-    {
-      title: "Profile",
-      dataIndex: "profile",
-      key: "profile",
-      render: (text, record) => (
-        <img
-          src={userImg}
-          alt="Profile"
-          className="w-10 h-10 rounded-full cursor-pointer"
-          onClick={() => showPatientDetails(record)}
-        />
-      ),
-    },
-    { title: "Patient", dataIndex: "fullName", key: "fullName" },
-    { title: "Time", dataIndex: "bookSessionDate", key: "bookSessionDate" },
-    {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
-      render: (status) => (status === 1 ? "Accepted" : "Reject"), 
-    },
-  ];
-  
+ const columnss = [
+  {
+    title: "Profile",
+    dataIndex: "profile",
+    key: "profile",
+    render: (text, record) => (
+      <img
+        src={userImg}
+        alt="Profile"
+        className="w-10 h-10 rounded-full cursor-pointer"
+        onClick={() => showPatientDetails(record)}
+      />
+    ),
+  },
+  {
+    title: "Patient",
+    dataIndex: "fullName",
+    key: "fullName"
+  },
+  {
+    title: "Time",
+    dataIndex: "bookSessionDate",
+    key: "bookSessionDate"
+  },
+  {
+    title: "Status",
+    dataIndex: "status",
+    key: "status",
+    render: (status) => status === 1 ? "Accepted" : null
+  }
+];
+
 
   const data = [
     { rating: "Excellent", count: 120 },

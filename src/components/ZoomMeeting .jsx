@@ -1,91 +1,34 @@
-// import React, { useEffect, useState } from "react";
-// import { ZoomMtg } from "@zoomus/websdk";
+// ZoomCreator.js
+import React, { useState } from "react";
+import axios from "axios";
 
-// const ZoomMeeting = () => {
-//   const [meetingId, setMeetingId] = useState("");
-//   const [userName, setUserName] = useState("React User");
-//   const [password, setPassword] = useState("");
-//   const [loading, setLoading] = useState(false);
+const ZoomCreator = () => {
+  const [meetingLink, setMeetingLink] = useState("");
 
-//   // Replace these with actual values from your Zoom Developer Account
-//   const API_KEY = "YOUR_ZOOM_API_KEY";
-//   const API_SECRET = "YOUR_ZOOM_API_SECRET";
-//   const LEAVE_URL = "https://your-app.com"; // Redirect URL after leaving meeting
+  const handleCreateMeeting = async () => {
+    try {
+      const response = await axios.post("http://localhost:5000/api/create-meeting");
+      setMeetingLink(response.data.join_url);
+    } catch (error) {
+      console.error("Error creating meeting:", error);
+    }
+  };
 
-//   useEffect(() => {
-//     ZoomMtg.setZoomJSLib("https://source.zoom.us/2.17.0/lib", "/av");
-//     ZoomMtg.preLoadWasm();
-//     ZoomMtg.prepareJssdk();
-//   }, []);
+  return (
+    <div>
+      <button onClick={handleCreateMeeting} className="bg-blue-500 px-4 py-2 text-white rounded">
+        Create Zoom Meeting
+      </button>
+      {meetingLink && (
+        <p className="mt-4">
+          Share this link:{" "}
+          <a href={meetingLink} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+            {meetingLink}
+          </a>
+        </p>
+      )}
+    </div>
+  );
+};
 
-//   const generateSignature = (meetingNumber, role) => {
-//     return new Promise((resolve, reject) => {
-//       fetch("https://your-backend.com/generateSignature", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({ meetingNumber, role }),
-//       })
-//         .then((res) => res.json())
-//         .then((data) => resolve(data.signature))
-//         .catch((err) => reject(err));
-//     });
-//   };
-
-//   const joinMeeting = async () => {
-//     setLoading(true);
-//     try {
-//       const signature = await generateSignature(meetingId, 0); // 0 for attendees, 1 for host
-
-//       ZoomMtg.init({
-//         leaveUrl: LEAVE_URL,
-//         isSupportAV: true,
-//         success: () => {
-//           ZoomMtg.join({
-//             meetingNumber: meetingId,
-//             userName,
-//             signature,
-//             apiKey: API_KEY,
-//             passWord: password,
-//             success: () => {
-//               console.log("Joined Zoom Meeting!");
-//               setLoading(false);
-//             },
-//             error: (err) => {
-//               console.error("Error joining meeting:", err);
-//               setLoading(false);
-//             },
-//           });
-//         },
-//       });
-//     } catch (error) {
-//       console.error("Error generating signature:", error);
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div style={{ textAlign: "center", marginTop: "20px" }}>
-//       <h2>Join Zoom Meeting</h2>
-//       <input
-//         type="text"
-//         placeholder="Enter Meeting ID"
-//         value={meetingId}
-//         onChange={(e) => setMeetingId(e.target.value)}
-//       />
-//       <input
-//         type="text"
-//         placeholder="Enter Meeting Password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//       />
-//       <button onClick={joinMeeting} disabled={loading}>
-//         {loading ? "Joining..." : "Join Meeting"}
-//       </button>
-//       <div id="zoom-meeting-container" style={{ marginTop: "20px", height: "500px" }}></div>
-//     </div>
-//   );
-// };
-
-// export default ZoomMeeting;
+export default ZoomCreator;

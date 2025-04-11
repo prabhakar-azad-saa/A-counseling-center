@@ -91,7 +91,7 @@ const Individualsection = () => {
               style={{ width: "100%", height: "100%", objectFit: "none" }}
             />
           </div>
-          <div className="flex flex-col sm:flex-row justify-between items-center py-20 sm:py-0">
+          <div className="flex flex-col sm:flex-row justify-between items-center py-20 max-w-[1600px] mx-auto sm:py-0">
             <div className="w-full sm:w-1/2">
               <h1 className="text-4xl sm:text-5xl font-bold mb-5">
                 Individual Therapy

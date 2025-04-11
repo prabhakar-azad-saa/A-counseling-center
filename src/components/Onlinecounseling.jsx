@@ -82,7 +82,7 @@ const Onlinecounseling = () => {
     <div className=" ">
       {/* Navigation Section */}
       <div
-      className="relative w-full h-[500px] overflow-hidden"
+      className="relative w-full h-[500px]  overflow-hidden"
       style={{
         backgroundImage: `url(${frameImage2})`,
         backgroundSize: "cover",
@@ -145,7 +145,7 @@ const Onlinecounseling = () => {
   <div className="flex justify-end w-full">
     <div className="text-white flex flex-col items-center md:items-center lg:items-start sm:w-3/4 p-6 md:p-6 lg:ml-48">
       {/* Specialties List */}
-      <div className="flex flex-col md:flex-col lg:flex-col ml-0 md:ml-0 lg:ml-80 justify-between w-full mb-8">
+      <div className="flex flex-col md:flex-col lg:flex-col ml-0 md:ml-0 lg:ml-80 justify-between   mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-center md:text-center lg:text-left">
           Our Specialties
         </h1>

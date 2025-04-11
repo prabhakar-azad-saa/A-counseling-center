@@ -67,7 +67,7 @@ const DashboardTable = () => {
 
       <div className="flex flex-col flex-1 items-center bg-gray-100 p-5 w-full">
         {error && <div className="text-red-500">{error}</div>}
-        <div className="bg-gray-100  rounded-lg p-5 w-full overflow-auto">
+        <div className="bg-gray-100  rounded-lg  w-full overflow-auto">
           {activeTable === 'dashboard' ? (
             <DashboardUi />
           ) : activeTable === 'addblog' ? (
@@ -88,7 +88,25 @@ const DashboardTable = () => {
                     { title: 'Email', dataIndex: 'emailId', key: 'emailId' },
                     { title: 'Phone', dataIndex: 'contactNumber', key: 'contactNumber' },
                     { title: 'Date', dataIndex: 'bookSessionDate', key: 'bookSessionDate' },
-                    { title: 'Counseling Type', dataIndex: 'counselingType', key: 'counselingType' }
+                    { title: 'Counseling Type', dataIndex: 'counselingType', key: 'counselingType' },
+                    {
+                      title: 'Status',
+                      dataIndex: 'status',
+                      key: 'status',
+                      render: (status) => {
+                        switch (status) {
+                          case 1:
+                            return 'Accept';
+                          case 2:
+                            return 'Reject';
+                          case 0:
+                            return ' Pending';
+                          default:
+                            return 'Unknown';
+                        }
+                      }
+                    }
+                    
                   ] : activeTable === 'users' ? [
                     { title: 'Name', dataIndex: 'name', key: 'name' },
                     { title: 'Email', dataIndex: 'emailId', key: 'emailId' },

@@ -87,13 +87,13 @@ const About = () => {
       </div>
     </div>
         {/* About Us Section */}
-        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 lg:px-32">
+        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 max-w-[2000px] mx-auto lg:px-32">
           <img
           src={Discover2}
             alt="About Us"
             className="w-full sm:w-1/2 object-cover rounded-lg mb-6 sm:mb-0"
           />
-          <div className="flex-1 sm:max-w-1/2 text-left ">
+          <div className="flex-1 sm:max-w-1/2 lg:max-w-5xl mx-auto text-left ">
             <h3 className="text-2xl sm:text-3xl text-black font-bold mb-4">About Us</h3>
             <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope ">
               Discover the Faces Behind Our Mental Health Consultancy
@@ -123,8 +123,8 @@ const About = () => {
         </div>
 
    {/* Success Story Section */}
-<div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between items-center p-10 bg-[#FCF8F4] rounded-lg">
-  <div className="flex-1 sm:max-w-full lg:max-w-1/2 p-5 flex flex-col justify-center">
+<div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between items-center p-10 bg-[#FCF8F4] rounded-lg  max-w-[2000px] mx-auto">
+  <div className="flex-1 sm:max-w-full  lg:max-w-6xl mx-auto p-5 flex flex-col justify-center">
   <h3 className="text-[22px] pb-8 font-[700px]">Succes Story</h3>
     <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black pb-10   ">
       Breaking the Stigma - The Success Story of a Mental Health Consultant

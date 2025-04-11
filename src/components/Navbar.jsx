@@ -245,8 +245,7 @@ const Navbar = ({ style, from }) => {
   const handleUserClick = () => navigate("/userprofile");
   const handleLoginClick = () => navigate("/login");
   const handleLogoutClick = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userData");
     setIsLoggedIn(false);
     navigate("/login");
   };
@@ -254,6 +253,7 @@ const Navbar = ({ style, from }) => {
   const isHome = location.pathname === "/";
   const LoginForm = location.pathname === "/login";
   const SignupForm = location.pathname === "/signup";
+  const ZoomMeeting = location.pathname === "/zoomMeeting";
   
   const isDashboard = location.pathname === "/dashboardtable";
 
@@ -263,13 +263,15 @@ const UserProfile = location.pathname ==='/userprofile'
  
 
   const toggleMenu = () => setIsOpen(prev => !prev);
+
+  
   return (
     <nav 
     className={` items-center justify-between 
-      ${selected === "/dashboardtable" || selected === "/userprofile"  ? "bg-[#359c76]" : ""}
+      ${selected === "/dashboardtable" || selected === "/userprofile" ||selected ==="/zoomMeeting" ? "bg-[#359c76]" : ""}
       ${!isExcluded ? "absolute top-0 left-0 right-0 z-50" : ""}
     `}
-    style={{ color: !(isHome || LoginForm || SignupForm) ? "white" : "black" }}
+    style={{ color: !(isHome || LoginForm || SignupForm ) ? "white" : "black" }}
   >
   
   
@@ -279,9 +281,9 @@ const UserProfile = location.pathname ==='/userprofile'
         color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
      }} */}
     
-      <div className="flex items-center justify-between py-2 max-w-8xl mx-auto">
+      <div className="flex items-center justify-between py-2 max-w-[2200px] mx-auto px-4  ">
 
-        <div className="flex items-center justify-between py-2 px-4 lg:px-8 ">
+        <div className="flex items-center justify-between py-2 px-4 ">
         
           <Logolotas className="w-14 h-14" />
           <div className="text-2xl font-bold " style={{ color: !(isHome || LoginForm || SignupForm) ? "white" : "black" }}>
@@ -319,7 +321,7 @@ const UserProfile = location.pathname ==='/userprofile'
 
 
         <div className="lg:hidden z-50 ml-auto">
-        <button onClick={() => setIsOpen(!isOpen)} className="text-gray-900 hover:text-orange-600 focus:outline-none">
+        <button  onClick={() => setIsOpen(!isOpen)} className="text-orange-600 focus:outline-none">
           <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
@@ -331,6 +333,8 @@ const UserProfile = location.pathname ==='/userprofile'
         </button>
       </div>
       </div>
+
+      
 
       {isOpen && (
         <div  ref={menuRef}
@@ -347,7 +351,7 @@ const UserProfile = location.pathname ==='/userprofile'
           {userData?.role === "Admin" && <Link to="/dashboardtable" className={selected === "/dashboardtable" ? "font-bold" : ""} onClick={() => setSelected("/dashboardtable")}>Dashboard</Link>}
           </div>
 
-          <div className="flex flex-col gap-4 mt-4">
+          <div className="flex flex-col items-center mb-4 gap-4 mt-4">
             {userData ? (
               <a className="font-bold mr-3 ml-8 w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center  text-sm overflow-hidden" onClick={handleUserClick}> 
               {userData?.username?.charAt(0)?.toUpperCase()}
@@ -360,6 +364,7 @@ const UserProfile = location.pathname ==='/userprofile'
         
       )}
     </nav>
+    
   );
 };
 

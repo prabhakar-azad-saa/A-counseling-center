@@ -23,7 +23,7 @@ import ScrollToTop from "./components/ScrollToTop"
 import DashboardTable from "./components/DashboardTable";
 import ContactUs from "./components/ContactUs";
 import Blogshow from './components/Blogshow'
-// import ZoomMeeting from "./components/ZoomMeeting ";
+import ZoomMeeting from "./components/ZoomMeeting ";
 function App() {
   console.log("App.js");
 
@@ -167,7 +167,7 @@ function App() {
             element={
               <>
                 <Navbar style={{ backgroundColor: Colors.gradient }} />
-                <UserProfile />
+               <div style={{marginTop:"60px"}}> <UserProfile /></div>
               </>
             }
 
@@ -195,17 +195,20 @@ function App() {
             }
             />
 
-{/* <Route
+<Route
             path="/zoomMeeting"
             element={
               <>
                 <Navbar style={{ backgroundColor: Colors.gradient }} />
+                <div style={{marginTop:"100px"}}>
+
                 <ZoomMeeting />
+                </div>
               </>
             }
 
             
-          />  */}
+          /> 
         </Routes>
       </div>
 
