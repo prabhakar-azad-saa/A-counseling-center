@@ -88,7 +88,7 @@ const Onlinecounseling = () => {
         }}
       >
         <div className="absolute inset-0 opacity-50"></div>
-        <div className="relative z-10 w-full  px-5">
+        <div className="relative z-10 w-full max-w-[2300px] mx-auto px-5">
           <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
             <div className="flex flex-row ml-8 items-center md:justify-start space-x-8">
               <div className="h-60 border-l-2 border-white"></div>
@@ -120,13 +120,14 @@ const Onlinecounseling = () => {
       {/* Features Section */}
       <Features heading={sectionData.title} features={sectionData.features} />
 
-      <div>
+      <div >
         <div
-          className="relative w-full bg-cover flex flex-col md:flex-col lg:flex-row "
+          className="relative w-full bg-cover flex flex-col  md:flex-col lg:flex-row "
           style={{ backgroundImage: `url(${frameImage})` }}
         >
-          {/* Image Section */}
-          <div
+      <div className="  max-w-[2300px] mx-auto">
+            {/* Image Section */}
+            <div
             style={{ top: "-90px" }}
             className="static md:static lg:absolute top-0 w-full md:w-full lg:w-[500px] h-[300px] md:h-[550px] lg:h-[800px] ml-0 md:ml-0 lg:ml-10 mb-10 md:mb-10 lg:mb-20"
           >
@@ -141,7 +142,7 @@ const Onlinecounseling = () => {
           <div className="flex justify-end w-full">
             <div className="text-white flex flex-col items-center md:items-center lg:items-start sm:w-3/4 p-6 md:p-6 lg:ml-48">
               {/* Specialties List */}
-              <div className="flex flex-col md:flex-col lg:flex-col ml-0 md:ml-0 lg:ml-80 justify-between w-full mb-8">
+              <div className="flex flex-col md:flex-col lg:flex-col ml-0 md:ml-0 lg:ml-80 justify-between  w-full mb-8">
                 <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-center md:text-center lg:text-left">
                   Our Specialties
                 </h1>
@@ -195,6 +196,7 @@ const Onlinecounseling = () => {
               </div>
             </div>
           </div>
+      </div>
         </div>
       </div>
 

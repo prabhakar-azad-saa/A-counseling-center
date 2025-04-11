@@ -88,7 +88,26 @@ const DashboardTable = () => {
                     { title: 'Email', dataIndex: 'emailId', key: 'emailId' },
                     { title: 'Phone', dataIndex: 'contactNumber', key: 'contactNumber' },
                     { title: 'Date', dataIndex: 'bookSessionDate', key: 'bookSessionDate' },
-                    { title: 'Counseling Type', dataIndex: 'counselingType', key: 'counselingType' }
+                    { title: 'Counseling Type', dataIndex: 'counselingType', key: 'counselingType' },
+                    {
+                      title: 'Status',
+                      dataIndex: 'status',
+                      key: 'status',
+                      render: (status) => {
+                        switch (status) {
+                          case 1:
+                            return <span style={{ color: 'green' }}>Accepted</span>;
+                          case 2:
+                            return <span style={{ color: 'red' }}>Rejected</span>;
+                          case 0:
+                          default:
+                            return <span style={{ color: 'orange' }}>Pending</span>;
+                        }
+                      },
+                    }
+                    
+                    
+                   
                   ] : activeTable === 'users' ? [
                     { title: 'Name', dataIndex: 'name', key: 'name' },
                     { title: 'Email', dataIndex: 'emailId', key: 'emailId' },

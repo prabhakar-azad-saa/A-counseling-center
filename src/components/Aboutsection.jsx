@@ -14,7 +14,7 @@ const AboutSection = () => {
   
   
   return (
-    <div className="py-12 p-5 bg-[#FCF8F4] justify-between  w-full ">
+    <div className="py-12 p-5 bg-[#FCF8F4] justify-between  max-w-[2300px] mx-auto w-full ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:px-6">
         {/* Image Section */}
         <div className="w-full">
@@ -26,9 +26,9 @@ const AboutSection = () => {
         </div>
 
         {/* Text Section */}
-        <div className="flex flex-col items-start text-left px-4 mt-8 md:mt-0">
+        <div className="flex flex-col  items-start text-left px-4 mt-8 md:mt-0">
           
-            <div className="flex-1 sm:max-w-1/2 text-left ">
+            <div className="flex-1 sm:max-w-1/2 justify-center max-w-3xl mx-auto text-left ">
             <h3 className="text-2xl sm:text-3xl text-black font-bold mb-4">About Us</h3>
             <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope  ">
               Discover the Faces Behind Our Mental Health Consultancy

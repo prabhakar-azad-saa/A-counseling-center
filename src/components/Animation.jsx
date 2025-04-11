@@ -276,7 +276,7 @@ const Animation = () => {
 
     // export default Animation;
 
-    <div className="w-full max-w-8xl mx-auto py-10 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="w-full  max-w-[1700px] mx-auto py-10 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 gap-x-10 items-center min-h-[400px]">
         {/* Text Section */}
         <div className="flex flex-col justify-center items-center lg:items-start px-4 sm:px-8">

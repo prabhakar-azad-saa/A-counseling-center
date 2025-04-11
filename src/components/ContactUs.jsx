@@ -177,7 +177,7 @@ const ContactUs = () => {
         }}
       >
         <div className="absolute inset-0 opacity-50"></div>
-        <div className="relative z-10 w-full px-5">
+        <div className="relative z-10 w-full max-w-[2300px] mx-auto px-5">
           <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
             <div className="flex flex-row ml-8 items-center md:justify-start space-x-8">
               <div className="h-60 border-l-2 border-white"></div>
@@ -207,7 +207,7 @@ const ContactUs = () => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 px-8 bg-[#FCF8F4] ">
+      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 justify-between max-w-[2300px] mx-auto px-8 bg-[#FCF8F4] ">
         <div className="flex flex-col p-5 w-full lg:w-1/2">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold mb-4 font-monrope text-center sm:text-left">
             Contact Us Today For Personalized Support and Assistance

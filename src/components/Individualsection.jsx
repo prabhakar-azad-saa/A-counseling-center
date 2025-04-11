@@ -51,7 +51,7 @@ const Individualsection = () => {
         }}
       >
         <div className="absolute inset-0 opacity-50"></div>
-        <div className="relative z-10 w-full px-5">
+        <div className="relative z-10 w-full max-w-[2300px] mx-auto px-5">
           <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
             <div className="flex flex-row ml-8 items-center md:justify-start space-x-8">
               <div className="h-60 border-l-2 border-white"></div>
@@ -95,8 +95,8 @@ const Individualsection = () => {
               style={{ width: "100%", height: "100%", objectFit: "none" }}
             />
           </div>
-          <div className="flex flex-col sm:flex-row justify-between items-center py-20 sm:py-0">
-            <div className="w-full sm:w-1/2">
+          <div className="flex flex-col sm:flex-row justify-between max-w-[2000px] mx-auto items-center py-20 sm:py-0">
+            <div className="w-full sm:w-1/2 ">
               <h1 className="text-4xl sm:text-5xl font-bold mb-5">
                 Individual Therapy
               </h1>

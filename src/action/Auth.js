@@ -279,10 +279,10 @@ export const getAllUpAppointments = async () => {
   }
 };
 
-export const BlogReaction = async (blogId, status, userid) => {
+export const BlogReaction = async (blogId, status, userId) => {
   try {
     const response = await axios.put(
-      `${API_BASE_URL}/setBlogReaction?Blogid=${blogId}&status=${status}&userid=${userid}`,
+      `${API_BASE_URL}/setBlogReaction?Blogid=${blogId}&status=${status}&userid=${userId}`,
       {},
       config
     );

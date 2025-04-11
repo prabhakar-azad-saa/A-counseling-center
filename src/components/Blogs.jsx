@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Spin } from "antd";
-
-import frameImage from "../img/svgvieweroutput.png";
 import { useNavigate } from "react-router-dom";
-import blogDetail3 from "../img/blogDetail3.png";
-import blogDetail4 from "../img/blogDetail4.png";
-import blogImg1 from "../img/blogImg1.png";
-import blogImg2 from "../img/blogImg2.png";
-import blogDetail6 from "../img/blogDetail6.png";
-import { deleteBlog, getBlogdetails } from "../action/Auth";
-
 import { motion } from "framer-motion";
-import Loader from "./Loader";
 import { MdOutlineDelete } from "react-icons/md";
+import frameImage from "../img/svgvieweroutput.png";
+import blogImg1 from "../img/blogImg1.png";
+import blogDetail4 from "../img/blogDetail4.png";
+import { deleteBlog, getBlogdetails } from "../action/Auth";
+import Loader from "./Loader";
 
 const Blogs = () => {
   const [blogDetails, setBlogDetails] = useState([]);
@@ -36,14 +30,19 @@ const Blogs = () => {
     setLoading(true);
     getBlogdetails()
       .then((res) => {
-        setBlogDetails(res || []);
-        setPopularPosts(res?.slice(0, 3) || []);
+        if (res && Array.isArray(res)) {
+          const sortedBlogs = [...res].sort(
+            (a, b) => (b.like || 0) - (a.like || 0)
+          );
+          setBlogDetails(res || []);
+          setPopularPosts(sortedBlogs.slice(0, 3)); // Top 3 by likes
+        }
       })
       .catch((err) => {
         console.error("Error fetching blog details:", err);
       })
       .finally(() => {
-        setLoading(false); // Hide loader after API response
+        setLoading(false);
       });
   }, [refreshBlogs]);
 
@@ -64,7 +63,8 @@ const Blogs = () => {
   return (
     <>
       <Loader isLoading={loading} />
-      <div className="bg-[#FCF8F4] ">
+      <div className="bg-[#FCF8F4]">
+        {/* Hero Section */}
         <div
           className="relative w-full h-[500px] overflow-hidden"
           style={{
@@ -75,7 +75,7 @@ const Blogs = () => {
           }}
         >
           <div className="absolute inset-0 opacity-50"></div>
-          <div className="relative z-10 w-full px-5">
+          <div className="relative z-10 w-full max-w-[2300px] mx-auto px-5">
             <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
               <div className="flex flex-row ml-8 items-center  space-x-8">
                 <div className="h-60 border-l-2 border-white"></div>
@@ -84,7 +84,7 @@ const Blogs = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, type: "spring" }}
-                    className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
+                    className="text-5xl font-bold text-white mb-4"
                   >
                     Blog
                   </motion.h2>
@@ -104,24 +104,16 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-20 sm:flex-row justify-evenly sm:gap-12 p-8 ">
-          {/* {blogDetails.map((blog, index) => ( */}
-
-          <div
-            //  key={index}
-            className="flex flex-col sm:w-1/2 rounded-lg shadow-2xl p-6 mb-8 bg-white"
-            // onClick={() => handleClick("blogdetail")}
-          >
+        {/* Featured Blog + Popular Posts */}
+        <div className="flex flex-col mt-20 sm:flex-row justify-evenly sm:gap-12 p-8">
+          {/* Featured Blog */}
+          <div className="flex flex-col sm:w-1/2 rounded-lg shadow-2xl p-6 mb-8 bg-white">
             <img
               src={blogDetails[0]?.imagePath || blogImg1}
               alt={blogDetails[0]?.title}
               className="w-full h-auto object-cover rounded-lg mb-4"
             />
-            <button
-              className="text-xs sm:text-sm md:text-lg font-bold bg-[#7AC258] rounded-3xl 
-  w-[50%] sm:w-[60%] md:w-[50%] lg:w-[40%] h-auto px-4 py-2 
-  text-white mb-3 text-center"
-            >
+            <button className="text-xs sm:text-sm md:text-lg font-bold bg-[#7AC258] rounded-3xl w-[50%] sm:w-[60%] md:w-[50%] lg:w-[40%] h-auto px-4 py-2 text-white mb-3 text-center">
               {blogDetails[0]?.type}
             </button>
 
@@ -134,7 +126,14 @@ const Blogs = () => {
                 : blogDetails[0]?.description}{" "}
               <a
                 className="text-blue-500 hover:text-blue-700 font-medium text-lg cursor-pointer"
-                onClick={() => handleClick("blogdetail")}
+                onClick={() =>
+                  handleClick(
+                    "blogdetail",
+                    blogDetails[0]?.blogId || blogDetails[0]?.id,
+                    blogDetails[0]?.initialStatus,
+                    blogDetails[0]?.userid
+                  )
+                }
               >
                 Read More
               </a>
@@ -147,82 +146,52 @@ const Blogs = () => {
             </div>
           </div>
 
-          <div className="sm:w-1/2 rounded-lg shadow-2xl p-6  mb-8 bg-white">
+          {/* Popular Posts */}
+          <div className="sm:w-1/2 rounded-lg shadow-2xl p-6 mb-8 bg-white">
             <h1 className="text-3xl font-semibold mb-4">Popular Posts</h1>
             <div className="space-y-6">
               {popularPosts.map((post, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4"
-                  onClick={() => handleClick("blogdetail")}
+                  className="flex items-center gap-4 cursor-pointer"
+                  onClick={() =>
+                    handleClick(
+                      "blogdetail",
+                      post.blogId || post.id,
+                      post.initialStatus,
+                      post.userid
+                    )
+                  }
                 >
                   <img
-                    src={post?.imagePath}
+                    src={post?.imagePath || blogImg1}
                     alt={post.title}
                     className="object-cover rounded-lg mb-4"
                     style={{ width: "75px", height: "75px" }}
                   />
                   <div className="flex flex-col">
                     <p className="text-lg font-poppins">{post.name}</p>
-                    <p className="text-sm">{post.like}</p>
+                    <p className="text-sm">{post.like} </p>
                   </div>
                 </div>
               ))}
-              {/* <div
-              className="flex items-center gap-4"
-              onClick={() => handleClick("blogdetail")}
-            >
-              <img
-                src={blogDetail6}
-                alt="Work-Life Balance Tips"
-                className="w-20 h-20 object-cover"
-              />
-             <div className="flex flex-col">
-             <p className="text-base font-poppins">Work-Life Balance Tips</p>
-             <p className="text-sm">4.2K views</p>
-             </div>
-            </div> */}
-              {/* <div
-              className="flex items-center gap-4"
-              onClick={() => handleClick("blogdetail")}
-            >
-              <img
-                src={blogImg1}
-                alt="10 Minutes to Better Mental Health"
-                className="w-20 h-20 object-cover"
-              />
-             <div className="flex flex-col">
-             <p className="text-base font-poppins">
-                10 Minutes to Better Mental Health
-              </p>
-              <p className="text-sm">4.2K views</p>
-             </div>
-            </div> */}
             </div>
           </div>
         </div>
 
+        {/* Blog List */}
         <div className="p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogDetails.map((blog, index) => (
-              <div
-                className="bg-white rounded-lg shadow-2xl p-6 mb-8"
-                // onClick={() => handleClick("blogdetail")}
-              >
+              <div key={index} className="bg-white rounded-lg shadow-2xl p-6 mb-8">
                 <img
-                  key={index}
                   src={blog.imagePath || blogDetail4}
-                  alt="Understanding Different Types of Therapy: Finding What Works for You"
-                  className="w-full h-auto object-cover rounded-lg mb-4"
+                  alt={blog.name}
+                  className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg mb-4"
                 />
-                <button
-                  className="text-sm sm:text-lg font-bold bg-[#7AC258] rounded-3xl 
-  w-[50%] sm:w-[40%] md:w-[50%]  h-auto px-4 py-2 
-  text-white mb-3 text-center"
-                >
+                <button className="text-sm sm:text-lg font-bold bg-[#7AC258] rounded-3xl w-[50%] sm:w-[40%] md:w-[50%] h-auto px-4 py-2 text-white mb-3 text-center">
                   {blog.type}
                 </button>
-
                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
                   {blog.name}
                 </h2>
@@ -232,7 +201,14 @@ const Blogs = () => {
                     : blog.description}{" "}
                   <a
                     className="text-blue-500 hover:text-blue-700 font-medium text-lg cursor-pointer"
-                    onClick={() => handleClick("blogdetail")}
+                    onClick={() =>
+                      handleClick(
+                        "blogdetail",
+                        blog.blogId || blog.id,
+                        blog.initialStatus,
+                        blog.userid
+                      )
+                    }
                   >
                     Read More
                   </a>
@@ -240,83 +216,14 @@ const Blogs = () => {
                 <div
                   className="cursor-pointer"
                   style={{ float: "right" }}
-                  onClick={() => handledeleteBlog(blog?.blogId)}
+                  onClick={() => handledeleteBlog(blog?.blogId || blog?.id)}
                 >
                   <MdOutlineDelete size={24} color="red" />
                 </div>
               </div>
             ))}
-
-            {/* <div
-            className="bg-white rounded-lg shadow-2xl p-6 mb-8"
-            onClick={() => handleClick("blogdetail")}
-          >
-            <img
-              src={blogDetail3}
-              alt="Natural Anxiety Relief: Simple Techniques for Daily Calm"
-              className="w-full h-auto object-cover rounded-lg mb-4"
-            />
-            <button
-              className="text-sm sm:text-lg font-bold bg-[#7AC258] rounded-3xl 
-  w-[50%] sm:w-[40%]  md:w-[50%]  h-auto px-4 py-2 
-  text-white mb-3 text-center"
-            >
-              Mindfulness
-            </button>
-
-            <h2 className="text-xl font-semibold text-gray-800 mb-2">
-              Natural Anxiety Relief: Simple Techniques for Daily Calm
-            </h2>
-            <p className="text-gray-600 font-poppins">
-              Discover practical methods to manage anxiety naturally and create
-              more peace in your daily life.
-            </p>
-          </div> */}
-
-            {/* <div
-            className="bg-white rounded-lg shadow-2xl p-6 mb-8"
-            onClick={() => handleClick("blogdetail")}
-          >
-            <img
-              src={blogDetail4}
-              alt="Understanding Different Types of Therapy: Finding What Works for You"
-              className="w-full h-auto object-cover rounded-lg mb-4"
-            />
-            <button
-              className="text-sm sm:text-lg font-bold bg-[#7AC258] rounded-3xl 
-  w-[50%] sm:w-[40%] md:w-[50%]  h-auto px-4 py-2 
-  text-white mb-3 text-center"
-            >
-              Mindfulness
-            </button>
-
-            <h2 className="text-xl font-semibold text-gray-800 mb-2">
-              Understanding Different Types of Therapy: Finding What Works for
-              You
-            </h2>
-            <p className="text-gray-600 font-poppins">
-              Explore various therapeutic approaches and learn how to choose the
-              right one for your mental health journey.
-            </p>
-          </div> */}
           </div>
         </div>
-        {/* <div className="max-w-3xl mx-auto p-6">
-      <img src={post.imageUrl} alt={post.title} className="w-full h-auto rounded-lg shadow-md" />
-      <h1 className="text-3xl font-semibold mt-6 text-gray-900">{post.title}</h1>
-      <p className="text-lg mt-4 text-gray-700 leading-relaxed">{post.content}</p>
-    </div> */}
-
-        {/* <div className="flex items-center p-4 border-b border-gray-300 space-x-4">
-      
-      <img src={item.imageUrl} alt={item.title} className="w-24 h-24 object-cover rounded-md" />
-
-    
-      <div className="flex-1">
-        <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-        <p className="text-sm text-gray-600 mt-2">{item.description}</p>
-      </div>
-    </div> */}
       </div>
     </>
   );

@@ -55,7 +55,7 @@ const About = () => {
           }}
         >
           <div className="absolute inset-0 opacity-50"></div>
-          <div className="relative z-10 w-full px-5">
+          <div className="relative z-10 w-full  max-w-[2300px] mx-auto  px-5">
             <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
               <div className="flex flex-row ml-8 items-center md:justify-start space-x-8">
                 <div className="h-60 border-l-2 border-white"></div>
@@ -84,13 +84,13 @@ const About = () => {
           </div>
         </div>
         {/* About Us Section */}
-        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 lg:px-32">
+        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between  max-w-[2300px] mx-auto bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 lg:px-32">
           <img
             src={Discover2}
             alt="About Us"
             className="w-full sm:w-1/2 object-cover rounded-lg mb-6 sm:mb-0"
           />
-          <div className="flex-1 sm:max-w-1/2 text-left ">
+          <div className="flex-1 sm:max-w-1/2 max-w-3xl mx-auto  text-left ">
             <h3 className="text-2xl sm:text-3xl text-black font-bold mb-4">
               About Us
             </h3>
@@ -123,8 +123,8 @@ const About = () => {
         </div>
 
         {/* Success Story Section */}
-        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between items-center p-10 bg-[#FCF8F4] rounded-lg">
-          <div className="flex-1 sm:max-w-full lg:max-w-1/2 p-5 flex flex-col justify-center">
+        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between  max-w-[2300px] mx-auto items-center p-10 bg-[#FCF8F4] rounded-lg">
+          <div className="flex-1 sm:max-w-full lg:max-w-1/2  p-5 flex flex-col justify-center">
             <h3 className="text-[22px] pb-8 font-[700px]">Succes Story</h3>
             <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black pb-10   ">
               Breaking the Stigma - The Success Story of a Mental Health

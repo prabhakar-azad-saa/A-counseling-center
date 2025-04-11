@@ -74,9 +74,11 @@ const DashboardUi = () => {
 
           const todayAppointments = res.data.filter(
             (appointment) =>
-              moment(appointment.bookSessionDate).format("YYYY-MM-DD") ===
-              todayDate
+              moment(appointment.bookSessionDate).format("YYYY-MM-DD") === todayDate &&
+              appointment.status === 1
           );
+            
+        
           setTodayAppointments(todayAppointments);
 
           const upcomingAppointments = res.data.filter((appointment) =>
@@ -205,6 +207,8 @@ const DashboardUi = () => {
       ),
     },
   ];
+
+
 
   const columnss = [
     {
