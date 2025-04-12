@@ -270,8 +270,6 @@ const Navbar = ({ style, from }) => {
         color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
       }}
     >
-     
-
       <div className="flex items-center justify-between py-2 max-w-[2300px] mx-auto">
         <div className="flex items-center justify-between  py-2 px-4 lg:px-8 ">
           <Logolotas className="w-14 h-14" />
@@ -401,42 +399,60 @@ const Navbar = ({ style, from }) => {
             <Link
               to="/"
               className={selected === "/" ? "font-bold" : ""}
-              onClick={() => setSelected("/")}
+              onClick={() => {
+                setSelected("/");
+                setIsOpen(false);
+              }}
             >
               Home
             </Link>
             <Link
               to="/about"
               className={selected === "/about" ? "font-bold" : ""}
-              onClick={() => setSelected("/about")}
+              onClick={() => {
+                setSelected("/about");
+                setIsOpen(false);
+              }}
             >
               About
             </Link>
             <Link
               to="/services"
               className={selected === "/services" ? "font-bold" : ""}
-              onClick={() => setSelected("/services")}
+              onClick={() => {
+                setSelected("/services");
+                setIsOpen(false);
+              }}
             >
               Services
             </Link>
             <Link
               to="/session"
               className={selected === "/session" ? "font-bold" : ""}
-              onClick={() => setSelected("/session")}
+              onClick={() => {
+                setSelected("/session");
+                setIsOpen(false);
+              }}
             >
               Session
             </Link>
             <Link
               to="/blogs"
               className={selected === "/blogs" ? "font-bold" : ""}
-              onClick={() => setSelected("/blogs")}
+              onClick={() => {
+                setSelected("/blogs");
+                setIsOpen(false);
+              }}
             >
               Blogs
             </Link>
             <Link
               to="/contactUs"
               className={selected === "/contactUs" ? "font-bold" : ""}
-              onClick={() => setSelected("/contactUs")}
+              onClick={() => {
+                setSelected("/contactUs");
+                setIsOpen(false);
+              }}
             >
               Contact Us
             </Link>
@@ -444,7 +460,10 @@ const Navbar = ({ style, from }) => {
               <Link
                 to="/dashboardtable"
                 className={selected === "/dashboardtable" ? "font-bold" : ""}
-                onClick={() => setSelected("/dashboardtable")}
+                onClick={() => {
+                  setSelected("/dashboardtable");
+                  setIsOpen(false);
+                }}
               >
                 Dashboard
               </Link>

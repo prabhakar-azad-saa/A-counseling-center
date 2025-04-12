@@ -24,8 +24,9 @@ const Blogs = () => {
   };
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("userData");
-    setUserData(storedUser);
+    // const storedUser = localStorage.getItem("userData");
+    // setUserData(storedUser);
+    setUserData(JSON.parse(localStorage.getItem("userData")));
 
     setLoading(true);
     getBlogdetails()
@@ -59,7 +60,7 @@ const Blogs = () => {
         setLoading(false);
       });
   };
-
+  console.log("=================62==========", userData.role);
   return (
     <>
       <Loader isLoading={loading} />
@@ -138,12 +139,14 @@ const Blogs = () => {
                 Read More
               </a>
             </p>
-            <div
-              style={{ float: "right" }}
-              onClick={() => handledeleteBlog(blogDetails[0]?.id)}
-            >
-              <MdOutlineDelete size={24} color="red" />
-            </div>
+            {userData?.role === "Admin" && (
+              <div
+                style={{ float: "right" }}
+                onClick={() => handledeleteBlog(blogDetails[0]?.id)}
+              >
+                <MdOutlineDelete size={24} color="red" />
+              </div>
+            )}
           </div>
 
           {/* Popular Posts */}
@@ -183,7 +186,10 @@ const Blogs = () => {
         <div className="p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogDetails.map((blog, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-2xl p-6 mb-8">
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-2xl p-6 mb-8"
+              >
                 <img
                   src={blog.imagePath || blogDetail4}
                   alt={blog.name}
@@ -213,13 +219,15 @@ const Blogs = () => {
                     Read More
                   </a>
                 </p>
-                <div
-                  className="cursor-pointer"
-                  style={{ float: "right" }}
-                  onClick={() => handledeleteBlog(blog?.blogId || blog?.id)}
-                >
-                  <MdOutlineDelete size={24} color="red" />
-                </div>
+                {userData?.role === "Admin" && (
+                  <div
+                    className="cursor-pointer"
+                    style={{ float: "right" }}
+                    onClick={() => handledeleteBlog(blog?.blogId || blog?.id)}
+                  >
+                    <MdOutlineDelete size={24} color="red" />
+                  </div>
+                )}
               </div>
             ))}
           </div>

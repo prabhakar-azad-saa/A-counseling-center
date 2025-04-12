@@ -30,7 +30,16 @@ function Booksession() {
   const [slotId, setSlotId] = useState(null);
   const [selecetdResult, setSelecetdResult] = useState("");
   const [loading, setLoading] = useState(false);
-  // const [selectedTime, setSelectedTime] = useState("");
+  // const [selectedTime, setSelectedTime] = useState(() => {
+  //   const today = new Date();
+  //   return today.toISOString().split("T")[1];
+  // });
+  const [selectedTime, setSelectedTime] = useState(() => {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    return `${hours}:${minutes}`;
+  });
 
   const navigate = useNavigate();
 
@@ -66,6 +75,7 @@ function Booksession() {
 
     if (name === "date") {
       setSelectedDate(value.split("T")[0]);
+      setSelectedTime(value.split("T")[1]);
       console.log(value);
     }
 
@@ -82,7 +92,7 @@ function Booksession() {
 
   useEffect(() => {
     if (selectedDate) {
-      selecetSlot(selectedDate)
+      selecetSlot(selectedDate, selectedTime)
         .then((data) => {
           console.log(data, "data slot");
           const formaatedData = data?.remainingSlots.map((slot) => {
@@ -348,12 +358,14 @@ function Booksession() {
                     Available Date
                   </label>
                   <input
-                    type="date"
+                    // type="date"
+                    type="datetime-local"
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
                     className="w-full p-3 text-lg border border-gray-300 rounded-3xl"
-                    min={new Date().toISOString().split("T")[0]}
+                    // min={new Date().toISOString().split("T")[0]}
+                    min={new Date().toISOString().slice(0, 16)}
                   />
                   {errors.date && (
                     <p className="text-red-500 text-sm">{errors.date}</p>
