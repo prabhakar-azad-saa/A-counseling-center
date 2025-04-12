@@ -114,110 +114,124 @@ const AddBlog = () => {
   }, []);
 
   return (
-    <div className="p-4 lg:p-28 max-w-4xl mx-auto bg-white border border-black">
-      <h1 className="text-3xl font-bold mb-6 text-center">Add Blog</h1>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Title Field */}
-        <div>
-          <label htmlFor="title" className="block font-bold text-xl mb-2">
-            Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            className={`w-full p-3 border rounded-full ${
-              errors.title ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="Enter blog title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+   <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div className="w-full max-w-3xl bg-white rounded-xl shadow-2xl p-10">
+    <h1 className="text-4xl font-extrabold text-center text-[#EC744A] mb-10 font-manrope">
+      ✍️ Create a New Blog
+    </h1>
+    <form onSubmit={handleSubmit} className="space-y-8">
+      {/* Title Field */}
+      <div>
+        <label htmlFor="title" className="block text-xl font-semibold mb-2 text-gray-700">
+          Blog Title
+        </label>
+        <input
+          type="text"
+          id="title"
+          className={`w-full px-4 py-3 rounded-2xl border-2 focus:outline-none focus:ring-2 focus:ring-[#EC744A] ${
+            errors.title ? "border-red-500" : "border-gray-300"
+          }`}
+          placeholder="Enter a catchy title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title}</p>}
+      </div>
+
+      {/* Heading Field */}
+      <div>
+        <label htmlFor="heading" className="block text-xl font-semibold mb-2 text-gray-700">
+          Blog Heading
+        </label>
+        <input
+          type="text"
+          id="heading"
+          className={`w-full px-4 py-3 rounded-2xl border-2 focus:outline-none focus:ring-2 focus:ring-[#EC744A] ${
+            errors.heading ? "border-red-500" : "border-gray-300"
+          }`}
+          placeholder="Enter a strong headline"
+          value={heading}
+          onChange={(e) => setHeading(e.target.value)}
+        />
+        {errors.heading && <p className="text-red-500 text-sm mt-1">{errors.heading}</p>}
+      </div>
+
+      {/* Content Field */}
+      <div>
+        <label htmlFor="content" className="block text-xl font-semibold mb-2 text-gray-700">
+          Blog Content
+        </label>
+        <textarea
+          id="content"
+          className={`w-full px-4 py-4 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-[#EC744A] ${
+            errors.content ? "border-red-500" : "border-gray-300"
+          }`}
+          placeholder="Write your content here..."
+          rows="6"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        {errors.content && <p className="text-red-500 text-sm mt-1">{errors.content}</p>}
+      </div>
+
+      {/* Image Upload */}
+      <div>
+        <label className="block text-xl font-semibold mb-2 text-gray-700">Upload Blog Image</label>
+        {/* <Upload
+          listType="picture-circle"
+          fileList={fileList}
+          onPreview={handlePreview}
+          onChange={handleChange}
+          beforeUpload={() => false}
+        >
+          {fileList.length >= 1 ? null : uploadButton}
+        </Upload> */}
+   <div className="w-full">
+  <Upload
+    listType="picture-card" // or keep as "picture-circle" if you're customizing the style
+    fileList={fileList}
+    onPreview={handlePreview}
+    onChange={handleChange}
+    beforeUpload={() => false}
+    className="w-full"
+  >
+    {fileList.length >= 1 ? null : (
+      <div className="w-full h-full flex items-center justify-center">
+        {uploadButton}
+      </div>
+    )}
+  </Upload>
+</div>
+
+        {previewImage && (
+          <Image
+            preview={{
+              visible: previewOpen,
+              onVisibleChange: (visible) => setPreviewOpen(visible),
+              afterOpenChange: (visible) => !visible && setPreviewImage(""),
+            }}
+            src={previewImage}
           />
-          {errors.title && (
-            <p className="text-red-500 text-sm mt-1">{errors.title}</p>
-          )}
-        </div>
+        )}
+        {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image}</p>}
+      </div>
 
-        {/* Heading Field */}
-        <div>
-          <label htmlFor="heading" className="block font-bold text-xl mb-2">
-            Heading
-          </label>
-          <input
-            type="text"
-            id="heading"
-            className={`w-full p-3 border rounded-full ${
-              errors.heading ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="Enter blog heading"
-            value={heading}
-            onChange={(e) => setHeading(e.target.value)}
-          />
-          {errors.heading && (
-            <p className="text-red-500 text-sm mt-1">{errors.heading}</p>
-          )}
-        </div>
+      {/* Submit Button */}
+      <div className="text-center mt-10">
+        <button
+          type="submit"
+          className={`bg-gradient-to-r from-[#EC744A] to-[#ff9d4d] text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:scale-105 transition transform duration-300 ease-in-out ${
+            loading ? "opacity-70 cursor-not-allowed" : ""
+          }`}
+          disabled={loading}
+        >
+          {loading ? <Spin size="small" className="mr-2" /> : "🚀 Publish Blog"}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
-        {/* Content Field */}
-        <div>
-          <label htmlFor="content" className="block font-bold text-xl mb-2">
-            Content
-          </label>
-          <textarea
-            id="content"
-            className={`w-full p-3 border rounded-xl ${
-              errors.content ? "border-red-500" : "border-gray-300"
-            }`}
-            placeholder="Enter blog content"
-            rows="6"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-          {errors.content && (
-            <p className="text-red-500 text-sm mt-1">{errors.content}</p>
-          )}
-        </div>
-
-        {/* Image Upload */}
-        <div>
-          <label className="block font-bold text-xl mb-2">Image</label>
-          <Upload
-            listType="picture-circle"
-            fileList={fileList}
-            onPreview={handlePreview}
-            onChange={handleChange}
-            beforeUpload={() => false}
-          >
-            {fileList.length >= 1 ? null : uploadButton}
-          </Upload>
-          {previewImage && (
-            <Image
-              preview={{
-                visible: previewOpen,
-                onVisibleChange: (visible) => setPreviewOpen(visible),
-                afterOpenChange: (visible) => !visible && setPreviewImage(""),
-              }}
-              src={previewImage}
-            />
-          )}
-          {errors.image && (
-            <p className="text-red-500 text-sm mt-1">{errors.image}</p>
-          )}
-        </div>
-
-        {/* Submit Button */}
-        <div className="text-center">
-          <button
-            type="submit"
-            className={`bg-[#EC744A] text-white px-20 py-4 rounded-full hover:bg-[#EC744A] transition duration-300 ${
-              loading ? "opacity-70 cursor-not-allowed" : ""
-            }`}
-            disabled={loading}
-          >
-            {loading ? <Spin size="small" className="mr-2" /> : "Submit"}
-          </button>
-        </div>
-      </form>
-    </div>
   );
 };
 

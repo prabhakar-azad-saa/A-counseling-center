@@ -33,8 +33,12 @@ const AboutSection = () => {
             <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope  ">
               Discover the Faces Behind Our Mental Health Consultancy
             </h1>
+            <p className="text-lg sm:text-xl text-black mb-6 font-poppins  ">
+            A Plus Counseling and Consultancy Services is dedicated to supporting mental well-being in today’s fast-paced world. Founded by Dr. Altaf A. Khan, a seasoned professional with global experience and a background in psychology, we help individuals and families manage stress, emotional challenges, parenting concerns, and relationship issues.
+
+            </p>
             <p className="text-lg sm:text-xl text-black mb-14 font-poppins  ">
-              Our mental health consultancy brings together experienced professionals dedicated to your well-being. We believe in creating a supportive environment where you can explore, heal, and grow.
+            Our services are confidential, compassionate, and easy to access—book online, by phone, or via email. We’re here to help you find balance and clarity in everyday life.
             </p>
             <Button className="bg-[#EC744A] text-white py-3 px-6 rounded-full" onClick={handleClick} >
               See Detail

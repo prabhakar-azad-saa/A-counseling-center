@@ -24,7 +24,7 @@ const Footer = () => {
                   </h1>
                 </div>
               </div>
-              <p className="pt-4 text-sm sm:text-base md:text-lg">
+              <p className="pt-4 text-sm ml-[75px] sm:text-base md:text-lg">
                 Professional mental health consultation and support services.
               </p>
             </div>
@@ -67,7 +67,7 @@ const Footer = () => {
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
                   <Massages className="mr-2 w-6 h-6" />
-                  <p className="pb-2">altaf@apluscounselling.com</p>
+                  <p className="pb-2">info@apluscounselling.com</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center">
                   {/* <img

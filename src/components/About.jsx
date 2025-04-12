@@ -84,26 +84,52 @@ const About = () => {
           </div>
         </div>
         {/* About Us Section */}
-        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between  max-w-[2300px] mx-auto bg-[#FCF8F4] items-center p-8 sm:p-12 md:space-x-12 lg:px-32">
-          <img
-            src={Discover2}
-            alt="About Us"
-            className="w-full sm:w-1/2 object-cover rounded-lg mb-6 sm:mb-0"
-          />
-          <div className="flex-1 sm:max-w-1/2 max-w-3xl mx-auto  text-left ">
-            <h3 className="text-2xl sm:text-3xl text-black font-bold mb-4">
-              About Us
-            </h3>
-            <h1 className="text-[54px] sm:text-5xl md:text-6xl font-[700px] text-black mb-5  tracking-[0%] font-manrope ">
-              Discover the Faces Behind Our Mental Health Consultancy
-            </h1>
-            <p className="text-lg sm:text-xl text-black mb-14 font-poppins ">
-              Our mental health consultancy brings together experienced
-              professionals dedicated to your well-being. We believe in creating
-              a supportive environment where you can explore, heal, and grow.
-            </p>
-          </div>
-        </div>
+        <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2300px] mx-auto px-4 sm:px-8 lg:px-20 py-10 space-y-8 xl:space-y-0 xl:space-x-12">
+  <img
+    src={Discover2}
+    alt="About Us"
+    className="w-full xl:w-[50%] object-cover rounded-lg"
+  />
+  <div className="flex-1 max-w-full xl:max-w-[50%]  text-justify">
+  <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
+    About Us
+  </h3>
+
+  <h4 className="text-2xl md:text-4xl font-bold text-[#E8774D]">
+    Dr. Altaf A. Khan
+  </h4>
+
+  <p className="text-lg md:text-2xl font-bold text-gray-700 font-manrope">
+  Director
+  </p>
+
+  <p className="text-lg md:text-2xl font-bold text-gray-700 mb-5 font-manrope">
+     A Plus Counseling and Consultancy Services
+  </p>
+    <p className="text-base sm:text-lg text-gray-700 mb-3 font-poppins">
+      With a PhD and a strong academic foundation, I have a Diploma in Psychology and have had the privilege of working with several international organizations across the globe. My diverse professional experiences have deepened my understanding of the psychological challenges faced by individuals in today’s fast-paced world.
+    </p>
+    <p className="text-base sm:text-lg  text-gray-700 mb-3 font-poppins">
+      Driven by a passion to support mental well-being, I founded A Plus Counseling and Consultancy Services with the aim of providing accessible and compassionate care to those in need. Our mission is to help ease the stress of daily life and guide individuals toward healthier, more balanced living.
+    </p>
+    <p className="text-base sm:text-lg  text-gray-700 mb-2 font-poppins">
+      Modern society presents unique psychological challenges:
+    </p>
+    <ul className="list-disc pl-5 text-base sm:text-lg  text-gray-700 font-poppins mb-2 ">
+      <li>Parents juggle professional responsibilities with the increasing demands of parenting.</li>
+      <li>Children face academic pressures and the burden of performance.</li>
+      <li>Peer influence and societal expectations significantly impact emotional health.</li>
+      <li>Relationship dynamics are growing increasingly complex.</li>
+    </ul>
+    <p className="text-base sm:text-lg text-gray-700 mb-3 font-poppins">
+      At A Plus, we offer a supportive environment for individuals and families facing these and other challenges. Our user-friendly website makes it easy to book appointments—whether through our online portal, by phone, or via email.
+    </p>
+    <p className="text-base sm:text-lg  text-gray-700 font-poppins">
+      We welcome your feedback and suggestions as we continuously strive to enhance our services.
+    </p>
+  </div>
+</div>
+
 
         {/* Features Section */}
         <Features

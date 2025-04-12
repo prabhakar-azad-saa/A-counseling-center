@@ -75,7 +75,7 @@ const DashboardUi = () => {
           const todayAppointments = res.data.filter(
             (appointment) =>
               moment(appointment.bookSessionDate).format("YYYY-MM-DD") === todayDate &&
-              appointment.status === 1
+    appointment.status === 1 
           );
             
         
@@ -230,7 +230,7 @@ const DashboardUi = () => {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      render: (status) => (status === 1 ? "Accepted" : "Reject"),
+      render: (status) => (status === 1 ? "Accepted" : 'Rejected'),
     },
   ];
 
@@ -341,7 +341,7 @@ const DashboardUi = () => {
             <Table
               columns={columnss}
               dataSource={todayAppointments}
-              rowKey="id"
+               rowKey="id"
             />
           </div>
           <div className="bg-white rounded-lg p-5 shadow-2xl overflow-auto">

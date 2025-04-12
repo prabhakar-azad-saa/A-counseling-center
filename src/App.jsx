@@ -185,7 +185,7 @@ function App() {
 
             
           />
-            {/* <Route
+            <Route
             path="/blogshow"
             element={
               <>
@@ -193,7 +193,7 @@ function App() {
                 <Blogshow />
               </>
             }
-            /> */}
+            />
 
 {/* <Route
             path="/zoomMeeting"

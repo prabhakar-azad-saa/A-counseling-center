@@ -1,143 +1,95 @@
-import { useLocation } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import frameImage from "../img/svgvieweroutput.png";
-import { IoHeartSharp } from "react-icons/io5";
-import { AiOutlineHeart } from "react-icons/ai";
-import { message } from "antd";
-import { BlogReaction, getBlogdetails } from "../action/Auth";
-import { motion } from "framer-motion"; // Re-enabled for animation support
+import React from "react";
+import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
+import Individual22 from "../img/Individual22";
+import Relationship from "../img/Relationship";
+import Famil from "../img/Famil";
+import Leaf from "../img/Leaf";
+import Carrier from "../img/Carrier";
+import Chat from "../img/Chat";
 
-const BlogShow = () => {
-  const location = useLocation();
-  const blog = location.state?.blog;
-  const { blogId, initialStatus, userid } = location.state || {};
+const therapyData = [
+  {
+    component: <Individual22 style={{ width: '80px', height: '80px' }} />,
+    title: "Individual Therapy",
+    description: "Anxiety, Depression, Trauma, and more...",
+    color: "from-blue-500 to-blue-600",
+    iconColor: "text-blue-400",
+  },
+  {
+    component: <Relationship style={{ width: '80px', height: '80px' }} />,
+    title: "Relationship Therapy",
+    description: "Marriage counseling, communication issues...",
+    color: "from-pink-500 to-pink-600",
+    iconColor: "text-pink-400",
+  },
+  {
+    component: <Famil style={{ width: '80px', height: '80px' }} />,
+    title: "Family Counseling",
+    description: "Parenting, teen counseling, family conflicts...",
+    color: "from-green-500 to-green-600",
+    iconColor: "text-green-400",
+  },
+  {
+    component: <Leaf style={{ width: '80px', height: '80px' }} />,
+    title: "Specialized Therapy",
+    description: "CBT, Mindfulness, ADHD support...",
+    color: "from-purple-500 to-purple-600",
+    iconColor: "text-purple-400",
+  },
+  {
+    component: <Carrier style={{ width: '80px', height: '80px' }} />,
+    title: "Career Coaching",
+    description: "Work-life balance, personal development...",
+    color: "from-amber-500 to-amber-600",
+    iconColor: "text-amber-400",
+  },
+  {
+    component: <Chat style={{ width: '80px', height: '80px' }} />,
+    title: "Online Sessions",
+    description: "Virtual therapy from your home...",
+    color: "from-teal-500 to-teal-600",
+    iconColor: "text-teal-400",
+  },
+];
 
-  const [status, setStatus] = useState(initialStatus);
-  const [blogDetails, setBlogDetails] = useState([]);
-
-  const userId = "USER_ID_PLACEHOLDER";
-
-  useEffect(() => {
-    const fetchBlogDetails = async () => {
-      try {
-        const res = await getBlogdetails();
-        setBlogDetails(res);
-
-        const currentBlog = res.find(
-          (b) => b.blogId === blog.id && b.viewUserIds === userId
-        );
-        if (currentBlog) {
-          setStatus(currentBlog.like);
-        }
-      } catch (err) {
-        console.error("Failed to fetch blog details:", err);
-      }
-    };
-
-    if (blog) fetchBlogDetails();
-  }, [blog, userId]);
-
-  const handleAction = async (blogId, status, userId) => {
-    try {
-      await BlogReaction(blogId, status, userId);
-      message.success(
-        `Blog ${status === 1 ? "liked" : "disliked"} successfully!`
-      );
-      console.log(
-        "=== Reaction Updated Successfully ===",
-        blogId,
-        status,
-        userid
-      );
-    } catch (err) {
-      console.error("Error updating blog reaction:", err);
-      message.error("Failed to update blog reaction.");
-    }
-  };
-
-  if (!blog) return <div>No blog data found</div>;
-
+const Blogshow = () => {
   return (
-    <div className="">
-      {/* Header Section */}
-      <div
-        className="relative w-full h-[500px] overflow-hidden"
-        style={{
-          backgroundImage: `url(${frameImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
+    <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-full mx-auto">
+      <motion.h2
+        className="text-4xl md:text-5xl font-bold text-center mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        <div className="absolute inset-0 opacity-50"></div>
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
-          <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
-            <div className="flex flex-row justify-center items-center md:justify-start space-x-8">
-              <div className="h-60 border-l-2 border-white"></div>
-              <div className="flex flex-col text-center md:text-left">
-                <motion.h2
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, type: "spring" }}
-                  className="text-5xl font-bold text-white mb-4"
-                >
-                  Blog Detail
-                </motion.h2>
-                <br />
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-                  className="text-lg text-white"
-                >
-                  Professional guidance and support for your mental wellbeing
-                  journey. Our experienced consultants provide personalized
-                  strategies to help you overcome challenges and achieve
-                  emotional balance.
-                </motion.p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Therapies</span>
+      </motion.h2>
 
-      {/* Blog Content */}
-      <div className="max-w-4xl mx-auto py-10 px-4">
-        <h1 className="text-4xl font-bold mb-4">{blog.name}</h1>
-        <img
-          src={blog.imagePath}
-          alt={blog.name}
-          className="w-full h-auto rounded-lg mb-6"
-        />
-        <p className="text-lg text-gray-800">{blog.description}</p>
-
-        {/* Like Button */}
-        <div className="pt-5">
-          <button
-           
-            onClick={() => {
-              const newStatus = blogDetails[0]?.like === 1 ? 0 : 1;
-              setStatus(newStatus); 
-              handleAction(
-                blogDetails[0]?.blogId,
-                newStatus,
-                blogDetails[0]?.viewUserIds
-              );
-            }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-md font-semibold text-white transition-all ${
-              status === 1 ? "bg-green-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"
-            }`}
+      {/* Marquee Section */}
+      <Marquee
+        gradient={false}
+        speed={50}
+        pauseOnHover={true}
+        className="space-x-6"
+      >
+        {therapyData.map((therapy, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            className={`min-w-[300px] min-h-56 mx-4 rounded-3xl bg-[linear-gradient(90deg,_#007D6E,_#5EB47C)] p-6 shadow-2xl overflow-hidden`}
           >
-            {status === 1 ? (
-              <IoHeartSharp className="text-red-500" size={28} />
-            ) : (
-              <AiOutlineHeart size={28} />
-            )}
-          </button>
-        </div>
-      </div>
+            <div className="w-20 h-20 mx-auto mb-4">
+              {therapy.component}
+            </div>
+            <h3 className="text-lg font-bold text-white text-center mb-2">
+              {therapy.title}
+            </h3>
+            <p className="text-sm text-white/90 text-center">{therapy.description}</p>
+          </motion.div>
+        ))}
+      </Marquee>
     </div>
   );
 };
 
-export default BlogShow;
+export default Blogshow;

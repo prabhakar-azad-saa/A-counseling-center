@@ -34,7 +34,7 @@ const ContactUs = () => {
         firstName: user.username || "",
         lastName: user.lastName || "",
         email: user.email || "",
-        phone: user.phone || "",
+        phone: user.contactNumber || "",
       }));
     }
   }, []);
@@ -221,11 +221,11 @@ const ContactUs = () => {
           <div>
             <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
               <VoicecallBlack className="w-8 h-8" />
-              <p className="text-base">+91 9685714245</p>
+              <p className="text-base  font-poppins">+91 9685714245</p>
             </div>
             <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
               <MailBlack className="w-8 h-8" />
-              <p className="text-base">altaf@apluscounselling.com</p>
+              <p className="text-base  font-poppins">info@apluscounselling.com</p>
             </div>
 
             <div className="flex items-center gap-4 mb-4">
