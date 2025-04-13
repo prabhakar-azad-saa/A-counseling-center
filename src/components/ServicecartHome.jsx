@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Marquee from "react-fast-marquee";
 import Individual22 from "../img/Individual22";
 import Relationship from "../img/Relationship";
 import Famil from "../img/Famil";
@@ -11,87 +10,127 @@ import Chat from "../img/Chat";
 
 const therapyData = [
   {
-    component: <Individual22 style={{ width: '80px', height: '80px' }} />,
+    icon: <Individual22 style={{ width: '60px', height: '60px' }} />,
     title: "Individual Therapy",
     description: "Anxiety, Depression, Trauma, and more...",
-    color: "from-blue-500 to-blue-600",
-    iconColor: "text-blue-400",
+    color: "from-blue-500 to-blue-300",
   },
   {
-    component: <Relationship style={{ width: '80px', height: '80px' }} />,
+    icon: <Relationship style={{ width: '60px', height: '60px' }} />,
     title: "Relationship Therapy",
     description: "Marriage counseling, communication issues...",
-    color: "from-pink-500 to-pink-600",
-    iconColor: "text-pink-400",
+    color: "from-pink-500 to-pink-300",
   },
   {
-    component: <Famil style={{ width: '80px', height: '80px' }} />,
+    icon: <Famil style={{ width: '60px', height: '60px' }} />,
     title: "Family Counseling",
     description: "Parenting, teen counseling, family conflicts...",
-    color: "from-green-500 to-green-600",
-    iconColor: "text-green-400",
+    color: "from-green-500 to-green-300",
   },
   {
-    component: <Leaf style={{ width: '80px', height: '80px' }} />,
+    icon: <Leaf style={{ width: '60px', height: '60px' }} />,
     title: "Specialized Therapy",
     description: "CBT, Mindfulness, ADHD support...",
-    color: "from-purple-500 to-purple-600",
-    iconColor: "text-purple-400",
+    color: "from-purple-500 to-purple-300",
   },
   {
-    component: <Carrier style={{ width: '80px', height: '80px' }} />,
+    icon: <Carrier style={{ width: '60px', height: '60px' }} />,
     title: "Career Coaching",
     description: "Work-life balance, personal development...",
-    color: "from-amber-500 to-amber-600",
-    iconColor: "text-amber-400",
+    color: "from-yellow-500 to-yellow-300",
   },
   {
-    component: <Chat style={{ width: '80px', height: '80px' }} />,
+    icon: <Chat style={{ width: '60px', height: '60px' }} />,
     title: "Online Sessions",
     description: "Virtual therapy from your home...",
-    color: "from-teal-500 to-teal-600",
-    iconColor: "text-teal-400",
+    color: "from-teal-500 to-teal-300",
   },
 ];
 
-const ServicecartHome = () => {
+const ServiceCartHome = () => {
   const navigate = useNavigate();
 
-  const handleCardClick = () => {
-    navigate("/services"); 
-  };
+  const handleCardClick = () => navigate("/services");
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-full mx-auto">
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold text-center mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Therapies</span>
-      </motion.h2>
+    <div className="py-20 px-6 bg-gradient-to-b from-white via-gray-50 to-gray-100">
+      <div className="text-center mb-16">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Discover Our{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-500">
+            Services
+          </span>
+        </motion.h2>
+        <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
+          Tailored support for your unique journey
+        </p>
+      </div>
 
-      <Marquee gradient={false} speed={50} pauseOnHover={true} className="space-x-6">
-        {therapyData.map((therapy, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {therapyData.map((item, index) => (
           <motion.div
             key={index}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{
+              rotateX: 5,
+              rotateY: -5,
+              scale: 1.03,
+              transition: { type: "spring", stiffness: 200 },
+            }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.6 }}
             onClick={handleCardClick}
-            className={`cursor-pointer min-w-[300px] min-h-56 mx-4 rounded-3xl bg-gradient-to-r from-blue-500 to-teal-400 p-6 shadow-2xl overflow-hidden`}
+            className={`
+              cursor-pointer
+              bg-white/30
+              backdrop-blur-md
+              border
+              border-gray-200
+              rounded-2xl
+              p-6
+              shadow-md
+              transition-transform
+              hover:shadow-xl
+              group
+              hover:border-transparent
+              hover:bg-gradient-to-br
+              hover:from-white
+              hover:to-gray-50
+            `}
           >
-            <div className="w-20 h-20 mx-auto mb-4">
-              {therapy.component}
+            <div
+              className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-gradient-to-tr ${item.color} text-white shadow-lg`}
+            >
+              {item.icon}
             </div>
-            <h3 className="text-lg font-bold text-black text-center mb-2">
-              {therapy.title}
+            <h3 className="text-xl font-semibold text-gray-800 text-center mb-2 group-hover:text-black">
+              {item.title}
             </h3>
-            <p className="text-sm text-black text-center">{therapy.description}</p>
+            <p className="text-sm text-gray-600 text-center">{item.description}</p>
           </motion.div>
         ))}
-      </Marquee>
+      </div>
+
+      <motion.div
+        className="text-center mt-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        <button
+          onClick={handleCardClick}
+          className="bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-1"
+        >
+          Explore All Services
+        </button>
+      </motion.div>
     </div>
   );
 };
 
-export default ServicecartHome;
+export default ServiceCartHome;

@@ -14,7 +14,7 @@ import Loader from "./Loader";
 
 const Blogdetail = () => {
   const [blogDetails, setBlogDetails] = useState([]);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState(1);
   const [blog, setBlog] = useState(null);
   const [expandedBlogId, setExpandedBlogId] = useState(null);
   const [loading, setLoading] = useState(false);

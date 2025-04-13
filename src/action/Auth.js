@@ -55,7 +55,6 @@ export const submitContactForm = async (contactData) => {
 };
 
 export const selecetSlot = async (selectedDate, selectedTime) => {
-  console.log("selectedDate, selectedTime", selectedDate, selectedTime);
   try {
     const response = await axios.get(
       `${API_BASE_URL}/GetSlot?Date=${selectedDate}&Time=${selectedTime}`,
@@ -293,7 +292,7 @@ export const BlogReaction = async (blogId, status, userId) => {
     console.error(
       "Error updating BlogReaction status:",
       error.response?.data || error.message
-    );
+    )
     throw error;
   }
 };

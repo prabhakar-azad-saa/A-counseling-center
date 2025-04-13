@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getBlogdetails } from "../action/Auth";
+import { getBlogdetails,deleteBlog } from "../action/Auth";
 import { MdOutlineDelete } from "react-icons/md";
+import Loader from "./Loader";
 
 const Blogsection = () => {
   const [blogDetails, setBlogDetails] = useState([]);
   const [popularPosts, setPopularPosts] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(false);
+    const [refreshBlogs, setRefreshBlogs] = useState(false);
+    // const [userData, setUserData] = useState("");
+    
+  
   const navigate = useNavigate();
 
   useEffect(() => {
     getBlogdetails()
       .then((res) => {
-        setBlogDetails(res || []);
-        setPopularPosts(res?.slice(0, 3) || []);
+        const sortedBlogs = (res || []).sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setBlogDetails(sortedBlogs);
+        setPopularPosts(sortedBlogs.slice(0, 3));
       })
       .catch((err) => {
         console.error("Error fetching blog details:", err);
@@ -21,7 +29,8 @@ const Blogsection = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [refreshBlogs]);
+  
 
   const handleClick = (route, blogId, initialStatus, userid) => {
     navigate(`/${route}`, {
@@ -29,13 +38,23 @@ const Blogsection = () => {
     });
   };
 
-  const handleDeleteBlog = (blogId) => {
-    // Placeholder for delete logic
-    console.log("Deleting blog with ID:", blogId);
-  };
+  const handledeleteBlog = (blogId) => {
+      setLoading(true);
+      deleteBlog(blogId)
+        .then((res) => {
+          console.log("===deleteBlog===", res);
+          setRefreshBlogs((prev) => !prev);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log("===deleteBlog err===", err);
+          setLoading(false);
+        });
+    };
 
   return (
     <>
+     <Loader isLoading={loading} />
       <div className="p-8 bg-[#FCF8F4] mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold text-black">Latest Blog Posts</h1>
@@ -43,11 +62,9 @@ const Blogsection = () => {
       </div>
 
       <div className="p-8">
-        {loading ? (
-          <div className="text-center text-gray-500 text-lg">Loading blogs...</div>
-        ) : (
+        
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogDetails.map((blog, index) => (
+            {blogDetails.slice(0,3).map((blog, index) => (
               <div key={index} className="bg-white rounded-lg shadow-2xl p-6 mb-8">
                 <img
                   src={blog.imagePath || "https://via.placeholder.com/300"}
@@ -79,14 +96,14 @@ const Blogsection = () => {
                 <div
                   className="cursor-pointer mt-2"
                   style={{ float: "right" }}
-                  onClick={() => handleDeleteBlog(blog?.blogId || blog?.id)}
+                  onClick={() => handledeleteBlog(blog?.blogId || blog?.id)}
                 >
-                  <MdOutlineDelete size={24} color="red" />
+                  {/* <MdOutlineDelete size={24} color="red" /> */}
                 </div>
               </div>
             ))}
           </div>
-        )}
+        
       </div>
     </>
   );
