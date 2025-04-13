@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import Individual22 from "../img/Individual22";
 import Relationship from "../img/Relationship";
@@ -53,7 +54,13 @@ const therapyData = [
   },
 ];
 
-const Blogshow = () => {
+const ServicecartHome = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate("/services"); 
+  };
+
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-full mx-auto">
       <motion.h2
@@ -65,26 +72,21 @@ const Blogshow = () => {
         Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Therapies</span>
       </motion.h2>
 
-      {/* Marquee Section */}
-      <Marquee
-        gradient={false}
-        speed={50}
-        pauseOnHover={true}
-        className="space-x-6"
-      >
+      <Marquee gradient={false} speed={50} pauseOnHover={true} className="space-x-6">
         {therapyData.map((therapy, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.05 }}
-            className={`min-w-[300px] min-h-56 mx-4 rounded-3xl bg-[linear-gradient(90deg,_#007D6E,_#5EB47C)] p-6 shadow-2xl overflow-hidden`}
+            onClick={handleCardClick}
+            className={`cursor-pointer min-w-[300px] min-h-56 mx-4 rounded-3xl bg-gradient-to-r from-blue-500 to-teal-400 p-6 shadow-2xl overflow-hidden`}
           >
             <div className="w-20 h-20 mx-auto mb-4">
               {therapy.component}
             </div>
-            <h3 className="text-lg font-bold text-white text-center mb-2">
+            <h3 className="text-lg font-bold text-black text-center mb-2">
               {therapy.title}
             </h3>
-            <p className="text-sm text-white/90 text-center">{therapy.description}</p>
+            <p className="text-sm text-black text-center">{therapy.description}</p>
           </motion.div>
         ))}
       </Marquee>
@@ -92,4 +94,4 @@ const Blogshow = () => {
   );
 };
 
-export default Blogshow;
+export default ServicecartHome;

@@ -3,7 +3,7 @@ import Calls from "../img/Calls";
 
 import Massages from "../img/Massages";
 import footerSocial from "../img/footerSocial.png";
-import Mainlogo from "../img/Mainlogo";
+
 import Locationfooter from "../img/Locationfooter";
 import Logolotas from "../img/Logolotas";
 
@@ -58,11 +58,7 @@ const Footer = () => {
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
                   <Calls className="mr-2 w-6 h-6" />
-                  {/* <img
-                    src="src/assets/New folder/Call.png"
-                    alt="Call Icon"
-                    className="mr-2 w-6 h-6"
-                  /> */}
+                 
                   <p className="pb-2">+91 9685714245</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
@@ -70,11 +66,7 @@ const Footer = () => {
                   <p className="pb-2">info@apluscounselling.com</p>
                 </li>
                 <li className="flex text-sm sm:text-base md:text-lg items-center">
-                  {/* <img
-                    src="src/assets/New folder/Location.png"
-                    alt="Location Icon"
-                    className="mr-2 w-6 h-6"
-                  /> */}
+                 
                   <Locationfooter className="mr-2 w-6 h-6" />
                   <p className="pb-2">D67, BDA Colony, Kohefiza, Bhopal</p>
                 </li>
@@ -96,28 +88,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Footer Section 5 (Maps) */}
-            {/* <div className="footer-section text-white px-4">
-              <ul>
-                <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-                  Maps
-                </li>
-                <li>
-                  <div>
-                    <iframe
-                      title="google map"
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3473115.9060003995!2d-9.790797163012584!3d31.778265070846214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b88619651c58d%3A0xd9d39381c42cffc3!2sMorocco!5e0!3m2!1sen!2sma!4v1709282907766!5m2!1sen!2sma"
-                      width="100%"
-                      height="100"
-                      style={{ border: 0 }}
-                      allowFullScreen=""
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                  </div>
-                </li>
-              </ul>
-            </div> */}
+           
           </div>
         </div>
 

@@ -24,8 +24,7 @@ const Blogs = () => {
   };
 
   useEffect(() => {
-    // const storedUser = localStorage.getItem("userData");
-    // setUserData(storedUser);
+  
     setUserData(JSON.parse(localStorage.getItem("userData")));
 
     setLoading(true);
@@ -36,7 +35,7 @@ const Blogs = () => {
             (a, b) => (b.like || 0) - (a.like || 0)
           );
           setBlogDetails(res || []);
-          setPopularPosts(sortedBlogs.slice(0, 3)); // Top 3 by likes
+          setPopularPosts(sortedBlogs.slice(0, 3)); 
         }
       })
       .catch((err) => {

@@ -47,25 +47,7 @@ const ContactUs = () => {
     validateField(name, value);
   };
 
-  // Validation function
-  // const validateField = (name, value) => {
-  //   let errorMsg = "";
 
-  //   if (!value.trim()) {
-  //     errorMsg = `${name.replace(/([A-Z])/g, " $1")} is required`;
-  //   } else if (
-  //     name === "email" &&
-  //     !/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(value)
-  //   ) {
-  //     errorMsg = "Invalid email format";
-  //   } else if (name === "phone" && !/^\d{10}$/.test(value)) {
-  //     errorMsg = "Phone number must be 10 digits";
-  //   }
-
-  //   setError((prev) => ({ ...prev, [name]: errorMsg }));
-  // };
-
-  // Final validation before submission
   const validateForm = () => {
     let newErrors = {};
 
@@ -91,46 +73,7 @@ const ContactUs = () => {
     return "";
   };
 
-  // const submitForm = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setError("");
-  //   setSuccessMessage("");
-
-  //   try {
-  //     const response = await fetch(
-  //       "http://192.168.1.180/Hospital/api/hospital/CreateContact",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     );
-
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       console.log("API Response:", data);
-  //       localStorage.setItem("contactData", JSON.stringify(data));
-
-  //       // Set success message when the form is successfully submitted
-  //       setSuccessMessage(
-  //         "Your message has been sent successfully! Thank you for reaching out."
-  //       );
-
-  //       // Optionally, navigate to a different page (e.g., thank-you page)
-  //       // navigate('/thank-you');
-  //     } else {
-  //       setError("Failed to send message. Please try again later.");
-  //     }
-  //   } catch (error) {
-  //     console.error("API Call failed:", error);
-  //     setError("Network error. Please try again later.");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+ 
 
   const submitForm = async () => {
     if (!validateForm()) return;
@@ -229,11 +172,7 @@ const ContactUs = () => {
             </div>
 
             <div className="flex items-center gap-4 mb-4">
-              {/* <img
-                src="src/assets/contact/Location.png"
-                alt="Location"
-                className="w-8 h-8"
-              /> */}
+             
               <Locationcontact className="w-8 h-8" />
               <p className="text-base font-poppins">
                 D67, BDA Colony, Kohefiza, Bhopal
@@ -359,16 +298,7 @@ const ContactUs = () => {
           {error?.api && (
             <p className="text-red-500 font-semibold">{error?.api}</p>
           )}
-          {/* {successMessage && (
-            <div className="mt-4 text-green-500 font-semibold">
-              {successMessage}
-            </div>
-          )} */}
-
-          {/* Display error message */}
-          {/* {error && (
-            <div className="mt-4 text-red-500 font-semibold">{error}</div>
-          )} */}
+        
         </div>
       </div>
 

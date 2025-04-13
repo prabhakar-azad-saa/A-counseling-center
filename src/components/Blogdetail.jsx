@@ -4,7 +4,7 @@ import Ready from './Ready';
 import blogDetail3 from "../img/blogDetail3.png";
 import blogDetail6 from "../img/blogDetail6.png";
 import { IoHeartSharp } from "react-icons/io5";
-import { AiOutlineHeart } from "react-icons/ai";
+
 import { IoHeartDislikeSharp, IoHeartDislikeOutline } from "react-icons/io5";
 import { message } from 'antd';
 import { BlogReaction, getBlogdetails } from '../action/Auth';

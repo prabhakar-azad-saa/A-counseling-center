@@ -43,33 +43,14 @@ function Booksession() {
 
   const navigate = useNavigate();
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({
-  //     ...formData,
-  //     [name]: value,
-  //   });
-
-  //   if (name === "date") {
-  //     setSelectedDate(value.split("T"));
-  //   }
-  //   if (name === "slot") {
-  //     const selectedSlotData = value?.remainingSlots?.find(
-  //       (slot) => slot.slotDescription === value
-  //     );
-
-  //     if (selectedSlotData) {
-  //       setSlotId(selectedSlotData.slotId);
-  //     }
-  //   }
-  // };
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setFormData({
       ...formData,
-      [name]: value, // Store ID in formData.slot
+      [name]: value, 
     });
     setErrors((prev) => ({ ...prev, [name]: "" }));
 
@@ -80,7 +61,7 @@ function Booksession() {
     }
 
     if (name === "slot") {
-      // Find slot object using ID instead of description
+    
       const selectedSlotData = slotData?.find((slot) => slot.slotId == value);
 
       if (selectedSlotData) {
@@ -88,7 +69,7 @@ function Booksession() {
       }
     }
   };
-  // console.log("=======55========", slotId);
+
 
   useEffect(() => {
     if (selectedDate) {
@@ -119,7 +100,7 @@ function Booksession() {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("userData"));
     if (user) {
-      // console.log('=====3333===',user)
+      
       setFormData((prev) => ({
         ...prev,
         name: user.username || "",
@@ -130,7 +111,7 @@ function Booksession() {
     }
   }, []);
 
-  // console.log("=======55========", userData?.userId, slotData);
+
 
   const validateForm = () => {
     const newErrors = {};

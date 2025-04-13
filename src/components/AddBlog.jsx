@@ -188,7 +188,7 @@ const AddBlog = () => {
         </Upload> */}
    <div className="w-full">
   <Upload
-    listType="picture-card" // or keep as "picture-circle" if you're customizing the style
+    listType="picture-card" 
     fileList={fileList}
     onPreview={handlePreview}
     onChange={handleChange}
