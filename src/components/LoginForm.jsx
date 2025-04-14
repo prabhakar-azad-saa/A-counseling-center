@@ -65,7 +65,7 @@ const LoginForm = () => {
       console.log("API response received:", data);
 
       if (data.message === "Login successfully" && data.users) {
-        localStorage.setItem("userData", JSON.stringify(data.users));
+        localStorage.setItem("userData", JSON.stringify(data?.users));
         localStorage.setItem("token", data?.token);
         setLoading(false);
 

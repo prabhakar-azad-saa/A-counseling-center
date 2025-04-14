@@ -8,7 +8,7 @@ import Services from "./components/Services";
 import Session from "./components/Session";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
-import Contact from "./components/ContactUs";
+
 import Booksession from "./components/Booksession";
 import Individualsection from "./components/Individualsection";
 import Onlinecounseling from "./components/Onlinecounseling";

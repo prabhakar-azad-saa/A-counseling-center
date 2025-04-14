@@ -122,8 +122,8 @@ const Blogdetail = () => {
           />
           <div className="flex flex-col md:flex-row gap-8 mt-24">
             <div className="md:w-2/3">
-              <h1 className="text-3xl font-semibold text-black">How Mental Health Consultants Can Help...</h1>
-              <p className="mt-4 text-black leading-relaxed font-semibold text-xl font-poppins">
+              {/* <h1 className="text-3xl font-semibold text-black">How Mental Health Consultants Can Help...</h1> */}
+              <p className="mt-4 text-black leading-relaxed font-semibold text-3xl font-poppins">
                 {blog.name}
               </p>
               <p className="mt-4 text-black leading-relaxed font-poppins text-justify">
@@ -179,7 +179,10 @@ const Blogdetail = () => {
                             : b.description}
                           {b.description.length > 70 && (
                             <button
-                              onClick={() => navigate("/blogshow", { state: { blogId: b.blogId } })}
+                            onClick={() => {
+                              setBlog(b); // Show selected blog at top
+                              window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+                            }}
                               className="text-blue-500 hover:text-blue-700 font-medium text-lg ml-2"
                             >
                               Read More
