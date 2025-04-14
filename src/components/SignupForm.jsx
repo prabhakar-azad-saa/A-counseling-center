@@ -228,7 +228,7 @@ const SignupForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full p-3 bg-[#EC744A] text-white rounded-full text-lg cursor-pointer hover:bg-[#d36b3c] transition-all duration-300"
+              className="w-full p-3 mb-4 bg-[#EC744A] text-white rounded-full text-lg cursor-pointer hover:bg-[#d36b3c] transition-all duration-300"
             >
               {loading ? "Signing Up..." : "Sign Up"}
             </button>

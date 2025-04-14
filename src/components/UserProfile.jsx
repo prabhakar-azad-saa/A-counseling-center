@@ -105,7 +105,7 @@ const UserProfile = () => {
       });
 
     //Userdetail
-    getUserDetail(parsedUser.userId)
+    getUserDetail(parsedUser?.userId)
       .then((res) => {
         // console.log('===000===',res)
         setUser(res?.data);
@@ -115,7 +115,7 @@ const UserProfile = () => {
       });
 
     //sessionHistory
-    sessionHistory(parsedUser.userId)
+    sessionHistory(parsedUser?.userId)
       .then((res) => {
         setSessionhistory(res?.data);
       })
@@ -157,10 +157,10 @@ const UserProfile = () => {
               </Upload>
 
               <div className="mt-4 lg:mt-0 lg:ml-6 text-center lg:text-left">
-                <h1 className="text-2xl font-bold">{user.username}</h1>
+                <h1 className="text-2xl font-bold">{user?.username}</h1>
                 <p className="text-lg text-black font-semibold">
                   Member since{" "}
-                  {new Date(user.createdAt).toLocaleString("en-US", {
+                  {new Date(user?.createdAt).toLocaleString("en-US", {
                     year: "numeric",
                     month: "long",
                   })}
@@ -174,7 +174,7 @@ const UserProfile = () => {
               <div className="flex flex-col sm:flex-row items-start sm:items-center">
                 <Usermail />
                 <p className="text-base text-black font-semibold sm:ml-3 mt-2 sm:mt-0">
-                  {user.email}
+                  {user?.email}
                 </p>
               </div>
 
@@ -182,7 +182,7 @@ const UserProfile = () => {
               <div className="flex items-start sm:items-center">
                 <Usercall />
                 <p className="text-base text-black font-semibold ml-3">
-                  {user.contactNumber}
+                  {user?.contactNumber}
                 </p>
               </div>
 
@@ -276,7 +276,7 @@ const UserProfile = () => {
                     <Uservideo className="w-16 h-16 rounded-full mr-4" />
                     <div>
                       <h2 className="text-lg font-semibold">
-                        Video Session with {chat.doctorName}
+                        Video Session with {chat?.doctorName}
                       </h2>
                       <p className="text-sm text-gray-600">
                         {chat?.sessionDate}

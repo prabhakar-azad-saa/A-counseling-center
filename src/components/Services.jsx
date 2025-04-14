@@ -71,7 +71,7 @@ const Services = () => {
       >
         <div className="absolute inset-0 opacity-50"></div>
         <div className="relative z-10 w-full max-w-[2300px] mx-auto px-5">
-          <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
+          <div className="grid mt-12 sm:mt-16 md:mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
             <div className="flex flex-row ml-8 items-center md:justify-start space-x-8">
               <div className="h-60 border-l-2 border-white"></div>
               <div className="flex flex-col text-center md:text-left">
@@ -92,9 +92,7 @@ const Services = () => {
                 >
                   At A<sup>+</sup> Counseling & Consultancy Services, we offer a
                   wide range of counseling services tailored to meet the diverse
-                  needs of individuals, couples, and families. Our approach
-                  integrates evidence-based techniques with compassionate care
-                  to help you navigate life’s challenges.
+                  needs of individuals, couples, and families. 
                 </motion.p>
               </div>
             </div>

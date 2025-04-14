@@ -176,7 +176,7 @@ const LoginForm = () => {
               </button>
             </div>
 
-            <p className="mt-4 text-sm text-gray-600">
+            <p className="mt-4 pb-5 text-sm text-gray-600">
               By logging in, you agree to our{" "}
               <a href="#" className="text-[#EC744A] hover:underline">
                 Terms and Conditions

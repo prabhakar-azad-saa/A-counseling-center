@@ -20,12 +20,12 @@ const Footer = () => {
 
                 <div className="w-full">
                   <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
-                    A<sup>+</sup> Counseling & Consultancy Services
+                    A<sup>+</sup> Counseling  <br/>& Consultancy Services
                   </h1>
                 </div>
               </div>
-              <p className="pt-4 text-sm ml-[75px] sm:text-base md:text-lg">
-                Professional mental health consultation and support services.
+              <p className="pt-2 text-sm  md:ml-[75px] sm:ml-2 sm:text-base md:text-lg">
+                Professional mental health <br/> consultation and support services.
               </p>
             </div>
 

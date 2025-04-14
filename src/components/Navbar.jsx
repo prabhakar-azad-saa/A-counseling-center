@@ -474,17 +474,25 @@ const Navbar = ({ style, from }) => {
             {userData ? (
               <a
                 className="font-bold mr-3 ml-8 w-10 h-10 rounded-full bg-[#EC744A] text-white flex items-center justify-center  text-sm overflow-hidden"
-                onClick={handleUserClick}
+               
+                onClick={() => {
+                  setIsOpen(false);
+                  handleUserClick(); // Call the function to navigate to user profile
+                }}
               >
                 {userData?.username?.charAt(0)?.toUpperCase()}
               </a>
             ) : (
               <button
-                onClick={handleLoginClick}
-                className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
-              >
-                Login
-              </button>
+              onClick={() => {
+                setIsOpen(false);
+                handleLoginClick();
+              }}
+              className="w-full text-white bg-[#EC744A] px-6 py-3 rounded-lg transition duration-200"
+            >
+              Login
+            </button>
+            
             )}
           </div>
         </div>

@@ -73,9 +73,7 @@ const Individualsection = () => {
                 >
                   At A<sup>+</sup> Counseling & Consultancy Services, we offer a
                   wide range of counseling services tailored to meet the diverse
-                  needs of individuals, couples, and families. Our approach
-                  integrates evidence-based techniques with compassionate care
-                  to help you navigate life’s challenges.
+                  needs of individuals, couples, and families. 
                 </motion.p>
               </div>
             </div>

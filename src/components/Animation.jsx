@@ -20,37 +20,37 @@ const slides = [
     title: "Your Journey to Emotional Well-Being",
     description:
       "Begin your path to mental wellness with our experienced and compassionate counselors. We're here to support your growth and healing.",
-    image: <FrameImage className="w-full ml-28 max-w-md h-auto" />,
+    image: <FrameImage className="w-full xl:ml-28 max-w-md h-auto" />,
   },
   {
     title: "Signs your mental health might need attention",
     description:
       "Your mental health matters. Pay attention to emotional distress and seek support when needed.",
-    image: <FrameImage1 className="w-full ml-28 max-w-md h-auto" />,
+    image: <FrameImage1 className="w-full xl:ml-28 max-w-md h-auto" />,
   },
   {
     title: "Persistent sadness or low mood",
     description:
       "Feeling consistently down? It's okay to ask for help. We're here to support your journey to wellness.",
-    image: <FrameImage2 className="w-full ml-28 max-w-md h-auto" />,
+    image: <FrameImage2 className="w-full xl:ml-28 max-w-md h-auto" />,
   },
   {
     title: "Significant changes in appetite or weight",
     description:
       "Changes in eating habits may reflect deeper emotional concerns. Let's explore this together.",
-    image: <FrameImage3 className="w-full ml-28 max-w-md h-auto" />,
+    image: <FrameImage3 className="w-full xl:ml-28 max-w-md h-auto" />,
   },
   {
     title: "Withdrawal from social activities and relationships",
     description:
       "Isolating from loved ones? You're not alone. Let's reconnect.",
-    image: <FrameImage4 className="w-full ml-28 max-w-md h-auto" />,
+    image: <FrameImage4 className="w-full xl:ml-28 max-w-md h-auto" />,
   },
   {
     title: "Difficulty concentrating or making decisions",
     description:
       "Struggling with focus? Our tools can help you find mental clarity.",
-    image: <FrameImage5 className="w-full ml-28 max-w-md h-auto" />,
+    image: <FrameImage5 className="w-full xl:ml-28 max-w-md h-auto" />,
   },
 ];
 

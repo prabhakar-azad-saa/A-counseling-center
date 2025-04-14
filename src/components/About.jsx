@@ -84,47 +84,56 @@ const About = () => {
           </div>
         </div>
         {/* About Us Section */}
-        <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2300px] mx-auto px-4 sm:px-8 lg:px-20 py-10 space-y-8 xl:space-y-0 xl:space-x-12">
+        <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-12 py-10 space-y-8 xl:space-y-0 xl:space-x-12">
+  {/* Image Section */}
   <img
     src={Discover2}
     alt="About Us"
-    className="w-full xl:w-[50%] object-cover rounded-lg"
+    className="w-full xl:w-1/2 object-cover rounded-lg max-h-[500px] sm:max-h-none"
   />
-  <div className="flex-1 max-w-full xl:max-w-[50%]  text-justify">
-  <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
-    About Us
-  </h3>
 
-  <h4 className="text-2xl md:text-4xl font-bold text-[#E8774D]">
-    Dr. Altaf A. Khan
-  </h4>
+  {/* Text Section */}
+  <div className="flex-1 max-w-full xl:max-w-[50%] text-justify px-2 sm:px-0">
+    <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+      About Us
+    </h3>
 
-  <p className="text-lg md:text-2xl font-bold text-gray-700 font-manrope">
-  Director
-  </p>
+    <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#E8774D]">
+      Dr. Altaf A. Khan
+    </h4>
 
-  <p className="text-lg md:text-2xl font-bold text-gray-700 mb-5 font-manrope">
-     A Plus Counseling and Consultancy Services
-  </p>
-    <p className="text-base sm:text-lg text-gray-700 mb-3 font-poppins">
+    <p className="text-md sm:text-lg md:text-xl font-bold text-gray-700 font-manrope">
+      Director
+    </p>
+
+    <p className="text-md sm:text-lg md:text-xl font-bold text-gray-700 mb-5 font-manrope">
+      A Plus Counseling and Consultancy Services
+    </p>
+
+    <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
       With a PhD and a strong academic foundation, I have a Diploma in Psychology and have had the privilege of working with several international organizations across the globe. My diverse professional experiences have deepened my understanding of the psychological challenges faced by individuals in today’s fast-paced world.
     </p>
-    <p className="text-base sm:text-lg  text-gray-700 mb-3 font-poppins">
+
+    <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
       Driven by a passion to support mental well-being, I founded A Plus Counseling and Consultancy Services with the aim of providing accessible and compassionate care to those in need. Our mission is to help ease the stress of daily life and guide individuals toward healthier, more balanced living.
     </p>
-    <p className="text-base sm:text-lg  text-gray-700 mb-2 font-poppins">
+
+    <p className="text-sm sm:text-base  text-gray-700 mb-2 font-poppins">
       Modern society presents unique psychological challenges:
     </p>
-    <ul className="list-disc pl-5 text-base sm:text-lg  text-gray-700 font-poppins mb-2 ">
+
+    <ul className="list-disc pl-5 text-sm sm:text-base  text-gray-700 font-poppins mb-3">
       <li>Parents juggle professional responsibilities with the increasing demands of parenting.</li>
       <li>Children face academic pressures and the burden of performance.</li>
       <li>Peer influence and societal expectations significantly impact emotional health.</li>
       <li>Relationship dynamics are growing increasingly complex.</li>
     </ul>
-    <p className="text-base sm:text-lg text-gray-700 mb-3 font-poppins">
+
+    <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
       At A Plus, we offer a supportive environment for individuals and families facing these and other challenges. Our user-friendly website makes it easy to book appointments—whether through our online portal, by phone, or via email.
     </p>
-    <p className="text-base sm:text-lg  text-gray-700 font-poppins">
+
+    <p className="text-sm sm:text-base  text-gray-700 font-poppins">
       We welcome your feedback and suggestions as we continuously strive to enhance our services.
     </p>
   </div>
