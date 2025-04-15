@@ -57,7 +57,7 @@ const Blogsection = () => {
      <Loader isLoading={loading} />
       <div className="p-8 bg-[#FCF8F4] mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-semibold text-black">Latest Blog Posts</h1>
+          <h1 className="text-4xl md:text-5xl font-semibold text-black">Latest Blog Posts</h1>
         </div>
       </div>
 

@@ -11,6 +11,7 @@ import Personalized from "../img/Personalized.png";
 import safe from "../img/safe.png";
 import ServicecartHome from "./ServicecartHome";
 import { useNavigate } from "react-router-dom";
+import TestimonialSection from "./TestimonialSection";
 
 function Home() {
 
@@ -75,6 +76,7 @@ const sectionData = {
       />
       <AboutSection />
       <Blogsection />
+      <TestimonialSection />
       <Ready />
     </>
   );

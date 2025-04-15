@@ -171,13 +171,13 @@ const ContactUs = () => {
               <p className="text-base  font-poppins">info@apluscounselling.com</p>
             </div>
 
-            <div className="flex items-center gap-4 mb-4">
+            {/* <div className="flex items-center gap-4 mb-4">
              
               <Locationcontact className="w-8 h-8" />
               <p className="text-base font-poppins">
                 D67, BDA Colony, Kohefiza, Bhopal
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 

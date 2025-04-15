@@ -314,7 +314,7 @@ const DashboardUi = () => {
               Appointment Status
             </h3>
             <Pie data={chartData} /> */}
-          <div className="bg-white rounded-lg p-10 shadow-2xl overflow-auto">
+          <div className="bg-white rounded-lg pt-10  shadow-2xl overflow-auto">
             <h3 className="text-xl font-bold text-center mb-4">
               Appointment Status
             </h3>

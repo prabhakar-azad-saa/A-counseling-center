@@ -68,7 +68,7 @@ const Footer = () => {
                 <li className="flex text-sm sm:text-base md:text-lg items-center">
                  
                   <Locationfooter className="mr-2 w-6 h-6" />
-                  <p className="pb-2">D67, BDA Colony, Kohefiza, Bhopal</p>
+                  <p className="pb-2"> Head office: D67, BDA Colony, Kohefiza,Bhopal</p>
                 </li>
               </ul>
             </div>

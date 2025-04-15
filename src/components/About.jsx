@@ -161,7 +161,7 @@ const About = () => {
         <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between  max-w-[2300px] mx-auto items-center p-10 bg-[#FCF8F4] rounded-lg">
           <div className="flex-1 sm:max-w-full lg:max-w-1/2  p-5 flex flex-col justify-center">
             <h3 className="text-[22px] pb-8 font-[700px]">Succes Story</h3>
-            <h1 className="text-[54px] sm:text-4xl lg:text-5xl font-[700px] text-black pb-10   ">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-[700px] text-black pb-10   ">
               Breaking the Stigma - The Success Story of a Mental Health
               Consultant
             </h1>

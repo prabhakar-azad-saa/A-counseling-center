@@ -20,6 +20,7 @@ import {
   getUserDetail,
   sessionHistory,
 } from "../action/Auth";
+import FeedbackForm from "./FeedbackForm ";
 
 const UserProfile = () => {
   const navigate = useNavigate();
@@ -131,7 +132,7 @@ const UserProfile = () => {
     <Spin spinning={loading} size="large">
       <div
         className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8 py-4"
-        style={{ backgroundColor: "#e3e8e9" }}
+        style={{ backgroundColor: "#FCF8F4" }}
       >
         {/* Left Side - Profile and Appointment */}
         <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
@@ -292,7 +293,9 @@ const UserProfile = () => {
               )}
             </div>
           </div>
+          <FeedbackForm/>
         </div>
+       
       </div>
     </Spin>
   );

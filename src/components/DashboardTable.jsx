@@ -65,7 +65,7 @@ const DashboardTable = () => {
         </ul>
       </div>
 
-      <div className="flex flex-col flex-1 items-center bg-gray-100 p-5 w-full">
+      <div className="flex flex-col flex-1 items-center bg-gray-100  w-full">
         {error && <div className="text-red-500">{error}</div>}
         <div className="bg-gray-100  rounded-lg p-5 w-full overflow-auto">
           {activeTable === 'dashboard' ? (

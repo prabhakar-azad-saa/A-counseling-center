@@ -366,10 +366,10 @@ const Navbar = ({ style, from }) => {
           </button>
         </div> */}
 
-        <div className="lg:hidden z-50 ml-auto">
+        <div className="lg:hidden z-50 ml-auto mr-2">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-900 hover:text-orange-600 focus:outline-none"
+            className="text-orange-600 focus:outline-none"
           >
             <svg
               className="h-7 w-7"

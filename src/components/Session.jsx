@@ -43,7 +43,7 @@ const Session = () => {
                   transition={{ duration: 0.6, type: "spring" }}
                   className="text-5xl font-bold text-white mb-4" // Added mb-4 for spacing
                 >
-                  Professional Online Counseling Support
+                  Professional Online Counseling 
                 </motion.h2>
                 <br />
                 <motion.p
