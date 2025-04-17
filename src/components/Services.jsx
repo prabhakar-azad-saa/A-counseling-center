@@ -13,8 +13,11 @@ import { motion } from "framer-motion";
 const Services = () => {
   const navigate = useNavigate();
 
-  const handleClick = (pagename) => {
-    navigate("/" + pagename);
+  const handleCardClick = () => navigate("/individual");
+  const handleOnlineClick = () => navigate("/onlinecounseling");
+  const handleButtonClick = (e) => {
+    e.stopPropagation();
+    navigate("/booksession");
   };
 
   const therapyData = [
@@ -23,7 +26,7 @@ const Services = () => {
       title: "Individual Therapy",
       description:
         "Anxiety & Stress Management, Depression & Mood Disorders, Trauma & PTSD Counseling, Anger Management, Self-Esteem & Confidence Building.",
-      onClick: () => handleClick("individual"),
+      onClick: handleCardClick,
     },
     {
       component: <Relationship />,
@@ -54,7 +57,7 @@ const Services = () => {
       title: "Online Sessions",
       description:
         "Convenient and secure virtual therapy sessions from the comfort of your home, maintaining the same quality care.",
-      onClick: () => handleClick("onlinecounseling"),
+      onClick: handleOnlineClick,
     },
   ];
 
@@ -62,26 +65,26 @@ const Services = () => {
     <div className="bg-[#FCF8F4]">
       {/* Hero Section */}
       <div
-             className="relative w-full h-[500px] overflow-hidden"
-             style={{
-               backgroundImage: `url(${frameImage})`,
-               backgroundSize: "cover",
-               backgroundPosition: "center",
-               backgroundRepeat: "no-repeat",
-             }}
-           >
-             <div className="absolute inset-0 opacity-50"></div>
-             <div className="relative z-10 w-full max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-12">
-               <div className="grid mt-12 grid-cols-1 items-center gap-1 min-h-[500px]">
-                 <div className="flex flex-row ml-4 sm:ml-8 items-center md:justify-start space-x-6 sm:space-x-8">
-                   <div className="h-40 sm:h-60 border-l-2 border-white"></div>
-                   <div className="flex flex-col text-center md:text-left">
-                     <motion.h2
-                       initial={{ opacity: 0, y: -20 }}
-                       animate={{ opacity: 1, y: 0 }}
-                       transition={{ duration: 0.6, type: "spring" }}
-                       className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
-                     >
+        className="relative w-full h-[500px] overflow-hidden"
+        style={{
+          backgroundImage: `url(${frameImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 opacity-50"></div>
+        <div className="relative z-10 w-full max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid mt-12 grid-cols-1 items-center gap-1 min-h-[500px]">
+            <div className="flex flex-row ml-4 sm:ml-8 items-center md:justify-start space-x-6 sm:space-x-8">
+              <div className="h-40 sm:h-60 border-l-2 border-white"></div>
+              <div className="flex flex-col text-center md:text-left">
+                <motion.h2
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, type: "spring" }}
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+                >
                   Services
                 </motion.h2>
                 <motion.p
@@ -112,7 +115,8 @@ const Services = () => {
               key={index}
               className={`flex flex-col md:flex-row items-center py-10 px-4 sm:px-8 md:px-12 lg:px-20 
                 ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}
-                bg-gray-100 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer`}
+                bg-gray-100 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 
+                ${item.onClick ? "cursor-pointer" : "cursor-default"}`}
               onClick={item.onClick}
             >
               {/* Image Section */}
@@ -128,13 +132,19 @@ const Services = () => {
                 <p className="text-md sm:text-lg text-gray-600 mt-4 leading-relaxed font-poppins">
                   {item.description}
                 </p>
+                <button
+                  onClick={handleButtonClick}
+                  className="mt-6 px-4 py-2 bg-[#007D6E] text-white rounded-lg hover:bg-[#005f5b] transition duration-300"
+                >
+                  Book Now
+                </button>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Ready CTA Section */}
+      {/* CTA Section */}
       <Ready />
     </div>
   );

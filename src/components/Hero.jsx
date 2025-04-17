@@ -2,6 +2,7 @@ import React from "react";
 import Call from "../img/Call";
 import Massage from "../img/Massage";
 import Heroimg from "../img/Heroimg";
+import FrameImage6 from "../img/FrameImage6"; 
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
@@ -15,7 +16,7 @@ const Hero = () => {
     <div className="bg-[#FCF8F4] pt-10 px-4 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 ">
       {/* Left Side - Content */}
       <div className="flex flex-col justify-center text-center lg:text-left">
-        <h1 className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] xl:text-[68px] font-bold text-gray-900 font-manrope leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl pb-5 lg:text-5xl font-bold bg-gradient-to-r from-[#E8774D] to-[#ffac5f] text-transparent bg-clip-text tracking-tight drop-shadow-lg ">
           Your Journey to Emotional Well-Being
         </h1>
         <p className="text-base sm:text-lg md:text-xl py-4 sm:py-5 text-gray-700 leading-relaxed font-poppins">
@@ -48,7 +49,8 @@ const Hero = () => {
 
       {/* Right Side - Image */}
       <div className="flex justify-center items-center w-full">
-        <Heroimg className="w-full max-w-[450px] sm:max-w-[500px] md:max-w-[550px] lg:max-w-[600px] h-auto object-cover" />
+        {/* <Heroimg className="w-full max-w-[450px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[600px] h-auto object-cover" /> */}
+        <FrameImage6 className="w-full h-auto" />
       </div>
     </div>
   );

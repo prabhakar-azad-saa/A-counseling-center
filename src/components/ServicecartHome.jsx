@@ -51,6 +51,10 @@ const ServiceCartHome = () => {
   const navigate = useNavigate();
 
   const handleCardClick = () => navigate("/services");
+  const handleButtonClick = (e) => {
+    e.stopPropagation(); // prevent card click
+    navigate("/booksession");
+  };
 
   return (
     <div className="py-20 px-6 bg-gradient-to-b from-white via-gray-50 to-gray-100">
@@ -112,6 +116,14 @@ const ServiceCartHome = () => {
               {item.title}
             </h3>
             <p className="text-sm text-gray-600 text-center">{item.description}</p>
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={handleButtonClick}
+                className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition duration-300 text-sm"
+              >
+                Book Now
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>

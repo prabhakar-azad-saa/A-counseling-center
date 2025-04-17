@@ -12,6 +12,7 @@ import safe from "../img/safe.png";
 import ServicecartHome from "./ServicecartHome";
 import { useNavigate } from "react-router-dom";
 import TestimonialSection from "./TestimonialSection";
+import Hero from "./Hero";
 
 function Home() {
 
@@ -53,8 +54,9 @@ const sectionData = {
   return (
     <>
       <div style={{ marginTop: "150px" }}>
-        <Animation />
+        {/* <Animation /> */}
       </div>
+      <Hero />
 
       <div  
   style={{ background: "linear-gradient(90deg, #007D6E, #5EB47C)" }}

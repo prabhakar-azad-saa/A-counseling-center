@@ -15,12 +15,14 @@ import Editlogo from "../img/Editlogo";
 import Schedule from "../img/Schedule";
 import Button from "../components/Button";
 import Userchat from "../img/Userchat";
+
 import {
   upcomingAppointment,
   getUserDetail,
   sessionHistory,
 } from "../action/Auth";
 import FeedbackForm from "./FeedbackForm ";
+import ZoomMeeting from "./ZoomMeeting ";
 
 const UserProfile = () => {
   const navigate = useNavigate();
@@ -236,7 +238,7 @@ const UserProfile = () => {
             <h1 className="text-2xl font-semibold mb-4">
               Upcoming Appointment
             </h1>
-
+         
             {upcommingAppointment?.length > 0 ? (
               upcommingAppointment?.map((item, index) => (
                 <div key={index} className="mb-4 flex items-start gap-4">
@@ -263,6 +265,7 @@ const UserProfile = () => {
               </button>
             </div>
           </div>
+          <ZoomMeeting/>
         </div>
 
         {/* Right Side - Session History */}
@@ -293,6 +296,7 @@ const UserProfile = () => {
               )}
             </div>
           </div>
+        
           <FeedbackForm/>
         </div>
        

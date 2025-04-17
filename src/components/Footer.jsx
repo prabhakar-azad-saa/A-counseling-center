@@ -1,115 +1,102 @@
 import React from "react";
 import Calls from "../img/Calls";
-
 import Massages from "../img/Massages";
 import footerSocial from "../img/footerSocial.png";
-
 import Locationfooter from "../img/Locationfooter";
 import Logolotas from "../img/Logolotas";
+import { Link } from "react-router-dom";
+
+const services = [
+  "Individual Therapy",
+  "Relationship Therapy",
+  "Family Counseling",
+  "Specialized Therapy",
+  "Career Coaching",
+  "Online Sessions",
+];
 
 const Footer = () => {
   return (
-    <div>
-      <div className="footer bg-gradient-to-r from-[#007D6E] to-[#5EB47C] px-3 py-12 ">
-        <div className="mx-auto w-full  max-w-[2300px]  m-0 p-0">
-          <div className="flex flex-wrap justify-between px-10 sm:px-20">
-            {/* Footer Section 1 */}
-            <div className="footer-section flex flex-col  text-white ">
-              <div className="footer-image flex items-center">
+    <footer className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C] py-12 text-white">
+      <div className="container mx-auto px-4 max-w-screen-2xl">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-10 text-center lg:text-left">
+          {/* Logo & Description */}
+          <div className="max-w-sm">
+            <div className="flex flex-col items-center lg:items-start">
+              <div className="flex items-center space-x-3 mb-2">
                 <Logolotas />
-
-                <div className="w-full">
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
-                    A<sup>+</sup> Counseling  <br/>& Consultancy Services
-                  </h1>
-                </div>
+                <h1 className="text-2xl sm:text-3xl font-bold">
+                  A<sup>+</sup> Counseling & Consultancy Services
+                </h1>
               </div>
-              <p className="pt-2 text-sm  md:ml-[75px] sm:ml-2 sm:text-base md:text-lg">
-                Professional mental health <br/> consultation and support services.
+              <p className="text-sm sm:text-base mt-2">
+                Professional mental health consultation <br /> and support services.
               </p>
             </div>
+          </div>
 
-            {/* Footer Section 2 (Services) */}
-            <div className="footer-section text-white">
-              <ul>
-                <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-                  Services
+          {/* Services */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Services</h2>
+            <ul>
+              {services.map((service, index) => (
+                <li key={index} className="text-sm sm:text-base pb-2">
+                   <Link
+          to={`/services?name=${encodeURIComponent(service)}`}
+          className="hover:underline hover:text-gray-200 transition duration-200"
+        >
+          {service}
+        </Link>
+                  
                 </li>
-                <li className="text-sm sm:text-base md:text-lg pb-2">
-                  Psychotherapy
-                </li>
-                <li className="text-sm sm:text-base md:text-lg pb-2">
-                  Mental Counseling
-                </li>
-                <li className="text-sm sm:text-base md:text-lg pb-2">
-                  Support Groups
-                </li>
-                <li className="text-sm sm:text-base md:text-lg pb-2">
-                  Case Management
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
+          </div>
 
-            {/* Footer Section 3 (Contact) */}
-            <div className="footer-section text-white">
-              <ul>
-                <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-                  Contact
-                </li>
-                <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                  <Calls className="mr-2 w-6 h-6" />
-                 
-                  <p className="pb-2">+91 9685714245</p>
-                </li>
-                <li className="flex text-sm sm:text-base md:text-lg items-center mb-2">
-                  <Massages className="mr-2 w-6 h-6" />
-                  <p className="pb-2">info@apluscounselling.com</p>
-                </li>
-                <li className="flex text-sm sm:text-base md:text-lg items-center">
-                 
-                  <Locationfooter className="mr-2 w-6 h-6" />
-                  <p className="pb-2"> Head office: D67, BDA Colony, Kohefiza,Bhopal</p>
-                </li>
-              </ul>
-            </div>
+          {/* Contact */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Contact</h2>
+            <ul className="space-y-2">
+              <li className="flex justify-center lg:justify-start items-center gap-2 text-sm sm:text-base">
+                <Calls className="w-5 h-5" />
+                +91 9685714245
+              </li>
+              <li className="flex justify-center lg:justify-start items-center gap-2 text-sm sm:text-base">
+                <Massages className="w-5 h-5" />
+                info@apluscounselling.com
+              </li>
+              <li className="flex justify-center lg:justify-start items-start gap-2 text-sm sm:text-base">
+                <Locationfooter className="w-5 h-5 mt-1" />
+                Head office: D67, BDA Colony, <br />
+                Kohefiza, Bhopal
+              </li>
+            </ul>
+          </div>
 
-            {/* Footer Section 4 (Links) */}
-            <div className="footer-section text-white">
-              <ul>
-                <li className="footer-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-                  Links
-                </li>
-                <li className="text-sm sm:text-base md:text-lg pb-2">
-                  Privacy Policy
-                </li>
-                <li className="text-sm sm:text-base md:text-lg pb-2">
-                  Terms of Use
-                </li>
-              </ul>
-            </div>
-
-           
+          {/* Links */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Links</h2>
+            <ul className="space-y-2">
+              <li className="text-sm sm:text-base">Privacy Policy</li>
+              <li className="text-sm sm:text-base">Terms of Use</li>
+            </ul>
           </div>
         </div>
 
-        {/* Footer Divider Line */}
-        <div className="border-t-2 border-white w-full mt-10 sm:mt-20"></div>
+        {/* Divider */}
+        <div className="border-t border-white my-8"></div>
 
-        {/* Social Media & Copyright Section */}
-        <div className="text-center text-white mt-10 sm:mt-20 text-sm">
-          {/* Social Media Icons */}
-          <div className="flex justify-center space-x-6 mb-4">
-            <img src={footerSocial} alt="Social Media Icon" />
+        {/* Social & Copyright */}
+        <div className="text-center">
+          <div className="flex justify-center mb-4">
+            <img src={footerSocial} alt="Socials" className="h-8 w-auto" />
           </div>
-
-          {/* Copyright Text */}
-          <p className="text-[12px] sm:text-sm md:text-base font-poppins">
-            Copyright &copy; {new Date().getFullYear()} A<sup>+</sup> Counseling
-            & Consultancy Services All Rights Reserved.
+          <p className="text-xs sm:text-sm md:text-base">
+            &copy; {new Date().getFullYear()} A<sup>+</sup> Counseling & Consultancy Services. All Rights Reserved.
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
