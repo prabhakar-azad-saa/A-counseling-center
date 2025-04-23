@@ -297,9 +297,8 @@ const features = [
       'Brain-Gut Connection',
     ],
     image:
-    "https://readdy.ai/api/search-image?query=Advanced%203D%20visualization%20of%20brain%20during%20meditation%20showing%20alpha%20wave%20patterns%20and%20mindfulness%20states%2C%20professional%20neuroscience%20illustration%20with%20calming%20blue%20tones%2C%20cutting%20edge%20medical%20imaging%20on%20pure%20white%20background&width=400&height=300&seq=67893&orientation=landscape",
+      'https://readdy.ai/api/search-image?query=Advanced%203D%20visualization%20of%20brain%20during%20meditation%20showing%20alpha%20wave%20patterns%20and%20mindfulness%20states%2C%20professional%20neuroscience%20illustration%20with%20calming%20blue%20tones%2C%20cutting%20edge%20medical%20imaging%20on%20pure%20white%20background&width=400&height=300&seq=67893&orientation=landscape',
     color: 'from-blue-400 to-blue-600',
-    className:"w-full h-48 object-cover rounded-lg"
   },
   {
     icon: 'fas fa-microscope',
@@ -311,9 +310,8 @@ const features = [
       'Brain-Based Therapies',
     ],
     image:
-    "https://readdy.ai/api/search-image?query=High%20resolution%20medical%20scan%20of%20brain%20activity%20showing%20detailed%20EEG%20wave%20patterns%20and%20neurological%20readings%2C%20professional%20healthcare%20visualization%20with%20advanced%20diagnostic%20imaging%2C%20modern%20scientific%20aesthetic%20on%20pristine%20white%20background&width=400&height=300&seq=67892&orientation=landscape",
+      'https://readdy.ai/api/search-image?query=High%20resolution%20medical%20scan%20of%20brain%20activity%20showing%20detailed%20EEG%20wave%20patterns%20and%20neurological%20readings%2C%20professional%20healthcare%20visualization%20with%20advanced%20diagnostic%20imaging%2C%20modern%20scientific%20aesthetic%20on%20pristine%20white%20background&width=400&height=300&seq=67892&orientation=landscape',
     color: 'from-purple-400 to-purple-600',
-    className:"w-full h-48 object-cover rounded-lg "
   },
   {
     icon: 'fas fa-dna',
@@ -325,9 +323,8 @@ const features = [
       'Mental Fitness Programs',
     ],
     image:
-   " https://readdy.ai/api/search-image?query=Professional%203D%20rendering%20of%20human%20brain%20neural%20networks%20with%20detailed%20synaptic%20connections%2C%20blue%20and%20white%20color%20scheme%2C%20clean%20medical%20visualization%20style%20with%20anatomically%20accurate%20structures%20on%20pure%20white%20background%2C%20high%20end%20scientific%20illustration&width=400&height=300&seq=67891&orientation=landscape",
+      'https://readdy.ai/api/search-image?query=Professional%203D%20rendering%20of%20human%20brain%20neural%20networks%20with%20detailed%20synaptic%20connections%2C%20blue%20and%20white%20color%20scheme%2C%20clean%20medical%20visualization%20style%20with%20anatomically%20accurate%20structures%20on%20pure%20white%20background%2C%20high%20end%20scientific%20illustration&width=400&height=300&seq=67891&orientation=landscape',
     color: 'from-green-400 to-green-600',
-  className:"w-full h-56 object-cover rounded-lg"
   },
 ];
 
@@ -346,13 +343,13 @@ const cardVariants = {
 
 const Features = () => {
   return (
-    <div className="bg-[#FCF8F4] py-24 px-6 md:px-12 lg:px-24 ">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+    <div className="bg-[#FCF8F4] py-20 px-4 sm:px-6 md:px-12 lg:px-24">
+      <div className="text-center max-w-3xl mx-auto mb-16 px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl md:text-5xl font-bold text-gray-800"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800"
         >
           Neuro-Inspired Wellness
         </motion.h2>
@@ -360,13 +357,13 @@ const Features = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-gray-600 mt-4 text-lg"
+          className="text-gray-600 mt-4 text-base sm:text-lg"
         >
           Unlock the power of the brain and mind—backed by science, designed for serenity.
         </motion.p>
       </div>
 
-      <div className="grid gap-12 md:grid-cols-3">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {features.map((item, i) => (
           <motion.div
             key={i}
@@ -375,15 +372,25 @@ const Features = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={cardVariants}
-            className={`rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden transform hover:-translate-y-2 ${item.bg}`}
+            className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 flex flex-col"
           >
-            <img src={item.image} alt={item.title} className="w-full h-44 object-cover rounded-t-3xl " />
-            <div className="p-6">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-48 sm:h-56 md:h-48 lg:h-56 object-cover rounded-t-3xl"
+            />
+            <div className="p-6 flex flex-col justify-between flex-grow">
               <div className="text-3xl text-blue-700 mb-4">
                 <i className={item.icon}></i>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.points}</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                {item.title}
+              </h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-1 text-sm">
+                {item.points.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         ))}

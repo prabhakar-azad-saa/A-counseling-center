@@ -108,92 +108,97 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative h-screen">
-        <img
-          src={homepic}
-          alt="Mental wellness background"
-          className="absolute inset-0 w-full h-full object-cover object-top z-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/80 via-teal-800/70 to-transparent z-10"></div>
-
-        <div className="relative z-20 container mx-auto px-6 h-full flex items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-white"
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Start Your Healing Journey Today
-              </h1>
-              <p className="text-lg sm:text-xl mb-8 max-w-xl">
-                We're here to guide you toward better mental health. Connect with certified counselors and begin your path to emotional well-being.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button
-                  onClick={() => navigate("/booksession")}
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-button transition duration-300 transform hover:scale-105"
-                >
-                  Book Consultation
-                </button>
-                <button
-                  onClick={() => navigate("/services")}
-                  className="bg-white/10 border border-white text-white font-semibold py-3 px-8 rounded-button hover:bg-white/20 transition duration-300"
-                >
-                  Learn More
-                </button>
+    <div className="relative min-h-screen">
+      <img
+        src={homepic}
+        alt="Mental wellness background"
+        className="absolute inset-0 w-full h-full object-cover object-top z-0"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-teal-800/70 to-transparent z-10"></div>
+  
+      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-10 flex items-center min-h-screen">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full">
+          {/* Left content */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white"
+          >
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-6">
+              Start Your Healing Journey Today
+            </h1>
+            <p className="text-base sm:text-lg lg:text-xl mb-8 max-w-xl">
+              We're here to guide you toward better mental health. Connect with certified counselors and begin your path to emotional well-being.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button
+                onClick={() => navigate("/booksession")}
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105"
+              >
+                Book Consultation
+              </button>
+              <button
+                onClick={() => navigate("/services")}
+                className="bg-white/10 border border-white text-white font-semibold py-3 px-6 rounded-full hover:bg-white/20 transition duration-300"
+              >
+                Learn More
+              </button>
+            </div>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-white">
+              <div className="flex items-center gap-3">
+                <FaCheckCircle className="text-orange-400" />
+                24/7 Support
               </div>
-              <div className="mt-10 grid grid-cols-2 gap-4 text-sm text-white">
-                <div className="flex items-center gap-3">
-                  <FaCheckCircle className="text-orange-400" />
-                  24/7 Support
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaUserShield className="text-orange-400" />
-                  100% Confidential
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaCertificate className="text-orange-400" />
-                  Certified Therapists
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaVideo className="text-orange-400" />
-                  Online Sessions
-                </div>
+              <div className="flex items-center gap-3">
+                <FaUserShield className="text-orange-400" />
+                100% Confidential
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="hidden md:block"
-            >
-              <div className="grid grid-cols-2 gap-6">
-                {features.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-white/90 p-6 rounded-2xl shadow-md hover:shadow-xl transition"
-                  >
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className={`w-12 h-12 ${item.color.split(" ")[0]} rounded-full flex items-center justify-center`}>
-                        {React.createElement(item.icon, { className: `${item.color.split(" ")[1]} text-xl` })}
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-800">
-                        {item.title}
-                      </h3>
+              <div className="flex items-center gap-3">
+                <FaCertificate className="text-orange-400" />
+                Certified Therapists
+              </div>
+              <div className="flex items-center gap-3">
+                <FaVideo className="text-orange-400" />
+                Online Sessions
+              </div>
+            </div>
+          </motion.div>
+  
+          {/* Right feature cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {features.map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-white/90 p-5 rounded-2xl shadow-md hover:shadow-xl transition"
+                >
+                  <div className="flex items-center gap-4 mb-3">
+                    <div
+                      className={`w-12 h-12 ${item.color.split(" ")[0]} rounded-full flex items-center justify-center`}
+                    >
+                      {React.createElement(item.icon, {
+                        className: `${item.color.split(" ")[1]} text-xl`
+                      })}
                     </div>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+                    <h3 className="text-md font-semibold text-gray-800">{item.title}</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
+  </div>
+  
   );
 };
 
