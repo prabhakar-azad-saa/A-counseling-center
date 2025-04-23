@@ -313,190 +313,207 @@
 // };
 
 
+// Auth.js
 import axios from "axios";
+import axiosInstance from "./axiosInstance";
 
 const API_BASE_URL = "https://api.apluscounselling.com:8443/api/Hospital";
 
-const axiosInstance = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
-// 🔐 Auto-login function
-const autoLogin = async () => {
-  const email = localStorage.getItem("loginEmail");
-  const password = localStorage.getItem("loginPassword");
-
-  if (!email || !password) return null;
-
-  try {
-    const response = await axios.get(
-      `${API_BASE_URL}/Login?Email=${email}&Password=${password}`
-    );
-    const newToken = response.data.token;
-    if (newToken) {
-      localStorage.setItem("token", newToken);
-      return newToken;
-    }
-  } catch (error) {
-    console.error("Auto-login failed:", error);
-    return null;
-  }
-};
-
-// 🛠 Request Interceptor
-axiosInstance.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
-
-// ⚠️ Response Interceptor for 401
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const originalRequest = error.config;
-
-    if (
-      error.response &&
-      error.response.status === 401 &&
-      !originalRequest._retry
-    ) {
-      originalRequest._retry = true;
-      const newToken = await autoLogin();
-
-      if (newToken) {
-        originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
-        return axiosInstance(originalRequest);
-      }
-    }
-
-    return Promise.reject(error);
-  }
-);
-
-// ✅ Save email & password on login
 export const login = async (email, password) => {
-  localStorage.setItem("loginEmail", email);
-  localStorage.setItem("loginPassword", password);
+  try {
+    const response = await axios.get(`${API_BASE_URL}/Login`, {
+      params: { Email: email, Password: password },
+    });
 
-  const response = await axiosInstance.get("/Login", {
-    params: { Email: email, Password: password },
-  });
+    const token = response.data.token;
 
-  if (response.data?.token) {
-    localStorage.setItem("token", response.data.token);
+    // Store credentials and token
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    localStorage.setItem("token", token);
+
+    return response.data;
+  } catch (error) {
+    console.error("API call failed:", error);
+    throw error;
   }
-
-  return response.data;
 };
 
+// All remaining APIs use axiosInstance (same as before)
 export const register = async (formData) => {
-  const response = await axiosInstance.post("/Register", formData);
-  return response.data;
+  try {
+    const response = await axiosInstance.post("/Register", formData);
+    return response.data;
+  } catch (error) {
+    console.error("Signup failed:", error);
+  }
 };
 
 export const submitContactForm = async (contactData) => {
-  const response = await axiosInstance.post("/Contact", contactData);
-  return response.data;
+  try {
+    const response = await axiosInstance.post("/Contact", contactData);
+    return response.data;
+  } catch (error) {
+    console.error("Error submitting contact form:", error.response?.data || error.message);
+    throw error;
+  }
 };
 
 export const selecetSlot = async (selectedDate, selectedTime) => {
-  const response = await axiosInstance.get(
-    `/GetSlot?Date=${selectedDate}&Time=${selectedTime}`
-  );
-  return response.data;
+  try {
+    const response = await axiosInstance.get(`/GetSlot?Date=${selectedDate}&Time=${selectedTime}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching slot:", error.response?.data || error.message);
+  }
 };
 
 export const sessionBook = async (sessionData) => {
-  const response = await axiosInstance.post("/BookSession", sessionData);
-  return response.data;
+  try {
+    const response = await axiosInstance.post("/BookSession", sessionData);
+    return response.data;
+  } catch (error) {
+    console.error("Error booking session:", error.response?.data || error.message);
+  }
 };
 
 export const patientTable = async () => {
-  return axiosInstance.get("/GetPatients");
+  try {
+    const response = await axiosInstance.get("/GetPatients");
+    return response;
+  } catch (error) {
+    console.error("Error getting patients:", error.response?.data || error.message);
+  }
 };
 
 export const bookingTable = async () => {
-  return axiosInstance.get("/GetBookSessions");
+  try {
+    const response = await axiosInstance.get("/GetBookSessions");
+    return response;
+  } catch (error) {
+    console.error("Error getting bookings:", error.response?.data || error.message);
+  }
 };
 
 export const userCantact = async () => {
-  return axiosInstance.get("/GetContacts");
+  try {
+    const response = await axiosInstance.get("/GetContacts");
+    return response;
+  } catch (error) {
+    console.error("Error getting contacts:", error.response?.data || error.message);
+  }
 };
 
 export const getImage = async () => {
-  const response = await axiosInstance.get("/GetImage");
-  return response.data;
+  try {
+    const response = await axiosInstance.get("/GetImage");
+    return response.data;
+  } catch (error) {
+    console.error("Error getting image:", error.response?.data || error.message);
+  }
 };
 
 export const upcomingAppointment = async (Id) => {
-  const response = await axiosInstance.get(`/UpcommingAppointments?userId=${Id}`);
-  return response.data;
+  try {
+    const response = await axiosInstance.get(`/UpcommingAppointments?userId=${Id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error getting upcoming appointments:", error.response?.data || error.message);
+  }
 };
 
 export const sessionHistory = async (Id) => {
-  return axiosInstance.get(`/SessionHistory?userId=${Id}`);
+  try {
+    const response = await axiosInstance.get(`/SessionHistory?userId=${Id}`);
+    return response;
+  } catch (error) {
+    console.error("Error getting session history:", error.response?.data || error.message);
+  }
 };
 
 export const insertBlog = async (blog) => {
-  const response = await axiosInstance.post("/InsertBlog", blog);
-  return response.data;
+  try {
+    const response = await axiosInstance.post("/InsertBlog", blog);
+    return response.data;
+  } catch (error) {
+    console.error("Error inserting blog:", error.response?.data || error.message);
+  }
 };
 
 export const uploadBlogImage = async (formData, blogId) => {
-  const response = await axiosInstance.post(
-    `/UploadBlogImage?blogId=${blogId}`,
-    formData,
-    {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }
-  );
-  return response.data;
+  try {
+    const response = await axiosInstance.post(`/UploadBlogImage?blogId=${blogId}`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error uploading blog image:", error.response?.data || error.message);
+  }
 };
 
 export const getBlogdetails = async () => {
-  const response = await axiosInstance.get("/GetBlogDetails");
-  return response.data;
+  try {
+    const response = await axiosInstance.get("/GetBlogDetails");
+    return response.data;
+  } catch (error) {
+    console.error("Error getting blog details:", error.response?.data || error.message);
+  }
 };
 
 export const getUserDetail = async (Id) => {
-  return axiosInstance.get(`/GetUserDetails?userId=${Id}`);
+  try {
+    const response = await axiosInstance.get(`/GetUserDetails?userId=${Id}`);
+    return response;
+  } catch (error) {
+    console.error("Error getting user details:", error.response?.data || error.message);
+  }
 };
 
 export const registerAdmin = async () => {
-  const response = await axiosInstance.post("/RegisterAdmin");
-  return response.data;
+  try {
+    const response = await axiosInstance.post("/RegisterAdmin", {});
+    return response.data;
+  } catch (error) {
+    console.error("Error registering admin:", error.response?.data || error.message);
+  }
 };
 
 export const changeAppointment = async (sessionId, status, fullName) => {
-  const response = await axiosInstance.put(
-    `/ChangeAppointmentStatus?sessionId=${sessionId}&status=${status}&userName=${fullName}`
-  );
-  return response.data;
+  try {
+    const response = await axiosInstance.put(
+      `/ChangeAppointmentStatus?sessionId=${sessionId}&status=${status}&userName=${fullName}`, {}
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error changing appointment status:", error.response?.data || error.message);
+    throw error;
+  }
 };
 
 export const getAllUpAppointments = async () => {
-  return axiosInstance.get("/GetAllUpAppointments");
+  try {
+    const response = await axiosInstance.get("/GetAllUpAppointments");
+    return response;
+  } catch (error) {
+    console.error("Error getting all upcoming appointments:", error.response?.data || error.message);
+  }
 };
 
 export const BlogReaction = async (blogId, status, userId) => {
-  const response = await axiosInstance.put(
-    `/setBlogReaction?Blogid=${blogId}&status=${status}&userid=${userId}`
-  );
-  return response.data;
+  try {
+    const response = await axiosInstance.put(`/setBlogReaction?Blogid=${blogId}&status=${status}&userid=${userId}`, {});
+    return response.data;
+  } catch (error) {
+    console.error("Error updating blog reaction:", error.response?.data || error.message);
+    throw error;
+  }
 };
 
 export const deleteBlog = async (blogId) => {
-  const response = await axiosInstance.delete(`/DeleteBlog?blogId=${blogId}`);
-  return response.data;
+  try {
+    const response = await axiosInstance.delete(`/DeleteBlog?blogId=${blogId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting blog:", error.response?.data || error.message);
+  }
 };

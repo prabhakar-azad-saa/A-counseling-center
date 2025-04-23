@@ -150,8 +150,8 @@ const ContactUs = () => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 justify-between max-w-[2300px] mx-auto px-8 bg-[#FCF8F4] ">
-        <div className="flex flex-col p-5 w-full lg:w-1/2">
+      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 justify-between max-w-[2200px] mx-auto px-8 bg-[#FCF8F4] ">
+        <div className="flex flex-col p-5 w-full max-w-xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold mb-4 font-monrope text-center sm:text-left">
             Contact Us Today For Personalized Support and Assistance
           </h1>

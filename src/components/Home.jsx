@@ -53,19 +53,19 @@ const sectionData = {
 
   return (
     <>
-      <div style={{ marginTop: "150px" }}>
+      <div className="mt-32 md:mt-20 ">
         {/* <Animation /> */}
       </div>
       <Hero />
 
-      <div  
+      {/* <div  
   style={{ background: "linear-gradient(90deg, #007D6E, #5EB47C)" }}
-  className="w-full h-[80px] sm:h-[100px] md:h-[110px] lg:h-[120px] px-4 sm:px-8 md:px-16 lg:px-32 flex items-center overflow-hidden"
+  className="w-full h-[80px] sm:h-[100px] md:h-[110px] lg:h-[120px] px-4 sm:px-8 md:px-16 lg:px-32  flex items-center overflow-hidden"
 >
   <div className="animate-marquee whitespace-nowrap text-white text-sm sm:text-base md:text-lg font-medium">
     Your mental well-being is important. Take time for yourself. Talk to someone. You are not alone. Let's prioritize emotional health every day. 🌿
   </div>
-</div>
+</div> */}
 
 
 <ServicecartHome/>

@@ -16,6 +16,8 @@ import Schedule from "../img/Schedule";
 import Button from "../components/Button";
 import Userchat from "../img/Userchat";
 
+import Loader from "./Loader";
+
 import {
   upcomingAppointment,
   getUserDetail,
@@ -44,6 +46,7 @@ const UserProfile = () => {
   const [address, setAddress] = useState("");
   const [showInput, setShowInput] = useState(false);
   const [savedAddress, setSavedAddress] = useState("Enter Address");
+  
 
   const handleSaveAddress = () => {
     setSavedAddress(address);
@@ -131,9 +134,10 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <Spin spinning={loading} size="large">
+   <>
+    <Loader isLoading={loading} />
       <div
-        className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8 py-4"
+        className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8 py-4  max-w-[2300px] mx-auto"
         style={{ backgroundColor: "#FCF8F4" }}
       >
         {/* Left Side - Profile and Appointment */}
@@ -265,7 +269,7 @@ const UserProfile = () => {
               </button>
             </div>
           </div>
-          <ZoomMeeting/>
+          {/* <ZoomMeeting/> */}
         </div>
 
         {/* Right Side - Session History */}
@@ -297,11 +301,12 @@ const UserProfile = () => {
             </div>
           </div>
         
-          <FeedbackForm/>
+          {/* <FeedbackForm/> */}
         </div>
        
       </div>
-    </Spin>
+   </>
+    
   );
 };
 

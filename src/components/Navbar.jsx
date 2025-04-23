@@ -286,14 +286,14 @@ const Navbar = ({ style, from }) => {
         <div className="hidden lg:flex text-lg space-x-5 font-poppins">
           <Link
             to="/"
-            className={selected === "/" ? "font-bold" : ""}
+            className={selected === "/" ? "font-bold font-poppins" : ""}
             onClick={() => setSelected("/")}
           >
             Home
           </Link>
           <Link
             to="/about"
-            className={selected === "/about" ? "font-bold" : ""}
+            className={selected === "/about" ? "font-bold font-poppins" : ""}
             onClick={() => setSelected("/about")}
           >
             About

@@ -118,16 +118,16 @@ const Blogdetail = () => {
       {/* Blog Content */}
       <div className="max-w-screen-xl mx-auto px-4 pt-40 sm:px-8">
         <div>
-          <img src={blog.imagePath} alt={blog.name} className="w-full h-80 object-cover rounded-lg"
+          <img src={blog?.imagePath} alt={blog?.name} className="w-full h-96 object-cover rounded-lg"
           />
           <div className="flex flex-col md:flex-row gap-8 mt-24">
             <div className="md:w-2/3">
               {/* <h1 className="text-3xl font-semibold text-black">How Mental Health Consultants Can Help...</h1> */}
               <p className="mt-4 text-black leading-relaxed font-semibold text-3xl font-poppins">
-                {blog.name}
+                {blog?.name}
               </p>
               <p className="mt-4 text-black leading-relaxed font-poppins text-justify">
-                {blog.description}
+                {blog?.description}
               </p>
               <div className="flex gap-4 mt-4">
               <button

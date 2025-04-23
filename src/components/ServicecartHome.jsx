@@ -14,50 +14,56 @@ const therapyData = [
     title: "Individual Therapy",
     description: "Anxiety, Depression, Trauma, and more...",
     color: "from-blue-500 to-blue-300",
+    slug: "individual",
   },
   {
     icon: <Relationship style={{ width: '60px', height: '60px' }} />,
     title: "Relationship Therapy",
     description: "Marriage counseling, communication issues...",
     color: "from-pink-500 to-pink-300",
+    slug: "relationship",
   },
   {
     icon: <Famil style={{ width: '60px', height: '60px' }} />,
     title: "Family Counseling",
     description: "Parenting, teen counseling, family conflicts...",
     color: "from-green-500 to-green-300",
+    slug: "family",
   },
   {
     icon: <Leaf style={{ width: '60px', height: '60px' }} />,
     title: "Specialized Therapy",
     description: "CBT, Mindfulness, ADHD support...",
     color: "from-purple-500 to-purple-300",
+    slug: "specialized",
   },
   {
     icon: <Carrier style={{ width: '60px', height: '60px' }} />,
     title: "Career Coaching",
     description: "Work-life balance, personal development...",
     color: "from-yellow-500 to-yellow-300",
+    slug: "career",
   },
   {
     icon: <Chat style={{ width: '60px', height: '60px' }} />,
     title: "Online Sessions",
     description: "Virtual therapy from your home...",
     color: "from-teal-500 to-teal-300",
+    slug: "online",
   },
 ];
 
 const ServiceCartHome = () => {
   const navigate = useNavigate();
 
-  const handleCardClick = () => navigate("/services");
-  const handleButtonClick = (e) => {
-    e.stopPropagation(); // prevent card click
+  const handleCardClick = (slug) => navigate("/services", { state: { slug } });
+  const handleButtonClick = (e, slug) => {
+    e.stopPropagation();
     navigate("/booksession");
   };
 
   return (
-    <div className="py-20 px-6 bg-gradient-to-b from-white via-gray-50 to-gray-100">
+    <div className="py-20 px-6 bg-[#FCF8F4]">
       <div className="text-center mb-16">
         <motion.h2
           className="text-4xl md:text-5xl font-bold"
@@ -88,24 +94,8 @@ const ServiceCartHome = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.6 }}
-            onClick={handleCardClick}
-            className={`
-              cursor-pointer
-              bg-white/30
-              backdrop-blur-md
-              border
-              border-gray-200
-              rounded-2xl
-              p-6
-              shadow-md
-              transition-transform
-              hover:shadow-xl
-              group
-              hover:border-transparent
-              hover:bg-gradient-to-br
-              hover:from-white
-              hover:to-gray-50
-            `}
+            onClick={() => handleCardClick(item.slug)}
+            className={`cursor-pointer bg-white/30 backdrop-blur-md border border-gray-200 rounded-2xl p-6 shadow-md transition-transform hover:shadow-xl group hover:border-transparent hover:bg-gradient-to-br hover:from-white hover:to-gray-50`}
           >
             <div
               className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-gradient-to-tr ${item.color} text-white shadow-lg`}
@@ -118,7 +108,7 @@ const ServiceCartHome = () => {
             <p className="text-sm text-gray-600 text-center">{item.description}</p>
             <div className="flex justify-center mt-4">
               <button
-                onClick={handleButtonClick}
+                onClick={(e) => handleButtonClick(e, item.slug)}
                 className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition duration-300 text-sm"
               >
                 Book Now
@@ -135,7 +125,7 @@ const ServiceCartHome = () => {
         transition={{ duration: 0.8, delay: 0.6 }}
       >
         <button
-          onClick={handleCardClick}
+          onClick={() => navigate("/services")}
           className="bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-1"
         >
           Explore All Services

@@ -185,6 +185,7 @@ function App() {
 
             
           />
+           <Route path="/services/:slug" element={<Services />} />
             <Route
             path="/servicecartHome"
             element={
@@ -207,6 +208,7 @@ function App() {
             
           />  */}
         </Routes>
+       
       </div>
 
       {/* Footer will be shown on every route */}

@@ -12,7 +12,7 @@ const ZoomMeeting = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto my-10">
-      <h2 className="text-2xl font-bold mb-4 text-center text-[#007D6E]">
+      <h2 className="text-2xl font-bold mb-4  text-[#007D6E]">
         Create a Zoom Meeting
       </h2>
       <button
@@ -23,7 +23,7 @@ const ZoomMeeting = () => {
       </button>
 
       {zoomLink && (
-        <div className="mt-6 text-center">
+        <div className="mt-6 ">
           <p className="text-gray-700 mb-2">Your Zoom Meeting Link:</p>
           <a
             href={zoomLink}
