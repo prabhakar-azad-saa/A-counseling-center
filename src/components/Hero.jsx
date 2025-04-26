@@ -146,10 +146,10 @@ const Hero = () => {
               </button>
             </div>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-white">
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <FaCheckCircle className="text-orange-400" />
                 24/7 Support
-              </div>
+              </div> */}
               <div className="flex items-center gap-3">
                 <FaUserShield className="text-orange-400" />
                 100% Confidential

@@ -5,7 +5,8 @@ import frameImage from "../img/svgvieweroutput.png";
 import Holistic from "../img/Holistic.png";
 import Experties from "../img/Experties.png";
 import Accessibility from "../img/Accessibility.png";
-import Discover2 from "../img/Discover2.png";
+// import Discover2 from "../img/Discover2.png";
+import authenticgrouptherapymeeting from "../img/authenticgrouptherapymeeting.png";
 import aboutSelf from "../img/aboutSelf.png";
 import aboutSucces2 from "../img/aboutSucces2.png";
 import arrowAbout from "../img/arrowAbout.png";
@@ -45,7 +46,7 @@ const About = () => {
   return (
     <div>
       <div className="">
-        <div
+        {/* <div
           className="relative w-full h-[500px] overflow-hidden"
           style={{
             backgroundImage: `url(${frameImage})`,
@@ -82,12 +83,42 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+
+
+        <div className="flex flex-col items-center justify-center pt-14 px-4">
+              <motion.h1
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+              >
+                 About Us
+              </motion.h1>
+        
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+              >
+                 Providing professional mental health support and counseling
+                 services to help you live a balanced, fulfilling life
+              </motion.p>
+        
+              {/* Optional: Add a subtle glowing underline animation */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+              />
+            </div>
         {/* About Us Section */}
-        <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-12 py-10 space-y-8 xl:space-y-0 xl:space-x-12">
+        <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-12  py-14 space-y-8 xl:space-y-0 xl:space-x-12">
   {/* Image Section */}
   <img
-    src={Discover2}
+    src={authenticgrouptherapymeeting}
     alt="About Us"
     className="w-full xl:w-1/2 object-cover rounded-lg max-h-[500px] sm:max-h-none"
   />

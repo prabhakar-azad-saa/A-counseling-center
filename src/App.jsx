@@ -165,7 +165,7 @@ function App() {
           <Route
             path="/userprofile"
             element={
-              <div style={{}} className="mt-24 md:mt-1">
+              <div>
                 <Navbar style={{ backgroundColor: Colors.gradient }} />
                 <UserProfile />
               </div>

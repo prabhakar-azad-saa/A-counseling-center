@@ -76,9 +76,9 @@ const Onlinecounseling = () => {
   };
 
   return (
-    <div className=" ">
+    <div className="mx-auto">
       {/* Navigation Section */}
-      <div
+      {/* <div
         className="relative w-full h-[500px] overflow-hidden"
         style={{
           backgroundImage: `url(${frameImage2})`,
@@ -115,90 +115,107 @@ const Onlinecounseling = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+         <div className="flex flex-col items-center justify-center pt-14 px-4">
+                    <motion.h1
+                      initial={{ opacity: 0, y: -50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                    >
+                      Online Counseling Support Anytime, Anywhere 
+                    </motion.h1>
+              
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 1, delay: 0.5 }}
+                      className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+                    >
+                      Professional therapy at your convenience. Connect with
+                      licensed therapists from the comfort of your home.
+                    </motion.p>
+              
+                    {/* Optional: Add a subtle glowing underline animation */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 1, delay: 0.8 }}
+                      className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+                    />
+                  </div>
 
       {/* Features Section */}
-      <Features heading={sectionData.title} features={sectionData.features} />
+      {/* <Features heading={sectionData.title} features={sectionData.features} /> */}
+      <Features/>   
 
-      <div >
+      <div className="w-full">
+  <div
+    className="relative w-full bg-cover bg-center flex flex-col lg:flex-row"
+    style={{ backgroundImage: `url(${frameImage})` }}
+  >
+    <div className="max-w-[2000px] mx-auto w-full flex flex-col lg:flex-row">
+      
+      {/* Image Section */}
+      <div className="relative w-full lg:w-1/2 flex justify-center items-center px-4 pt-10 lg:pt-0">
         <div
-          className="relative w-full bg-cover flex flex-col  md:flex-col lg:flex-row "
-          style={{ backgroundImage: `url(${frameImage})` }}
+          className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[500px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px]"
+          style={{ top: "-90px" }}
         >
-      <div className="  max-w-[2300px] mx-auto">
-            {/* Image Section */}
-            <div
-            style={{ top: "-90px" }}
-            className="static md:static lg:absolute top-0 w-full md:w-full lg:w-[500px] h-[300px] md:h-[550px] lg:h-[800px] ml-0 md:ml-0 lg:ml-10 mb-10 md:mb-10 lg:mb-20"
-          >
-            <img
-              src={special}
-              alt="Specialty Image"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Content Section */}
-          <div className="flex justify-end w-full">
-            <div className="text-white flex flex-col items-center md:items-center lg:items-start sm:w-3/4 p-6 md:p-6 lg:ml-48">
-              {/* Specialties List */}
-              <div className="flex flex-col md:flex-col lg:flex-col ml-0 md:ml-0 lg:ml-80 justify-between  w-full mb-8">
-                <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-center md:text-center lg:text-left">
-                  Our Specialties
-                </h1>
-                {/* Anxiety & Stress Management Section */}
-                <div className="w-full md:w-full lg:w-1/3 flex flex-col items-center md:items-center lg:items-start mb-8 md:mb-8 lg:mb-0 p-3 rounded-xl pt-9 justify-center md:justify-center lg:justify-start">
-                  <div className="static md:static lg:relative">
-                    <Anxiety className="w-[64px] h-[64px] sm:w-[84px] sm:h-[84px] mb-4 md:mb-4 lg:mb-0 sm:mr-4" />
-                  </div>
-                  <div className="flex flex-col justify-center text-center md:text-center lg:text-left">
-                    <h2 className="text-xl font-semibold mb-3">
-                      Anxiety & Stress Management
-                    </h2>
-                    <p className="text-sm font-poppins">
-                      Learn effective techniques to manage anxiety and reduce
-                      stress.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Depression Support Section */}
-                <div className="w-full md:w-full lg:w-1/3 flex flex-col items-center md:items-center lg:items-start mb-8 md:mb-8 lg:mb-0 p-3 rounded-xl pt-10 justify-center md:justify-center lg:justify-start">
-                  <div className="static md:static lg:relative">
-                    <Depression className="w-[64px] h-[64px] sm:w-[84px] sm:h-[84px] mb-4 md:mb-4 lg:mb-0 sm:mr-4" />
-                  </div>
-                  <div className="flex flex-col justify-center text-center md:text-center lg:text-left">
-                    <h2 className="text-xl font-semibold mb-3">
-                      Depression Support
-                    </h2>
-                    <p className="text-sm font-poppins">
-                      Get help with managing depression and improving emotional
-                      well-being.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Relationship Therapy Section */}
-                <div className="w-full md:w-full lg:w-1/3 flex flex-col items-center md:items-center lg:items-start mb-8 md:mb-8 lg:mb-0 p-3 rounded-xl pt-10 justify-center md:justify-center lg:justify-start">
-                  <div className="static md:static lg:relative">
-                    <Family className="w-[64px] h-[64px] sm:w-[84px] sm:h-[84px] mb-4 md:mb-4 lg:mb-0 sm:mr-4" />
-                  </div>
-                  <div className="flex flex-col justify-center text-center md:text-center lg:text-left">
-                    <h2 className="text-xl font-semibold mb-3">
-                      Relationship Therapy
-                    </h2>
-                    <p className="text-sm font-poppins">
-                      Strengthen relationships and improve communication with
-                      loved ones.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
+          <img
+            src={special}
+            alt="Specialty Image"
+            className="w-full h-full object-cover rounded-xl shadow-lg"
+          />
         </div>
       </div>
+
+      {/* Content Section */}
+      <div className="flex flex-col justify-center w-full lg:w-1/2 text-white p-6 md:p-10 lg:p-16">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-8">
+            Our Specialties
+          </h1>
+
+          {/* Specialties Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8 w-full">
+            
+            {/* Anxiety & Stress Management */}
+            <div className="flex flex-col items-center lg:items-start bg-white/10 backdrop-blur-md p-6 rounded-xl hover:scale-105 transition-transform duration-300">
+              <Anxiety className="w-[64px] h-[64px] sm:w-[84px] sm:h-[84px] mb-4" />
+              <h2 className="text-xl font-semibold mb-3">Anxiety & Stress Management</h2>
+              <p className="text-sm font-poppins">
+                Learn effective techniques to manage anxiety and reduce stress.
+              </p>
+            </div>
+
+            {/* Depression Support */}
+            <div className="flex flex-col items-center lg:items-start bg-white/10 backdrop-blur-md p-6 rounded-xl hover:scale-105 transition-transform duration-300">
+              <Depression className="w-[64px] h-[64px] sm:w-[84px] sm:h-[84px] mb-4" />
+              <h2 className="text-xl font-semibold mb-3">Depression Support</h2>
+              <p className="text-sm font-poppins">
+                Get help with managing depression and improving emotional well-being.
+              </p>
+            </div>
+
+            {/* Relationship Therapy */}
+            <div className="flex flex-col items-center lg:items-start bg-white/10 backdrop-blur-md p-6 rounded-xl hover:scale-105 transition-transform duration-300">
+              <Family className="w-[64px] h-[64px] sm:w-[84px] sm:h-[84px] mb-4" />
+              <h2 className="text-xl font-semibold mb-3">Relationship Therapy</h2>
+              <p className="text-sm font-poppins">
+                Strengthen relationships and improve communication with loved ones.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
       {/* Services Section */}
       <div className="mb-10 text-center py-12 sm:py-16 px-4 ">

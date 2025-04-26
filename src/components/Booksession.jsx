@@ -197,7 +197,7 @@ function Booksession() {
 
   return (
     <div className="">
-      <div
+      {/* <div
         className="relative w-full h-[500px] overflow-hidden"
         style={{
           backgroundImage: `url(${frameImage})`,
@@ -234,7 +234,36 @@ function Booksession() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+       <div className="flex flex-col items-center justify-center pt-14 px-4">
+                            <motion.h1
+                              initial={{ opacity: 0, y: -50 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.8, ease: "easeOut" }}
+                              className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                            >
+                              Book Session
+                            </motion.h1>
+                      
+                            <motion.p
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 1, delay: 0.5 }}
+                              className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+                            >
+                              Your trusted partner in mental wellness. Book your path to
+                              better emotional health and personal growth
+                            </motion.p>
+                      
+                            {/* Optional: Add a subtle glowing underline animation */}
+                            <motion.div
+                              initial={{ scaleX: 0 }}
+                              animate={{ scaleX: 1 }}
+                              transition={{ duration: 1, delay: 0.8 }}
+                              className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+                            />
+                          </div>
 
       <div className="bg-[#FCF8F4] pt-6">
         <div className="flex flex-col md:flex-col lg:flex-row justify-center md:space-x-12 px-6 sm:px-12 lg:px-32 mt-20">
@@ -250,7 +279,7 @@ function Booksession() {
           </div>
 
           {/* Right Column: Form */}
-          <div className="w-full md:max-w-4xl p-6 rounded-xl">
+          <div className="w-full md:max-w-4xl px-6 pb-5 rounded-xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Full Name */}

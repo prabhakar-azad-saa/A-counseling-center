@@ -110,7 +110,7 @@ const ContactUs = () => {
   };
   return (
     <div className="bg-[#FCF8F4]   mx-auto">
-      <div
+      {/* <div
         className="relative w-full h-[500px] overflow-hidden"
         style={{
           backgroundImage: `url(${frameImage})`,
@@ -148,10 +148,39 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 py-32 justify-between max-w-[2200px] mx-auto px-8 bg-[#FCF8F4] ">
-        <div className="flex flex-col p-5 w-full max-w-xl">
+         <div className="flex flex-col items-center justify-center pt-14 px-4">
+                    <motion.h1
+                      initial={{ opacity: 0, y: -50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                    >
+                      Contact Us
+                    </motion.h1>
+              
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 1, delay: 0.5 }}
+                      className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+                    >
+                      We're here to support you on your journey to better mental
+                      health. Our experienced counselors are ready to help you.
+                    </motion.p>
+              
+                    {/* Optional: Add a subtle glowing underline animation */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 1, delay: 0.8 }}
+                      className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+                    />
+                  </div>
+
+      <div className="flex flex-col sm:flex-col lg:flex-row gap-12 pt-14 pb-5 justify-between max-w-[1700px] mx-auto px-8 bg-[#FCF8F4] ">
+        <div className="flex flex-col p-5 w-full max-w-2xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold mb-4 font-monrope text-center sm:text-left">
             Contact Us Today For Personalized Support and Assistance
           </h1>

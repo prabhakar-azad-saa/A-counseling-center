@@ -293,7 +293,7 @@ const DashboardUi = () => {
       {/* <Spin spinning={loading} size="large" className="" /> */}
       <Loader isLoading={loading} />
       <div className="p-2 bg-gray-100 min-h-screen flex flex-col gap-6">
-        <h2 className="text-3xl font-bold text-center">Dashboard</h2>
+        <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">Dashboard</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {cardData.map((card, index) => (

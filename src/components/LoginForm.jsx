@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { login } from "../action/Auth";
 import loginimg from "../img/loginimg.png";
 import { useLocation, useNavigate } from "react-router-dom";
+import Forgotpassword from "./Forgetpassword";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -164,6 +165,7 @@ const LoginForm = () => {
             >
               {loading ? "Logging In..." : "Log In"}
             </button>
+            <Forgotpassword />
 
             <div className="mt-6">
               <hr className="border-t-2 border-gray-300" />

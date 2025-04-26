@@ -104,19 +104,19 @@ const achievements = [
     title: "Certified Mental Health Specialist",
     icon: <FaUserShield size={36} />,
   },
-  {
-    title: "Affiliated with National Psychology Council",
-    icon: <FaHandshake size={36} />,
-  },
-  {
-    title: "Best Counseling Service 2024",
-    icon: <FaAward size={36} />,
-  },
+  // {
+  //   title: "Affiliated with National Psychology Council",
+  //   icon: <FaHandshake size={36} />,
+  // },
+  // {
+  //   title: "Best Counseling Service 2024",
+  //   icon: <FaAward size={36} />,
+  // },
 ];
 
 const TrustAndAssurance = () => {
   return (
-    <section className="bg-gradient-to-b from-[#fdf6f0] to-[#fff] py-20 px-6 md:px-12">
+    <section className="bg-gradient-to-b from-[#fdf6f0] to-[#fff] max-w-[1800px] mx-auto py-20 px-6 md:px-12">
       {/* Header */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
@@ -157,7 +157,7 @@ const TrustAndAssurance = () => {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center gap-3 p-6 bg-white rounded-xl shadow-md border border-gray-200 w-64 transition-all"
+              className="flex flex-col items-center gap-3 p-8  bg-white rounded-xl shadow-md border border-gray-200 w-64 transition-all"
             >
               <div className="text-[#EC744A] bg-orange-100 p-3 rounded-full shadow">
                 {item.icon}

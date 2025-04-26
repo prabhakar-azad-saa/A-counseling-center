@@ -246,38 +246,33 @@ const Navbar = ({ style, from }) => {
   };
 
   const isHome = location.pathname === "/";
-  const LoginForm = location.pathname === "/login";
-  const SignupForm = location.pathname === "/signup";
+  // const LoginForm = location.pathname === "/login";
+  // const SignupForm = location.pathname === "/signup";
 
-  const isDashboard = location.pathname === "/dashboardtable";
+  // const isDashboard = location.pathname === "/dashboardtable";
 
-  const excludedRoutes = ["/dashboardtable", "/login", "/signup"];
-  const isExcluded = excludedRoutes.includes(location.pathname);
-  const UserProfile = location.pathname === "/userprofile";
+  // const excludedRoutes = ["/dashboardtable", "/login", "/signup"];
+  // const isExcluded = excludedRoutes.includes(location.pathname);
+  // const UserProfile = location.pathname === "/userprofile";
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   return (
     <nav
-      className={` items-center justify-between 
-      ${
-        selected === "/dashboardtable" || selected === "/userprofile"
-          ? "bg-[#359c76]"
-          : ""
-      }
-      ${!isExcluded ? "absolute top-0 left-0 right-0 z-50" : ""}
+    className={`
+      w-full z-50 items-center justify-between sticky top-0 px-4 lg:px-8 transition-all duration-300 ease-in-out
+     
+      ${isHome ? "absolute top-0 left-0 right-0 bg-gradient-to-r from-[#36736e] via-[#3d857e] to-[#36736e]" : "relative bg-gradient-to-r from-[#36736e] via-[#3d857e] to-[#36736e]"}
     `}
-      style={{
-        color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
-      }}
-    >
+    style={{ color: "white" }}
+  >
       <div className="flex items-center justify-between py-2 max-w-[2300px] mx-auto">
         <div className="flex items-center justify-between  py-2 px-4 lg:px-8 ">
           <Logolotas className="w-14 h-14" />
           <div
             className="text-2xl font-bold "
-            style={{
-              color: !(isHome || LoginForm || SignupForm) ? "white" : "black",
-            }}
+            // style={{
+            //   color: !(isHome || LoginForm || SignupForm) ? "white" : "white",
+            // }}
           >
             A<sup>+</sup> Counseling & Consultancy Services
           </div>

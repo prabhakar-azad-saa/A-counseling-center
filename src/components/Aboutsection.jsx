@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "./Button";
-import Discover2 from "../img/Discover2.png";
+import authenticgrouptherapymeeting from "../img/authenticgrouptherapymeeting.png";
 
 const AboutSection = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const AboutSection = () => {
         {/* Image Section */}
         <div>
           <img
-            src={Discover2}
+            src={authenticgrouptherapymeeting}
             alt="About Us"
             className="w-full h-auto object-cover rounded-lg shadow-md"
           />

@@ -55,13 +55,13 @@ const Blogsection = () => {
   return (
     <>
      <Loader isLoading={loading} />
-      <div className="p-8 bg-[#FCF8F4] mx-auto">
+      <div className="p-8 bg-[#FCF8F4]  mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-semibold text-black">Latest Blog Posts</h1>
         </div>
       </div>
 
-      <div className="p-8">
+      <div className="p-8 max-w-[1800px] mx-auto">
         
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogDetails.slice(0,3).map((blog, index) => (

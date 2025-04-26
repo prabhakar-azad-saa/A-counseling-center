@@ -53,9 +53,7 @@ const sectionData = {
 
   return (
     <>
-      <div className="mt-32 md:mt-20 ">
-        {/* <Animation /> */}
-      </div>
+     
       <Hero />
 
       {/* <div  

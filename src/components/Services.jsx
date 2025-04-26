@@ -48,6 +48,7 @@ const Services = () => {
       component: <Individual22 />,
       title: "Individual Therapy",
       slug: "individual",
+      onclick: () => navigate("/individual"),
       description:
         "Anxiety & Stress Management, Depression & Mood Disorders, Trauma & PTSD Counseling, Anger Management, Self-Esteem & Confidence Building.",
     },
@@ -88,21 +89,21 @@ const Services = () => {
       component: <Chat />,
       title: "Online Sessions",
       slug: "online",
+      onclick: () => navigate("/onlinecounseling"),
       description:
         "Convenient and secure virtual therapy sessions from the comfort of your home, maintaining the same quality care.",
     },
   ];
 
-  const handleButtonClick = (e) => {
+  const handleBookNow = (e) => {
     e.stopPropagation();
     navigate("/booksession");
   };
 
   return (
     <div className="bg-[#FCF8F4] mb-10">
-     
       {/* Hero Section */}
-      <div
+      {/* <div
         className="relative w-full h-[500px] overflow-hidden"
         style={{
           backgroundImage: `url(${frameImage})`,
@@ -139,31 +140,63 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </div>
-      {/* Hero + Section */}
-      {/* (Keep your original code here for the hero section) */}
+      </div> */}
 
-      <div className="space-y-16 pt-32 px-4 sm:px-10 lg:px-32 max-w-screen-xl mx-auto">
+
+    <div className="flex flex-col items-center justify-center pt-14 px-4">
+      <motion.h1
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+      >
+        Services
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+      >
+        At <span className="font-semibold">A<sup>+</sup> Counseling & Consultancy Services</span>,
+        we offer a wide range of counseling services tailored to meet the diverse needs
+        of individuals, couples, and families.
+      </motion.p>
+
+      {/* Optional: Add a subtle glowing underline animation */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+      />
+    </div>
+  
+
+      {/* Therapy Cards */}
+      <div className="space-y-16 pt-12 mb-7 px-4 sm:px-10 lg:px-32 max-w-screen-xl mx-auto">
         {therapyData.map((item, index) => (
           <div
             key={index}
             ref={item.ref}
-            className={`flex flex-col md:flex-row items-center py-10 px-4 sm:px-8 md:px-12 lg:px-20 
+            onClick={item.onclick}
+            className={`cursor-pointer flex flex-col md:flex-row items-center  px-4 sm:px-8 md:px-12 lg:px-20 
               ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}
               bg-gray-100 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300`}
           >
-            <div className="w-full md:w-1/2 flex justify-center mb-6 md:mb-0">
+            <div className="w-full md:w-1/2 flex justify-center  md:mb-0">
               {item.component}
             </div>
-            <div className="w-full md:w-1/2 text-center md:text-left p-4 sm:p-6">
+            <div className="w-full md:w-1/2 text-center md:text-left pb-5 px-5">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 leading-snug">
                 {item.title}
               </h2>
-              <p className="text-md sm:text-lg text-gray-600 mt-4 leading-relaxed font-poppins">
+              <p className="text-md sm:text-lg text-gray-600 mt-4  leading-relaxed font-poppins">
                 {item.description}
               </p>
               <button
-                onClick={handleButtonClick}
+                onClick={handleBookNow}
                 className="mt-6 px-4 py-2 bg-[#007D6E] text-white rounded-lg hover:bg-[#005f5b] transition duration-300"
               >
                 Book Now

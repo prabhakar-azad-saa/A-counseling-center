@@ -22,7 +22,7 @@ const Session = () => {
 
   return (
     <div className="bg-[#FCF8F4] ">
-      <div
+      {/* <div
         className="relative w-full h-[500px] overflow-hidden"
         style={{
           backgroundImage: `url(${frameImage})`,
@@ -60,7 +60,37 @@ const Session = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+         <div className="flex flex-col items-center justify-center pt-14 px-4">
+                    <motion.h1
+                      initial={{ opacity: 0, y: -50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                    >
+                      Professional Online Counseling
+                    </motion.h1>
+              
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 1, delay: 0.5 }}
+                      className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+                    >
+                      Connect with licensed therapists and counselors from the
+                      comfort of your home. Get the support you need, when you need
+                      it.
+                    </motion.p>
+              
+                    {/* Optional: Add a subtle glowing underline animation */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 1, delay: 0.8 }}
+                      className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+                    />
+                  </div>
 
       <div className="max-w-screen-xl mx-auto p-6">
         {/* Professional Counselor Section */}

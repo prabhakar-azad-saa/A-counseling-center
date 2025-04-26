@@ -374,11 +374,12 @@ const Features = () => {
             variants={cardVariants}
             className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 flex flex-col"
           >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-48 sm:h-56 md:h-48 lg:h-56 object-cover rounded-t-3xl"
-            />
+           <img
+  src={item.image}
+  alt={item.title}
+  className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-96 object-cover rounded-t-3xl"
+/>
+
             <div className="p-6 flex flex-col justify-between flex-grow">
               <div className="text-3xl text-blue-700 mb-4">
                 <i className={item.icon}></i>

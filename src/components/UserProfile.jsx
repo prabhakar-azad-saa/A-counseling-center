@@ -26,6 +26,7 @@ import {
 import FeedbackForm from "./FeedbackForm ";
 import ZoomMeeting from "./ZoomMeeting ";
 
+
 const UserProfile = () => {
   const navigate = useNavigate();
 
@@ -35,6 +36,9 @@ const UserProfile = () => {
     navigate("/login");
   };
 
+  const handleclick = () => {
+    navigate("/booksession");
+  };
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [fileList, setFileList] = useState([]);
@@ -105,6 +109,7 @@ const UserProfile = () => {
     upcomingAppointmentData
       .then((res) => {
         setUpcommingAppointment(res);
+        
       })
       .catch((err) => {
         console.log("=====154===", err);
@@ -264,7 +269,7 @@ const UserProfile = () => {
 
             <div className="bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4">
               <Schedule />
-              <button className="font-semibold text-sm sm:text-lg text-white">
+              <button onClick={handleclick} className="font-semibold text-sm sm:text-lg text-white">
                 Schedule New Session
               </button>
             </div>
@@ -301,7 +306,8 @@ const UserProfile = () => {
             </div>
           </div>
         
-          {/* <FeedbackForm/> */}
+          <FeedbackForm/>
+      
         </div>
        
       </div>

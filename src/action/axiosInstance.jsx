@@ -7,6 +7,7 @@ const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
 });
 
+// Request interceptor to add token
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -18,12 +19,12 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// Response interceptor to handle 401 and auto-login
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
 
-    // Only retry on 401
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
@@ -31,8 +32,7 @@ axiosInstance.interceptors.response.use(
       const password = localStorage.getItem("password");
 
       if (!email || !password) {
-        console.warn("No stored credentials. Redirecting to login or handling gracefully.");
-        // Optionally redirect to login or show notification here
+        console.warn("Missing stored credentials. Redirect to login or handle gracefully.");
         return Promise.reject(new Error("No credentials stored for auto-login."));
       }
 
@@ -44,7 +44,7 @@ axiosInstance.interceptors.response.use(
         const newToken = loginResponse.data.token;
         localStorage.setItem("token", newToken);
 
-        // Retry original request with new token
+        // Retry the original request with the new token
         originalRequest.headers.Authorization = `Bearer ${newToken}`;
         return axiosInstance(originalRequest);
       } catch (loginError) {

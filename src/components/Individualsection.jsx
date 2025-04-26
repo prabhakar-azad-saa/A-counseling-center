@@ -10,6 +10,8 @@ import Human from "../img/Human";
 import Professionall from "../img/Professionall";
 import Reduce from "../img/Reduce";
 import { motion } from "framer-motion";
+import familytherapypsychologistoffice from "../img/familytherapypsychologistoffice.png";
+
 const Individualsection = () => {
   const Cartdata = [
     {
@@ -41,7 +43,7 @@ const Individualsection = () => {
   return (
     <div className=" ">
       {/* Navigation Section */}
-      <div
+      {/* <div
         className="relative w-full h-[500px] overflow-hidden"
         style={{
           backgroundImage: `url(${frameImage})`,
@@ -79,7 +81,36 @@ const Individualsection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+         <div className="flex flex-col items-center justify-center pt-14 px-4">
+                    <motion.h1
+                      initial={{ opacity: 0, y: -50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                    >
+                       Service Detail
+                    </motion.h1>
+              
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 1, delay: 0.5 }}
+                      className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+                    >
+                      At A<sup>+</sup> Counseling & Consultancy Services, we offer a
+                      wide range of counseling services tailored to meet the diverse.  
+                    </motion.p>
+              
+                    {/* Optional: Add a subtle glowing underline animation */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 1, delay: 0.8 }}
+                      className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+                    />
+                  </div>
 
       <div className="p-5 bg-[#FCF8F4]">
         {/* Individual Therapy Section */}
@@ -87,10 +118,10 @@ const Individualsection = () => {
           <div className="w-full">
             <img
               // src="src/assets/Mask group.png"
-              src={individual1}
+              src={familytherapypsychologistoffice}
               alt="Individual Therapy"
-              className="w-full rounded-lg"
-              style={{ width: "100%", height: "100%", objectFit: "none" }}
+              className="w-full h-auto rounded-lg"
+              // style={{ width: "100%", height: "100%", objectFit: "none" }}
             />
           </div>
           <div className="flex flex-col sm:flex-row justify-between max-w-[2000px] mx-auto items-center py-20 sm:py-0">
