@@ -165,7 +165,7 @@ const LoginForm = () => {
             >
               {loading ? "Logging In..." : "Log In"}
             </button>
-            <Forgotpassword />
+            {/* <Forgotpassword /> */}
 
             <div className="mt-6">
               <hr className="border-t-2 border-gray-300" />

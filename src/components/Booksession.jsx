@@ -241,7 +241,7 @@ function Booksession() {
                               initial={{ opacity: 0, y: -50 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.8, ease: "easeOut" }}
-                              className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                              className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
                             >
                               Book Session
                             </motion.h1>
@@ -266,10 +266,10 @@ function Booksession() {
                           </div>
 
       <div className="bg-[#FCF8F4] pt-6">
-        <div className="flex flex-col md:flex-col lg:flex-row justify-center md:space-x-12 px-6 sm:px-12 lg:px-32 mt-20">
+        <div className="flex flex-col md:flex-col max-w-[2000px] mx-auto lg:flex-row justify-center md:space-x-12 px-6 sm:px-12 lg:px-16 mt-20">
           {/* Left Column: Title and Description */}
           <div className="text-center md:text-left mb-10 md:mb-0 md:flex-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4">
+            <h1 className="text-3xl sm:text-4xl  font-bold text-black mb-4">
               Book Your Counseling Session Instantly
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-black mt-4 font-poppins">

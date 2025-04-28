@@ -28,7 +28,7 @@ const AboutSection = () => {
           <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">
             About Us
           </h3>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold text-black mb-6 tracking-tight font-manrope">
+          <h1 className="text-3xl sm:text-4xl   font-extrabold text-black mb-6 tracking-tight font-manrope">
             Discover the Faces Behind Our Mental Health Consultancy
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-black mb-6 font-poppins">

@@ -22,7 +22,7 @@ const Ready = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+          className="text-white text-3xl sm:text-4xl  font-bold tracking-tight"
         >
           Ready to Start Your Journey?
         </motion.h1>
@@ -31,7 +31,7 @@ const Ready = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-white text-base sm:text-lg md:text-xl max-w-2xl mt-4 font-light font-poppins"
+          className="text-white text-base sm:text-lg  max-w-2xl mt-4 font-light font-poppins"
         >
           Book your consultation today and take the first step toward a healthier, happier mind.
         </motion.p>

@@ -88,7 +88,7 @@ const Individualsection = () => {
                       initial={{ opacity: 0, y: -50 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, ease: "easeOut" }}
-                      className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                      className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
                     >
                        Service Detail
                     </motion.h1>
@@ -126,7 +126,7 @@ const Individualsection = () => {
           </div>
           <div className="flex flex-col sm:flex-row justify-between max-w-[2000px] mx-auto items-center py-20 sm:py-0">
             <div className="w-full sm:w-1/2 ">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-5">
+              <h1 className="text-4xl  font-bold mb-5">
                 Individual Therapy
               </h1>
             </div>
@@ -225,7 +225,7 @@ const Individualsection = () => {
 
                     {/* Title */}
                     <h1
-                      className={`text-xl md:text-2xl lg:text-4xl  pt-12 px-12 pb-3 font-bold 
+                      className={`text-xl md:text-2xl lg:text-3xl  pt-12 px-12 pb-3 font-bold 
             ${isGradient ? "text-white" : "text-black"}`}
                     >
                       {item.title}
@@ -303,7 +303,7 @@ const Individualsection = () => {
                 <p className="text-lg uppercase font-semibold text-gray-200 mb-2">
                   Mentor
                 </p>
-                <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
                   Introducing Experienced Consulting
                 </h1>
 
@@ -348,7 +348,7 @@ const Individualsection = () => {
             className="w-full rounded-lg "
             style={{ maxWidth: "1200px" }}
           />
-          <h1 className="text-4xl md:text-5xl font-bold mt-9 font-manrope">
+          <h1 className="text-4xl  font-bold mt-9 font-manrope">
             Breaking the Stigma Mental Health Counseling
           </h1>
           <p className="text-lg md:text-xl justify-center font-manrope pt-12 mb-4 mx-auto max-w-3xl">

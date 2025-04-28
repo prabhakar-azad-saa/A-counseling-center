@@ -122,7 +122,7 @@ const Onlinecounseling = () => {
                       initial={{ opacity: 0, y: -50 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, ease: "easeOut" }}
-                      className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                      className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
                     >
                       Online Counseling Support Anytime, Anywhere 
                     </motion.h1>
@@ -244,7 +244,7 @@ const Onlinecounseling = () => {
 
                   {/* Title */}
                   <h1
-                    className={`text-xl md:text-2xl lg:text-4xl px-2 pb-3 font-bold 
+                    className={`text-xl md:text-2xl lg:text-3xl px-2 pb-3 font-bold 
             ${isGradient ? "text-white" : "text-black"}`}
                   >
                     {item.title}

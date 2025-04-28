@@ -122,7 +122,7 @@ const TrustAndAssurance = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-center text-[#333]"
+        className="text-4xl  font-bold text-center text-[#333]"
       >
         Trust. Care. Assurance.
       </motion.h2>

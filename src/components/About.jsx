@@ -91,7 +91,7 @@ const About = () => {
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
               >
                  About Us
               </motion.h1>
@@ -164,9 +164,7 @@ const About = () => {
       At A Plus, we offer a supportive environment for individuals and families facing these and other challenges. Our user-friendly website makes it easy to book appointments—whether through our online portal, by phone, or via email.
     </p>
 
-    <p className="text-sm sm:text-base  text-gray-700 font-poppins">
-      We welcome your feedback and suggestions as we continuously strive to enhance our services.
-    </p>
+   
   </div>
 </div>
 

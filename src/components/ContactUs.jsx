@@ -155,7 +155,7 @@ const ContactUs = () => {
                       initial={{ opacity: 0, y: -50 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, ease: "easeOut" }}
-                      className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                      className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
                     >
                       Contact Us
                     </motion.h1>
@@ -181,7 +181,7 @@ const ContactUs = () => {
 
       <div className="flex flex-col sm:flex-col lg:flex-row gap-12 pt-14 pb-5 justify-between max-w-[1700px] mx-auto px-8 bg-[#FCF8F4] ">
         <div className="flex flex-col p-5 w-full max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold mb-4 font-monrope text-center sm:text-left">
+          <h1 className="text-4xl   font-bold mb-4 font-monrope text-center sm:text-left">
             Contact Us Today For Personalized Support and Assistance
           </h1>
           <p className="text-lg sm:text-xl font-normal mb-8 font-poppins text-center sm:text-left">

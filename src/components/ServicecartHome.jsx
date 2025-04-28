@@ -212,6 +212,11 @@ const therapyData = [
     color: "from-green-500 to-green-300",
     slug: "family",
   },
+
+ 
+ 
+];
+const therapyDatas= [
   {
     icon: <FaLeaf size={40} />,
     title: "Specialized Therapy",
@@ -226,14 +231,7 @@ const therapyData = [
     color: "from-yellow-500 to-yellow-300",
     slug: "career",
   },
-  {
-    icon: <FaComments size={40} />,
-    title: "Online Sessions",
-    description: "Virtual therapy from your home...",
-    color: "from-teal-500 to-teal-300",
-    slug: "online",
-  },
-];
+]
 
 const ServiceCartHome = () => {
   const navigate = useNavigate();
@@ -248,7 +246,7 @@ const ServiceCartHome = () => {
     <div className="py-20 px-6 bg-[#FCF8F4]">
       <div className="text-center mb-16">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold"
+          className="text-3xl md:text-4xl font-bold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -265,6 +263,43 @@ const ServiceCartHome = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {therapyData.map((item, index) => (
+          <motion.div
+            key={index}
+            whileHover={{
+              rotateX: 5,
+              rotateY: -5,
+              scale: 1.03,
+              transition: { type: "spring", stiffness: 200 },
+            }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.6 }}
+            onClick={() => handleCardClick(item.slug)}
+            className={`cursor-pointer bg-white/30 backdrop-blur-md border border-gray-200 rounded-2xl p-6 shadow-md transition-transform hover:shadow-xl group hover:border-transparent hover:bg-gradient-to-br hover:from-white hover:to-gray-50`}
+          >
+            <div
+              className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-gradient-to-tr ${item.color} text-white shadow-lg`}
+            >
+              {item.icon}
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 text-center mb-2 group-hover:text-black">
+              {item.title}
+            </h3>
+            <p className="text-sm text-gray-600 text-center">{item.description}</p>
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={(e) => handleButtonClick(e, item.slug)}
+                className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition duration-300 text-sm"
+              >
+                Book Now
+              </button>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 mt-5  gap-8 max-w-3xl mx-auto">
+        {therapyDatas.map((item, index) => (
           <motion.div
             key={index}
             whileHover={{

@@ -23,6 +23,20 @@ const Blogs = () => {
     });
   };
 
+
+
+
+  function formatLikes(number) {
+    if (number >= 1000000) {
+      return (number / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    }
+    if (number >= 1000) {
+      return (number / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    }
+    return number.toString();
+  }
+  
+
   useEffect(() => {
   
     setUserData(JSON.parse(localStorage.getItem("userData")));
@@ -32,7 +46,7 @@ const Blogs = () => {
       .then((res) => {
         if (res && Array.isArray(res)) {
           const sortedBlogs = [...res].sort(
-            (a, b) => (b.like || 0) - (a.like || 0)
+            (a, b) => (b.like || 0)+1 - (a.like || 0)-1
           );
           setBlogDetails(res || []);
           setPopularPosts(sortedBlogs.slice(0, 3)); 
@@ -109,7 +123,7 @@ const Blogs = () => {
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                        className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
                       >
                         Blog
                       </motion.h1>
@@ -196,13 +210,14 @@ const Blogs = () => {
                 >
                   <img
                     src={post?.imagePath || blogImg1}
-                    alt={post.title}
+                    alt={post?.title}
                     className="object-cover rounded-lg mb-4"
                     style={{ width: "75px", height: "75px" }}
                   />
                   <div className="flex flex-col">
-                    <p className="text-lg font-poppins">{post.name}</p>
-                    <p className="text-sm">{post.like} </p>
+                    <p className="text-lg font-poppins">{post?.name}</p>
+                    <p>{formatLikes(post?.like || 0)}</p>
+
                   </div>
                 </div>
               ))}

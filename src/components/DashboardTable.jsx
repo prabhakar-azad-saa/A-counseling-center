@@ -121,6 +121,7 @@ const DashboardTable = () => {
                   ]
                 }
                 dataSource={activeTable === 'booking' ? booking : activeTable === 'users' ?  patients : contacts}
+                
                 loading={loading}
                 scroll={{ x: true }}
               />

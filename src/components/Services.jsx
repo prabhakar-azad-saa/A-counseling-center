@@ -84,15 +84,15 @@ const Services = () => {
       description:
         "Career Guidance & Decision-Making, Work-Life Balance, Motivation & Personal Development, Aptitude, Attitude, Interest, Achievement Test & Projective Test, Specific Learning Disability.",
     },
-    {
-      ref: onlineRef,
-      component: <Chat />,
-      title: "Online Sessions",
-      slug: "online",
-      onclick: () => navigate("/onlinecounseling"),
-      description:
-        "Convenient and secure virtual therapy sessions from the comfort of your home, maintaining the same quality care.",
-    },
+    // {
+    //   ref: onlineRef,
+    //   component: <Chat />,
+    //   title: "Online Sessions",
+    //   slug: "online",
+    //   onclick: () => navigate("/onlinecounseling"),
+    //   description:
+    //     "Convenient and secure virtual therapy sessions from the comfort of your home, maintaining the same quality care.",
+    // },
   ];
 
   const handleBookNow = (e) => {
@@ -148,7 +148,7 @@ const Services = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+        className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
       >
         Services
       </motion.h1>
@@ -189,7 +189,7 @@ const Services = () => {
               {item.component}
             </div>
             <div className="w-full md:w-1/2 text-center md:text-left pb-5 px-5">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 leading-snug">
+              <h2 className="text-2xl sm:text-3xl  font-bold text-gray-800 leading-snug">
                 {item.title}
               </h2>
               <p className="text-md sm:text-lg text-gray-600 mt-4  leading-relaxed font-poppins">

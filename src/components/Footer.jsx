@@ -122,9 +122,10 @@ const services = [
 ];
 
 const Footer = () => {
-  return (
-    <div className="bg-gradient-to-r from-[#007D6E] to-[#5EB47C]  py-12 text-white">
-      <div className="mx-auto w-full max-w-[2300px] justify-between md:px-5 sm:px-20">
+  return ( 
+    // bg-gradient-to-r from-[#007D6E] to-[#5EB47C]
+    <div className=" bg-gradient-to-r from-[#36736e] via-[#3d857e] to-[#36736e]  py-12 text-white">
+      <div className="mx-auto w-full max-w-[2300px] justify-between md:px-5 sm:px-20 grid grid-cols-1 md:grid-4 gap-10 px-6  ">
         <div className="flex flex-wrap justify-between gap-y-10">
           {/* Logo & About */}
           <div className="flex flex-col max-w-sm">

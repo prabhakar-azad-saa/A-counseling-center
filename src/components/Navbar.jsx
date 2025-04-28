@@ -259,7 +259,7 @@ const Navbar = ({ style, from }) => {
   return (
     <nav
     className={`
-      w-full z-50 items-center justify-between sticky top-0 px-4 lg:px-8 transition-all duration-300 ease-in-out
+      w-full z-50 items-center justify-between sticky top-0 transition-all duration-300 ease-in-out
      
       ${isHome ? "absolute top-0 left-0 right-0 bg-gradient-to-r from-[#36736e] via-[#3d857e] to-[#36736e]" : "relative bg-gradient-to-r from-[#36736e] via-[#3d857e] to-[#36736e]"}
     `}
@@ -269,7 +269,7 @@ const Navbar = ({ style, from }) => {
         <div className="flex items-center justify-between  py-2 px-4 lg:px-8 ">
           <Logolotas className="w-14 h-14" />
           <div
-            className="text-2xl font-bold "
+            className="text-xl sm:text-3xl font-bold "
             // style={{
             //   color: !(isHome || LoginForm || SignupForm) ? "white" : "white",
             // }}
@@ -300,13 +300,13 @@ const Navbar = ({ style, from }) => {
           >
             Services
           </Link>
-          <Link
+          {/* <Link
             to="/session"
             className={selected === "/session" ? "font-bold" : ""}
             onClick={() => setSelected("/session")}
           >
             Session
-          </Link>
+          </Link> */}
           <Link
             to="/blogs"
             className={selected === "/blogs" ? "font-bold" : ""}

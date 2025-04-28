@@ -32,7 +32,7 @@ const UserProfile = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
-    // sessionStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
     navigate("/login");
   };
 
@@ -142,11 +142,11 @@ const UserProfile = () => {
    <>
     <Loader isLoading={loading} />
       <div
-        className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8 py-4  max-w-[2300px] mx-auto"
+        className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8   max-w-[2300px] mx-auto"
         style={{ backgroundColor: "#FCF8F4" }}
       >
         {/* Left Side - Profile and Appointment */}
-        <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
+        <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10 ">
           <div
             className="flex flex-col bg-white rounded-lg p-5 mb-8"
             style={{ boxShadow: `rgba(99, 99, 99, 0.1) 0px 2px 8px 0px` }}
@@ -278,7 +278,7 @@ const UserProfile = () => {
         </div>
 
         {/* Right Side - Session History */}
-        <div className="w-full lg:w-2/3 p-4 sm:p-6 lg:p-10 mt-10 lg:mt-24">
+        <div className="w-full lg:w-2/3 p-4 sm:p-6 lg:p-10 mt-10 ">
           <div className="bg-white shadow-lg rounded-lg mb-6 p-5">
             <h1 className="text-2xl font-bold mb-4">Session History</h1>
 
@@ -306,7 +306,7 @@ const UserProfile = () => {
             </div>
           </div>
         
-          <FeedbackForm/>
+          {/* <FeedbackForm/> */}
       
         </div>
        

@@ -125,7 +125,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-white"
           >
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl  font-bold leading-tight mb-6">
               Start Your Healing Journey Today
             </h1>
             <p className="text-base sm:text-lg lg:text-xl mb-8 max-w-xl">
