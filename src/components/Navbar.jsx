@@ -266,7 +266,7 @@ const Navbar = ({ style, from }) => {
     style={{ color: "white" }}
   >
       <div className="flex items-center justify-between py-2 max-w-[2300px] mx-auto">
-        <div className="flex items-center justify-between  py-2 px-4 lg:px-8 ">
+        <div className="flex items-center justify-between  py-2  ">
           <Logolotas className="w-14 h-14" />
           <div
             className="text-xl sm:text-3xl font-bold "
@@ -421,7 +421,7 @@ const Navbar = ({ style, from }) => {
             >
               Services
             </Link>
-            <Link
+            {/* <Link
               to="/session"
               className={selected === "/session" ? "font-bold" : ""}
               onClick={() => {
@@ -430,7 +430,7 @@ const Navbar = ({ style, from }) => {
               }}
             >
               Session
-            </Link>
+            </Link> */}
             <Link
               to="/blogs"
               className={selected === "/blogs" ? "font-bold" : ""}

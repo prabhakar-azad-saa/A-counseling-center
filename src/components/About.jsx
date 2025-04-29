@@ -6,7 +6,8 @@ import Holistic from "../img/Holistic.png";
 import Experties from "../img/Experties.png";
 import Accessibility from "../img/Accessibility.png";
 // import Discover2 from "../img/Discover2.png";
-import authenticgrouptherapymeeting from "../img/authenticgrouptherapymeeting.png";
+import authenticgroup from "../img/authenticgroup.png";
+
 import aboutSelf from "../img/aboutSelf.png";
 import aboutSucces2 from "../img/aboutSucces2.png";
 import arrowAbout from "../img/arrowAbout.png";
@@ -118,7 +119,7 @@ const About = () => {
         <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-12  py-14 space-y-8 xl:space-y-0 xl:space-x-12">
   {/* Image Section */}
   <img
-    src={authenticgrouptherapymeeting}
+    src={authenticgroup}
     alt="About Us"
     className="w-full xl:w-1/2 object-cover rounded-lg max-h-[500px] sm:max-h-none"
   />
