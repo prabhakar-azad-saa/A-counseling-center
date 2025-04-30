@@ -369,7 +369,7 @@ import { IoHeartSharp, IoHeartDislikeSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
 import Loader from "./Loader";
 import Ready from "./Ready";
-import { getBlogdetails, BlogReaction } from "../action/Auth";
+import { getBlogdetails, BlogReaction  ,blogViewed} from "../action/Auth";
 
 const Blogdetail = () => {
   const [blogDetails, setBlogDetails] = useState([]);
@@ -412,12 +412,15 @@ const Blogdetail = () => {
 
       await BlogReaction(blogId, status, userId);
 
-      message.success(`Blog ${status === 1 ? "liked" : "disliked"} successfully!`);
+      message.success(`Blog ${status === 1 ? "liked" : "unliked"} successfully!`);
     } catch (err) {
       console.error("Error updating blog reaction:", err);
       message.error("Failed to update blog reaction.");
     }
   };
+
+
+ 
 
   const handleReadMore = (b) => {
     setBlog(b);
@@ -425,9 +428,24 @@ const Blogdetail = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("userData")); 
+    const userId =userData?.userId 
+console.log('=============434===========',blogId,userId)
+    if (blogId && userId) {
+      blogViewed(blogId, userId)
+        .then(() => console.log("Blog view recorded"))
+        .catch(err => console.error("Failed to record blog view", err));
+    }
+  }, []);   
+
+
   if (loading) return <Loader isLoading={loading} />;
 
   if (!blog) return <p className="text-center text-2xl py-10">Blog not found.</p>;
+
+
+  
 
   return (
     <div>
@@ -437,7 +455,7 @@ const Blogdetail = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+          className="text-2xl sm:text-4xl h-11 font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
         >
           Blog Detail
         </motion.h1>
@@ -475,30 +493,40 @@ const Blogdetail = () => {
               {blog?.description}
             </p>
 
-            <div className="flex gap-4 mt-6">
-              <button
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
-                  status === 1 ? "bg-red-100 text-red-500" : "bg-blue-100 text-blue-500"
-                }`}
-                onClick={() => {
-                  const newStatus = status === 1 ? 0 : 1;
-                  setStatus(newStatus);
-                  handleAction(blog.blogId, newStatus);
-                }}
-              >
-                {status === 1 ? (
-                  <>
-                    <IoHeartSharp size={20} />
-                    <span>Liked</span>
-                  </>
-                ) : (
-                  <>
-                    <IoHeartDislikeSharp size={20} />
-                    <span>Disliked</span>
-                  </>
-                )}
-              </button>
-            </div>
+        
+
+<div className="flex gap-4 mt-6">
+  {/* Like Button */}
+  <button
+  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+    status === 1 ? "bg-red-100 text-red-500" : "bg-gray-100 text-gray-600"
+  }`}
+  onClick={() => {
+    const newStatus = status === 1 ? 0 : 1;
+    setStatus(newStatus);
+    handleAction(blog.blogId, newStatus);
+  }}
+>
+  <IoHeartSharp size={20} />
+  <span>{status === 1 ? "Unlike" : "Like"}</span>
+</button>
+
+
+  {/* Dislike Button */}
+  {/* <button
+    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+      status === 0 ? "bg-blue-100 text-blue-500" : "bg-gray-100 text-gray-600"
+    }`}
+    onClick={() => {
+      setStatus(0);
+      handleAction(blog.blogId, 0);
+    }}
+  >
+    <IoHeartDislikeSharp size={20} />
+    <span>Dislike</span>
+  </button> */}
+</div>
+
           </div>
 
           {/* Recommended Blogs */}
@@ -549,7 +577,7 @@ const Blogdetail = () => {
           <h1 className="text-3xl font-semibold text-black">Latest Blog Posts</h1>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10 max-w-[2000px] mx-auto">
           {[...blogDetails]
             .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             .slice(0, 3)

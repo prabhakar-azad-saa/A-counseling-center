@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "./Button";
-import authenticgroup from "../img/authenticgroup.png";
+import authenticgroup1 from "../img/authenticgroup1.png";
 
 const AboutSection = () => {
   const navigate = useNavigate();
@@ -12,19 +12,19 @@ const AboutSection = () => {
   };
 
   return (
-    <div className="bg-[#FCF8F4] w-full max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-20 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div className="bg-[#FCF8F4] w-full px-4 sm:px-6 lg:px-20 py-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center  max-w-[2000px]  mx-auto">
         {/* Image Section */}
         <div>
           <img
-            src={authenticgroup}
+            src={authenticgroup1}
             alt="About Us"
             className="w-full h-auto object-cover rounded-lg shadow-md"
           />
         </div>
 
         {/* Text Section */}
-        <div className="text-left">
+        <div className="text-left xl:max-w-2xl mx-auto ">
           <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">
             About Us
           </h3>

@@ -12,10 +12,10 @@ const Ready = () => {
 
   return (
     <div
-      className="relative w-full bg-cover bg-center"
+      className="relative w-full bg-cover bg-center "
       style={{ backgroundImage: `url(${frameImage})` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/70 via-blue-900/50 to-transparent"></div>
+      <div className="absolute inset-0  bg-gradient-to-t from-teal-900/70 via-blue-900/50 to-transparent"></div>
 
       <div className="relative flex flex-col items-center justify-center text-center py-24 px-6 sm:px-10 z-10">
         <motion.h1

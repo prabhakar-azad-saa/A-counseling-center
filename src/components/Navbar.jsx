@@ -265,7 +265,7 @@ const Navbar = ({ style, from }) => {
     `}
     style={{ color: "white" }}
   >
-      <div className="flex items-center justify-between py-2 max-w-[2300px] mx-auto">
+      <div className="flex items-center justify-between py-2 max-w-[2000px] mx-auto">
         <div className="flex items-center justify-between  py-2  ">
           <Logolotas className="w-14 h-14" />
           <div

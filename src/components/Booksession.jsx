@@ -272,10 +272,32 @@ function Booksession() {
             <h1 className="text-3xl sm:text-4xl  font-bold text-black mb-4">
               Book Your Counseling Session Instantly
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-black mt-4 font-poppins">
+            <p className="text-lg sm:text-xl md:text-2xl text- mt-4 font-poppins">
               Take the first step toward better mental health. Schedule your
               session with our experienced counselors today.
             </p>
+
+
+         <div>
+         <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, type: "spring" }}
+      className="relative mt-20 text-center"
+    >
+      <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-3 py-1 rounded-full shadow-md animate-pulse">
+        🎉 Free Offer!
+      </span>
+
+      <h1 className="text-2xl sm:text-4xl font-bold font-poppins bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-md">
+        3 Month Booking Session Free
+      </h1>
+
+      <p className="mt-4 text-gray-600 text-sm sm:text-base max-w-md mx-auto">
+        Limited-time offer! Book your first 3 months at zero cost and experience the transformation.
+      </p>
+    </motion.div>
+         </div>
           </div>
 
           {/* Right Column: Form */}

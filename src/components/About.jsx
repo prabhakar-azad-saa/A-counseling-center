@@ -6,7 +6,7 @@ import Holistic from "../img/Holistic.png";
 import Experties from "../img/Experties.png";
 import Accessibility from "../img/Accessibility.png";
 // import Discover2 from "../img/Discover2.png";
-import authenticgroup from "../img/authenticgroup.png";
+import authenticgroup1 from "../img/authenticgroup1.png";
 
 import aboutSelf from "../img/aboutSelf.png";
 import aboutSucces2 from "../img/aboutSucces2.png";
@@ -116,10 +116,10 @@ const About = () => {
               />
             </div>
         {/* About Us Section */}
-        <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2300px] mx-auto px-4 sm:px-6 lg:px-12  py-14 space-y-8 xl:space-y-0 xl:space-x-12">
+        <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-12  py-14 space-y-8 xl:space-y-0 xl:space-x-12">
   {/* Image Section */}
   <img
-    src={authenticgroup}
+    src={authenticgroup1}
     alt="About Us"
     className="w-full xl:w-1/2 object-cover rounded-lg max-h-[500px] sm:max-h-none"
   />
@@ -188,7 +188,7 @@ const About = () => {
         </div>
 
         {/* Success Story Section */}
-        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between  max-w-[2300px] mx-auto items-center p-10 bg-[#FCF8F4] rounded-lg">
+        <div className="flex flex-col sm:flex-col lg:flex-col xl:flex-row justify-between  max-w-[2000px] mx-auto items-center p-10 bg-[#FCF8F4] rounded-lg">
           <div className="flex-1 sm:max-w-full lg:max-w-1/2  p-5 flex flex-col justify-center">
             <h3 className="text-[22px] pb-8 font-[700px]">Succes Story</h3>
             <h1 className="text-2xl sm:text-3xl lg:text-5xl font-[700px] text-black pb-10   ">

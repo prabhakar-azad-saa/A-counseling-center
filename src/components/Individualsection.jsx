@@ -112,9 +112,9 @@ const Individualsection = () => {
                     />
                   </div>
 
-      <div className="p-5 bg-[#FCF8F4]">
+      <div className="p-5 bg-[#FCF8F4]  mx-auto">
         {/* Individual Therapy Section */}
-        <div className="flex flex-wrap gap-5 px-4 sm:px-32 mt-24 mb-10">
+        <div className="flex flex-wrap gap-5 px-4 sm:px-32 max-w-[2000px] mx-auto mt-24 mb-10">
           <div className="w-full">
             <img
               // src="src/assets/Mask group.png"

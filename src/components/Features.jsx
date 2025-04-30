@@ -343,7 +343,7 @@ const cardVariants = {
 
 const Features = () => {
   return (
-    <div className="bg-[#FCF8F4] py-20 px-4 sm:px-6 md:px-12 lg:px-24">
+    <div className="bg-[#FCF8F4] py-20 px-4 sm:px-6 md:px-12 lg:px-24 max-w-[2000px] mx-auto overflow-hidden">
       <div className="text-center max-w-3xl mx-auto mb-16 px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

@@ -517,3 +517,14 @@ export const deleteBlog = async (blogId) => {
     console.error("Error deleting blog:", error.response?.data || error.message);
   }
 };
+
+
+export const blogViewed = async (blogId, userId)  => {
+  try {
+    const response = await axiosInstance.put(`/BlogViewed?Blogid=${blogId}&userid=${userId}`, {});
+    return response.data;
+  } catch (error) {
+    console.error("Error updating blog view:", error.response?.data || error.message);
+    throw error;
+  }
+};

@@ -7,6 +7,7 @@ import blogImg1 from "../img/blogImg1.png";
 import blogDetail4 from "../img/blogDetail4.png";
 import { deleteBlog, getBlogdetails } from "../action/Auth";
 import Loader from "./Loader";
+import { GrLike } from "react-icons/gr";
 
 const Blogs = () => {
   const [blogDetails, setBlogDetails] = useState([]);
@@ -123,7 +124,7 @@ const Blogs = () => {
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+                        className="text-2xl sm:text-4xl font-extrabold h-11 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
                       >
                         Blog
                       </motion.h1>
@@ -157,7 +158,7 @@ const Blogs = () => {
               className="w-full h-auto object-cover rounded-lg mb-4"
             />
             <button className="text-xs sm:text-sm md:text-lg font-bold bg-[#7AC258] rounded-3xl w-[50%] sm:w-[60%] md:w-[50%] lg:w-[40%] h-auto px-4 py-2 text-white mb-3 text-center">
-              {blogDetails[0]?.type}
+              {blogDetails[0]?.type.toUpperCase()}
             </button>
 
             <h1 className="text-3xl font-semibold mb-4">
@@ -215,8 +216,11 @@ const Blogs = () => {
                     style={{ width: "75px", height: "75px" }}
                   />
                   <div className="flex flex-col">
-                    <p className="text-lg font-poppins">{post?.name}</p>
-                    <p>{formatLikes(post?.like || 0)}</p>
+                    <p className="text-lg font-poppins pb-2">{post?.name}</p>
+                   <div className="flex flex-row  ">
+                   <p className="mr-3">{formatLikes(post?.like?.split(',')?.length || 0)} </p>
+                   <GrLike size={18}/>
+                   </div>
 
                   </div>
                 </div>
@@ -290,9 +294,12 @@ const Blogs = () => {
             alt={blog.name}
             className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg mb-4"
           />
-          <button className="text-sm sm:text-lg font-bold bg-[#7AC258] rounded-3xl w-[50%] sm:w-[40%] md:w-[50%] h-auto px-4 py-2 text-white mb-3 text-center">
-            {blog.type}
-          </button>
+          <button
+  className="text-sm sm:text-base md:text-lg font-bold bg-[#7AC258] rounded-3xl w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 px-4 py-2 text-white mb-3 text-center"
+>
+  {blog.type.toUpperCase()}
+</button>
+
           <h2 className="text-xl font-semibold text-gray-800 mb-2">
             {blog.name}
           </h2>

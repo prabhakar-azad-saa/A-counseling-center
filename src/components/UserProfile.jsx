@@ -142,7 +142,7 @@ const UserProfile = () => {
    <>
     <Loader isLoading={loading} />
       <div
-        className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8   max-w-[2300px] mx-auto"
+        className="flex flex-col lg:flex-row w-full  gap-6 px-4 sm:px-6 md:px-8   max-w-[2000px] mx-auto"
         style={{ backgroundColor: "#FCF8F4" }}
       >
         {/* Left Side - Profile and Appointment */}
