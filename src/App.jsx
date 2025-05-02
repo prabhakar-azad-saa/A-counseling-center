@@ -23,6 +23,8 @@ import ScrollToTop from "./components/ScrollToTop"
 import DashboardTable from "./components/DashboardTable";
 import ContactUs from "./components/ContactUs";
 import ServicecartHome from './components/ServicecartHome'
+import PhotoAddressForm from "./components/PhotoAddressForm ";
+
 // import ZoomMeeting from "./components/ZoomMeeting ";
 function App() {
   console.log("App.js");
@@ -185,6 +187,9 @@ function App() {
 
             
           />
+
+
+      
            <Route path="/services/:slug" element={<Services />} />
             <Route
             path="/servicecartHome"

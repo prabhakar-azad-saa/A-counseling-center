@@ -528,3 +528,33 @@ export const blogViewed = async (blogId, userId)  => {
     throw error;
   }
 };
+
+// export const putUpdatePatientDetails = async (PatientId,Name,Gender,ProfilePhoto,DateOfBirth,Address) => {
+//   try {
+//     const response = await axiosInstance.put(`/UpdatePatientDetails?PatientId=${PatientId}&Name=${Name}&Gender=${Gender}&DateOfBirth=${DateOfBirth}&Address=${Address}&ProfilePhoto=${ProfilePhoto}`, {});
+//     return response.data;
+  
+//   } catch (error) {
+//     console.error("Error getting UpdatePatientDetails  :", error.response?.data || error.message);
+//   }
+// };
+
+
+
+
+
+
+export const putUpdatePatientDetails = async (formData) => {
+  try {
+    const response = await axiosInstance.put("/UpdatePatientDetails", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error updating patient details:", error.response?.data || error.message);
+    throw error;
+  }
+};
+

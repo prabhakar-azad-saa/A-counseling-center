@@ -103,21 +103,69 @@ const features = [
   }
 ];
 
+const labelVariants = {
+  initial: {
+    width: 0,
+    opacity: 0,
+  },
+  animate: {
+    width: "auto",
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
+
 const Hero = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
     <div className="relative min-h-screen">
+
       <img
         src={homepic}
         alt="Mental wellness background"
         className="absolute inset-0 w-full h-full object-cover object-top z-0"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-teal-800/70 to-transparent z-10"></div>
+      
   
-      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-10 flex items-center min-h-screen">
+      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-10  items-center min-h-screen">
+      <div className="mb-5">
+      <motion.div
+      className="relative inline-block text-center mt-12"
+      initial="initial"
+      animate="animate"
+      variants={labelVariants}
+    >
+      {/* Zipper-Stitch Border */}
+      <div className="absolute inset-0 z-0 border-[3px] border-dashed border-yellow-400 rounded-xl animate-pulse blur-[0.5px] shadow-lg" />
+
+      {/* Shine animation */}
+      <div className="absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden z-10">
+        <motion.div
+          className="absolute w-1/2 h-full bg-white/30 rotate-45"
+          initial={{ x: "-150%" }}
+          animate={{ x: "150%" }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        />
+      </div>
+
+      {/* Main Label */}
+      <motion.span
+        whileHover={{ scale: 1.1, rotate: -1 }}
+        className="relative inline-block px-7 py-3 text-base font-bold tracking-wide text-white bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-xl shadow-xl"
+      >
+        🎁 Grab Your <span className="underline underline-offset-4">3 Month Counseling Free Book</span> Now!
+      </motion.span>
+    </motion.div>
+      </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full">
+      
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -125,6 +173,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-white"
           >
+
             <h1 className="text-3xl sm:text-4xl  font-bold leading-tight mb-6">
               Start Your Healing Journey Today
             </h1>

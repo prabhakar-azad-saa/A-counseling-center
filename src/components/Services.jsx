@@ -101,7 +101,7 @@ const Services = () => {
   };
 
   return (
-    <div className="bg-[#FCF8F4] mb-10">
+    <div className="bg-[#FCF8F4] ">
       {/* Hero Section */}
       {/* <div
         className="relative w-full h-[500px] overflow-hidden"
