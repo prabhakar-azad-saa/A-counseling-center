@@ -368,29 +368,29 @@ const UserProfile = () => {
     navigate("/booksession");
   };
 
-  const getBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
+  // const getBase64 = (file) =>
+  //   new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result);
+  //     reader.onerror = (error) => reject(error);
+  //   });
 
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
-    }
-    setPreviewImage(file.url || file.preview);
-  };
+  // const handlePreview = async (file) => {
+  //   if (!file.url && !file.preview) {
+  //     file.preview = await getBase64(file.originFileObj);
+  //   }
+  //   setPreviewImage(file.url || file.preview);
+  // };
 
-  const handleChange = async ({ fileList: newFileList }) => {
-    setFileList(newFileList);
+  // const handleChange = async ({ fileList: newFileList }) => {
+  //   setFileList(newFileList);
 
-    if (newFileList.length > 0 && newFileList[0].originFileObj) {
-      const base64Image = await getBase64(newFileList[0].originFileObj);
-      setProfileImage(base64Image);
-    }
-  };
+  //   if (newFileList.length > 0 && newFileList[0].originFileObj) {
+  //     const base64Image = await getBase64(newFileList[0].originFileObj);
+  //     setProfileImage(base64Image);
+  //   }
+  // };
 
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
@@ -408,8 +408,8 @@ const UserProfile = () => {
         if (res?.data?.address) {
           setSavedAddress(res.data.address);
         }
-        if (res?.data?.profilePhoto) {
-          setProfileImage(res.data.profilePhoto);
+        if (res?.data?.ProfilePhoto) {
+          setProfileImage(res.data.ProfilePhoto);
         }
       })
       .catch((err) => console.error("User Detail Error:", err));
@@ -424,7 +424,7 @@ const UserProfile = () => {
   return (
     <>
       <Loader isLoading={loading} />
-      <div className="flex flex-col lg:flex-row w-full gap-6 px-4 sm:px-6 md:px-8 max-w-[2000px] mx-auto" style={{ backgroundColor: "#FCF8F4" }}>
+      <div className="flex flex-col lg:flex-row w-full gap-6 px-4 sm:px-6 md:px-8 mb-28 mt-5 max-w-[2000px] mx-auto" style={{ backgroundColor: "#FCF8F4" }}>
         {/* Left Side */}
         <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10">
           <div className="flex flex-col bg-white rounded-lg p-5 mb-8 shadow-md">

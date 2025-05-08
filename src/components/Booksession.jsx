@@ -962,7 +962,7 @@ function Booksession() {
                     Specialized Therapy
                   </option>
                   <option value="Career Coaching">Career Coaching</option>
-                  <option value="Online Sessions">Online Sessions</option>
+                  {/* <option value="Online Sessions">Online Sessions</option> */}
                 </select>
                 {errors.field && (
                   <p className="text-red-500 text-sm">{errors.field}</p>

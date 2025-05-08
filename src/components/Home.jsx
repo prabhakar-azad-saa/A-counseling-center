@@ -66,7 +66,7 @@ const sectionData = {
 </div> */}
 
 
-<ServicecartHome/>
+{/* <ServicecartHome/> */}
 
 
       <Features

@@ -65,44 +65,83 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import homepic from "../img/homepic.png";
 import { motion } from "framer-motion";
-import {
-  FaBrain,
-  FaHeart,
-  FaMoon,
-  FaHandsHelping,
-  FaCheckCircle,
-  FaUserShield,
+// import {
+//   FaBrain,
+//   FaHeart,
+//   FaMoon,
+//   FaHandsHelping,
+//   FaCheckCircle,
+//   FaUserShield,
+//   FaCertificate,
+//   FaVideo
+// } from "react-icons/fa";
+
+
+import { FaUser, FaHeart, FaUsers,  FaUserShield,FaLeaf, FaBriefcase,
   FaCertificate,
-  FaVideo
-} from "react-icons/fa";
+  FaVideo } from "react-icons/fa";
+  const features = [
+    {
+      icon: FaUser,
+      title: "Individual Therapy",
+      description: "Anxiety, Depression, Trauma, and more...",
+      color: "bg-blue-100 text-blue-600",
+    },
+    {
+      icon: FaHeart,
+      title: "Relationship Therapy",
+      description: "Marriage counseling, communication issues...",
+      color: "bg-pink-100 text-pink-600",
+    },
+    {
+      icon: FaUsers,
+      title: "Family Counseling",
+      description: "Parenting, teen counseling, family conflicts...",
+      color: "bg-green-100 text-green-600",
+    },
+    {
+      icon: FaLeaf,
+      title: "Specialized Therapy",
+      description: "CBT, Mindfulness, ADHD support...",
+      color: "bg-purple-100 text-purple-600",
+    },
+    {
+      icon: FaBriefcase,
+      title: "Career Coaching",
+      description: "Work-life balance, personal development...",
+      color: "bg-yellow-100 text-yellow-600",
+    },
+  ];
+  
 
-const features = [
-  {
-    icon: FaBrain,
-    title: "Anxiety Management",
-    description: "Techniques to manage anxiety and stress effectively.",
-    color: "bg-blue-100 text-blue-600"
-  },
-  {
-    icon:FaHandsHelping ,
-    title: "Depression Support",
-    description: "Guidance to overcome depression and find joy again.",
-    color: "bg-green-100 text-green-600"
-  },
-  {
-    icon: FaMoon,
-    title: "Sleep Therapy",
-    description: "Improve sleep patterns for overall mental well-being.",
-    color: "bg-purple-100 text-purple-600"
-  },
-  {
-    icon: FaHeart,
-    title: "Relationship Counseling",
-    description: "Build strong, healthy relationships with expert support.",
-    color: "bg-red-100 text-red-600"
-  }
-];
 
+//  const features = [
+  //   {
+  //     icon: FaBrain,
+  //     title: "Anxiety Management",
+  //     description: "Techniques to manage anxiety and stress effectively.",
+  //     color: "bg-blue-100 text-blue-600"
+  //   },
+  //   {
+  //     icon:FaHandsHelping ,
+  //     title: "Depression Support",
+  //     description: "Guidance to overcome depression and find joy again.",
+  //     color: "bg-green-100 text-green-600"
+  //   },
+  //   {
+  //     icon: FaMoon,
+  //     title: "Sleep Therapy",
+  //     description: "Improve sleep patterns for overall mental well-being.",
+  //     color: "bg-purple-100 text-purple-600"
+  //   },
+  //   {
+  //     icon: FaHeart,
+  //     title: "Relationship Counseling",
+  //     description: "Build strong, healthy relationships with expert support.",
+  //     color: "bg-red-100 text-red-600"
+  //   }
+  // ];
+  
 const labelVariants = {
   initial: {
     width: 0,
