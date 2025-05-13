@@ -181,6 +181,7 @@ const DashboardUi = () => {
       dataIndex: "bookSessionDate",
       key: "bookSessionDate",
     },
+      {title: "Time", dataIndex: "slotTime", key: "slotTime" },
     {
       title: "Status",
       dataIndex: "status",
@@ -235,7 +236,7 @@ const DashboardUi = () => {
       key: "profilePhotoPath",
       render: (text, record) => (
         <img
-          src={userImg}
+          src={record.profilePhotoPath || userImg} // Fallback to placeholder
           alt="Profile"
           className="w-10 h-10 rounded-full cursor-pointer"
           onClick={() => showPatientDetails(record)}
@@ -243,7 +244,8 @@ const DashboardUi = () => {
       ),
     },
     { title: "Patient", dataIndex: "fullName", key: "fullName" },
-    { title: "Time", dataIndex: "bookSessionDate", key: "bookSessionDate" },
+    { title: "Date", dataIndex: "bookSessionDate", key: "bookSessionDate" },
+    {title: "Time", dataIndex: "slotTime", key: "slotTime" },
     {
       title: "Status",
       dataIndex: "status",

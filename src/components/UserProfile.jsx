@@ -371,10 +371,7 @@ const UserProfile = () => {
     const storedUser = localStorage.getItem("userData");
     const parsedUser = JSON.parse(storedUser);
 
-    const localAddress = localStorage.getItem("userAddress");
-    if (localAddress) {
-      setSavedAddress(localAddress);
-    }
+   
 
     // Fetch upcoming appointments
     upcomingAppointment(parsedUser?.userId)
@@ -393,9 +390,7 @@ const UserProfile = () => {
         //   setSavedAddress(res.data.address);
         // }
 
-        if (!localAddress && res?.data?.address) {
-          setSavedAddress(res.data.address);
-        }
+        
         if (res?.data?.profilePhotoPath) {
           // console.log("=====Profile Image=====:", res.data.profilePhotoPath);
 
@@ -428,85 +423,40 @@ const UserProfile = () => {
     }
   };
 
-  //   const [upcomingAppointments, setUpcomingAppointments] = useState([]);
 
-  //   // const user = JSON.parse(localStorage.getItem("userData"));
-  // const isAdmin = user?.role === "Admin";
-
-  // const [loading, setLoading] = useState(false);
-
-  // useEffect(() => {
-  //   if (!isAdmin) return;
-
-  //   setLoading(true);
-  //   getAllUpAppointments()
-  //     .then((res) => {
-  //       if (res?.data) {
-  //         const todayDate = moment().format("YYYY-MM-DD");
-  //         const upcoming = res.data.filter((appointment) =>
-  //           moment(appointment.bookSessionDate).isAfter(todayDate)
-  //         );
-  //         setUpcomingAppointments(upcoming);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error fetching upcoming appointments:", err);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, [isAdmin]);
-
-  // const handleJoin = (data) => {
-  //   // your join logic here
-  //   console.log("Joining session:", data);
+  // const handleSaveAddress = () => {   
+  //   setSavedAddress(address);
+  //   setShowInput(false);
+  //   message.success("Address saved successfully!");
+  //   localStorage.setItem("userAddress", address); // Save address
   // };
+const [isEditing, setIsEditing] = useState(false);
+  const [address, setAddress] = useState("");
 
-  // const showPatientDetails = (record) => {
-  //   // your modal or details view logic
-  //   console.log("Patient details:", record);
-  // };
+  // Load address from localStorage on mount
+  useEffect(() => {
+    const savedAddress = localStorage.getItem("userAddress");
+    if (savedAddress) {
+      setAddress(JSON.parse(savedAddress));
+    }
+  }, []);
 
-  //  const columns = [
-  //     {
-  //       title: "Profile",
-  //       dataIndex: "profilePhotoPath",
-  //       key: "profilePhotoPath",
-  //       render: (text, record) => (
-  //         <img
-  //           src={record.profilePhotoPath || userImg}
-  //           alt="Profile"
-  //           className="w-10 h-10 rounded-full cursor-pointer"
-  //           onClick={() => showPatientDetails(record)}
-  //         />
-  //       ),
-  //     },
-  //     { title: "Patient", dataIndex: "fullName", key: "fullName" },
-  //     {
-  //       title: "Time",
-  //       dataIndex: "bookSessionDate",
-  //       key: "bookSessionDate",
-  //       render: (date) => moment(date).format("YYYY-MM-DD hh:mm A"),
-  //     },
-  //     {
-  //       title: "Status",
-  //       dataIndex: "status",
-  //       key: "status",
-  //       render: (status) => (status === 1 ? "Accepted" : "Rejected"),
-  //     },
-  //     {
-  //       title: "Action",
-  //       key: "action",
-  //       render: (text, data) => (
-  //         <button
-  //           onClick={() => handleJoin(data)}
-  //           className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm"
-  //         >
-  //           Join
-  //         </button>
-  //       ),
-  //     },
-  //   ];
+  // When pencil is clicked
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  // Save to localStorage
+  const handleSave = () => {
+    if (address.trim() === "") {
+      alert("Address cannot be empty.");
+      return;
+    }
+    localStorage.setItem("userAddress", JSON.stringify(address));
+    // alert("Address saved to localStorage!");
+    setIsEditing(false);
+  };
+
 
   return (
     <>
@@ -555,17 +505,51 @@ const UserProfile = () => {
               </div>
               <div className="flex items-center">
                 <Userlocation />
-                <p className="text-base text-black font-semibold ml-3">
+                {/* <p className="text-base text-black font-semibold ml-3">
                   {savedAddress}
-                </p>
-                <button
+                </p> */}
+                {/* <button
                   type="button"
                   className="ml-3 text-sm text-gray-600 hover:text-black transition"
-                  onClick={() => setIsModalOpen(true)}
+                 
                   title="Edit Address"
                 >
                   <GoPencil size={18} />
-                </button>
+                </button> */}
+
+                <div className="space-y-2 ml-4 text-base text-black font-semibold">
+      {!isEditing ? (
+        <div className="flex items-center space-x-2">
+          <span className="text-gray-800">
+            {address || "No address saved yet"}
+          </span>
+          <button
+            type="button"
+            className="text-sm text-gray-600 hover:text-black transition"
+            // title="Edit Address"
+            onClick={handleEditClick}
+          >
+            <GoPencil size={18} />
+          </button>
+        </div>
+      ) : (
+        <div className="flex items-center space-x-2">
+          <input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="border p-2 rounded-md w-64"
+            placeholder="Enter your address"
+          />
+          <button
+            onClick={handleSave}
+            className="bg-blue-500 text-white px-3 py-1 rounded-md"
+          >
+            Save
+          </button>
+        </div>
+      )}
+    </div>
               </div>
             </div>
 
@@ -592,6 +576,23 @@ const UserProfile = () => {
                       {item?.sessionSlotTime}
                     </p>
 
+  {/* <>
+   
+        {item.status === 1 ? (
+          <button className="mt-2 px-4 py-1 bg-green-600 text-white rounded">
+            Join
+          </button>
+        ) : item.status === 2 ? (
+          <span className="mt-2 inline-block px-4 py-1 bg-red-500 text-white rounded">
+            Rejected
+          </span>
+        ) : (
+          <span className="mt-2 inline-block px-4 py-1 bg-yellow-400 text-black rounded">
+            Pending
+          </span>
+        )}
+  </> */}
+     
                     <div
                       onClick={() => handlejoin(item)}
                       style={{
@@ -667,23 +668,7 @@ const UserProfile = () => {
               )}
             </div>
           </div>
-          {/* {isAdmin && (
-  <div className="p-4 mt-8">
-    <h2 className="text-xl font-semibold mb-4">Upcoming All Appointment</h2>
-    {loading ? (
-      <div className="flex justify-center items-center min-h-[150px]">
-        <Spin size="large" />
-      </div>
-    ) : (
-      <Table
-        columns={columns}
-        dataSource={upcomingAppointments}
-        rowKey={(record) => record.id}
-        pagination={{ pageSize: 5 }}
-      />
-    )}
-  </div>
-)} */}
+         
         </div>
       </div>
 
@@ -698,13 +683,13 @@ const UserProfile = () => {
               &times;
             </button>
             <PhotoAddressForm
-              currentAddress={savedAddress}
+              // currentAddress={savedAddress}
               currentPhoto={profileImage}
               onClose={() => setIsModalOpen(false)}
-              onSave={(newPhoto, newAddress) => {
+              onSave={(newPhoto) => {
                 setProfileImage(newPhoto);
-                setSavedAddress(newAddress);
-                localStorage.setItem("userAddress", newAddress); // Save address
+                // setSavedAddress(newAddress);
+                // localStorage.setItem("userAddress", newAddress); // Save address
                 setIsModalOpen(false);
                 // message.success("Profile updated successfully!");
               }}

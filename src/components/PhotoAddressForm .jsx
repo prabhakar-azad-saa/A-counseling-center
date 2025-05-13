@@ -389,7 +389,7 @@ const PhotoAddressForm = ({ userId, onClose, onSave }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!newAddress.trim()) newErrors.address = "Address is required.";
+    // if (!newAddress.trim()) newErrors.address = "Address is required.";
     if (fileList.length === 0) newErrors.image = "Profile image is required.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -488,7 +488,7 @@ const PhotoAddressForm = ({ userId, onClose, onSave }) => {
             )}
           </div>
 
-          <div>
+          {/* <div>
             <label className="block text-xl font-semibold mb-2 text-gray-700">
               Address
             </label>
@@ -504,7 +504,7 @@ const PhotoAddressForm = ({ userId, onClose, onSave }) => {
             {errors.address && (
               <p className="text-red-500 text-sm mt-1">{errors.address}</p>
             )}
-          </div>
+          </div> */}
 
           <div className="text-center mt-10">
             <button
