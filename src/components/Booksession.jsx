@@ -601,6 +601,7 @@ function Booksession() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value);
     setFormData({ ...formData, [name]: value });
     setErrors((prev) => ({ ...prev, [name]: "" }));
 
@@ -762,7 +763,7 @@ function Booksession() {
       color: "#2d3748",
     }}
   >
-    📚 Claim Free Book for 3-Month Book Now!
+    🎁 Grab Your <span className="underline underline-offset-4">First 3 Session within 3 Month Counseling Free Book </span> Now!
     <span className="absolute top-0 left-0 w-full h-full shine-layer pointer-events-none" />
     <style>{`
       .shine-layer {
@@ -901,14 +902,14 @@ function Booksession() {
                     Available Date
                   </label>
                   <input
-                    // type="date"
-                    type="datetime-local"
+                    type="date"
+                    // type="datetime-local"
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
                     className="w-full p-3 text-lg border border-gray-300 rounded-3xl"
-                    // min={new Date().toISOString().split("T")[0]}
-                    min={new Date().toISOString().slice(0, 16)}
+                    min={new Date().toISOString().split("T")[0]}
+                    // min={new Date().toISOString().slice(0, 16)}
                   />
                   {errors.date && (
                     <p className="text-red-500 text-sm">{errors.date}</p>

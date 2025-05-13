@@ -30,7 +30,7 @@ const DashboardUi = () => {
   const [booking, setBooking] = useState([]);
   const [todayAppointments, setTodayAppointments] = useState([]);
   const [upcomingAppointments, setUpcomingAppointments] = useState([]);
-  const [loading, setLoading] = useState(true); // Loader state
+  const [loading, setLoading] = useState(true); 
   const [refresh, setRefresh] = useState([]);
 
   useEffect(() => {
@@ -66,35 +66,48 @@ const DashboardUi = () => {
       });
 
     //getAllUpAppointments
-    getAllUpAppointments()
-      .then((res) => {
-        if (res?.data) {
-          const todayDate = moment().format("YYYY-MM-DD");
-          // console.log("====33333===",res)
+   getAllUpAppointments()
+  .then((res) => {
+    if (res?.data) {
+      const todayDate = moment().format("YYYY-MM-DD");
 
-          const todayAppointments = res.data.filter(
-            (appointment) =>
-              moment(appointment.bookSessionDate).format("YYYY-MM-DD") === todayDate &&
-    appointment.status === 1 
-          );
-            
-        
-          setTodayAppointments(todayAppointments);
+      // Filter only accepted appointments
+      const acceptedAppointments = res.data.filter(
+        (appointment) => appointment.status === 1
+      );
 
-          const upcomingAppointments = res.data.filter((appointment) =>
-            moment(appointment.bookSessionDate).isAfter(todayDate)
-          );
-          setUpcomingAppointments(upcomingAppointments);
-        }
-        // console.log("==Response==", res);
-      })
-      .catch((err) => {
-        console.error("====getAllUpAppointments Error====", err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      // Today's accepted appointments
+      const todayAppointments = acceptedAppointments.filter(
+        (appointment) =>
+          moment(appointment.bookSessionDate).format("YYYY-MM-DD") === todayDate
+      );
+      setTodayAppointments(todayAppointments);
+
+      // Upcoming accepted appointments
+      const upcomingAppointments = acceptedAppointments.filter(
+        (appointment) =>
+          moment(appointment.bookSessionDate).isAfter(todayDate)
+      );
+      setUpcomingAppointments(upcomingAppointments);
+    }
+  })
+  .catch((err) => {
+    console.error("====getAllUpAppointments Error====", err);
+  })
+  .finally(() => {
+    setLoading(false);
+  });
   }, [refresh]);
+
+  const handleJoin = (data) => {
+    console.log("Join data:", data);
+    if (data?.joinURL) {
+      window.open(data?.joinURL, '_blank');
+    } else {
+      console.error('Join URL not found');
+      alert('Join link is unavailable.');
+    }
+  };
 
   const handleAction = async (sessionId, status, fullName) => {
     try {
@@ -145,14 +158,19 @@ const DashboardUi = () => {
   };
 
   const columns = [
-    {
-      title: "Profile",
-      dataIndex: "profile",
-      key: "profile",
-      render: () => (
-        <img src={userImg} alt="Profile" className="w-10 h-10 rounded-full" />
-      ),
-    },
+   {
+  title: 'Profile',
+  dataIndex: 'profilePhotoPath',
+  key: 'profilePhotoPath',
+  render: (_, record) => (
+    <img
+      src={record.profilePhotoPath || userImg} // Fallback to placeholder
+      alt="Profile"
+      className="w-10 h-10 rounded-full"
+    />
+  ),
+},
+
     {
       title: "Patient",
       dataIndex: "fullName",
@@ -213,8 +231,8 @@ const DashboardUi = () => {
   const columnss = [
     {
       title: "Profile",
-      dataIndex: "profile",
-      key: "profile",
+      dataIndex: "profilePhotoPath",
+      key: "profilePhotoPath",
       render: (text, record) => (
         <img
           src={userImg}
@@ -232,6 +250,47 @@ const DashboardUi = () => {
       key: "status",
       render: (status) => (status === 1 ? "Accepted" : 'Rejected'),
     },
+  
+   {
+  title: "Action",
+  key: "action",
+  render: (text, data) => {
+    const today = new Date().toISOString().split('T')[0];
+ console.log("Session Date:",  today,data);
+    let isToday = false;
+    if (data.
+bookSessionDate
+) {
+      const parsedDate = new Date(data.
+bookSessionDate
+);
+      if (!isNaN(parsedDate)) {
+        const sessionDate = parsedDate.toISOString().split('T')[0];
+        console.log("Session Date:", sessionDate,today);
+        isToday = sessionDate === today;
+      }
+      
+    }
+
+    return (
+      <div className="flex gap-2">
+        <button
+          onClick={() => handleJoin(data)}
+          disabled={!isToday}
+          className={`px-3 py-1 rounded text-sm ${
+            isToday
+              ? "bg-green-500 text-white hover:bg-green-600"
+              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+          }`}
+        >
+          Join
+        </button>
+      </div>
+    );
+  }
+}
+
+    
   ];
 
   const data = [
@@ -283,6 +342,9 @@ const DashboardUi = () => {
       ],
     });
   };
+
+
+ 
 
   useEffect(() => {
     fetchBookingData();

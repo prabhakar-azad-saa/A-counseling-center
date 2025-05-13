@@ -79,45 +79,7 @@ const Blogs = () => {
     <>
       <Loader isLoading={loading} />
       <div className="bg-[#FCF8F4]">
-        {/* Hero Section */}
-        {/* <div
-          className="relative w-full h-[500px] overflow-hidden"
-          style={{
-            backgroundImage: `url(${frameImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div className="absolute inset-0 opacity-50"></div>
-          <div className="relative z-10 w-full max-w-[2300px] mx-auto px-5">
-            <div className="grid mt-12 grid-cols-1 md:grid-cols-1 items-center gap-1 min-h-[500px]">
-              <div className="flex flex-row ml-8 items-center  space-x-8">
-                <div className="h-60 border-l-2 border-white"></div>
-                <div className="flex flex-col text-center md:text-left">
-                  <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, type: "spring" }}
-                    className="text-5xl font-bold text-white mb-4"
-                  >
-                    Blog
-                  </motion.h2>
-                  <br />
-                  <motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-                    className="text-lg text-white"
-                  >
-                    Explore transformative insights and expert guidance on your
-                    journey to mental wellness
-                  </motion.p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
+       
 
            <div className="flex flex-col items-center justify-center pt-14 px-4">
                       <motion.h1
@@ -229,56 +191,7 @@ const Blogs = () => {
           </div>
         </div>
 
-        {/* Blog List */}
-        {/* <div className="p-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogDetails.map((blog, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-2xl p-6 mb-8"
-              >
-                <img
-                  src={blog.imagePath || blogDetail4}
-                  alt={blog.name}
-                  className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg mb-4"
-                />
-                <button className="text-sm sm:text-lg font-bold bg-[#7AC258] rounded-3xl w-[50%] sm:w-[40%] md:w-[50%] h-auto px-4 py-2 text-white mb-3 text-center">
-                  {blog.type}
-                </button>
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                  {blog.name}
-                </h2>
-                <p className="text-gray-600 font-poppins">
-                  {blog.description.length > 70
-                    ? `${blog.description.slice(0, 70).trim()}...`
-                    : blog.description}{" "}
-                  <a
-                    className="text-blue-500 hover:text-blue-700 font-medium text-lg cursor-pointer"
-                    onClick={() =>
-                      handleClick(
-                        "blogdetail",
-                        blog.blogId || blog.id,
-                        blog.initialStatus,
-                        blog.userid
-                      )
-                    }
-                  >
-                    Read More
-                  </a>
-                </p>
-                {userData?.role === "Admin" && (
-                  <div
-                    className="cursor-pointer"
-                    style={{ float: "right" }}
-                    onClick={() => handledeleteBlog(blog?.blogId || blog?.id)}
-                  >
-                    <MdOutlineDelete size={24} color="red" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div> */}
+       
 
 <div className="p-8">
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -294,11 +207,12 @@ const Blogs = () => {
             alt={blog.name}
             className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover rounded-lg mb-4"
           />
-          <button
+        <button
   className="text-sm sm:text-base md:text-lg font-bold bg-[#7AC258] rounded-3xl w-4/5 sm:w-3/5 md:w-1/2 lg:w-1/3 px-4 py-2 text-white mb-3 text-center"
 >
   {blog.type.toUpperCase()}
 </button>
+
 
           <h2 className="text-xl font-semibold text-gray-800 mb-2">
             {blog.name}

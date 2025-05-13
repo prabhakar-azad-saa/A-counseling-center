@@ -151,7 +151,7 @@ const labelVariants = {
     width: "auto",
     opacity: 1,
     transition: {
-      duration: 1.5,
+      duration: 3,
       ease: "easeInOut",
     },
   },
@@ -190,7 +190,7 @@ const Hero = () => {
           className="absolute w-1/2 h-full bg-white/30 rotate-45"
           initial={{ x: "-150%" }}
           animate={{ x: "150%" }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
         />
       </div>
 
@@ -199,8 +199,9 @@ const Hero = () => {
         whileHover={{ scale: 1.1, rotate: -1 }}
         className="relative inline-block px-7 py-3 text-base font-bold tracking-wide text-white bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-xl shadow-xl"
       >
-        🎁 Grab Your <span className="underline underline-offset-4">3 Month Counseling Free Book</span> Now!
+        🎁 Grab Your <span className="underline underline-offset-4">First 3 Session within 3 Month Counseling Free Book </span> Now!
       </motion.span>
+
     </motion.div>
       </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full">
@@ -220,15 +221,15 @@ const Hero = () => {
               We're here to guide you toward better mental health. Connect with certified counselors and begin your path to emotional well-being.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
+              {/* <button
                 onClick={() => navigate("/booksession")}
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105"
               >
                 Book Consultation
-              </button>
+              </button> */}
               <button
                 onClick={() => navigate("/services")}
-                className="bg-white/10 border border-white text-white font-semibold py-3 px-6 rounded-full hover:bg-white/20 transition duration-300"
+                className= "bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-white/20 transition duration-300"
               >
                 Learn More
               </button>
@@ -260,7 +261,7 @@ const Hero = () => {
             transition={{ duration: 1 }}
             className="w-full"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6"  onClick={() => navigate("/booksession")}>
               {features.map((item, index) => (
                 <motion.div
                   key={index}

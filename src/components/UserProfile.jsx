@@ -325,7 +325,7 @@ import { Image, Upload, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineSaveAs } from "react-icons/md";
 import { GoPencil } from "react-icons/go";
-
+import { Table, Spin } from "antd";
 import userImg from "../img/userImg.png";
 import Usermail from "../img/Usermail";
 import Usercall from "../img/Usercall";
@@ -337,9 +337,11 @@ import Button from "../components/Button";
 import Userchat from "../img/Userchat";
 import Loader from "./Loader";
 import PhotoAddressForm from "./PhotoAddressForm ";
+import moment from "moment";
 
 
 import {
+  getAllUpAppointments ,
   upcomingAppointment,
   getUserDetail,
   sessionHistory,
@@ -350,13 +352,15 @@ const UserProfile = () => {
 
   const [previewImage, setPreviewImage] = useState("");
   const [fileList, setFileList] = useState([]);
-  const [profileImage, setProfileImage] = useState(userImg);
+  const [profileImage, setProfileImage] = useState('');
   const [upcommingAppointment, setUpcommingAppointment] = useState([]);
   const [user, setUser] = useState([]);
   const [sessionhistory, setSessionhistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [savedAddress, setSavedAddress] = useState("Enter Address");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+  const [joinURL, setJoinURL] = useState("");
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
@@ -368,48 +372,42 @@ const UserProfile = () => {
     navigate("/booksession");
   };
 
-  // const getBase64 = (file) =>
-  //   new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result);
-  //     reader.onerror = (error) => reject(error);
-  //   });
-
-  // const handlePreview = async (file) => {
-  //   if (!file.url && !file.preview) {
-  //     file.preview = await getBase64(file.originFileObj);
-  //   }
-  //   setPreviewImage(file.url || file.preview);
-  // };
-
-  // const handleChange = async ({ fileList: newFileList }) => {
-  //   setFileList(newFileList);
-
-  //   if (newFileList.length > 0 && newFileList[0].originFileObj) {
-  //     const base64Image = await getBase64(newFileList[0].originFileObj);
-  //     setProfileImage(base64Image);
-  //   }
-  // };
-
+ 
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     const parsedUser = JSON.parse(storedUser);
 
+     const localAddress = localStorage.getItem("userAddress");
+    if (localAddress) {
+      setSavedAddress(localAddress);
+    }
+
     // Fetch upcoming appointments
     upcomingAppointment(parsedUser?.userId)
-      .then((res) => setUpcommingAppointment(res))
-      .catch((err) => console.error("Appointments Error:", err));
+    .then((res) => {
+      console.log("Upcoming Appointments:", res);
+      setUpcommingAppointment(res);
+    })
+    .catch((err) => console.error("Appointments Error:", err));
+  
 
     // Fetch user details
     getUserDetail(parsedUser?.userId)
       .then((res) => {
         setUser(res?.data);
-        if (res?.data?.address) {
+        // console.log("User Details:", res?.data);
+        // if (res?.data?.address) {
+        //   setSavedAddress(res.data.address);
+        // }
+
+         if (!localAddress && res?.data?.address) {
           setSavedAddress(res.data.address);
         }
-        if (res?.data?.ProfilePhoto) {
-          setProfileImage(res.data.ProfilePhoto);
+        if (res?.data?.profilePhotoPath) {
+          // console.log("=====Profile Image=====:", res.data.profilePhotoPath);
+
+          setProfileImage(res.data.profilePhotoPath);
+        
         }
       })
       .catch((err) => console.error("User Detail Error:", err));
@@ -419,7 +417,110 @@ const UserProfile = () => {
       .then((res) => setSessionhistory(res?.data))
       .catch((err) => console.error("Session History Error:", err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [refresh]);
+
+
+  const handlejoin = (data) => {
+  console.log("Join data:====1111", data);
+
+  const joinURL = data?.joinURL;
+  // const joinURL = data.joinURL || data.joinUrl || data.join_url||data.joinURL;
+  console.log("Join URL========333:", joinURL);
+
+  if (joinURL) {
+    window.open(joinURL, '_blank');
+    console.log("Join URL opened========:", joinURL);
+    setJoinURL(joinURL);
+  } else {
+    console.error('Join URL not found');
+    alert('Join link is unavailable.');
+  }
+};
+
+
+//   const [upcomingAppointments, setUpcomingAppointments] = useState([]);
+
+//   // const user = JSON.parse(localStorage.getItem("userData"));
+// const isAdmin = user?.role === "Admin";
+
+  // const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   if (!isAdmin) return;
+
+  //   setLoading(true);
+  //   getAllUpAppointments()
+  //     .then((res) => {
+  //       if (res?.data) {
+  //         const todayDate = moment().format("YYYY-MM-DD");
+  //         const upcoming = res.data.filter((appointment) =>
+  //           moment(appointment.bookSessionDate).isAfter(todayDate)
+  //         );
+  //         setUpcomingAppointments(upcoming);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching upcoming appointments:", err);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, [isAdmin]);
+
+  // const handleJoin = (data) => {
+  //   // your join logic here
+  //   console.log("Joining session:", data);
+  // };
+
+  // const showPatientDetails = (record) => {
+  //   // your modal or details view logic
+  //   console.log("Patient details:", record);
+  // };
+
+  //  const columns = [
+  //     {
+  //       title: "Profile",
+  //       dataIndex: "profilePhotoPath",
+  //       key: "profilePhotoPath",
+  //       render: (text, record) => (
+  //         <img
+  //           src={record.profilePhotoPath || userImg}
+  //           alt="Profile"
+  //           className="w-10 h-10 rounded-full cursor-pointer"
+  //           onClick={() => showPatientDetails(record)}
+  //         />
+  //       ),
+  //     },
+  //     { title: "Patient", dataIndex: "fullName", key: "fullName" },
+  //     {
+  //       title: "Time",
+  //       dataIndex: "bookSessionDate",
+  //       key: "bookSessionDate",
+  //       render: (date) => moment(date).format("YYYY-MM-DD hh:mm A"),
+  //     },
+  //     {
+  //       title: "Status",
+  //       dataIndex: "status",
+  //       key: "status",
+  //       render: (status) => (status === 1 ? "Accepted" : "Rejected"),
+  //     },
+  //     {
+  //       title: "Action",
+  //       key: "action",
+  //       render: (text, data) => (
+  //         <button
+  //           onClick={() => handleJoin(data)}
+  //           className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm"
+  //         >
+  //           Join
+  //         </button>
+  //       ),
+  //     },
+  //   ];
+  
+   
+
+  
 
   return (
     <>
@@ -491,17 +592,22 @@ const UserProfile = () => {
                     <h2 className="text-xl font-semibold">{item?.sessionDate}</h2>
                     <p className="text-lg text-black">{item?.sessionSlotTime}</p>
                   </div>
+                 
                 </div>
               ))
             ) : (
               <p className="text-gray-500">No upcoming appointments found.</p>
             )}
-            <div className="bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4">
-              <Schedule />
-              <button onClick={handleclick} className="font-semibold text-sm sm:text-lg text-white">
-                Schedule New Session
-              </button>
-            </div>
+           <div className={` ${joinURL === 0? 'bg-[#EC744A]':'bg-[#0256f2]'} flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4`}>
+  {joinURL === 0? <Schedule />: ''}
+  <button
+    onClick={joinURL === 0 ? handleclick : handlejoin}
+    className="font-semibold text-sm sm:text-lg text-white "
+  >
+    {joinURL === 0 ? "Schedule New Session" : "Join A Meeting"}
+  </button>
+</div>
+          
           </div>
         </div>
 
@@ -527,7 +633,25 @@ const UserProfile = () => {
                 <p className="text-gray-500">No session history found.</p>
               )}
             </div>
+        
           </div>
+             {/* {isAdmin && (
+  <div className="p-4 mt-8">
+    <h2 className="text-xl font-semibold mb-4">Upcoming All Appointment</h2>
+    {loading ? (
+      <div className="flex justify-center items-center min-h-[150px]">
+        <Spin size="large" />
+      </div>
+    ) : (
+      <Table
+        columns={columns}
+        dataSource={upcomingAppointments}
+        rowKey={(record) => record.id}
+        pagination={{ pageSize: 5 }}
+      />
+    )}
+  </div>
+)} */}
         </div>
       </div>
 
@@ -548,8 +672,9 @@ const UserProfile = () => {
               onSave={(newPhoto, newAddress) => {
                 setProfileImage(newPhoto);
                 setSavedAddress(newAddress);
+                 localStorage.setItem("userAddress", newAddress); // Save address
                 setIsModalOpen(false);
-                message.success("Profile updated successfully!");
+                // message.success("Profile updated successfully!");
               }}
             />
           </div>

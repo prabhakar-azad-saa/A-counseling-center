@@ -72,7 +72,7 @@ const Blogsection = () => {
                   className="w-full h-48 object-cover rounded-lg mb-4"
                 />
                 <button className="text-sm sm:text-lg font-bold bg-[#7AC258] rounded-3xl w-[50%] px-4 py-2 text-white mb-3">
-                  {blog.type}
+                  {blog.type.toUpperCase()}
                 </button>
                 <h2 className="text-xl font-semibold text-gray-800 mb-2">{blog.name}</h2>
                 <p className="text-gray-600 font-poppins text-justify">
