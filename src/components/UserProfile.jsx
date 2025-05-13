@@ -25,7 +25,6 @@
 //   putUpdatePatientDetails,
 // } from "../action/Auth";
 
-
 // const UserProfile = () => {
 //   const navigate = useNavigate();
 
@@ -49,7 +48,6 @@
 //   const [address, setAddress] = useState("");
 //   const [showInput, setShowInput] = useState(false);
 //   const [savedAddress, setSavedAddress] = useState("Enter Address");
-  
 
 //   const handleSaveAddress = () => {
 //     setSavedAddress(address);
@@ -108,7 +106,7 @@
 //     upcomingAppointmentData
 //       .then((res) => {
 //         setUpcommingAppointment(res);
-        
+
 //       })
 //       .catch((err) => {
 //         console.log("=====154===", err);
@@ -246,7 +244,7 @@
 //             <h1 className="text-2xl font-semibold mb-4">
 //               Upcoming Appointment
 //             </h1>
-         
+
 //             {upcommingAppointment?.length > 0 ? (
 //               upcommingAppointment?.map((item, index) => (
 //                 <div key={index} className="mb-4 flex items-start gap-4">
@@ -304,20 +302,18 @@
 //               )}
 //             </div>
 //           </div>
-        
+
 //           {/* <FeedbackForm/> */}
-      
+
 //         </div>
-       
+
 //       </div>
 //    </>
-    
+
 //   );
 // };
 
 // export default UserProfile;
-
-
 
 import React, { useEffect, useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
@@ -339,9 +335,8 @@ import Loader from "./Loader";
 import PhotoAddressForm from "./PhotoAddressForm ";
 import moment from "moment";
 
-
 import {
-  getAllUpAppointments ,
+  getAllUpAppointments,
   upcomingAppointment,
   getUserDetail,
   sessionHistory,
@@ -352,7 +347,7 @@ const UserProfile = () => {
 
   const [previewImage, setPreviewImage] = useState("");
   const [fileList, setFileList] = useState([]);
-  const [profileImage, setProfileImage] = useState('');
+  const [profileImage, setProfileImage] = useState("");
   const [upcommingAppointment, setUpcommingAppointment] = useState([]);
   const [user, setUser] = useState([]);
   const [sessionhistory, setSessionhistory] = useState([]);
@@ -372,24 +367,22 @@ const UserProfile = () => {
     navigate("/booksession");
   };
 
- 
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     const parsedUser = JSON.parse(storedUser);
 
-     const localAddress = localStorage.getItem("userAddress");
+    const localAddress = localStorage.getItem("userAddress");
     if (localAddress) {
       setSavedAddress(localAddress);
     }
 
     // Fetch upcoming appointments
     upcomingAppointment(parsedUser?.userId)
-    .then((res) => {
-      console.log("Upcoming Appointments:", res);
-      setUpcommingAppointment(res);
-    })
-    .catch((err) => console.error("Appointments Error:", err));
-  
+      .then((res) => {
+        console.log("Upcoming Appointments:", res);
+        setUpcommingAppointment(res);
+      })
+      .catch((err) => console.error("Appointments Error:", err));
 
     // Fetch user details
     getUserDetail(parsedUser?.userId)
@@ -400,14 +393,13 @@ const UserProfile = () => {
         //   setSavedAddress(res.data.address);
         // }
 
-         if (!localAddress && res?.data?.address) {
+        if (!localAddress && res?.data?.address) {
           setSavedAddress(res.data.address);
         }
         if (res?.data?.profilePhotoPath) {
           // console.log("=====Profile Image=====:", res.data.profilePhotoPath);
 
           setProfileImage(res.data.profilePhotoPath);
-        
         }
       })
       .catch((err) => console.error("User Detail Error:", err));
@@ -419,29 +411,27 @@ const UserProfile = () => {
       .finally(() => setLoading(false));
   }, [refresh]);
 
-
   const handlejoin = (data) => {
-  console.log("Join data:====1111", data);
+    console.log("Join data:====1111", data);
 
-  const joinURL = data?.joinURL;
-  // const joinURL = data.joinURL || data.joinUrl || data.join_url||data.joinURL;
-  console.log("Join URL========333:", joinURL);
+    const joinURL = data?.joinURL;
+    // const joinURL = data.joinURL || data.joinUrl || data.join_url||data.joinURL;
+    console.log("Join URL========333:", joinURL);
 
-  if (joinURL) {
-    window.open(joinURL, '_blank');
-    console.log("Join URL opened========:", joinURL);
-    setJoinURL(joinURL);
-  } else {
-    console.error('Join URL not found');
-    alert('Join link is unavailable.');
-  }
-};
+    if (joinURL) {
+      window.open(joinURL, "_blank");
+      console.log("Join URL opened========:", joinURL);
+      setJoinURL(joinURL);
+    } else {
+      console.error("Join URL not found");
+      alert("Join link is unavailable.");
+    }
+  };
 
+  //   const [upcomingAppointments, setUpcomingAppointments] = useState([]);
 
-//   const [upcomingAppointments, setUpcomingAppointments] = useState([]);
-
-//   // const user = JSON.parse(localStorage.getItem("userData"));
-// const isAdmin = user?.role === "Admin";
+  //   // const user = JSON.parse(localStorage.getItem("userData"));
+  // const isAdmin = user?.role === "Admin";
 
   // const [loading, setLoading] = useState(false);
 
@@ -517,28 +507,26 @@ const UserProfile = () => {
   //       ),
   //     },
   //   ];
-  
-   
-
-  
 
   return (
     <>
       <Loader isLoading={loading} />
-      <div className="flex flex-col lg:flex-row w-full gap-6 px-4 sm:px-6 md:px-8 mb-28 mt-5 max-w-[2000px] mx-auto" style={{ backgroundColor: "#FCF8F4" }}>
+      <div
+        className="flex flex-col lg:flex-row w-full gap-6 px-4 sm:px-6 md:px-8 mb-28 mt-5 max-w-[2000px] mx-auto"
+        style={{ backgroundColor: "#FCF8F4" }}
+      >
         {/* Left Side */}
         <div className="w-full lg:w-1/2 xl:w-1/3 p-4 sm:p-6 lg:p-10 mt-10">
           <div className="flex flex-col bg-white rounded-lg p-5 mb-8 shadow-md">
             {/* Profile Info */}
             <div className="flex flex-col lg:flex-row items-center mb-6">
-            <img
-  src={profileImage}
-  alt="User"
-  onClick={() => setIsModalOpen(true)}
-  className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
-  title="Click to update profile photo & address"
-/>
-
+              <img
+                src={profileImage}
+                alt="User"
+                onClick={() => setIsModalOpen(true)}
+                className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
+                title="Click to update profile photo & address"
+              />
               <div className="mt-4 lg:mt-0 lg:ml-6 text-center lg:text-left">
                 <h1 className="text-2xl font-bold">{user?.username}</h1>
                 <p className="text-lg text-black font-semibold">
@@ -555,15 +543,21 @@ const UserProfile = () => {
             <div className="space-y-5">
               <div className="flex items-center">
                 <Usermail />
-                <p className="text-base text-black font-semibold ml-3">{user?.email}</p>
+                <p className="text-base text-black font-semibold ml-3">
+                  {user?.email}
+                </p>
               </div>
               <div className="flex items-center">
                 <Usercall />
-                <p className="text-base text-black font-semibold ml-3">{user?.contactNumber}</p>
+                <p className="text-base text-black font-semibold ml-3">
+                  {user?.contactNumber}
+                </p>
               </div>
               <div className="flex items-center">
                 <Userlocation />
-                <p className="text-base text-black font-semibold ml-3">{savedAddress}</p>
+                <p className="text-base text-black font-semibold ml-3">
+                  {savedAddress}
+                </p>
                 <button
                   type="button"
                   className="ml-3 text-sm text-gray-600 hover:text-black transition"
@@ -582,32 +576,67 @@ const UserProfile = () => {
 
           {/* Appointment */}
           <div className="bg-white shadow-lg rounded-lg p-5 mb-8">
-            <h1 className="text-2xl font-semibold mb-4">Upcoming Appointment</h1>
+            <h1 className="text-2xl font-semibold mb-4">
+              Upcoming Appointment
+            </h1>
             {upcommingAppointment?.length > 0 ? (
               upcommingAppointment.map((item, index) => (
                 <div key={index} className="mb-4 flex items-start gap-4">
                   <div className="border-l-4 h-24 p-2 border-black" />
                   <div>
                     <p className="text-lg text-black">Next session</p>
-                    <h2 className="text-xl font-semibold">{item?.sessionDate}</h2>
-                    <p className="text-lg text-black">{item?.sessionSlotTime}</p>
+                    <h2 className="text-xl font-semibold">
+                      {item?.sessionDate}
+                    </h2>
+                    <p className="text-lg text-black">
+                      {item?.sessionSlotTime}
+                    </p>
+
+                    <div
+                      onClick={() => handlejoin(item)}
+                      style={{
+                        width: "100px",
+                        height: "30px",
+                        borderRadius: "10px",
+                        backgroundColor: "#0057D9",
+                        color: "white",
+                        flex: 1,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        cursor: "pointer",
+                        // marginTop: "10px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Join
+                    </div>
                   </div>
-                 
                 </div>
               ))
             ) : (
               <p className="text-gray-500">No upcoming appointments found.</p>
             )}
-           <div className={` ${joinURL === 0? 'bg-[#EC744A]':'bg-[#0256f2]'} flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4`}>
-  {joinURL === 0? <Schedule />: ''}
-  <button
+            <div
+              className={
+                "bg-[#EC744A] flex justify-center items-center p-4 rounded-3xl space-x-2 mt-4"
+              }
+            >
+              {/* {joinURL === 0? <Schedule />: ''} */}
+              {/* <button
     onClick={joinURL === 0 ? handleclick : handlejoin}
     className="font-semibold text-sm sm:text-lg text-white "
   >
     {joinURL === 0 ? "Schedule New Session" : "Join A Meeting"}
-  </button>
-</div>
-          
+  </button> */}
+
+              <button
+                onClick={handleclick}
+                className="font-semibold text-sm sm:text-lg text-white "
+              >
+                {"Schedule New Session"}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -624,8 +653,12 @@ const UserProfile = () => {
                       <h2 className="text-lg font-semibold">
                         Video Session with {chat?.doctorName}
                       </h2>
-                      <p className="text-sm text-gray-600">{chat?.sessionDate}</p>
-                      <p className="text-sm text-gray-600">{chat?.sessionDescription}</p>
+                      <p className="text-sm text-gray-600">
+                        {chat?.sessionDate}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {chat?.sessionDescription}
+                      </p>
                     </div>
                   </div>
                 ))
@@ -633,9 +666,8 @@ const UserProfile = () => {
                 <p className="text-gray-500">No session history found.</p>
               )}
             </div>
-        
           </div>
-             {/* {isAdmin && (
+          {/* {isAdmin && (
   <div className="p-4 mt-8">
     <h2 className="text-xl font-semibold mb-4">Upcoming All Appointment</h2>
     {loading ? (
@@ -672,7 +704,7 @@ const UserProfile = () => {
               onSave={(newPhoto, newAddress) => {
                 setProfileImage(newPhoto);
                 setSavedAddress(newAddress);
-                 localStorage.setItem("userAddress", newAddress); // Save address
+                localStorage.setItem("userAddress", newAddress); // Save address
                 setIsModalOpen(false);
                 // message.success("Profile updated successfully!");
               }}
@@ -685,4 +717,3 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
-
