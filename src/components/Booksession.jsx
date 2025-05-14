@@ -520,6 +520,7 @@ import React, { useState, useEffect } from "react";
 import { selecetSlot, sessionBook } from "../action/Auth";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { HelpCircle } from "lucide-react";
 
 import { Spin } from "antd";
 
@@ -566,7 +567,7 @@ function Booksession() {
           ).padStart(2, "0")}`
         : "00:00";
 
-      if (selected.getDay() === 0 || selected.getDay() === 6) {
+      if (selected.getDay() === 0 || selected.getDay() === 7) {
         setSlotData([]); // Disable slots on weekends
       } else {
         selecetSlot(selectedDate, time)
@@ -807,6 +808,44 @@ function Booksession() {
               Take the first step toward better mental health. Schedule your
               session with our experienced counselors today.
             </p>
+             {/* <p style={{ fontSize: "1rem", color: "#EC744A" }}>
+      If you have any special request or issue in booking your appointment, please email us at{" "}
+      <a
+        href="mailto:admin@apluscounselling.com"
+        style={{ color: "#007BFF", textDecoration: "underline" }}
+      >
+        admin@apluscounselling.com
+      </a>.
+    </p> */}
+
+     <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="w-full max-w-3xl  mt-10 "
+    >
+      <div className="bg-gradient-to-tr from-[#fef3c7] to-[#fde68a] border border-yellow-300 rounded-xl shadow-lg p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        
+        {/* Icon Box */}
+        <div className="bg-yellow-500 text-white p-4 rounded-xl shadow-inner flex items-center justify-center">
+          <HelpCircle size={28} />
+        </div>
+
+        {/* Text Area */}
+        <div className="text-gray-800 flex-1">
+          <h3 className="text-lg sm:text-xl font-semibold mb-1">Need assistance?</h3>
+          <p className="text-sm sm:text-base leading-relaxed">
+            If you're having trouble booking your session or have a special request, feel free to contact us at{" "}
+            <a
+              href="mailto:admin@apluscounselling.com"
+              className="text-blue-800 underline hover:text-blue-600 font-semibold"
+            >
+              admin@apluscounselling.com
+            </a>.
+          </p>
+        </div>
+      </div>
+    </motion.div>
 
 
      

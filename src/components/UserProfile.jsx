@@ -419,7 +419,7 @@ const UserProfile = () => {
       setJoinURL(joinURL);
     } else {
       console.error("Join URL not found");
-      alert("Join link is unavailable.");
+      // alert("Join link is unavailable.");
     }
   };
 

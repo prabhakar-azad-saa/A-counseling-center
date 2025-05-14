@@ -9,7 +9,8 @@ import Accessibility from "../img/Accessibility.png";
 import authenticgroup1 from "../img/authenticgroup1.png";
 
 import aboutSelf from "../img/aboutSelf.png";
-import aboutSucces2 from "../img/aboutSucces2.png";
+// import aboutSucces2 from "../img/aboutSucces2.png";
+import caption from "../img/caption.jpg";
 import arrowAbout from "../img/arrowAbout.png";
 
 import { motion } from "framer-motion";
@@ -220,11 +221,11 @@ const About = () => {
             </ul>
           </div>
 
-          <div className="flex-1 sm:max-w-full lg:max-w-full p-5">
+          <div className="flex-1 sm:max-w-full lg:max-w-full  p-5">
             <img
-              src={aboutSucces2}
+              src={caption}
               alt="Success Story"
-              className="w-full sm:w-full  lg:w-full h-auto rounded-lg"
+              className="w-full sm:w-full  lg:w-full h-auto  rounded-lg"
             />
           </div>
         </div>

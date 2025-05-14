@@ -167,7 +167,7 @@ const LoginForm = () => {
             </button>
             {/* <Forgotpassword /> */}
 
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <hr className="border-t-2 border-gray-300" />
               <p className="my-4 text-gray-600">Or continue with</p>
               <button
@@ -176,7 +176,7 @@ const LoginForm = () => {
               >
                 Google
               </button>
-            </div>
+            </div> */}
 
             <p className="mt-4 pb-5 text-sm text-gray-600">
               By logging in, you agree to our{" "}

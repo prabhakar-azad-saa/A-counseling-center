@@ -105,7 +105,7 @@ const DashboardUi = () => {
       window.open(data?.joinURL, '_blank');
     } else {
       console.error('Join URL not found');
-      alert('Join link is unavailable.');
+      // alert('Join link is unavailable.');
     }
   };
 
