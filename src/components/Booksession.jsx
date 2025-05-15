@@ -835,7 +835,7 @@ function Booksession() {
         <div className="text-gray-800 flex-1">
           <h3 className="text-lg sm:text-xl font-semibold mb-1">Need assistance?</h3>
           <p className="text-sm sm:text-base leading-relaxed">
-            If you're having trouble booking your session or have a special request, feel free to contact us at{" "}
+           If you have a special request or are having trouble booking your session, feel free to contact us at{" "}
             <a
               href="mailto:admin@apluscounselling.com"
               className="text-blue-800 underline hover:text-blue-600 font-semibold"

@@ -367,6 +367,8 @@ const UserProfile = () => {
     navigate("/booksession");
   };
 
+  
+
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     const parsedUser = JSON.parse(storedUser);
@@ -471,7 +473,7 @@ const [isEditing, setIsEditing] = useState(false);
             {/* Profile Info */}
             <div className="flex flex-col lg:flex-row items-center mb-6">
               <img
-                src={profileImage}
+                src={profileImage || userImg}
                 alt="User"
                 onClick={() => setIsModalOpen(true)}
                 className="w-24 h-24 rounded-full border-2 border-gray-300 cursor-pointer"
@@ -576,12 +578,25 @@ const [isEditing, setIsEditing] = useState(false);
                       {item?.sessionSlotTime}
                     </p>
 
-  {/* <>
+   <>
    
         {item.status === 1 ? (
-          <button className="mt-2 px-4 py-1 bg-green-600 text-white rounded">
-            Join
-          </button>
+          // <button  onClick={() => handlejoin(item)} className="mt-2 px-4 py-1 bg-green-600 text-white rounded">
+          //   Join
+          // </button>
+
+      <button
+  onClick={() => handlejoin(item)}
+  disabled={item.sessionDate !== new Date().toISOString().split('T')[0]}
+  className={`mt-2 px-4 py-1 rounded ${
+    item.sessionDate === new Date().toISOString().split('T')[0]
+      ? 'bg-blue-600 text-white cursor-pointer'
+      : 'bg-gray-400 text-white cursor-not-allowed'
+  }`}
+>
+  Join
+</button>
+
         ) : item.status === 2 ? (
           <span className="mt-2 inline-block px-4 py-1 bg-red-500 text-white rounded">
             Rejected
@@ -591,9 +606,9 @@ const [isEditing, setIsEditing] = useState(false);
             Pending
           </span>
         )}
-  </> */}
-     
-                    <div
+  </> 
+      
+                    {/* <div
                       onClick={() => handlejoin(item)}
                       style={{
                         width: "100px",
@@ -611,7 +626,7 @@ const [isEditing, setIsEditing] = useState(false);
                       }}
                     >
                       Join
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               ))
@@ -645,7 +660,7 @@ const [isEditing, setIsEditing] = useState(false);
         <div className="w-full lg:w-2/3 p-4 sm:p-6 lg:p-10 mt-10">
           <div className="bg-white shadow-lg rounded-lg mb-6 p-5">
             <h1 className="text-2xl font-bold mb-4">Session History</h1>
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 max-h-[615px] overflow-y-auto pr-2">
               {sessionhistory?.length > 0 ? (
                 sessionhistory.map((chat, index) => (
                   <div key={index} className="flex p-3 items-start">
