@@ -87,89 +87,140 @@ const About = () => {
           </div>
         </div> */}
 
-
         <div className="flex flex-col items-center justify-center pt-14 px-4">
-              <motion.h1
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
-              >
-                 About Us
-              </motion.h1>
-        
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
-              >
-                 Providing professional mental health support and counseling
-                 services to help you live a balanced, fulfilling life
-              </motion.p>
-        
-              {/* Optional: Add a subtle glowing underline animation */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
-              />
-            </div>
+          <motion.h1
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+          >
+            About Us
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+          >
+            Providing professional mental health support and counseling services
+            to help you live a balanced, fulfilling life
+          </motion.p>
+
+          {/* Optional: Add a subtle glowing underline animation */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+          />
+        </div>
         {/* About Us Section */}
         <div className="flex flex-col xl:flex-row justify-between items-center bg-[#FCF8F4] max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-12  py-14 space-y-8 xl:space-y-0 xl:space-x-12">
-  {/* Image Section */}
-  <img
-    src={authenticgroup1}
-    alt="About Us"
-    className="w-full xl:w-1/2 object-cover rounded-lg max-h-[500px] sm:max-h-none"
-  />
+          {/* Image Section */}
+          <img
+            src={authenticgroup1}
+            alt="About Us"
+            className="w-full xl:w-1/2 object-cover rounded-lg max-h-[500px] sm:max-h-none"
+          />
 
-  {/* Text Section */}
-  <div className="flex-1 max-w-full xl:max-w-[50%] text-justify px-2 sm:px-0">
-    <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-      About Us
-    </h3>
+          {/* Text Section */}
+          <div className="flex-1 max-w-full xl:max-w-[50%] text-justify px-2 sm:px-0">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              About Us
+            </h3>
 
-    <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#E8774D]">
-      Dr. Altaf A. Khan
-    </h4>
+            {/* <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#E8774D]">
+              Dr. Altaf A. Khan
+            </h4>
 
-    <p className="text-md sm:text-lg md:text-xl font-bold text-gray-700 font-manrope">
-      Director
-    </p>
+            <p className="text-md sm:text-lg md:text-xl font-bold text-gray-700 font-manrope">
+              Director */}
+            {/* </p> */}
 
-    <p className="text-md sm:text-lg md:text-xl font-bold text-gray-700 mb-5 font-manrope">
-      A Plus Counseling and Consultancy Services
-    </p>
+            <p className="text-md sm:text-lg md:text-xl font-bold text-gray-700 mb-5 font-manrope">
+              A Plus Counseling and Consultancy Services
+            </p>
 
-    <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
-      With a PhD and a strong academic foundation, I have a Diploma in Psychology and have had the privilege of working with several international organizations across the globe. My diverse professional experiences have deepened my understanding of the psychological challenges faced by individuals in today’s fast-paced world.
-    </p>
+            <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
+              A Plus Counseling and Consultancy Services is a trusted provider
+              of mental health support, focused on enhancing emotional
+              well-being and psychological resilience for individuals and
+              families. With a strong foundation in psychology and experience
+              across various international organizations, A Plus brings a global
+              perspective to local mental health care.
+              {/* With a PhD and a strong academic foundation, I have a Diploma in Psychology and have had the privilege of working with several international organizations across the globe. My diverse professional experiences have deepened my understanding of the psychological challenges faced by individuals in today’s fast-paced world. */}
+            </p>
 
-    <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
-      Driven by a passion to support mental well-being, I founded A Plus Counseling and Consultancy Services with the aim of providing accessible and compassionate care to those in need. Our mission is to help ease the stress of daily life and guide individuals toward healthier, more balanced living.
-    </p>
+            <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
+              {/* Driven by a passion to support mental well-being, I founded A Plus
+              Counseling and Consultancy Services with the aim of providing
+              accessible and compassionate care to those in need. Our mission is
+              to help ease the stress of daily life and guide individuals toward
+              healthier, more balanced living. */}
+              Founded with the vision of offering accessible, compassionate, and
+              culturally sensitive support, A Plus aims to help people navigate
+              the psychological pressures of modern life. In today’s world,
+              mental health challenges are becoming increasingly complex:
+            </p>
 
-    <p className="text-sm sm:text-base  text-gray-700 mb-2 font-poppins">
-      Modern society presents unique psychological challenges:
-    </p>
+            {/* <p className="text-sm sm:text-base  text-gray-700 mb-2 font-poppins">
+              Modern society presents unique psychological challenges:
+            </p> */}
 
-    <ul className="list-disc pl-5 text-sm sm:text-base  text-gray-700 font-poppins mb-3">
-      <li>Parents juggle professional responsibilities with the increasing demands of parenting.</li>
-      <li>Children face academic pressures and the burden of performance.</li>
-      <li>Peer influence and societal expectations significantly impact emotional health.</li>
-      <li>Relationship dynamics are growing increasingly complex.</li>
-    </ul>
+            <ul className="list-disc pl-5 text-sm sm:text-base  text-gray-700 font-poppins mb-3">
+              <li>
+                {/* Parents juggle professional responsibilities with the increasing
+                demands of parenting. */}
+                Parents are balancing demanding careers with the growing
+                responsibilities of parenting.
+              </li>
+              <li>
+                {/* Children face academic pressures and the burden of performance. */}
+                Children and adolescents are under constant academic pressure
+                and performance expectations.
+              </li>
+              <li>
+                {/* Peer influence and societal expectations significantly impact
+                emotional health. */}
+                Peer influence and societal norms heavily impact emotional
+                development and self-worth.
+              </li>
+              <li>
+                {/* Relationship dynamics are growing increasingly complex. */}
+                Relationship challenges are evolving in complexity, affecting
+                both personal and family dynamics.
+              </li>
+            </ul>
 
-    <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
-      At A Plus, we offer a supportive environment for individuals and families facing these and other challenges. Our user-friendly website makes it easy to book appointments—whether through our online portal, by phone, or via email.
-    </p>
-
-   
-  </div>
-</div>
-
+            <p className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins">
+              {/* At A Plus, we offer a supportive environment for individuals and
+              families facing these and other challenges. Our user-friendly
+              website makes it easy to book appointments—whether through our
+              online portal, by phone, or via email. */}
+              A Plus creates a safe and welcoming space for individuals and
+              families facing these and other concerns. Services are tailored to
+              meet each client’s unique needs, using evidence-based approaches
+              grounded in empathy and understanding.
+              <p
+                style={{ marginTop: "1rem" }}
+                className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins"
+              >
+                Booking a session is simple and flexible—appointments can be
+                scheduled through our easy-to-use website, over the phone, or by
+                email.
+              </p>
+              <p
+                style={{ marginTop: "1rem" }}
+                className="text-sm sm:text-base  text-gray-700 mb-3 font-poppins"
+              >
+                At A Plus Counseling and Consultancy Services, our mission is to
+                support people in building healthier, more balanced
+                lives—mentally, emotionally, and socially.
+              </p>
+            </p>
+          </div>
+        </div>
 
         {/* Features Section */}
         <Features

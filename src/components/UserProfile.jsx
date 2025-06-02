@@ -367,13 +367,9 @@ const UserProfile = () => {
     navigate("/booksession");
   };
 
-  
-
   useEffect(() => {
     const storedUser = localStorage.getItem("userData");
     const parsedUser = JSON.parse(storedUser);
-
-   
 
     // Fetch upcoming appointments
     upcomingAppointment(parsedUser?.userId)
@@ -392,7 +388,6 @@ const UserProfile = () => {
         //   setSavedAddress(res.data.address);
         // }
 
-        
         if (res?.data?.profilePhotoPath) {
           // console.log("=====Profile Image=====:", res.data.profilePhotoPath);
 
@@ -425,14 +420,13 @@ const UserProfile = () => {
     }
   };
 
-
-  // const handleSaveAddress = () => {   
+  // const handleSaveAddress = () => {
   //   setSavedAddress(address);
   //   setShowInput(false);
   //   message.success("Address saved successfully!");
   //   localStorage.setItem("userAddress", address); // Save address
   // };
-const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [address, setAddress] = useState("");
 
   // Load address from localStorage on mount
@@ -458,7 +452,6 @@ const [isEditing, setIsEditing] = useState(false);
     // alert("Address saved to localStorage!");
     setIsEditing(false);
   };
-
 
   return (
     <>
@@ -520,38 +513,38 @@ const [isEditing, setIsEditing] = useState(false);
                 </button> */}
 
                 <div className="space-y-2 ml-4 text-base text-black font-semibold">
-      {!isEditing ? (
-        <div className="flex items-center space-x-2">
-          <span className="text-gray-800">
-            {address || "No address saved yet"}
-          </span>
-          <button
-            type="button"
-            className="text-sm text-gray-600 hover:text-black transition"
-            // title="Edit Address"
-            onClick={handleEditClick}
-          >
-            <GoPencil size={18} />
-          </button>
-        </div>
-      ) : (
-        <div className="flex items-center space-x-2">
-          <input
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className="border p-2 rounded-md w-64"
-            placeholder="Enter your address"
-          />
-          <button
-            onClick={handleSave}
-            className="bg-blue-500 text-white px-3 py-1 rounded-md"
-          >
-            Save
-          </button>
-        </div>
-      )}
-    </div>
+                  {!isEditing ? (
+                    <div className="flex items-center space-x-2">
+                      <span className="text-gray-800">
+                        {address || "No address saved yet"}
+                      </span>
+                      <button
+                        type="button"
+                        className="text-sm text-gray-600 hover:text-black transition"
+                        // title="Edit Address"
+                        onClick={handleEditClick}
+                      >
+                        <GoPencil size={18} />
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex items-center space-x-2">
+                      <input
+                        type="text"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        className="border p-2 rounded-md w-64"
+                        placeholder="Enter your address"
+                      />
+                      <button
+                        onClick={handleSave}
+                        className="bg-blue-500 text-white px-3 py-1 rounded-md"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -578,36 +571,38 @@ const [isEditing, setIsEditing] = useState(false);
                       {item?.sessionSlotTime}
                     </p>
 
-   <>
-   
-        {item.status === 1 ? (
-          // <button  onClick={() => handlejoin(item)} className="mt-2 px-4 py-1 bg-green-600 text-white rounded">
-          //   Join
-          // </button>
+                    <>
+                      {item.status === 1 ? (
+                        // <button  onClick={() => handlejoin(item)} className="mt-2 px-4 py-1 bg-green-600 text-white rounded">
+                        //   Join
+                        // </button>
 
-      <button
-  onClick={() => handlejoin(item)}
-  disabled={item.sessionDate !== new Date().toISOString().split('T')[0]}
-  className={`mt-2 px-4 py-1 rounded ${
-    item.sessionDate === new Date().toISOString().split('T')[0]
-      ? 'bg-blue-600 text-white cursor-pointer'
-      : 'bg-gray-400 text-white cursor-not-allowed'
-  }`}
->
-  Join
-</button>
+                        <button
+                          onClick={() => handlejoin(item)}
+                          disabled={
+                            item.sessionDate !==
+                            new Date().toISOString().split("T")[0]
+                          }
+                          className={`mt-2 px-4 py-1 rounded ${
+                            item.sessionDate ===
+                            new Date().toISOString().split("T")[0]
+                              ? "bg-blue-600 text-white cursor-pointer"
+                              : "bg-gray-400 text-white cursor-not-allowed"
+                          }`}
+                        >
+                          Join
+                        </button>
+                      ) : item.status === 2 ? (
+                        <span className="mt-2 inline-block px-4 py-1 bg-red-500 text-white rounded">
+                          Rejected
+                        </span>
+                      ) : (
+                        <span className="mt-2 inline-block px-4 py-1 bg-yellow-400 text-black rounded">
+                          Pending
+                        </span>
+                      )}
+                    </>
 
-        ) : item.status === 2 ? (
-          <span className="mt-2 inline-block px-4 py-1 bg-red-500 text-white rounded">
-            Rejected
-          </span>
-        ) : (
-          <span className="mt-2 inline-block px-4 py-1 bg-yellow-400 text-black rounded">
-            Pending
-          </span>
-        )}
-  </> 
-      
                     {/* <div
                       onClick={() => handlejoin(item)}
                       style={{
@@ -683,7 +678,6 @@ const [isEditing, setIsEditing] = useState(false);
               )}
             </div>
           </div>
-         
         </div>
       </div>
 
