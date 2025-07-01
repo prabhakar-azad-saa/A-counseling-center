@@ -27,14 +27,19 @@ const Footer = () => {
           <div className="flex items-center gap-4 mb-4">
             <Logolotas />
             <h2 className="text-xl font-bold">
-              A<sup>+</sup> Counseling &<br/> Consultancy Services
+              A<sup>+</sup> Counseling &<br /> Consultancy Services
             </h2>
           </div>
           <p className="text-white/80 ml-4 text-sm max-w-md">
-            Your space to feel heard, supported, and empowered. We're here for you — every step of the way.
+            Your space to feel heard, supported, and empowered. We're here for
+            you — every step of the way.
           </p>
           <div className="mt-6 ">
-            <img src={footerSocial} alt="Social Media Icons" className="h-8 ml-4 w-auto hover:scale-105 transition-transform" />
+            <img
+              src={footerSocial}
+              alt="Social Media Icons"
+              className="h-8 ml-4 w-auto hover:scale-105 transition-transform"
+            />
           </div>
         </div>
 
@@ -42,7 +47,9 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 gap-6">
           {/* Services Card */}
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-green-100">Our Services</h3>
+            <h3 className="text-lg font-semibold mb-4 text-green-100">
+              Our Services
+            </h3>
             <ul className="space-y-2 text-sm">
               {services.map((service, idx) => (
                 <li key={idx}>
@@ -59,13 +66,16 @@ const Footer = () => {
 
           {/* Contact Card */}
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-green-100">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4 text-green-100">
+              Contact
+            </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2">
-                <Calls className="w-5 h-5" /> +91 9685714245
+                <Calls className="w-5 h-5" /> +91 9977783332
               </li>
               <li className="flex items-center gap-2">
-                <Massages className="w-5 h-5" />info@apluscounselling.com
+                <Massages className="w-5 h-5" />
+                info@apluscounselling.com
               </li>
               <li className="flex items-start gap-2">
                 <Locationfooter className="w-5 h-5 mt-1" />
@@ -76,7 +86,9 @@ const Footer = () => {
 
           {/* Policies Card */}
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:col-span-2 hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4 text-green-100">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-green-100">
+              Quick Links
+            </h3>
             <ul className="flex flex-col sm:flex-row sm:gap-6 text-sm">
               <li>
                 <h3 className="hover:underline hover:text-green-200">
@@ -84,7 +96,7 @@ const Footer = () => {
                 </h3>
               </li>
               <li>
-                <h3  className="hover:underline hover:text-green-200">
+                <h3 className="hover:underline hover:text-green-200">
                   Terms of Use
                 </h3>
               </li>
@@ -95,7 +107,8 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="relative z-10 text-center mt-12 text-white/60 text-xs sm:text-sm">
-        &copy; {new Date().getFullYear()} A<sup>+</sup> Counseling & Consultancy Services. All Rights Reserved.
+        &copy; {new Date().getFullYear()} A<sup>+</sup> Counseling & Consultancy
+        Services. All Rights Reserved.
       </div>
     </footer>
   );
@@ -121,7 +134,7 @@ export default Footer;
 // ];
 
 // const Footer = () => {
-//   return ( 
+//   return (
 //     // bg-gradient-to-r from-[#007D6E] to-[#5EB47C]
 //     <div className=" bg-gradient-to-r from-[#36736e] via-[#3d857e] to-[#36736e]  py-12 text-white">
 //       <div className="mx-auto w-full max-w-[2300px] justify-between md:px-5 sm:px-20 grid grid-cols-1 md:grid-4 gap-10 px-6  ">

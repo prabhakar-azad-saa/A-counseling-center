@@ -47,7 +47,6 @@ const ContactUs = () => {
     validateField(name, value);
   };
 
-
   const validateForm = () => {
     let newErrors = {};
 
@@ -72,8 +71,6 @@ const ContactUs = () => {
       return "Phone number must be 10 digits";
     return "";
   };
-
- 
 
   const submitForm = async () => {
     if (!validateForm()) return;
@@ -150,34 +147,34 @@ const ContactUs = () => {
         </div>
       </div> */}
 
-         <div className="flex flex-col items-center justify-center pt-14 px-4">
-                    <motion.h1
-                      initial={{ opacity: 0, y: -50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                      className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
-                    >
-                      Contact Us
-                    </motion.h1>
-              
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
-                    >
-                      We're here to support you on your journey to better mental
-                      health. Our experienced counselors are ready to help you.
-                    </motion.p>
-              
-                    {/* Optional: Add a subtle glowing underline animation */}
-                    <motion.div
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 1, delay: 0.8 }}
-                      className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
-                    />
-                  </div>
+      <div className="flex flex-col items-center justify-center pt-14 px-4">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text mb-4"
+        >
+          Contact Us
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-base sm:text-lg md:text-base text-center text-gray-700 max-w-2xl"
+        >
+          We're here to support you on your journey to better mental health. Our
+          experienced counselors are ready to help you.
+        </motion.p>
+
+        {/* Optional: Add a subtle glowing underline animation */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="h-1 w-24 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mt-4 origin-left rounded-full"
+        />
+      </div>
 
       <div className="flex flex-col sm:flex-col lg:flex-row gap-12 pt-14 pb-5 justify-between max-w-[1700px] mx-auto px-8 bg-[#FCF8F4] ">
         <div className="flex flex-col p-5 w-full max-w-2xl">
@@ -193,11 +190,13 @@ const ContactUs = () => {
           <div>
             <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
               <VoicecallBlack className="w-8 h-8" />
-              <p className="text-base  font-poppins">+91 9685714245</p>
+              <p className="text-base  font-poppins">+91 9977783332</p>
             </div>
             <div className="flex items-center gap-4 mb-4 justify-center sm:justify-start">
               <MailBlack className="w-8 h-8" />
-              <p className="text-base  font-poppins">info@apluscounselling.com</p>
+              <p className="text-base  font-poppins">
+                info@apluscounselling.com
+              </p>
             </div>
 
             {/* <div className="flex items-center gap-4 mb-4">
@@ -327,7 +326,6 @@ const ContactUs = () => {
           {error?.api && (
             <p className="text-red-500 font-semibold">{error?.api}</p>
           )}
-        
         </div>
       </div>
 

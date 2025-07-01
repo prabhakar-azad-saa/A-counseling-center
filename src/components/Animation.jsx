@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -225,7 +223,7 @@ const Animation = () => {
                 <div className="flex items-center gap-2">
                   <Call className="w-5 h-5 text-[#E8774D]" />
                   <p className="text-sm sm:text-base text-gray-700 font-semibold whitespace-nowrap">
-                    +91 9685714245
+                    +91 9977783332
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
